@@ -1,0 +1,1 @@
+{"file":"index-DDE-GDxG.js","mappings":";;;;;;;;;;;;;;;;;;;AACA,KAAA,QAAA,SAAA,IAAAA,iBAAA,MAAM,WAAW,OAAO,EAAE,cAAc,KAAK,SAAS,KAAA,CAAM,CAAA;;;;;;;;;;;","names":["_withAsyncContext"],"sources":["../../../../pages/index.vue"],"sourcesContent":["<script setup lang=\"ts\">\nawait navigateTo('/en', { redirectCode: 301, replace: true })\n</script>\n"],"version":3}

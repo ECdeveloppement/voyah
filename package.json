@@ -1,0 +1,18 @@
+{
+  "name": "voyah-nuxt",
+  "private": true,
+  "scripts": {
+    "cleanup": "nuxi cleanup",
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
+  },
+  "devDependencies": {
+    "@nuxtjs/i18n": "9.5.6",
+    "nuxt": "3.21.2"
+  },
+  "dependencies": {
+    "gsap": "3.13.0"
+  }
+}
