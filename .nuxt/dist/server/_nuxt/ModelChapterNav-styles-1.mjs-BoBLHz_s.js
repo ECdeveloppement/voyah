@@ -1,5 +1,0 @@
-const ModelChapterNav_vue_vue_type_style_index_0_scoped_e5279b08_lang = ".model-chapter-nav[data-v-e5279b08]{-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);background:#ffffffeb;border-bottom:1px solid rgba(14,18,24,.08);position:sticky;top:84px;z-index:20}.model-chapter-nav-inner[data-v-e5279b08]{display:flex;gap:12px;overflow-x:auto;padding:14px 0}.model-chapter-nav-inner[data-v-e5279b08]::-webkit-scrollbar{display:none}.model-chapter-link[data-v-e5279b08]{border:1px solid rgba(14,18,24,.08);border-radius:999px;color:#34404d;flex:0 0 auto;font-size:.92rem;padding:10px 18px;transition:border-color .2s ease,color .2s ease,transform .2s ease;white-space:nowrap}.model-chapter-link[data-v-e5279b08]:hover{border-color:#c59c6280;color:#101720;transform:translateY(-1px)}@media(max-width:768px){.model-chapter-nav[data-v-e5279b08]{top:72px}}";
-export {
-  ModelChapterNav_vue_vue_type_style_index_0_scoped_e5279b08_lang as default
-};
-//# sourceMappingURL=ModelChapterNav-styles-1.mjs-BoBLHz_s.js.map

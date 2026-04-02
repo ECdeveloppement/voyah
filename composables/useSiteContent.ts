@@ -25,8 +25,21 @@ export const useSiteContent = () => {
 
   const currentSlug = computed(() => paramValue(route.params.slug))
 
-  const buildPath = (slug?: string, localeCode: LocaleCode = locale.value.code) =>
-    slug ? `/${localeCode}/${slug}` : `/${localeCode}`
+  const buildPath = (slug?: string, localeCode: LocaleCode = locale.value.code) => {
+    if (!slug || slug === localeCode) {
+      return `/${localeCode}`
+    }
+
+    if (slug.startsWith('/')) {
+      return slug
+    }
+
+    if (slug.startsWith(`${localeCode}/`)) {
+      return `/${slug}`
+    }
+
+    return `/${localeCode}/${slug}`
+  }
 
   const switchLocalePath = (localeCode: LocaleCode) => buildPath(currentSlug.value, localeCode)
 

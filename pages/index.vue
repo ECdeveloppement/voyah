@@ -1,3 +1,7 @@
+<template>
+  <div class="root-redirect-page" />
+</template>
+
 <script setup lang="ts">
-await navigateTo('/en', { redirectCode: 301, replace: true })
+await navigateTo('/fr', { redirectCode: 301, replace: true })
 </script>

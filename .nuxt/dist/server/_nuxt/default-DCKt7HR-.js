@@ -1,0 +1,707 @@
+import { defineComponent, computed, mergeProps, unref, withCtx, createTextVNode, toDisplayString, useSSRContext, ref, watch, createVNode, openBlock, createBlock, createCommentVNode } from "vue";
+import { ssrRenderAttrs, ssrInterpolate, ssrRenderAttr, ssrRenderList, ssrRenderComponent, ssrRenderClass, ssrRenderSlot } from "vue/server-renderer";
+import { a as __nuxt_component_0, _ as _export_sfc, u as useRoute } from "../server.mjs";
+import { u as useSiteContent, c as currentLocaleInfo, b as useHead } from "./useSiteContent-DsUNBFs_.js";
+import { publicAssetsURL } from "#internal/nuxt/paths";
+import "E:/voyah-nuxt/node_modules/ofetch/dist/node.mjs";
+import "E:/voyah-nuxt/node_modules/hookable/dist/index.mjs";
+import "E:/voyah-nuxt/node_modules/unctx/dist/index.mjs";
+import "E:/voyah-nuxt/node_modules/h3/dist/index.mjs";
+import "vue-router";
+import "E:/voyah-nuxt/node_modules/defu/dist/defu.mjs";
+import "E:/voyah-nuxt/node_modules/klona/dist/index.mjs";
+import "E:/voyah-nuxt/node_modules/cookie-es/dist/index.mjs";
+import "E:/voyah-nuxt/node_modules/destr/dist/index.mjs";
+import "E:/voyah-nuxt/node_modules/ohash/dist/index.mjs";
+import "@vue/devtools-api";
+import "E:/voyah-nuxt/node_modules/@unhead/vue/dist/index.mjs";
+const _sfc_main$2 = /* @__PURE__ */ defineComponent({
+  __name: "SiteFooter",
+  __ssrInlineRender: true,
+  setup(__props) {
+    const { footerColumns, footerContact, footerLegalLinks, buildPath, locale, textFor } = useSiteContent();
+    const appEyebrow = computed(() => {
+      if (locale.value.code === "fr") return "Télécharger l’app Voyah";
+      if (locale.value.code === "ar") return "حمّل تطبيق Voyah";
+      return "Download the Voyah App";
+    });
+    const appLabel = computed(() => locale.value.code === "ar" ? "التطبيق" : "App");
+    const miniLabel = computed(() => {
+      if (locale.value.code === "fr") return "Mini-programme";
+      if (locale.value.code === "ar") return "البرنامج المصغر";
+      return "Mini program";
+    });
+    const miniCopy = computed(() => {
+      if (locale.value.code === "fr") return "Programme officiel WeChat";
+      if (locale.value.code === "ar") return "برنامج WeChat الرسمي";
+      return "Official WeChat mini program";
+    });
+    const versionLabel = computed(() => "Android 5.5.0  iOS 5.5.0  HarmonyOS 1.9.0");
+    const companyLabel = computed(() => {
+      if (locale.value.code === "fr") return "Voyah Automotive Technology Co., Ltd.";
+      if (locale.value.code === "ar") return "شركة Voyah Automotive Technology Co., Ltd.";
+      return "Voyah Automotive Technology Co., Ltd.";
+    });
+    const phoneLabel = computed(() => {
+      if (locale.value.code === "fr") return "Service client: 400-888-8488";
+      if (locale.value.code === "ar") return "خدمة العملاء: 400-888-8488";
+      return "Customer service: 400-888-8488";
+    });
+    const emailLabel = computed(() => {
+      if (locale.value.code === "fr") return "E-mail: voyah-callcenter@voyah.com.cn";
+      if (locale.value.code === "ar") return "البريد: voyah-callcenter@voyah.com.cn";
+      return "Email: voyah-callcenter@voyah.com.cn";
+    });
+    const recordLabel = computed(() => {
+      if (locale.value.code === "fr") return "Hubei ICP 2021016773-2";
+      if (locale.value.code === "ar") return "رقم Hubei ICP 2021016773-2";
+      return "Hubei ICP 2021016773-2";
+    });
+    return (_ctx, _push, _parent, _attrs) => {
+      const _component_NuxtLink = __nuxt_component_0;
+      _push(`<footer${ssrRenderAttrs(mergeProps({ class: "site-footer" }, _attrs))} data-v-4432ada4><div class="footer-app-shell" data-v-4432ada4><div class="container footer-app" data-v-4432ada4><div class="footer-app-copy" data-v-4432ada4><p class="footer-kicker" data-v-4432ada4>${ssrInterpolate(unref(appEyebrow))}</p><h2 data-v-4432ada4>${ssrInterpolate(unref(textFor)(unref(footerContact).title))}</h2><p class="footer-copy" data-v-4432ada4>${ssrInterpolate(unref(textFor)(unref(footerContact).body))}</p></div><div class="footer-qr" data-v-4432ada4><figure data-v-4432ada4><img${ssrRenderAttr("src", unref(footerContact).appCode)} alt="Voyah app code" data-v-4432ada4><figcaption data-v-4432ada4>${ssrInterpolate(unref(appLabel))}</figcaption><p class="footer-qr-copy" data-v-4432ada4>${ssrInterpolate(unref(versionLabel))}</p></figure><figure data-v-4432ada4><img${ssrRenderAttr("src", unref(footerContact).miniProgramCode)} alt="Voyah mini program code" data-v-4432ada4><figcaption data-v-4432ada4>${ssrInterpolate(unref(miniLabel))}</figcaption><p class="footer-qr-copy" data-v-4432ada4>${ssrInterpolate(unref(miniCopy))}</p></figure></div></div></div><div class="container footer-grid" data-v-4432ada4><div class="footer-columns" data-v-4432ada4><!--[-->`);
+      ssrRenderList(unref(footerColumns), (column) => {
+        _push(`<section data-v-4432ada4><h3 data-v-4432ada4>${ssrInterpolate(unref(textFor)(column.title))}</h3><!--[-->`);
+        ssrRenderList(column.links, (link) => {
+          _push(ssrRenderComponent(_component_NuxtLink, {
+            key: link.slug,
+            to: unref(buildPath)(link.slug)
+          }, {
+            default: withCtx((_, _push2, _parent2, _scopeId) => {
+              if (_push2) {
+                _push2(`${ssrInterpolate(unref(textFor)(link.label))}`);
+              } else {
+                return [
+                  createTextVNode(toDisplayString(unref(textFor)(link.label)), 1)
+                ];
+              }
+            }),
+            _: 2
+          }, _parent));
+        });
+        _push(`<!--]--></section>`);
+      });
+      _push(`<!--]--></div><div class="footer-company" data-v-4432ada4><span data-v-4432ada4>${ssrInterpolate(unref(companyLabel))}</span><span data-v-4432ada4>${ssrInterpolate(unref(phoneLabel))}</span><span data-v-4432ada4>${ssrInterpolate(unref(emailLabel))}</span></div><div class="footer-bottom" data-v-4432ada4><div class="footer-legal" data-v-4432ada4><!--[-->`);
+      ssrRenderList(unref(footerLegalLinks), (link) => {
+        _push(ssrRenderComponent(_component_NuxtLink, {
+          key: link.slug,
+          to: unref(buildPath)(link.slug)
+        }, {
+          default: withCtx((_, _push2, _parent2, _scopeId) => {
+            if (_push2) {
+              _push2(`${ssrInterpolate(unref(textFor)(link.label))}`);
+            } else {
+              return [
+                createTextVNode(toDisplayString(unref(textFor)(link.label)), 1)
+              ];
+            }
+          }),
+          _: 2
+        }, _parent));
+      });
+      _push(`<!--]--></div><div class="footer-records" data-v-4432ada4><span data-v-4432ada4>${ssrInterpolate(unref(recordLabel))}</span><span data-v-4432ada4>Copyright © 2021 Voyah.com.cn All rights reserved.</span></div></div></div></footer>`);
+    };
+  }
+});
+const _sfc_setup$2 = _sfc_main$2.setup;
+_sfc_main$2.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/layout/SiteFooter.vue");
+  return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
+};
+const SiteFooter = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-4432ada4"]]);
+const _imports_0 = publicAssetsURL("/sitelogo/pc/brand.png");
+const _sfc_main$1 = /* @__PURE__ */ defineComponent({
+  __name: "SiteHeader",
+  __ssrInlineRender: true,
+  setup(__props) {
+    const { locale, locales, navigation, buildPath, switchLocalePath, textFor, resolveCurrentPage } = useSiteContent();
+    const route = useRoute();
+    const mobileOpen = ref(false);
+    const activeGroup = ref(null);
+    const localeOpen = ref(false);
+    const currentPage = computed(() => resolveCurrentPage());
+    const currentModel = computed(() => currentPage.value?.kind === "model" ? currentPage.value : null);
+    const scrollY = ref(0);
+    const isHomeRoute = computed(() => !currentPage.value);
+    const isTransparent = computed(() => isHomeRoute.value && scrollY.value < 44 && !mobileOpen.value);
+    const copy = (en, fr, ar) => ({ en, fr, ar });
+    const loginLabel = computed(() => {
+      if (locale.value.code === "fr") return "Connexion";
+      if (locale.value.code === "ar") return "تسجيل الدخول";
+      return "Login";
+    });
+    const configLabel = computed(() => {
+      if (locale.value.code === "fr") return "All configs";
+      if (locale.value.code === "ar") return "كل المواصفات";
+      return "All configs";
+    });
+    const testDriveLabel = computed(() => {
+      if (locale.value.code === "fr") return "Test drive";
+      if (locale.value.code === "ar") return "تجربة قيادة";
+      return "Test drive";
+    });
+    const orderLabel = computed(() => {
+      if (locale.value.code === "fr") return "Order now";
+      if (locale.value.code === "ar") return "اطلب الآن";
+      return "Order now";
+    });
+    const modelMenuSections = [
+      {
+        key: "sedan",
+        title: copy("Sedans", "Berlines", "السيدان"),
+        items: [
+          {
+            slug: "passion-L.html",
+            label: copy("Voyah Passion L", "Voyah Passion L", "Voyah Passion L"),
+            image: "/website/navigationbar/image/f4f5a6a1-71c8-4531-8a05-4e6e0cf7f70f1770619343790.png"
+          },
+          {
+            slug: "passion.html",
+            label: copy("Voyah Passion", "Voyah Passion", "Voyah Passion"),
+            image: "/website/navigationbar/image/e1d7bd06-b4c5-462c-8c25-8cf550b2af3a1770619370417.png"
+          }
+        ]
+      },
+      {
+        key: "suv",
+        title: copy("SUVs", "SUV", "سيارات SUV"),
+        items: [
+          {
+            slug: "titan.html",
+            label: copy("Voyah Titan", "Voyah Titan", "Voyah Titan"),
+            image: "/website/navigationbar/image/482a7b36-c15e-4508-83e5-c9b79227dbfa1770619361896.png"
+          },
+          {
+            slug: "titan_blackedition.html",
+            label: copy("Voyah Titan Black Edition", "Voyah Titan Black Edition", "Voyah Titan Black Edition"),
+            image: "/website/navigationbar/image/2d3ebdb7-6f35-4bfd-b929-d858d5cb3a351773729769599.png"
+          },
+          {
+            slug: "titan_X8.html",
+            label: copy("Voyah Titan X8", "Voyah Titan X8", "Voyah Titan X8"),
+            image: "/website/navigationbar/image/d515bc38-574b-44fb-aebc-2f721eccfb461773885854055.png"
+          },
+          {
+            slug: "free+.html",
+            label: copy("Voyah FREE+", "Voyah FREE+", "Voyah FREE+"),
+            image: "/website/navigationbar/image/48068657-2f04-4e9e-a356-fb33e4b689101770619447889.png"
+          },
+          {
+            slug: "newCourage.html",
+            label: copy("New Voyah Courage", "Nouveau Voyah Courage", "Voyah Courage الجديد"),
+            image: "/website/navigationbar/image/09a0e118-e3a0-4cc1-afdc-f135820b2c201770619310485.png"
+          },
+          {
+            slug: "free.html",
+            label: copy("Voyah FREE 318", "Voyah FREE 318", "Voyah FREE 318"),
+            image: "/website/navigationbar/image/ea0f8412-5208-4822-b42d-bdbbb64741b41770619334518.png"
+          },
+          {
+            slug: "courage.html",
+            label: copy("Voyah Courage", "Voyah Courage", "Voyah Courage"),
+            image: "/website/navigationbar/image/5776c5f7-6be4-4aac-9f05-c0ccd19d30721770619276875.png"
+          }
+        ]
+      },
+      {
+        key: "mpv",
+        title: copy("MPVs", "MPV", "سيارات MPV"),
+        items: [
+          {
+            slug: "newDreamer26.html",
+            label: copy("26 Voyah Dreamer", "Voyah Dreamer 26", "Voyah Dreamer 26"),
+            image: "/website/navigationbar/image/f30edd0e-0255-42b9-a722-3f2cb4aef38c1770619352950.png"
+          },
+          {
+            slug: "dreamer-champion.html",
+            label: copy("Voyah Dreamer Champion", "Voyah Dreamer Champion", "Voyah Dreamer Champion"),
+            image: "/website/navigationbar/image/7688c1ff-2ab4-4bd9-aa99-b341f10e001d1772278786816.png"
+          },
+          {
+            slug: "newDreamer.html",
+            label: copy("25 Voyah Dreamer", "Voyah Dreamer 25", "Voyah Dreamer 25"),
+            image: "/website/navigationbar/image/c8e0e96a-367e-4bc5-aca7-0e35439c4b891770619534354.png"
+          },
+          {
+            slug: "dreamriver.html",
+            label: copy("Voyah Dreamer Mountain River", "Voyah Dreamer Montagne-Rivière", "Voyah Dreamer Mountain River"),
+            image: "/website/navigationbar/image/6c0d74ca-49f1-4982-8c0c-7ee7c1421b461770619320286.png"
+          },
+          {
+            slug: "dreamer.html",
+            label: copy("24 Voyah Dreamer", "Voyah Dreamer 24", "Voyah Dreamer 24"),
+            image: "/website/navigationbar/image/dc0ac63f-35e8-4af1-8052-471fdbf5ce9a1770619290710.png"
+          }
+        ]
+      }
+    ];
+    const toolMenu = {
+      title: copy("Tools", "Outils", "الأدوات"),
+      items: [
+        { slug: "book-drive.html", label: copy("Book a test drive", "Réserver un essai", "احجز تجربة قيادة") },
+        { slug: "store.html", label: copy("Store center", "Centre de magasins", "مركز المعارض") }
+      ]
+    };
+    const isItemActive = (item) => {
+      if (!item.slug) return false;
+      return route.path.endsWith(item.slug);
+    };
+    watch(
+      () => route.fullPath,
+      () => {
+        mobileOpen.value = false;
+        activeGroup.value = null;
+        localeOpen.value = false;
+      }
+    );
+    return (_ctx, _push, _parent, _attrs) => {
+      const _component_NuxtLink = __nuxt_component_0;
+      _push(`<header${ssrRenderAttrs(mergeProps({
+        class: ["site-header", {
+          "site-header--mobile-open": mobileOpen.value,
+          "site-header--transparent": unref(isTransparent)
+        }]
+      }, _attrs))} data-v-4bb0cf59><div class="container header-bar" data-v-4bb0cf59><div class="header-left" data-v-4bb0cf59>`);
+      _push(ssrRenderComponent(_component_NuxtLink, {
+        to: unref(buildPath)(),
+        class: "brand-mark",
+        "aria-label": "Voyah home"
+      }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`<img${ssrRenderAttr("src", _imports_0)} alt="Voyah" data-v-4bb0cf59${_scopeId}>`);
+          } else {
+            return [
+              createVNode("img", {
+                src: _imports_0,
+                alt: "Voyah"
+              })
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      if (unref(currentModel)) {
+        _push(`<div class="header-model desktop-only" data-v-4bb0cf59><img${ssrRenderAttr("src", unref(currentModel).logo)}${ssrRenderAttr("alt", unref(textFor)(unref(currentModel).title))} class="header-model__logo" data-v-4bb0cf59><div class="header-model__meta" data-v-4bb0cf59><span class="header-model__name" data-v-4bb0cf59>${ssrInterpolate(unref(textFor)(unref(currentModel).title))}</span><span class="header-model__price" data-v-4bb0cf59>${ssrInterpolate(unref(textFor)(unref(currentModel).price))}</span></div></div>`);
+      } else {
+        _push(`<!---->`);
+      }
+      _push(`<nav class="header-nav desktop-only" aria-label="Primary navigation" data-v-4bb0cf59><!--[-->`);
+      ssrRenderList(unref(navigation), (item) => {
+        _push(`<div class="nav-group" data-v-4bb0cf59>`);
+        if (item.slug) {
+          _push(ssrRenderComponent(_component_NuxtLink, {
+            to: unref(buildPath)(item.slug),
+            class: ["nav-link", { active: isItemActive(item) }]
+          }, {
+            default: withCtx((_, _push2, _parent2, _scopeId) => {
+              if (_push2) {
+                _push2(`${ssrInterpolate(unref(textFor)(item.label))}`);
+              } else {
+                return [
+                  createTextVNode(toDisplayString(unref(textFor)(item.label)), 1)
+                ];
+              }
+            }),
+            _: 2
+          }, _parent));
+        } else {
+          _push(`<button type="button" class="${ssrRenderClass([{ active: activeGroup.value === item.label.en || unref(isHomeRoute) && item.label.en === "Models" }, "nav-link nav-button"])}" data-v-4bb0cf59>${ssrInterpolate(unref(textFor)(item.label))}</button>`);
+        }
+        if (item.children?.length) {
+          _push(`<div class="${ssrRenderClass([
+            "nav-dropdown",
+            {
+              open: activeGroup.value === item.label.en,
+              "nav-dropdown--models": item.label.en === "Models"
+            }
+          ])}" data-v-4bb0cf59>`);
+          if (item.label.en === "Models") {
+            _push(`<div class="models-dropdown" data-v-4bb0cf59><div class="models-dropdown__main" data-v-4bb0cf59><!--[-->`);
+            ssrRenderList(modelMenuSections, (section) => {
+              _push(`<div class="models-section" data-v-4bb0cf59><h5 class="models-section__title" data-v-4bb0cf59>${ssrInterpolate(unref(textFor)(section.title))}</h5><div class="models-grid" data-v-4bb0cf59><!--[-->`);
+              ssrRenderList(section.items, (entry) => {
+                _push(ssrRenderComponent(_component_NuxtLink, {
+                  key: entry.slug,
+                  to: unref(buildPath)(entry.slug),
+                  class: "models-card"
+                }, {
+                  default: withCtx((_, _push2, _parent2, _scopeId) => {
+                    if (_push2) {
+                      _push2(`<div class="models-card__media" data-v-4bb0cf59${_scopeId}><img${ssrRenderAttr("src", entry.image)}${ssrRenderAttr("alt", unref(textFor)(entry.label))} class="models-card__image" data-v-4bb0cf59${_scopeId}></div><p class="models-card__name" data-v-4bb0cf59${_scopeId}>${ssrInterpolate(unref(textFor)(entry.label))}</p>`);
+                    } else {
+                      return [
+                        createVNode("div", { class: "models-card__media" }, [
+                          createVNode("img", {
+                            src: entry.image,
+                            alt: unref(textFor)(entry.label),
+                            class: "models-card__image"
+                          }, null, 8, ["src", "alt"])
+                        ]),
+                        createVNode("p", { class: "models-card__name" }, toDisplayString(unref(textFor)(entry.label)), 1)
+                      ];
+                    }
+                  }),
+                  _: 2
+                }, _parent));
+              });
+              _push(`<!--]--></div></div>`);
+            });
+            _push(`<!--]--></div><aside class="models-dropdown__tools" data-v-4bb0cf59><div class="models-tools" data-v-4bb0cf59><div class="models-tools__title" data-v-4bb0cf59>${ssrInterpolate(unref(textFor)(toolMenu.title))}</div><div class="models-tools__list" data-v-4bb0cf59><!--[-->`);
+            ssrRenderList(toolMenu.items, (tool) => {
+              _push(ssrRenderComponent(_component_NuxtLink, {
+                key: tool.slug,
+                to: unref(buildPath)(tool.slug),
+                class: "models-tools__item"
+              }, {
+                default: withCtx((_, _push2, _parent2, _scopeId) => {
+                  if (_push2) {
+                    _push2(`${ssrInterpolate(unref(textFor)(tool.label))}`);
+                  } else {
+                    return [
+                      createTextVNode(toDisplayString(unref(textFor)(tool.label)), 1)
+                    ];
+                  }
+                }),
+                _: 2
+              }, _parent));
+            });
+            _push(`<!--]--></div></div></aside></div>`);
+          } else {
+            _push(`<div class="dropdown-inner" data-v-4bb0cf59><!--[-->`);
+            ssrRenderList(item.children, (child) => {
+              _push(ssrRenderComponent(_component_NuxtLink, {
+                key: child.slug ?? child.label.en,
+                to: unref(buildPath)(child.slug),
+                class: "dropdown-card"
+              }, {
+                default: withCtx((_, _push2, _parent2, _scopeId) => {
+                  if (_push2) {
+                    if (child.thumb) {
+                      _push2(`<img${ssrRenderAttr("src", child.thumb)}${ssrRenderAttr("alt", unref(textFor)(child.label))} class="dropdown-thumb" data-v-4bb0cf59${_scopeId}>`);
+                    } else {
+                      _push2(`<!---->`);
+                    }
+                    _push2(`<span class="dropdown-card__label" data-v-4bb0cf59${_scopeId}>${ssrInterpolate(unref(textFor)(child.label))}</span>`);
+                  } else {
+                    return [
+                      child.thumb ? (openBlock(), createBlock("img", {
+                        key: 0,
+                        src: child.thumb,
+                        alt: unref(textFor)(child.label),
+                        class: "dropdown-thumb"
+                      }, null, 8, ["src", "alt"])) : createCommentVNode("", true),
+                      createVNode("span", { class: "dropdown-card__label" }, toDisplayString(unref(textFor)(child.label)), 1)
+                    ];
+                  }
+                }),
+                _: 2
+              }, _parent));
+            });
+            _push(`<!--]--></div>`);
+          }
+          _push(`</div>`);
+        } else {
+          _push(`<!---->`);
+        }
+        _push(`</div>`);
+      });
+      _push(`<!--]--></nav></div><div class="header-actions desktop-only" data-v-4bb0cf59>`);
+      if (unref(isHomeRoute)) {
+        _push(`<!--[--><div class="locale-menu" data-v-4bb0cf59><button type="button" class="header-utility header-utility--icon" aria-label="Language switcher" data-v-4bb0cf59><span class="header-utility__icon" aria-hidden="true" data-v-4bb0cf59><svg viewBox="0 0 24 24" fill="none" data-v-4bb0cf59><circle cx="12" cy="12" r="8.25" stroke="currentColor" stroke-width="1.5" data-v-4bb0cf59></circle><path d="M3.75 12H20.25" stroke="currentColor" stroke-width="1.5" data-v-4bb0cf59></path><path d="M12 3.75C14.49 5.91 15.9 8.9 15.9 12C15.9 15.1 14.49 18.09 12 20.25C9.51 18.09 8.1 15.1 8.1 12C8.1 8.9 9.51 5.91 12 3.75Z" stroke="currentColor" stroke-width="1.5" data-v-4bb0cf59></path></svg></span></button>`);
+        if (localeOpen.value) {
+          _push(`<div class="locale-menu__panel" data-v-4bb0cf59><!--[-->`);
+          ssrRenderList(unref(locales), (localeItem) => {
+            _push(ssrRenderComponent(_component_NuxtLink, {
+              key: localeItem.code,
+              to: unref(switchLocalePath)(localeItem.code),
+              class: ["locale-menu__item", { active: unref(locale).code === localeItem.code }]
+            }, {
+              default: withCtx((_, _push2, _parent2, _scopeId) => {
+                if (_push2) {
+                  _push2(`${ssrInterpolate(localeItem.name)}`);
+                } else {
+                  return [
+                    createTextVNode(toDisplayString(localeItem.name), 1)
+                  ];
+                }
+              }),
+              _: 2
+            }, _parent));
+          });
+          _push(`<!--]--></div>`);
+        } else {
+          _push(`<!---->`);
+        }
+        _push(`</div><button type="button" class="header-utility" data-v-4bb0cf59><span class="header-utility__icon" aria-hidden="true" data-v-4bb0cf59><svg viewBox="0 0 24 24" fill="none" data-v-4bb0cf59><path d="M12 12C14.0711 12 15.75 10.3211 15.75 8.25C15.75 6.17893 14.0711 4.5 12 4.5C9.92893 4.5 8.25 6.17893 8.25 8.25C8.25 10.3211 9.92893 12 12 12Z" stroke="currentColor" stroke-width="1.5" data-v-4bb0cf59></path><path d="M5.25 19.5C6.35381 16.8787 8.95354 15 12 15C15.0465 15 17.6462 16.8787 18.75 19.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" data-v-4bb0cf59></path></svg></span> ${ssrInterpolate(unref(loginLabel))}</button>`);
+        _push(ssrRenderComponent(_component_NuxtLink, {
+          to: unref(buildPath)("book-drive.html"),
+          class: "header-cta header-cta--ghost"
+        }, {
+          default: withCtx((_, _push2, _parent2, _scopeId) => {
+            if (_push2) {
+              _push2(`${ssrInterpolate(unref(testDriveLabel))}`);
+            } else {
+              return [
+                createTextVNode(toDisplayString(unref(testDriveLabel)), 1)
+              ];
+            }
+          }),
+          _: 1
+        }, _parent));
+        _push(`<!--]-->`);
+      } else {
+        _push(`<!--[--><div class="locale-picker" aria-label="Language switcher" data-v-4bb0cf59><!--[-->`);
+        ssrRenderList(unref(locales), (localeItem) => {
+          _push(ssrRenderComponent(_component_NuxtLink, {
+            key: localeItem.code,
+            to: unref(switchLocalePath)(localeItem.code),
+            class: ["locale-chip", { active: unref(locale).code === localeItem.code }]
+          }, {
+            default: withCtx((_, _push2, _parent2, _scopeId) => {
+              if (_push2) {
+                _push2(`${ssrInterpolate(localeItem.code.toUpperCase())}`);
+              } else {
+                return [
+                  createTextVNode(toDisplayString(localeItem.code.toUpperCase()), 1)
+                ];
+              }
+            }),
+            _: 2
+          }, _parent));
+        });
+        _push(`<!--]--></div><button type="button" class="header-utility" data-v-4bb0cf59>${ssrInterpolate(unref(loginLabel))}</button>`);
+        if (unref(currentModel)) {
+          _push(ssrRenderComponent(_component_NuxtLink, {
+            to: unref(buildPath)(unref(currentModel).slug),
+            class: "header-cta header-cta--ghost"
+          }, {
+            default: withCtx((_, _push2, _parent2, _scopeId) => {
+              if (_push2) {
+                _push2(`${ssrInterpolate(unref(configLabel))}`);
+              } else {
+                return [
+                  createTextVNode(toDisplayString(unref(configLabel)), 1)
+                ];
+              }
+            }),
+            _: 1
+          }, _parent));
+        } else {
+          _push(`<!---->`);
+        }
+        _push(ssrRenderComponent(_component_NuxtLink, {
+          to: unref(buildPath)("book-drive.html"),
+          class: "header-cta header-cta--ghost"
+        }, {
+          default: withCtx((_, _push2, _parent2, _scopeId) => {
+            if (_push2) {
+              _push2(`${ssrInterpolate(unref(testDriveLabel))}`);
+            } else {
+              return [
+                createTextVNode(toDisplayString(unref(testDriveLabel)), 1)
+              ];
+            }
+          }),
+          _: 1
+        }, _parent));
+        _push(ssrRenderComponent(_component_NuxtLink, {
+          to: unref(buildPath)(unref(currentModel)?.slug ?? "titan.html"),
+          class: "header-cta header-cta--primary"
+        }, {
+          default: withCtx((_, _push2, _parent2, _scopeId) => {
+            if (_push2) {
+              _push2(`${ssrInterpolate(unref(orderLabel))}`);
+            } else {
+              return [
+                createTextVNode(toDisplayString(unref(orderLabel)), 1)
+              ];
+            }
+          }),
+          _: 1
+        }, _parent));
+        _push(`<!--]-->`);
+      }
+      _push(`</div><button class="menu-toggle mobile-only" type="button"${ssrRenderAttr("aria-expanded", mobileOpen.value ? "true" : "false")} aria-label="Toggle menu" data-v-4bb0cf59><span class="menu-toggle__line" data-v-4bb0cf59></span><span class="menu-toggle__line" data-v-4bb0cf59></span><span class="menu-toggle__line" data-v-4bb0cf59></span></button></div>`);
+      if (mobileOpen.value) {
+        _push(`<div class="mobile-panel" data-v-4bb0cf59><div class="container mobile-stack" data-v-4bb0cf59><!--[-->`);
+        ssrRenderList(unref(navigation), (item) => {
+          _push(`<div class="mobile-group" data-v-4bb0cf59>`);
+          if (item.slug) {
+            _push(ssrRenderComponent(_component_NuxtLink, {
+              to: unref(buildPath)(item.slug),
+              class: "mobile-link",
+              onClick: ($event) => mobileOpen.value = false
+            }, {
+              default: withCtx((_, _push2, _parent2, _scopeId) => {
+                if (_push2) {
+                  _push2(`${ssrInterpolate(unref(textFor)(item.label))}`);
+                } else {
+                  return [
+                    createTextVNode(toDisplayString(unref(textFor)(item.label)), 1)
+                  ];
+                }
+              }),
+              _: 2
+            }, _parent));
+          } else {
+            _push(`<div class="mobile-label" data-v-4bb0cf59>${ssrInterpolate(unref(textFor)(item.label))}</div>`);
+          }
+          if (item.children?.length) {
+            _push(`<div class="mobile-children" data-v-4bb0cf59><!--[-->`);
+            ssrRenderList(item.children, (child) => {
+              _push(ssrRenderComponent(_component_NuxtLink, {
+                key: child.slug ?? child.label.en,
+                to: unref(buildPath)(child.slug),
+                class: "mobile-link child",
+                onClick: ($event) => mobileOpen.value = false
+              }, {
+                default: withCtx((_, _push2, _parent2, _scopeId) => {
+                  if (_push2) {
+                    _push2(`${ssrInterpolate(unref(textFor)(child.label))}`);
+                  } else {
+                    return [
+                      createTextVNode(toDisplayString(unref(textFor)(child.label)), 1)
+                    ];
+                  }
+                }),
+                _: 2
+              }, _parent));
+            });
+            _push(`<!--]--></div>`);
+          } else {
+            _push(`<!---->`);
+          }
+          _push(`</div>`);
+        });
+        _push(`<!--]--><div class="mobile-locales" data-v-4bb0cf59><!--[-->`);
+        ssrRenderList(unref(locales), (localeItem) => {
+          _push(ssrRenderComponent(_component_NuxtLink, {
+            key: localeItem.code,
+            to: unref(switchLocalePath)(localeItem.code),
+            class: ["locale-chip", { active: unref(locale).code === localeItem.code }],
+            onClick: ($event) => mobileOpen.value = false
+          }, {
+            default: withCtx((_, _push2, _parent2, _scopeId) => {
+              if (_push2) {
+                _push2(`${ssrInterpolate(localeItem.code.toUpperCase())}`);
+              } else {
+                return [
+                  createTextVNode(toDisplayString(localeItem.code.toUpperCase()), 1)
+                ];
+              }
+            }),
+            _: 2
+          }, _parent));
+        });
+        _push(`<!--]--></div><div class="mobile-cta-row" data-v-4bb0cf59>`);
+        if (unref(currentModel)) {
+          _push(ssrRenderComponent(_component_NuxtLink, {
+            to: unref(buildPath)(unref(currentModel).slug),
+            class: "header-cta header-cta--ghost",
+            onClick: ($event) => mobileOpen.value = false
+          }, {
+            default: withCtx((_, _push2, _parent2, _scopeId) => {
+              if (_push2) {
+                _push2(`${ssrInterpolate(unref(configLabel))}`);
+              } else {
+                return [
+                  createTextVNode(toDisplayString(unref(configLabel)), 1)
+                ];
+              }
+            }),
+            _: 1
+          }, _parent));
+        } else {
+          _push(`<!---->`);
+        }
+        _push(ssrRenderComponent(_component_NuxtLink, {
+          to: unref(buildPath)("book-drive.html"),
+          class: "header-cta header-cta--ghost",
+          onClick: ($event) => mobileOpen.value = false
+        }, {
+          default: withCtx((_, _push2, _parent2, _scopeId) => {
+            if (_push2) {
+              _push2(`${ssrInterpolate(unref(testDriveLabel))}`);
+            } else {
+              return [
+                createTextVNode(toDisplayString(unref(testDriveLabel)), 1)
+              ];
+            }
+          }),
+          _: 1
+        }, _parent));
+        _push(ssrRenderComponent(_component_NuxtLink, {
+          to: unref(buildPath)(unref(currentModel)?.slug ?? "titan.html"),
+          class: "header-cta header-cta--primary",
+          onClick: ($event) => mobileOpen.value = false
+        }, {
+          default: withCtx((_, _push2, _parent2, _scopeId) => {
+            if (_push2) {
+              _push2(`${ssrInterpolate(unref(orderLabel))}`);
+            } else {
+              return [
+                createTextVNode(toDisplayString(unref(orderLabel)), 1)
+              ];
+            }
+          }),
+          _: 1
+        }, _parent));
+        _push(`</div></div></div>`);
+      } else {
+        _push(`<!---->`);
+      }
+      if (activeGroup.value && !mobileOpen.value) {
+        _push(`<div class="header-menu-mask desktop-only" data-v-4bb0cf59></div>`);
+      } else {
+        _push(`<!---->`);
+      }
+      _push(`</header>`);
+    };
+  }
+});
+const _sfc_setup$1 = _sfc_main$1.setup;
+_sfc_main$1.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/layout/SiteHeader.vue");
+  return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
+};
+const SiteHeader = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-4bb0cf59"]]);
+const _sfc_main = /* @__PURE__ */ defineComponent({
+  __name: "default",
+  __ssrInlineRender: true,
+  setup(__props) {
+    const currentLocale = currentLocaleInfo();
+    useHead(() => ({
+      htmlAttrs: {
+        lang: currentLocale.value.code,
+        dir: currentLocale.value.dir
+      },
+      bodyAttrs: {
+        class: `locale-${currentLocale.value.code}`
+      }
+    }));
+    return (_ctx, _push, _parent, _attrs) => {
+      _push(`<div${ssrRenderAttrs(mergeProps({
+        class: ["site-shell", { "is-rtl": unref(currentLocale).dir === "rtl" }]
+      }, _attrs))}>`);
+      _push(ssrRenderComponent(SiteHeader, null, null, _parent));
+      _push(`<main class="site-main">`);
+      ssrRenderSlot(_ctx.$slots, "default", {}, null, _push, _parent);
+      _push(`</main>`);
+      _push(ssrRenderComponent(SiteFooter, null, null, _parent));
+      _push(`</div>`);
+    };
+  }
+});
+const _sfc_setup = _sfc_main.setup;
+_sfc_main.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("layouts/default.vue");
+  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
+};
+export {
+  _sfc_main as default
+};
+//# sourceMappingURL=default-DCKt7HR-.js.map

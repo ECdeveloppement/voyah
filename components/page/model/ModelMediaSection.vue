@@ -37,7 +37,7 @@ defineProps<{
 
 <style scoped>
 .model-media-section {
-  padding: 88px 0;
+  padding: 94px 0;
   background: #fff;
 }
 
@@ -47,8 +47,8 @@ defineProps<{
 
 .model-media-grid {
   display: grid;
-  grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.3fr);
-  gap: 48px;
+  grid-template-columns: minmax(300px, 0.78fr) minmax(0, 1.22fr);
+  gap: 42px;
   align-items: center;
 }
 
@@ -71,29 +71,30 @@ defineProps<{
 .model-media-title {
   margin: 0;
   color: #0e141b;
-  font-size: clamp(2rem, 3vw, 3.4rem);
-  line-height: 1.02;
+  font-size: clamp(2.1rem, 3.1vw, 3.8rem);
+  line-height: 0.98;
 }
 
 .model-media-summary {
   margin: 20px 0 0;
   color: #53606d;
   font-size: 1rem;
-  line-height: 1.85;
+  line-height: 1.82;
   max-width: 520px;
 }
 
 .model-media-stack {
   display: grid;
-  gap: 16px;
+  gap: 12px;
 }
 
 .model-media-primary,
 .model-media-secondary figure {
   margin: 0;
   overflow: hidden;
-  border-radius: 28px;
-  box-shadow: 0 30px 80px rgba(16, 23, 32, 0.12);
+  border-radius: 0;
+  box-shadow: none;
+  background: #eef1f3;
 }
 
 .model-media-primary img,
@@ -101,10 +102,16 @@ defineProps<{
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.model-media-primary:hover img,
+.model-media-secondary figure:hover img {
+  transform: scale(1.03);
 }
 
 .model-media-primary {
-  min-height: 460px;
+  min-height: 560px;
 }
 
 .model-media-secondary {
@@ -130,7 +137,7 @@ defineProps<{
 
 @media (max-width: 768px) {
   .model-media-section {
-    padding: 56px 0;
+    padding: 58px 0;
   }
 
   .model-media-primary {

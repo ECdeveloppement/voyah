@@ -894,7 +894,7 @@ const _inlineRuntimeConfig = {
   "public": {
     "i18n": {
       "baseUrl": "",
-      "defaultLocale": "en",
+      "defaultLocale": "fr",
       "defaultDirection": "ltr",
       "strategy": "no_prefix",
       "lazy": false,
@@ -913,13 +913,13 @@ const _inlineRuntimeConfig = {
         },
         {
           "code": "fr",
-          "name": "Français",
+          "name": "FranÃ§ais",
           "dir": "ltr",
           "files": []
         },
         {
           "code": "ar",
-          "name": "العربية",
+          "name": "Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©",
           "dir": "rtl",
           "files": []
         }
@@ -2416,16 +2416,16 @@ _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw
 const assets = {
   "/index.mjs": {
     "type": "text/javascript; charset=utf-8",
-    "etag": "\"1baff-6uhacc/Xq4qfB93HZTQWYTW4weo\"",
-    "mtime": "2026-03-31T13:46:27.965Z",
-    "size": 113407,
+    "etag": "\"1bb10-qr9yMVthQBcrWH7PB/2YkIlkwbs\"",
+    "mtime": "2026-04-02T10:58:30.744Z",
+    "size": 113424,
     "path": "index.mjs"
   },
   "/index.mjs.map": {
     "type": "application/json",
-    "etag": "\"72ecf-nHMfLPIzWUkg622yEINUXglnyJQ\"",
-    "mtime": "2026-03-31T13:46:27.965Z",
-    "size": 470735,
+    "etag": "\"72ef7-jBHsu7AcBrnuf6iPEGYRSB7KFRI\"",
+    "mtime": "2026-04-02T10:58:30.745Z",
+    "size": 470775,
     "path": "index.mjs.map"
   }
 };

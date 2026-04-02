@@ -1,8 +1,8 @@
 <template>
-  <NuxtLink v-if="to" :to="to" :class="['base-button', variant]">
+  <NuxtLink v-if="to" :to="to" :class="['base-button', variant]" v-bind="$attrs">
     <slot />
   </NuxtLink>
-  <button v-else :type="type" :class="['base-button', variant]" @click="$emit('click')">
+  <button v-else :type="type" :class="['base-button', variant]" v-bind="$attrs" @click="$emit('click')">
     <slot />
   </button>
 </template>

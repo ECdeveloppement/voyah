@@ -22,7 +22,7 @@ export default defineNuxtConfig({
     },
     lazy: false,
     strategy: 'no_prefix',
-    defaultLocale: 'en',
+    defaultLocale: 'fr',
     detectBrowserLanguage: false,
     locales: locales.map((locale) => ({
       code: locale.code,

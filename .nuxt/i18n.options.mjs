@@ -54,18 +54,18 @@ export const nuxtI18nOptions = {
     },
     {
       code: "fr",
-      name: "Français",
+      name: "FranÃ§ais",
       dir: "ltr",
       files: []
     },
     {
       code: "ar",
-      name: "العربية",
+      name: "Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©",
       dir: "rtl",
       files: []
     }
   ],
-  defaultLocale: "en",
+  defaultLocale: "fr",
   defaultDirection: "ltr",
   routesNameSeparator: "___",
   trailingSlash: false,
@@ -96,13 +96,13 @@ export const normalizedLocales = [
   },
   {
     code: "fr",
-    name: "Français",
+    name: "FranÃ§ais",
     dir: "ltr",
     files: []
   },
   {
     code: "ar",
-    name: "العربية",
+    name: "Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©",
     dir: "rtl",
     files: []
   }

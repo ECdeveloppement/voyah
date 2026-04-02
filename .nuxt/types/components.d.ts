@@ -18,11 +18,14 @@ interface _GlobalComponents {
   CommonMetricGrid: typeof import("../../components/common/MetricGrid.vue")['default']
   CommonPageHero: typeof import("../../components/common/PageHero.vue")['default']
   HomeBrandIntro: typeof import("../../components/home/HomeBrandIntro.vue")['default']
+  HomeCommunity: typeof import("../../components/home/HomeCommunity.vue")['default']
   HomeGlobalMap: typeof import("../../components/home/HomeGlobalMap.vue")['default']
   HomeHero: typeof import("../../components/home/HomeHero.vue")['default']
   HomeModels: typeof import("../../components/home/HomeModels.vue")['default']
+  HomeQuickActions: typeof import("../../components/home/HomeQuickActions.vue")['default']
   HomeServiceGrid: typeof import("../../components/home/HomeServiceGrid.vue")['default']
   HomeStatsMedia: typeof import("../../components/home/HomeStatsMedia.vue")['default']
+  HomeTechnology: typeof import("../../components/home/HomeTechnology.vue")['default']
   LayoutSiteFooter: typeof import("../../components/layout/SiteFooter.vue")['default']
   LayoutSiteHeader: typeof import("../../components/layout/SiteHeader.vue")['default']
   PageInfoPage: typeof import("../../components/page/InfoPage.vue")['default']
@@ -59,11 +62,14 @@ interface _GlobalComponents {
   LazyCommonMetricGrid: LazyComponent<typeof import("../../components/common/MetricGrid.vue")['default']>
   LazyCommonPageHero: LazyComponent<typeof import("../../components/common/PageHero.vue")['default']>
   LazyHomeBrandIntro: LazyComponent<typeof import("../../components/home/HomeBrandIntro.vue")['default']>
+  LazyHomeCommunity: LazyComponent<typeof import("../../components/home/HomeCommunity.vue")['default']>
   LazyHomeGlobalMap: LazyComponent<typeof import("../../components/home/HomeGlobalMap.vue")['default']>
   LazyHomeHero: LazyComponent<typeof import("../../components/home/HomeHero.vue")['default']>
   LazyHomeModels: LazyComponent<typeof import("../../components/home/HomeModels.vue")['default']>
+  LazyHomeQuickActions: LazyComponent<typeof import("../../components/home/HomeQuickActions.vue")['default']>
   LazyHomeServiceGrid: LazyComponent<typeof import("../../components/home/HomeServiceGrid.vue")['default']>
   LazyHomeStatsMedia: LazyComponent<typeof import("../../components/home/HomeStatsMedia.vue")['default']>
+  LazyHomeTechnology: LazyComponent<typeof import("../../components/home/HomeTechnology.vue")['default']>
   LazyLayoutSiteFooter: LazyComponent<typeof import("../../components/layout/SiteFooter.vue")['default']>
   LazyLayoutSiteHeader: LazyComponent<typeof import("../../components/layout/SiteHeader.vue")['default']>
   LazyPageInfoPage: LazyComponent<typeof import("../../components/page/InfoPage.vue")['default']>

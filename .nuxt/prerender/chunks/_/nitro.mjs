@@ -860,7 +860,7 @@ function _expandFromEnv(value) {
 const _inlineRuntimeConfig = {
   "app": {
     "baseURL": "/",
-    "buildId": "5cae8856-6b89-4732-a011-bfd2d530a88b",
+    "buildId": "33c94a27-c3ad-46b5-bd6e-434e61e3648e",
     "buildAssetsDir": "/_nuxt/",
     "cdnURL": ""
   },
@@ -880,7 +880,7 @@ const _inlineRuntimeConfig = {
   "public": {
     "i18n": {
       "baseUrl": "",
-      "defaultLocale": "en",
+      "defaultLocale": "fr",
       "defaultDirection": "ltr",
       "strategy": "no_prefix",
       "lazy": false,
@@ -899,13 +899,13 @@ const _inlineRuntimeConfig = {
         },
         {
           "code": "fr",
-          "name": "Français",
+          "name": "FranÃ§ais",
           "dir": "ltr",
           "files": []
         },
         {
           "code": "ar",
-          "name": "العربية",
+          "name": "Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©",
           "dir": "rtl",
           "files": []
         }

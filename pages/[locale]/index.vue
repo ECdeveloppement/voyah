@@ -1,11 +1,14 @@
 <template>
-  <div>
+  <div class="voyah-homepage">
     <HomeHero :slides="homePage.slides" />
     <HomeBrandIntro :data="homePage.brandIntro" />
     <HomeModels :title="homePage.modelsTitle" :body="homePage.modelsBody" :models="homePage.models" />
     <HomeStatsMedia :data="homePage.energy" />
+    <HomeTechnology :data="homePage.technology" />
     <HomeServiceGrid :data="homePage.service" />
+    <HomeCommunity :data="homePage.community" />
     <HomeGlobalMap :data="homePage.footprint" />
+    <HomeQuickActions />
   </div>
 </template>
 

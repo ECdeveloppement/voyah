@@ -1,0 +1,271 @@
+|
+•  [32mNuxt [1m3.21.2[22m[39m[90m (with [39m[90mNitro [1m2.13.2[22m[39m[90m, Vite [1m7.3.1[22m[39m[90m and Vue [1m3.5.31[22m[39m[90m)[39m
+
+[32m  ➜ Local:   [39m [36m[4mhttp://127.0.0.1:[1m3001[22m/[24m[39m
+[90m  ➜ Network:  use [37m--host[90m to expose[39m
+
+[32m√[39m Vite client built in 327ms
+[32m√[39m Vite server built in 3453ms
+[90m[[90mnuxt[90m][39m [36mi[39m Compiled [36mplugins.server.mjs[39m in 1437.18ms
+[90m[[90mnuxt[90m][39m [36mi[39m Compiled [36mplugins.client.mjs[39m in 1528.87ms
+[90m[[90mnuxt[90m][39m [36mi[39m Compiled [36mtypes/plugins.d.ts[39m in 1541.05ms
+[90m[[90mnitro[90m][39m [32m√[39m Nuxt Nitro server built in 9278ms
+[36mi[39m Vite server warmed up in 5ms
+[36mi[39m Vite client warmed up in 13ms
+[32m√[39m Vite server hmr 1 files in 7772.086ms
+[36mi[39m [32mhmr update [39m[2m/components/home/HomeHero.vue?direct&vue&type=style&index=0&scoped=6ab5f315&lang.css, /components/home/HomeHero.vue, /components/home/HomeHero.vue?vue&type=style&index=0&scoped=6ab5f315&lang.css[22m
+[36mi[39m [32mpage reload [39m[2mcomponents/home/HomeHero.vue[22m
+[36mi[39m [32mhmr update [39m[2m/components/home/HomeHero.vue?direct&vue&type=style&index=0&scoped=6ab5f315&lang.css, /components/home/HomeHero.vue, /components/home/HomeHero.vue?vue&type=style&index=0&scoped=6ab5f315&lang.css[22m
+[36mi[39m [32mpage reload [39m[2mcomponents/home/HomeHero.vue[22m
+[36mi[39m [32mhmr update [39m[2m/components/layout/SiteHeader.vue?direct&vue&type=style&index=0&scoped=45500ae2&lang.css[22m
+[36mi[39m [32mpage reload [39m[2mcomponents/layout/SiteHeader.vue[22m
+[36mi[39m [32mhmr update [39m[2m/components/home/HomeQuickActions.vue?direct&vue&type=style&index=0&scoped=8d730600&lang.css, /components/home/HomeQuickActions.vue?vue&type=style&index=0&scoped=8d730600&lang.css[22m
+[36mi[39m [32mhmr update [39m[2m/@id/virtual:nuxt:E%3A%2Fvoyah-nuxt%2F.nuxt%2Froutes.mjs[22m
+[32m√[39m Vite server hmr 26 files in 115.432ms
+[32m√[39m Vite server hmr 2 files in 0.01ms
+[36mi[39m [32mpage reload [39m[2mdata/site.ts[22m
+[36mi[39m [32mpage reload [39m[2mdata/site.ts[22m[2m (x2)[22m
+[32m√[39m Vite server hmr 35 files in 913.158ms
+[36mi[39m [32mhmr update [39m[2m/@id/virtual:nuxt:E%3A%2Fvoyah-nuxt%2F.nuxt%2Froutes.mjs[22m
+[36mi[39m [32mhmr update [39m[2m/components/home/HomeHero.vue?direct&vue&type=style&index=0&scoped=6ab5f315&lang.css, /components/home/HomeHero.vue, /components/home/HomeHero.vue?vue&type=style&index=0&scoped=6ab5f315&lang.css[22m
+[32m√[39m Vite server hmr 13 files in 42.165ms
+[32m√[39m Vite server hmr 4 files in 0.009ms
+[36mi[39m [32mhmr update [39m[2m/assets/styles/main.css, /assets/styles/main.css?direct[22m
+[36mi[39m [32mpage reload [39m[2massets/styles/main.css[22m
+[32m√[39m Vite server hmr 8 files in 63.284ms
+[36mi[39m [32mhmr update [39m[2m/components/page/model/ModelChapterNav.vue?direct&vue&type=style&index=0&scoped=76424958&lang.css, /components/page/model/ModelChapterNav.vue?vue&type=style&index=0&scoped=76424958&lang.css[22m
+[36mi[39m [32mhmr update [39m[2m/@id/virtual:nuxt:E%3A%2Fvoyah-nuxt%2F.nuxt%2Froutes.mjs[22m
+[36mi[39m [32mhmr update [39m[2m/components/page/model/ModelMediaSection.vue?direct&vue&type=style&index=0&scoped=f36001bf&lang.css, /components/page/model/ModelMediaSection.vue?vue&type=style&index=0&scoped=f36001bf&lang.css[22m
+[36mi[39m [32mhmr update [39m[2m/@id/virtual:nuxt:E%3A%2Fvoyah-nuxt%2F.nuxt%2Froutes.mjs[22m
+[36mi[39m [32mhmr update [39m[2m/components/page/ModelPage.vue?direct&vue&type=style&index=0&scoped=10ef3337&lang.css, /components/page/ModelPage.vue?vue&type=style&index=0&scoped=10ef3337&lang.css[22m
+[36mi[39m [32mhmr update [39m[2m/@id/virtual:nuxt:E%3A%2Fvoyah-nuxt%2F.nuxt%2Froutes.mjs[22m
+[36mi[39m [32mhmr update [39m[2m/components/page/LegalPage.vue?direct&vue&type=style&index=0&scoped=7cdce6eb&lang.css, /components/page/LegalPage.vue?vue&type=style&index=0&scoped=7cdce6eb&lang.css[22m
+[36mi[39m [32mhmr update [39m[2m/@id/virtual:nuxt:E%3A%2Fvoyah-nuxt%2F.nuxt%2Froutes.mjs[22m
+[32m√[39m Vite server hmr 22 files in 43.972ms
+[36mi[39m .nuxt/dist directory has been removed. Restarting Nuxt...
+[32m√[39m Vite client built in 370ms
+[32m√[39m Vite server built in 3197ms
+[90m[[90mnuxt[90m][39m [36mi[39m Compiled [36mplugins.server.mjs[39m in 1939.57ms
+[90m[[90mnuxt[90m][39m [36mi[39m Compiled [36mplugins.client.mjs[39m in 1961.04ms
+[90m[[90mnuxt[90m][39m [36mi[39m Compiled [36mtypes/plugins.d.ts[39m in 1970.46ms
+[90m[[90mnitro[90m][39m [32m√[39m Nuxt Nitro server built in 10476ms
+[36mi[39m Vite server warmed up in 3ms
+[36mi[39m Vite client warmed up in 9ms
+[90m[[90mnitro[90m][39m [32m√[39m Nuxt Nitro server built in 5813ms
+[90m[[90mnuxt[90m][39m [36mi[39m Compiled [36mplugins.server.mjs[39m in 800.27ms
+[90m[[90mnuxt[90m][39m [36mi[39m Compiled [36mplugins.client.mjs[39m in 917.65ms
+[90m[[90mnuxt[90m][39m [36mi[39m Compiled [36mtypes/plugins.d.ts[39m in 975.6ms
+[36mi[39m .nuxt/dist directory has been removed. Restarting Nuxt...
+[32m√[39m Vite client built in 225ms
+[32m√[39m Vite server built in 2173ms
+[90m[[90mnuxt[90m][39m [36mi[39m Compiled [36mrouter.options.mjs[39m in 1426.45ms
+[90m[[90mnuxt[90m][39m [36mi[39m Compiled [36mplugins.server.mjs[39m in 3890.47ms
+[90m[[90mnuxt[90m][39m [36mi[39m Compiled [36mplugins.client.mjs[39m in 3921.91ms
+[90m[[90mnuxt[90m][39m [36mi[39m Compiled [36mtypes/plugins.d.ts[39m in 3940.05ms
+[90m[[90mnuxt[90m][39m [36mi[39m Compiled [36mplugins.client.mjs[39m in 528.67ms
+[90m[[90mnuxt[90m][39m [36mi[39m Compiled [36mtypes/plugins.d.ts[39m in 577ms
+[90m[[90mnuxt[90m][39m [36mi[39m Compiled [36mplugins.server.mjs[39m in 2118.13ms
+[90m[[90mnuxt[90m][39m [36mi[39m Compiled [36mplugins.client.mjs[39m in 2391.4ms
+[90m[[90mnuxt[90m][39m [36mi[39m Compiled [36mtypes/plugins.d.ts[39m in 2450.96ms
+[90m[[90mnitro[90m][39m [32m√[39m Nuxt Nitro server built in 22715ms
+[36mi[39m Vite server warmed up in 6ms
+[36mi[39m Vite client warmed up in 12ms
+[41m[30m ERROR [39m[49m [request error] [unhandled] [GET] http://127.0.0.1:3001/en
+
+ 
+[31mℹ Error: Package import specifier "#internal/nuxt/paths" is not defined in package .\package.json imported from .\.nuxt\dist\server\server.mjs[39m
+
+[2m ⁃ at [3mimportNotDefined[23m ([3mnode:internal/modules/esm/resolve:301:10[23m)[22m
+[2m ⁃ at [3mpackageImportsResolve[23m ([3mnode:internal/modules/esm/resolve:751:9[23m)[22m
+[2m ⁃ at [3mmoduleResolve[23m ([3mnode:internal/modules/esm/resolve:844:16[23m)[22m
+[2m ⁃ at [3mdefaultResolve[23m ([3mnode:internal/modules/esm/resolve:985:11[23m)[22m
+[2m ⁃ at [3m#cachedDefaultResolve[23m ([3mnode:internal/modules/esm/loader:731:20[23m)[22m
+[2m ⁃ at [3mModuleLoader.resolve[23m ([3mnode:internal/modules/esm/loader:708:38[23m)[22m
+[2m ⁃ at [3mModuleLoader.getModuleJobForImport[23m ([3mnode:internal/modules/esm/loader:310:38[23m)[22m
+[2m ⁃ at [3mModuleJob._link[23m ([3mnode:internal/modules/esm/module_job:182:49[23m)[22m
+[2m ⁃ at [3mprocess.processTicksAndRejections[23m ([3mnode:internal/process/task_queues:103:5[23m)[22m
+
+[31m[CAUSE][39m
+TypeError {
+  stack: 'Package import specifier "#internal/nuxt/paths" is not defined in package E:\\voyah-nuxt\\package.json imported from E:\\voyah-nuxt\\.nuxt\\dist\\server\\server.mjs\n' +
+  '    at importNotDefined (node:internal/modules/esm/resolve:301:10)\n' +
+  '    at packageImportsResolve (node:internal/modules/esm/resolve:751:9)\n' +
+  '    at moduleResolve (node:internal/modules/esm/resolve:844:16)\n' +
+  '    at defaultResolve (node:internal/modules/esm/resolve:985:11)\n' +
+  '    at #cachedDefaultResolve (node:internal/modules/esm/loader:731:20)\n' +
+  '    at ModuleLoader.resolve (node:internal/modules/esm/loader:708:38)\n' +
+  '    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:310:38)\n' +
+  '    at ModuleJob._link (node:internal/modules/esm/module_job:182:49)\n' +
+  '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)',
+  code: 'ERR_PACKAGE_IMPORT_NOT_DEFINED',
+  message: 'Package import specifier "#internal/nuxt/paths" is not defined in 
+  package E:\\voyah-nuxt\\package.json imported from 
+  E:\\voyah-nuxt\\.nuxt\\dist\\server\\server.mjs',
+}
+[41m[30m ERROR [39m[49m [request error] [unhandled] [GET] http://127.0.0.1:3001/__nuxt_error?error=true&url=%2Fen&statusCode=500&statusMessage=Server+Error&message=Package+import+specifier+%22%23internal%2Fnuxt%2Fpaths%22+is+not+defined+in+package+E:%5Cvoyah-nuxt%5Cpackage.json+imported+from+E:%5Cvoyah-nuxt%5C.nuxt%5Cdist%5Cserver%5Cserver.mjs&stack=Package+import+specifier+%22%23internal%2Fnuxt%2Fpaths%22+is+not+defined+in+package+E:%5Cvoyah-nuxt%5Cpackage.json+imported+from+E:%5Cvoyah-nuxt%5C.nuxt%5Cdist%5Cserver%5Cserver.mjs%0Aat+importNotDefined+(node:internal%2Fmodules%2Fesm%2Fresolve:301:10)%0Aat+packageImportsResolve+(node:internal%2Fmodules%2Fesm%2Fresolve:751:9)%0Aat+moduleResolve+(node:internal%2Fmodules%2Fesm%2Fresolve:844:16)%0Aat+defaultResolve+(node:internal%2Fmodules%2Fesm%2Fresolve:985:11)%0Aat+%23cachedDefaultResolve+(node:internal%2Fmodules%2Fesm%2Floader:731:20)%0Aat+ModuleLoader.resolve+(node:internal%2Fmodules%2Fesm%2Floader:708:38)%0Aat+ModuleLoader.getModuleJobForImport+(node:internal%2Fmodules%2Fesm%2Floader:310:38)%0Aat+ModuleJob._link+(node:internal%2Fmodules%2Fesm%2Fmodule_job:182:49)%0Aat+process.processTicksAndRejections+(node:internal%2Fprocess%2Ftask_queues:103:5)
+
+ 
+[31mℹ Error: Package import specifier "#internal/nuxt/paths" is not defined in package .\package.json imported from .\.nuxt\dist\server\server.mjs[39m
+
+[2m ⁃ at [3mimportNotDefined[23m ([3mnode:internal/modules/esm/resolve:301:10[23m)[22m
+[2m ⁃ at [3mpackageImportsResolve[23m ([3mnode:internal/modules/esm/resolve:751:9[23m)[22m
+[2m ⁃ at [3mmoduleResolve[23m ([3mnode:internal/modules/esm/resolve:844:16[23m)[22m
+[2m ⁃ at [3mdefaultResolve[23m ([3mnode:internal/modules/esm/resolve:985:11[23m)[22m
+[2m ⁃ at [3m#cachedDefaultResolve[23m ([3mnode:internal/modules/esm/loader:731:20[23m)[22m
+[2m ⁃ at [3mModuleLoader.resolve[23m ([3mnode:internal/modules/esm/loader:708:38[23m)[22m
+[2m ⁃ at [3mModuleLoader.getModuleJobForImport[23m ([3mnode:internal/modules/esm/loader:310:38[23m)[22m
+[2m ⁃ at [3mModuleJob._link[23m ([3mnode:internal/modules/esm/module_job:182:49[23m)[22m
+[2m ⁃ at [3mprocess.processTicksAndRejections[23m ([3mnode:internal/process/task_queues:103:5[23m)[22m
+
+[31m[CAUSE][39m
+TypeError {
+  stack: 'Package import specifier "#internal/nuxt/paths" is not defined in package E:\\voyah-nuxt\\package.json imported from E:\\voyah-nuxt\\.nuxt\\dist\\server\\server.mjs\n' +
+  '    at importNotDefined (node:internal/modules/esm/resolve:301:10)\n' +
+  '    at packageImportsResolve (node:internal/modules/esm/resolve:751:9)\n' +
+  '    at moduleResolve (node:internal/modules/esm/resolve:844:16)\n' +
+  '    at defaultResolve (node:internal/modules/esm/resolve:985:11)\n' +
+  '    at #cachedDefaultResolve (node:internal/modules/esm/loader:731:20)\n' +
+  '    at ModuleLoader.resolve (node:internal/modules/esm/loader:708:38)\n' +
+  '    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:310:38)\n' +
+  '    at ModuleJob._link (node:internal/modules/esm/module_job:182:49)\n' +
+  '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)',
+  code: 'ERR_PACKAGE_IMPORT_NOT_DEFINED',
+  message: 'Package import specifier "#internal/nuxt/paths" is not defined in 
+  package E:\\voyah-nuxt\\package.json imported from 
+  E:\\voyah-nuxt\\.nuxt\\dist\\server\\server.mjs',
+}
+[41m[30m ERROR [39m[49m [request error] [unhandled] [GET] http://127.0.0.1:3001/en
+
+ 
+[31mℹ Error: Package import specifier "#internal/nuxt/paths" is not defined in package .\package.json imported from .\.nuxt\dist\server\server.mjs[39m
+
+[2m ⁃ at [3mimportNotDefined[23m ([3mnode:internal/modules/esm/resolve:301:10[23m)[22m
+[2m ⁃ at [3mpackageImportsResolve[23m ([3mnode:internal/modules/esm/resolve:751:9[23m)[22m
+[2m ⁃ at [3mmoduleResolve[23m ([3mnode:internal/modules/esm/resolve:844:16[23m)[22m
+[2m ⁃ at [3mdefaultResolve[23m ([3mnode:internal/modules/esm/resolve:985:11[23m)[22m
+[2m ⁃ at [3m#cachedDefaultResolve[23m ([3mnode:internal/modules/esm/loader:731:20[23m)[22m
+[2m ⁃ at [3mModuleLoader.resolve[23m ([3mnode:internal/modules/esm/loader:708:38[23m)[22m
+[2m ⁃ at [3mModuleLoader.getModuleJobForImport[23m ([3mnode:internal/modules/esm/loader:310:38[23m)[22m
+[2m ⁃ at [3mModuleJob._link[23m ([3mnode:internal/modules/esm/module_job:182:49[23m)[22m
+[2m ⁃ at [3mprocess.processTicksAndRejections[23m ([3mnode:internal/process/task_queues:103:5[23m)[22m
+
+[31m[CAUSE][39m
+TypeError {
+  stack: 'Package import specifier "#internal/nuxt/paths" is not defined in package E:\\voyah-nuxt\\package.json imported from E:\\voyah-nuxt\\.nuxt\\dist\\server\\server.mjs\n' +
+  '    at importNotDefined (node:internal/modules/esm/resolve:301:10)\n' +
+  '    at packageImportsResolve (node:internal/modules/esm/resolve:751:9)\n' +
+  '    at moduleResolve (node:internal/modules/esm/resolve:844:16)\n' +
+  '    at defaultResolve (node:internal/modules/esm/resolve:985:11)\n' +
+  '    at #cachedDefaultResolve (node:internal/modules/esm/loader:731:20)\n' +
+  '    at ModuleLoader.resolve (node:internal/modules/esm/loader:708:38)\n' +
+  '    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:310:38)\n' +
+  '    at ModuleJob._link (node:internal/modules/esm/module_job:182:49)\n' +
+  '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)',
+  code: 'ERR_PACKAGE_IMPORT_NOT_DEFINED',
+  message: 'Package import specifier "#internal/nuxt/paths" is not defined in 
+  package E:\\voyah-nuxt\\package.json imported from 
+  E:\\voyah-nuxt\\.nuxt\\dist\\server\\server.mjs',
+}
+[41m[30m ERROR [39m[49m [request error] [unhandled] [GET] http://127.0.0.1:3001/en/titan.html
+
+ 
+[31mℹ Error: Package import specifier "#internal/nuxt/paths" is not defined in package .\package.json imported from .\.nuxt\dist\server\server.mjs[39m
+
+[2m ⁃ at [3mimportNotDefined[23m ([3mnode:internal/modules/esm/resolve:301:10[23m)[22m
+[2m ⁃ at [3mpackageImportsResolve[23m ([3mnode:internal/modules/esm/resolve:751:9[23m)[22m
+[2m ⁃ at [3mmoduleResolve[23m ([3mnode:internal/modules/esm/resolve:844:16[23m)[22m
+[2m ⁃ at [3mdefaultResolve[23m ([3mnode:internal/modules/esm/resolve:985:11[23m)[22m
+[2m ⁃ at [3m#cachedDefaultResolve[23m ([3mnode:internal/modules/esm/loader:731:20[23m)[22m
+[2m ⁃ at [3mModuleLoader.resolve[23m ([3mnode:internal/modules/esm/loader:708:38[23m)[22m
+[2m ⁃ at [3mModuleLoader.getModuleJobForImport[23m ([3mnode:internal/modules/esm/loader:310:38[23m)[22m
+[2m ⁃ at [3mModuleJob._link[23m ([3mnode:internal/modules/esm/module_job:182:49[23m)[22m
+[2m ⁃ at [3mprocess.processTicksAndRejections[23m ([3mnode:internal/process/task_queues:103:5[23m)[22m
+
+[31m[CAUSE][39m
+TypeError {
+  stack: 'Package import specifier "#internal/nuxt/paths" is not defined in package E:\\voyah-nuxt\\package.json imported from E:\\voyah-nuxt\\.nuxt\\dist\\server\\server.mjs\n' +
+  '    at importNotDefined (node:internal/modules/esm/resolve:301:10)\n' +
+  '    at packageImportsResolve (node:internal/modules/esm/resolve:751:9)\n' +
+  '    at moduleResolve (node:internal/modules/esm/resolve:844:16)\n' +
+  '    at defaultResolve (node:internal/modules/esm/resolve:985:11)\n' +
+  '    at #cachedDefaultResolve (node:internal/modules/esm/loader:731:20)\n' +
+  '    at ModuleLoader.resolve (node:internal/modules/esm/loader:708:38)\n' +
+  '    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:310:38)\n' +
+  '    at ModuleJob._link (node:internal/modules/esm/module_job:182:49)\n' +
+  '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)',
+  code: 'ERR_PACKAGE_IMPORT_NOT_DEFINED',
+  message: 'Package import specifier "#internal/nuxt/paths" is not defined in 
+  package E:\\voyah-nuxt\\package.json imported from 
+  E:\\voyah-nuxt\\.nuxt\\dist\\server\\server.mjs',
+}
+[41m[30m ERROR [39m[49m [request error] [unhandled] [GET] http://127.0.0.1:3001/__nuxt_error?error=true&url=%2Fen%2Ftitan.html&statusCode=500&statusMessage=Server+Error&message=Package+import+specifier+%22%23internal%2Fnuxt%2Fpaths%22+is+not+defined+in+package+E:%5Cvoyah-nuxt%5Cpackage.json+imported+from+E:%5Cvoyah-nuxt%5C.nuxt%5Cdist%5Cserver%5Cserver.mjs&stack=Package+import+specifier+%22%23internal%2Fnuxt%2Fpaths%22+is+not+defined+in+package+E:%5Cvoyah-nuxt%5Cpackage.json+imported+from+E:%5Cvoyah-nuxt%5C.nuxt%5Cdist%5Cserver%5Cserver.mjs%0Aat+importNotDefined+(node:internal%2Fmodules%2Fesm%2Fresolve:301:10)%0Aat+packageImportsResolve+(node:internal%2Fmodules%2Fesm%2Fresolve:751:9)%0Aat+moduleResolve+(node:internal%2Fmodules%2Fesm%2Fresolve:844:16)%0Aat+defaultResolve+(node:internal%2Fmodules%2Fesm%2Fresolve:985:11)%0Aat+%23cachedDefaultResolve+(node:internal%2Fmodules%2Fesm%2Floader:731:20)%0Aat+ModuleLoader.resolve+(node:internal%2Fmodules%2Fesm%2Floader:708:38)%0Aat+ModuleLoader.getModuleJobForImport+(node:internal%2Fmodules%2Fesm%2Floader:310:38)%0Aat+ModuleJob._link+(node:internal%2Fmodules%2Fesm%2Fmodule_job:182:49)%0Aat+process.processTicksAndRejections+(node:internal%2Fprocess%2Ftask_queues:103:5)
+
+ 
+[31mℹ Error: Package import specifier "#internal/nuxt/paths" is not defined in package .\package.json imported from .\.nuxt\dist\server\server.mjs[39m
+
+[2m ⁃ at [3mimportNotDefined[23m ([3mnode:internal/modules/esm/resolve:301:10[23m)[22m
+[2m ⁃ at [3mpackageImportsResolve[23m ([3mnode:internal/modules/esm/resolve:751:9[23m)[22m
+[2m ⁃ at [3mmoduleResolve[23m ([3mnode:internal/modules/esm/resolve:844:16[23m)[22m
+[2m ⁃ at [3mdefaultResolve[23m ([3mnode:internal/modules/esm/resolve:985:11[23m)[22m
+[2m ⁃ at [3m#cachedDefaultResolve[23m ([3mnode:internal/modules/esm/loader:731:20[23m)[22m
+[2m ⁃ at [3mModuleLoader.resolve[23m ([3mnode:internal/modules/esm/loader:708:38[23m)[22m
+[2m ⁃ at [3mModuleLoader.getModuleJobForImport[23m ([3mnode:internal/modules/esm/loader:310:38[23m)[22m
+[2m ⁃ at [3mModuleJob._link[23m ([3mnode:internal/modules/esm/module_job:182:49[23m)[22m
+[2m ⁃ at [3mprocess.processTicksAndRejections[23m ([3mnode:internal/process/task_queues:103:5[23m)[22m
+
+[31m[CAUSE][39m
+TypeError {
+  stack: 'Package import specifier "#internal/nuxt/paths" is not defined in package E:\\voyah-nuxt\\package.json imported from E:\\voyah-nuxt\\.nuxt\\dist\\server\\server.mjs\n' +
+  '    at importNotDefined (node:internal/modules/esm/resolve:301:10)\n' +
+  '    at packageImportsResolve (node:internal/modules/esm/resolve:751:9)\n' +
+  '    at moduleResolve (node:internal/modules/esm/resolve:844:16)\n' +
+  '    at defaultResolve (node:internal/modules/esm/resolve:985:11)\n' +
+  '    at #cachedDefaultResolve (node:internal/modules/esm/loader:731:20)\n' +
+  '    at ModuleLoader.resolve (node:internal/modules/esm/loader:708:38)\n' +
+  '    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:310:38)\n' +
+  '    at ModuleJob._link (node:internal/modules/esm/module_job:182:49)\n' +
+  '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)',
+  code: 'ERR_PACKAGE_IMPORT_NOT_DEFINED',
+  message: 'Package import specifier "#internal/nuxt/paths" is not defined in 
+  package E:\\voyah-nuxt\\package.json imported from 
+  E:\\voyah-nuxt\\.nuxt\\dist\\server\\server.mjs',
+}
+[41m[30m ERROR [39m[49m [request error] [unhandled] [GET] http://127.0.0.1:3001/en/titan.html
+
+ 
+[31mℹ Error: Package import specifier "#internal/nuxt/paths" is not defined in package .\package.json imported from .\.nuxt\dist\server\server.mjs[39m
+
+[2m ⁃ at [3mimportNotDefined[23m ([3mnode:internal/modules/esm/resolve:301:10[23m)[22m
+[2m ⁃ at [3mpackageImportsResolve[23m ([3mnode:internal/modules/esm/resolve:751:9[23m)[22m
+[2m ⁃ at [3mmoduleResolve[23m ([3mnode:internal/modules/esm/resolve:844:16[23m)[22m
+[2m ⁃ at [3mdefaultResolve[23m ([3mnode:internal/modules/esm/resolve:985:11[23m)[22m
+[2m ⁃ at [3m#cachedDefaultResolve[23m ([3mnode:internal/modules/esm/loader:731:20[23m)[22m
+[2m ⁃ at [3mModuleLoader.resolve[23m ([3mnode:internal/modules/esm/loader:708:38[23m)[22m
+[2m ⁃ at [3mModuleLoader.getModuleJobForImport[23m ([3mnode:internal/modules/esm/loader:310:38[23m)[22m
+[2m ⁃ at [3mModuleJob._link[23m ([3mnode:internal/modules/esm/module_job:182:49[23m)[22m
+[2m ⁃ at [3mprocess.processTicksAndRejections[23m ([3mnode:internal/process/task_queues:103:5[23m)[22m
+
+[31m[CAUSE][39m
+TypeError {
+  stack: 'Package import specifier "#internal/nuxt/paths" is not defined in package E:\\voyah-nuxt\\package.json imported from E:\\voyah-nuxt\\.nuxt\\dist\\server\\server.mjs\n' +
+  '    at importNotDefined (node:internal/modules/esm/resolve:301:10)\n' +
+  '    at packageImportsResolve (node:internal/modules/esm/resolve:751:9)\n' +
+  '    at moduleResolve (node:internal/modules/esm/resolve:844:16)\n' +
+  '    at defaultResolve (node:internal/modules/esm/resolve:985:11)\n' +
+  '    at #cachedDefaultResolve (node:internal/modules/esm/loader:731:20)\n' +
+  '    at ModuleLoader.resolve (node:internal/modules/esm/loader:708:38)\n' +
+  '    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:310:38)\n' +
+  '    at ModuleJob._link (node:internal/modules/esm/module_job:182:49)\n' +
+  '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)',
+  code: 'ERR_PACKAGE_IMPORT_NOT_DEFINED',
+  message: 'Package import specifier "#internal/nuxt/paths" is not defined in 
+  package E:\\voyah-nuxt\\package.json imported from 
+  E:\\voyah-nuxt\\.nuxt\\dist\\server\\server.mjs',
+}
+[36mi[39m .nuxt/dist directory has been removed. Restarting Nuxt...
+[32m√[39m Vite client built in 487ms
+[32m√[39m Vite server built in 3781ms
+[90m[[90mnuxt[90m][39m [36mi[39m Compiled [36mrouter.options.mjs[39m in 791.44ms
+[90m[[90mnuxt[90m][39m [36mi[39m Compiled [36mplugins.server.mjs[39m in 2154.44ms
+[90m[[90mnuxt[90m][39m [36mi[39m Compiled [36mplugins.client.mjs[39m in 2170.96ms
+[90m[[90mnuxt[90m][39m [36mi[39m Compiled [36mtypes/plugins.d.ts[39m in 2184.92ms
