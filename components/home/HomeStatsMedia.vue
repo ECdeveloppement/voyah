@@ -55,15 +55,15 @@ const videoLabel = computed(() => {
 
 <style scoped>
 .energy-section {
-  padding: 96px 0;
+  padding: clamp(72px, 7.3vw, 104px) 0;
   background: #fff;
   color: #101720;
 }
 
 .energy-title {
   margin: 0;
-  max-width: 760px;
-  font-size: clamp(2.35rem, 4.6vw, 4.5rem);
+  max-width: 880px;
+  font-size: clamp(2.2rem, 4.5vw, 4.6rem);
   line-height: 0.98;
   letter-spacing: -0.03em;
   text-align: center;
@@ -71,16 +71,16 @@ const videoLabel = computed(() => {
 }
 
 .energy-copy {
-  margin: 18px 0 0;
-  max-width: 760px;
+  margin: 14px 0 0;
+  max-width: 780px;
   color: #5d6976;
-  line-height: 1.82;
+  line-height: 1.72;
   text-align: center;
   margin-inline: auto;
 }
 
 .energy-video-cta {
-  margin-top: 20px;
+  margin-top: 18px;
   display: flex;
   justify-content: center;
 }
@@ -105,7 +105,7 @@ const videoLabel = computed(() => {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0;
-  margin-top: 36px;
+  margin-top: 32px;
   border-top: 1px solid rgba(16, 23, 32, 0.08);
   border-bottom: 1px solid rgba(16, 23, 32, 0.08);
 }
@@ -134,14 +134,14 @@ const videoLabel = computed(() => {
 .energy-stage {
   position: relative;
   overflow: hidden;
-  margin-top: 34px;
-  min-height: 600px;
+  margin-top: 28px;
+  min-height: 560px;
   background: #edf2f5;
 }
 
 .energy-image {
   width: 100%;
-  min-height: 600px;
+  min-height: 560px;
   object-fit: cover;
 }
 

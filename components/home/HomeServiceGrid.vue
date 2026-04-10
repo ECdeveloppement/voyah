@@ -9,7 +9,6 @@
           <img :src="card.image" :alt="textFor(card.title)" />
           <div class="service-card-body">
             <h3 class="service-card-title">{{ textFor(card.title) }}</h3>
-            <p v-if="textFor(card.body).trim()" class="service-card-copy">{{ textFor(card.body) }}</p>
           </div>
         </article>
       </div>
@@ -27,7 +26,7 @@ defineProps<{
 }>()
 
 const { textFor } = useSiteContent()
-const sectionRef = useSectionReveal()
+const sectionRef = useSectionReveal({ stagger: 0.08, y: 28, duration: 0.9 })
 </script>
 
 <style scoped>
@@ -46,22 +45,25 @@ const sectionRef = useSectionReveal()
 .service-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-  margin-top: 30px;
+  gap: 12px;
+  margin-top: 24px;
 }
 
 .service-card {
   overflow: hidden;
   position: relative;
-  min-height: 360px;
+  min-height: 320px;
   border-radius: 0;
   background: #eef2f4;
   border: 0;
-  transition: transform 0.26s ease;
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .service-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 34px rgba(10, 14, 20, 0.16);
 }
 
 .service-card img {
@@ -70,31 +72,26 @@ const sectionRef = useSectionReveal()
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .service-card:hover img {
-  transform: scale(1.03);
+  transform: scale(1.014);
 }
 
 .service-card-body {
   position: absolute;
   inset: auto 0 0;
   z-index: 1;
-  padding: 74px 24px 24px;
-  background: linear-gradient(180deg, rgba(10, 14, 20, 0), rgba(10, 14, 20, 0.84));
+  padding: 82px 24px 22px;
+  background: linear-gradient(180deg, rgba(10, 14, 20, 0), rgba(10, 14, 20, 0.88));
 }
 
 .service-card-title {
   margin: 0;
   color: #fff;
-  font-size: 1.12rem;
-}
-
-.service-card-copy {
-  margin: 10px 0 0;
-  color: rgba(255, 255, 255, 0.74);
-  line-height: 1.7;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 @media (max-width: 900px) {

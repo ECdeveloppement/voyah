@@ -27,7 +27,7 @@ defineProps<{
 }>()
 
 const { buildPath, textFor } = useSiteContent()
-const sectionRef = useSectionReveal()
+const sectionRef = useSectionReveal({ y: 30, duration: 0.92 })
 </script>
 
 <style scoped>
@@ -38,7 +38,7 @@ const sectionRef = useSectionReveal()
 .brand-stage {
   position: relative;
   overflow: hidden;
-  min-height: 760px;
+  min-height: 740px;
 }
 
 .brand-stage-image {
@@ -47,6 +47,11 @@ const sectionRef = useSectionReveal()
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.brand-stage:hover .brand-stage-image {
+  transform: scale(1.02);
 }
 
 .brand-stage-overlay {
@@ -60,33 +65,33 @@ const sectionRef = useSectionReveal()
 .brand-stage-copy {
   position: relative;
   z-index: 1;
-  min-height: 760px;
+  min-height: 740px;
   display: grid;
-  align-content: center;
+  align-content: end;
   justify-items: center;
   text-align: center;
-  padding: 120px 24px 84px;
+  padding: 132px 24px 88px;
   color: #fff;
 }
 
 .brand-title {
   margin: 0;
   max-width: 980px;
-  font-size: clamp(2.9rem, 5.5vw, 5.4rem);
+  font-size: clamp(2.8rem, 5.3vw, 5.1rem);
   line-height: 0.98;
   letter-spacing: -0.04em;
 }
 
 .brand-copy {
-  margin: 18px 0 0;
-  max-width: 720px;
+  margin: 12px 0 0;
+  max-width: 700px;
   color: rgba(255, 255, 255, 0.78);
-  line-height: 1.8;
-  font-size: 1.02rem;
+  line-height: 1.72;
+  font-size: 1rem;
 }
 
 .brand-button {
-  margin-top: 28px;
+  margin-top: 22px;
 }
 
 .brand-button :deep(.base-button.secondary) {

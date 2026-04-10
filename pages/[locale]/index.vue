@@ -18,8 +18,8 @@ import { useSiteContent } from '~/composables/useSiteContent'
 
 const { textFor } = useSiteContent()
 
-useSeoMeta(() => ({
-  title: `Voyah | ${textFor(homePage.modelsTitle)}`,
-  description: textFor(homePage.brandIntro.body)
-}))
+useSeoMeta({
+  title: () => `Voyah | ${textFor(homePage.modelsTitle)}`,
+  description: () => textFor(homePage.brandIntro.body)
+})
 </script>

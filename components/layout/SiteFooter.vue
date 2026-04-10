@@ -61,7 +61,7 @@ import { useSiteContent } from '~/composables/useSiteContent'
 const { footerColumns, footerContact, footerLegalLinks, buildPath, locale, textFor } = useSiteContent()
 
 const appEyebrow = computed(() => {
-  if (locale.value.code === 'fr') return 'Télécharger l’app Voyah'
+  if (locale.value.code === 'fr') return 'Télécharger l application Voyah'
   if (locale.value.code === 'ar') return 'حمّل تطبيق Voyah'
   return 'Download the Voyah App'
 })
@@ -194,7 +194,7 @@ const recordLabel = computed(() => {
 
 .footer-columns {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 22px;
 }
 

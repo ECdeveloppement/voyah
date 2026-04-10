@@ -1,0 +1,8 @@
+const ModelChapterNav_vue_vue_type_style_index_0_scoped_7e06422c_lang = ".model-chapter-nav[data-v-7e06422c]{-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);background:#ffffffe6;border-bottom:1px solid rgba(14,18,24,.08);position:sticky;top:68px;z-index:20}.model-chapter-nav-inner[data-v-7e06422c]{align-items:end;display:flex;gap:28px;min-height:58px;overflow-x:auto;padding:0}.model-chapter-nav-inner[data-v-7e06422c]::-webkit-scrollbar{display:none}.model-chapter-link[data-v-7e06422c]{border:0;border-bottom:2px solid transparent;border-radius:0;color:#34404d;flex:0 0 auto;font-size:.84rem;padding:18px 0 14px;transition:border-color .32s cubic-bezier(.22,1,.36,1),color .32s cubic-bezier(.22,1,.36,1),transform .32s cubic-bezier(.22,1,.36,1);white-space:nowrap}.model-chapter-link[data-v-7e06422c]:hover{color:#101720;transform:translateY(-1px)}.model-chapter-link[data-v-7e06422c]:focus-visible{outline:2px solid rgba(179,29,34,.42);outline-offset:3px}.model-chapter-link.active[data-v-7e06422c]{border-bottom-color:#b31d22;color:#101720}@media(max-width:768px){.model-chapter-nav[data-v-7e06422c]{top:72px}}";
+
+const ModelChapterNavStyles_NaEXakM9 = [
+  ModelChapterNav_vue_vue_type_style_index_0_scoped_7e06422c_lang
+];
+
+export { ModelChapterNavStyles_NaEXakM9 as default };
+//# sourceMappingURL=ModelChapterNav-styles.NaEXakM9.mjs.map

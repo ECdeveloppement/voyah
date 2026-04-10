@@ -1,0 +1,63 @@
+{
+  "measuredAt": "2026-04-10T10:21:44.125Z",
+  "routesMeasured": 14,
+  "overallScore": 0.3182734237213404,
+  "perRoute": [
+    {
+      "slug": "passion-L.html",
+      "score": 0.569048611111111
+    },
+    {
+      "slug": "passion.html",
+      "score": 0.17784722222222227
+    },
+    {
+      "slug": "titan.html",
+      "score": 0.16258179012345675
+    },
+    {
+      "slug": "titan_blackedition.html",
+      "score": 0.19255632716049387
+    },
+    {
+      "slug": "titan_X8.html",
+      "score": 0.08569675925925924
+    },
+    {
+      "slug": "free+.html",
+      "score": 0.5030316358024691
+    },
+    {
+      "slug": "newCourage.html",
+      "score": 0.5077746913580247
+    },
+    {
+      "slug": "free.html",
+      "score": 0.10206944444444443
+    },
+    {
+      "slug": "courage.html",
+      "score": 0.5052268518518519
+    },
+    {
+      "slug": "newDreamer26.html",
+      "score": 0.3034930555555555
+    },
+    {
+      "slug": "dreamer-champion.html",
+      "score": 0.043166666666666687
+    },
+    {
+      "slug": "newDreamer.html",
+      "score": 0.9308503086419753
+    },
+    {
+      "slug": "dreamriver.html",
+      "score": 0.23199228395061733
+    },
+    {
+      "slug": "dreamer.html",
+      "score": 0.1404922839506173
+    }
+  ]
+}

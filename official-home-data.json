@@ -1,0 +1,193 @@
+{
+  "slides": [
+    {
+      "logo": "https://www.voyah.com.cn/website/advertisingbanner/image/c3a9ed8d-150d-4c86-a584-119c0c7bd3e91770618125835.png",
+      "tips": "新时代旗舰大六座SUV",
+      "buttons": [
+        "了解详情",
+        "立即订购"
+      ],
+      "image": "https://www.voyah.com.cn/website/advertisingbanner/image/5b2f214c-174b-49fb-b085-ede76cad277f1770618069208.png",
+      "video": "https://www.voyah.com.cn/website/advertisingbanner/video/f0c4f930-2c5e-4b18-8212-e73cb76c18b11770618136349.mp4"
+    },
+    {
+      "logo": "https://www.voyah.com.cn/website/advertisingbanner/image/5be64d32-9133-4283-8994-3350cca635d81770618274334.png",
+      "tips": "新时代旗舰MPV",
+      "buttons": [
+        "了解详情",
+        "立即订购"
+      ],
+      "image": "https://www.voyah.com.cn/website/advertisingbanner/image/23ab9c33-78a4-4bff-bb69-83fe117820a31770618259885.png",
+      "video": "https://www.voyah.com.cn/website/advertisingbanner/video/785c4160-8515-46a2-8bc9-a4f7b1907c0c1770618243037.mp4"
+    },
+    {
+      "logo": "https://www.voyah.com.cn/website/advertisingbanner/image/9c751c14-cd46-439c-b9de-5a7d595655991770618438688.png",
+      "tips": "新时代旗舰轿车",
+      "buttons": [
+        "了解详情",
+        "立即订购"
+      ],
+      "image": "https://www.voyah.com.cn/website/advertisingbanner/image/2ba443dd-2869-4f27-89ca-d3fc8da9908d1770618446896.png",
+      "video": "https://www.voyah.com.cn/website/advertisingbanner/video/1779ce91-787b-4a77-9fec-1deb13fedeb31770618459950.mp4"
+    },
+    {
+      "logo": "https://www.voyah.com.cn/website/advertisingbanner/image/05088b2b-9041-4d17-8730-ab52def1319e1770618558478.png",
+      "tips": "搭载华为乾崑智驾及鸿蒙座舱SUV",
+      "buttons": [
+        "了解详情",
+        "立即订购"
+      ],
+      "image": "https://www.voyah.com.cn/website/advertisingbanner/image/1ea30c18-f0ea-4b91-9c51-dddc46c589981770618535951.png",
+      "video": "https://www.voyah.com.cn/website/advertisingbanner/video/e33e96dc-3430-4882-946d-62abdf88dc0d1770618522586.mp4"
+    },
+    {
+      "logo": "https://www.voyah.com.cn/website/advertisingbanner/image/ef3b7afe-0f2b-4f6f-b575-4679c59d8c3a1770618630272.png",
+      "tips": "搭载华为乾崑智驾及鸿蒙座舱纯电SUV",
+      "buttons": [
+        "了解详情",
+        "立即订购"
+      ],
+      "image": "https://www.voyah.com.cn/website/advertisingbanner/image/09cb36df-deb5-48b2-9b7a-adee59f6b0c81770618611011.png",
+      "video": "https://www.voyah.com.cn/website/advertisingbanner/video/7d8f79a2-9614-47e0-b336-5f660d63ad171770618641574.mp4"
+    }
+  ],
+  "sections": [
+    {
+      "className": "section_1 animate",
+      "title": "你好世界,我是岚图!",
+      "desc": "源自东风汽车的高端智慧新能源品牌",
+      "buttons": [
+        "了解品牌"
+      ],
+      "texts": []
+    },
+    {
+      "className": "section_2",
+      "title": "探索岚图车型",
+      "desc": "",
+      "buttons": [
+        "了解更多",
+        "预约试驾"
+      ],
+      "texts": [
+        "岚图泰山",
+        "26款岚图梦想家",
+        "岚图追光L",
+        "岚图FREE+",
+        "全新岚图知音",
+        "车长",
+        "车宽",
+        "车高"
+      ]
+    },
+    {
+      "className": "section_3",
+      "title": "岚图能源",
+      "desc": "让用户享受多、快、智、节的最佳补能体验",
+      "buttons": [
+        "观看完整视频",
+        "观看完整视频"
+      ],
+      "texts": [
+        "整合充电资源",
+        "超充资源",
+        "累计为用户充电",
+        "累计减少碳排放"
+      ]
+    },
+    {
+      "className": "section_3 section_4",
+      "title": "探索岚图科技",
+      "desc": "岚图不仅是央企在电动赛道的先行者,也是中国成熟车企转型升级的新标杆,更是东风汽车集团"新五化——轻量化、电动化、智能化、网联化、共享化"的成功实践。",
+      "buttons": [
+        "观看完整视频",
+        "观看完整视频"
+      ],
+      "texts": [
+        "天生智能",
+        "极致安全",
+        "随心操控",
+        "全方位舒适",
+        "高效中枢",
+        "敏捷系统",
+        "智慧互联",
+        "开放共创",
+        "ESSA原生智能电动架构",
+        "天生智能|极致安全|随心操控|全方位舒适",
+        "天元架构",
+        "高效中枢|敏捷系统|智慧互联|开放共创"
+      ]
+    },
+    {
+      "className": "section_3 section_5",
+      "title": "岚图服务",
+      "desc": "一颗真心以真心对待每一处细节,一份诚意以诚意兑现每一个承诺",
+      "buttons": [],
+      "texts": [
+        "真诚的接待",
+        "仪式感的交付",
+        "7*24h全天候守护",
+        "专业的团队"
+      ]
+    },
+    {
+      "className": "section_3 section_6",
+      "title": "社区资讯",
+      "desc": "车友新鲜事 · 畅聊用车生活",
+      "buttons": [],
+      "texts": [
+        "车主故事 | 会长李鹏与6000车友的"码头江湖"",
+        "五购岚图 情义相随",
+        "车主故事 | 当设计美学遇上匠心之作",
+        "刘凌峰与三台岚图FREE的深度共鸣",
+        "车主故事 | 珠宝主播的逐梦之旅",
+        "以岚图FREE 318为伴,奔赴人生旅途",
+        "车主故事 | 珠宝主播的逐梦之旅",
+        "以岚图FREE 318为伴,奔赴人生旅途",
+        "车主故事 | 会长李鹏与6000车友的"码头江湖"",
+        "五购岚图 情义相随",
+        "车主故事 | 当设计美学遇上匠心之作",
+        "刘凌峰与三台岚图FREE的深度共鸣",
+        "车主故事 | 珠宝主播的逐梦之旅",
+        "以岚图FREE 318为伴,奔赴人生旅途",
+        "车主故事 | 会长李鹏与6000车友的"码头江湖"",
+        "五购岚图 情义相随"
+      ]
+    },
+    {
+      "className": "section_7",
+      "title": "中国领先,全球布局",
+      "desc": "最快实现从本土走向海外的中国高端智慧新能源汽车品牌",
+      "buttons": [
+        "海外官网"
+      ],
+      "texts": []
+    }
+  ],
+  "header": {
+    "nav": [
+      "岚图品牌",
+      "车型",
+      "门店中心",
+      "岚图服务",
+      "关于岚图"
+    ],
+    "actions": [
+      "登录",
+      "查看全部配置",
+      "预约试驾",
+      "立即订购"
+    ]
+  },
+  "styles": {
+    "headerHeight": "56px",
+    "headerBackdrop": "none",
+    "headerBg": "rgba(0, 0, 0, 0)",
+    "ctaPadding": "7px 16px",
+    "ctaRadius": "6px",
+    "ctaBg": "rgba(0, 0, 0, 0)",
+    "navFontSize": "14px",
+    "navColor": "rgb(255, 255, 255)",
+    "navLineHeight": "56px"
+  }
+}

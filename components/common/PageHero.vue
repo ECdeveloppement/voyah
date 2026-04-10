@@ -1,7 +1,19 @@
 <template>
   <section :class="['page-hero', `page-hero--${align}`, { 'page-hero--compact': compact }]">
     <div class="page-hero-media">
-      <img :src="image" :alt="title" />
+      <video
+        v-if="video"
+        :poster="image"
+        :aria-label="title"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+      >
+        <source :src="video" type="video/mp4" />
+      </video>
+      <img v-else :src="image" :alt="title" />
     </div>
     <div class="page-hero-overlay" />
     <div class="page-hero-gradient" />
@@ -36,6 +48,7 @@ withDefaults(
     title: string
     summary: string
     image: string
+    video?: string
     logo?: string
     align?: 'start' | 'center'
     compact?: boolean

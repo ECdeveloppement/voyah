@@ -1,21 +1,117 @@
 <template>
-  <section :id="section.id" :class="['model-media-section', { reverse: index % 2 === 1 }]">
-    <div class="container model-media-grid">
-      <div class="model-media-copy" data-reveal>
-        <p class="model-media-kicker">{{ section.kicker }}</p>
+  <section
+    :id="section.id"
+    :class="[
+      'model-media-section',
+      `model-media-section--${section.kind}`,
+      `model-media-section--${modelSlug.replace('.html', '')}`,
+      { reverse: index % 2 === 1 }
+    ]"
+  >
+    <div v-if="section.kind === 'banner'" class="model-banner" :style="bannerStyle">
+      <div class="model-banner-overlay" />
+      <div class="container model-banner-inner" data-reveal>
+        <h2 class="model-banner-title">{{ section.title }}</h2>
+        <p v-if="section.summary" class="model-banner-subtitle">{{ section.summary }}</p>
+      </div>
+    </div>
+
+    <div v-else class="container model-media-content">
+      <div class="model-media-head" data-reveal>
+        <p v-if="section.kicker" class="model-media-kicker">{{ section.kicker }}</p>
         <h2 class="model-media-title">{{ section.title }}</h2>
-        <p class="model-media-summary">{{ section.summary }}</p>
+        <p v-if="section.summary" class="model-media-summary">{{ section.summary }}</p>
       </div>
 
-      <div class="model-media-stack" data-reveal>
-        <figure class="model-media-primary">
-          <img :src="section.images[0]" :alt="section.title" />
-        </figure>
+      <div v-if="section.kind === 'carousel'" class="model-carousel-wrap" data-reveal>
+        <div class="model-carousel-stage">
+          <article v-if="activeCarouselSlide" class="model-carousel-card active model-carousel-card--featured">
+            <div class="model-carousel-media">
+              <video
+                v-if="activeCarouselSlide.video"
+                :poster="activeCarouselSlide.image"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+              >
+                <source :src="activeCarouselSlide.video" type="video/mp4" />
+              </video>
+              <img v-else :src="activeCarouselSlide.image" :alt="activeCarouselSlide.title" draggable="false" />
+            </div>
+            <div class="model-carousel-copy">
+              <p class="model-carousel-copy-title">{{ activeCarouselSlide.title }}</p>
+              <p class="model-carousel-copy-text">{{ activeCarouselSlide.summary }}</p>
+            </div>
+          </article>
 
-        <div v-if="section.images.length > 1" class="model-media-secondary">
-          <figure v-for="image in section.images.slice(1)" :key="image">
-            <img :src="image" :alt="section.title" />
-          </figure>
+          <div class="model-carousel-rail">
+            <button
+              v-for="(slide, slideIndex) in carouselSlides"
+              :key="`${section.id}-${slideIndex}-${slide.title}`"
+              type="button"
+              :class="['model-carousel-card', 'model-carousel-card--rail', { active: activeSlide === slideIndex }]"
+              @click="setSlide(slideIndex)"
+            >
+              <div class="model-carousel-rail-media">
+                <img :src="slide.image" :alt="slide.title" draggable="false" />
+              </div>
+              <div class="model-carousel-rail-copy">
+                <p class="model-carousel-rail-title">{{ slide.title }}</p>
+                <p class="model-carousel-rail-text">{{ slide.summary }}</p>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div class="model-carousel-pagination" aria-hidden="true">
+          <button
+            v-for="(slide, slideIndex) in carouselSlides"
+            :key="`${section.id}-bullet-${slideIndex}`"
+            type="button"
+            :class="['model-carousel-bullet', { active: activeSlide === slideIndex }]"
+            @click="setSlide(slideIndex)"
+          />
+        </div>
+
+        <div class="model-carousel-drawer">
+          <div class="model-carousel-list">
+            <button
+              v-for="(slide, slideIndex) in carouselSlides"
+              :key="`${section.id}-drawer-${slideIndex}`"
+              type="button"
+              :class="['model-carousel-item', { active: activeSlide === slideIndex }]"
+              @click="setSlide(slideIndex)"
+            >
+              <p class="model-carousel-item-title">{{ slide.title }}</p>
+            </button>
+          </div>
+          <p class="model-carousel-drawer-text">{{ carouselSlides[activeSlide]?.summary }}</p>
+        </div>
+      </div>
+
+      <div v-else class="model-image-block" data-reveal>
+        <div class="model-image-frame">
+          <video
+            v-if="section.videos?.length"
+            :poster="section.image ?? section.images[0] ?? ''"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+          >
+            <source :src="section.videos[0]" type="video/mp4" />
+          </video>
+          <img v-else :src="section.image ?? section.images[0] ?? ''" :alt="section.title" draggable="false" />
+        </div>
+
+        <div class="model-detail-grid">
+          <article v-for="(detail, detailIndex) in details" :key="`${section.id}-detail-${detailIndex}`" class="model-detail-card">
+            <p class="model-detail-title">{{ detail.title }}</p>
+            <p class="model-detail-summary">{{ detail.summary }}</p>
+          </article>
         </div>
       </div>
     </div>
@@ -23,133 +119,471 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
+type SectionKind = 'image' | 'carousel' | 'banner'
+
+type LocalizedText = { en: string; fr: string; ar: string }
+
+type StoryDetail = {
+  title: string
+  summary: string
+}
+
+type CarouselSlide = {
+  image: string
+  title: string
+  summary: string
+  video?: string
+}
+
+const props = defineProps<{
   index: number
+  modelSlug: string
   section: {
     id: string
-    kicker: string
+    kind: SectionKind
+    kicker?: string
     title: string
-    summary: string
+    summary?: string
+    image?: string
     images: string[]
+    videos?: string[]
+    details?: StoryDetail[]
+    slides?: CarouselSlide[]
   }
 }>()
+
+const activeSlide = ref(0)
+let timer: ReturnType<typeof setInterval> | null = null
+const hasMounted = ref(false)
+
+const carouselSlides = computed<CarouselSlide[]>(() => {
+  if (props.section.slides?.length) {
+    return props.section.slides
+  }
+
+  const images = props.section.images.length ? props.section.images : [props.section.image ?? '']
+  const baseTitle = props.section.title
+  const baseSummary = props.section.summary ?? ''
+
+  return images.map((image, slideIndex) => ({
+    image,
+    video: slideIndex === 0 ? props.section.videos?.[0] : undefined,
+    title: props.section.details?.[slideIndex]?.title ?? baseTitle,
+    summary: props.section.details?.[slideIndex]?.summary ?? baseSummary
+  }))
+})
+
+const details = computed<StoryDetail[]>(() => {
+  if (props.section.details?.length) {
+    return props.section.details
+  }
+
+  return carouselSlides.value.slice(0, 3).map((slide) => ({
+    title: slide.title,
+    summary: slide.summary
+  }))
+})
+
+const activeCarouselSlide = computed(() => carouselSlides.value[activeSlide.value] ?? carouselSlides.value[0])
+
+const bannerStyle = computed(() => ({
+  backgroundImage: `linear-gradient(180deg, rgba(8, 12, 16, 0.12), rgba(8, 12, 16, 0.72)), url(${props.section.image ?? props.section.images[0] ?? ''})`
+}))
+
+const setSlide = (index: number) => {
+  if (!carouselSlides.value.length) return
+  activeSlide.value = index % carouselSlides.value.length
+}
+
+const syncCarouselTimer = () => {
+  activeSlide.value = 0
+
+  if (timer) {
+    clearInterval(timer)
+    timer = null
+  }
+
+  if (!hasMounted.value || carouselSlides.value.length <= 1) {
+    return
+  }
+
+  timer = setInterval(() => {
+    activeSlide.value = (activeSlide.value + 1) % carouselSlides.value.length
+  }, 3200)
+}
+
+onMounted(() => {
+  hasMounted.value = true
+  syncCarouselTimer()
+})
+
+watch(
+  () => carouselSlides.value.length,
+  () => {
+    syncCarouselTimer()
+  }
+)
+
+onBeforeUnmount(() => {
+  if (timer) {
+    clearInterval(timer)
+  }
+})
 </script>
 
 <style scoped>
 .model-media-section {
-  padding: 94px 0;
+  padding: 96px 0 84px;
   background: #fff;
 }
 
-.model-media-section:nth-child(even) {
-  background: #f7f3ee;
-}
-
-.model-media-grid {
+.model-media-content {
   display: grid;
-  grid-template-columns: minmax(300px, 0.78fr) minmax(0, 1.22fr);
-  gap: 42px;
-  align-items: center;
+  gap: 28px;
 }
 
-.model-media-section.reverse .model-media-copy {
-  order: 2;
-}
-
-.model-media-section.reverse .model-media-stack {
-  order: 1;
+.model-media-head {
+  display: grid;
+  gap: 12px;
+  max-width: 960px;
 }
 
 .model-media-kicker {
-  margin: 0 0 12px;
+  margin: 0;
   color: #8d6b43;
+  font-size: 0.82rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  font-size: 0.82rem;
 }
 
 .model-media-title {
   margin: 0;
-  color: #0e141b;
-  font-size: clamp(2.1rem, 3.1vw, 3.8rem);
+  color: #101720;
+  font-size: clamp(2rem, 3.7vw, 4rem);
   line-height: 0.98;
 }
 
 .model-media-summary {
-  margin: 20px 0 0;
-  color: #53606d;
-  font-size: 1rem;
-  line-height: 1.82;
-  max-width: 520px;
-}
-
-.model-media-stack {
-  display: grid;
-  gap: 12px;
-}
-
-.model-media-primary,
-.model-media-secondary figure {
   margin: 0;
-  overflow: hidden;
-  border-radius: 0;
-  box-shadow: none;
-  background: #eef1f3;
+  max-width: 760px;
+  color: #55626f;
+  line-height: 1.85;
 }
 
-.model-media-primary img,
-.model-media-secondary img {
+.model-image-block {
+  display: grid;
+  gap: 18px;
+}
+
+.model-image-frame {
+  overflow: hidden;
+  border: 1px solid rgba(16, 23, 32, 0.08);
+  background: #eff2f4;
+}
+
+.model-image-frame img,
+.model-image-frame video {
   width: 100%;
   height: 100%;
+  display: block;
   object-fit: cover;
-  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.model-media-primary:hover img,
-.model-media-secondary figure:hover img {
-  transform: scale(1.03);
-}
-
-.model-media-primary {
-  min-height: 560px;
-}
-
-.model-media-secondary {
+.model-detail-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
 }
 
-.model-media-secondary figure {
-  min-height: 180px;
+.model-detail-card {
+  min-height: 158px;
+  padding: 24px 22px;
+  border-top: 1px solid rgba(16, 23, 32, 0.08);
+  background: linear-gradient(180deg, rgba(247, 244, 239, 0.4), rgba(255, 255, 255, 0.96));
 }
 
-@media (max-width: 1024px) {
-  .model-media-grid {
+.model-detail-title {
+  margin: 0;
+  color: #101720;
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.model-detail-summary {
+  margin: 12px 0 0;
+  color: #55626f;
+  line-height: 1.72;
+}
+
+.model-carousel-wrap {
+  display: grid;
+  gap: 18px;
+}
+
+.model-carousel-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1.58fr) minmax(280px, 0.72fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.model-carousel-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(16, 23, 32, 0.08);
+  background: #0f151c;
+  opacity: 0.42;
+  transform: scale(0.985);
+  transition:
+    opacity 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.model-carousel-card.active {
+  opacity: 1;
+  transform: scale(1);
+  box-shadow: 0 18px 44px -28px rgba(16, 23, 32, 0.45);
+}
+
+.model-carousel-card--featured {
+  min-height: 100%;
+}
+
+.model-carousel-rail {
+  display: grid;
+  gap: 12px;
+  align-content: stretch;
+}
+
+.model-carousel-card--rail {
+  display: grid;
+  grid-template-columns: 104px minmax(0, 1fr);
+  align-items: stretch;
+  padding: 0;
+  text-align: left;
+}
+
+.model-carousel-rail-media {
+  overflow: hidden;
+  min-height: 100%;
+}
+
+.model-carousel-rail-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.model-carousel-rail-copy {
+  display: grid;
+  align-content: center;
+  gap: 8px;
+  padding: 14px 14px 14px 16px;
+  background: linear-gradient(180deg, rgba(8, 12, 16, 0.74), rgba(8, 12, 16, 0.92));
+}
+
+.model-carousel-rail-title {
+  margin: 0;
+  color: #fff;
+  font-size: 0.94rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.model-carousel-rail-text {
+  margin: 0;
+  color: rgba(246, 248, 250, 0.76);
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.model-carousel-media {
+  aspect-ratio: 1.52 / 1;
+  overflow: hidden;
+}
+
+.model-carousel-media img,
+.model-carousel-media video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.model-carousel-card:hover .model-carousel-media img,
+.model-carousel-card:hover .model-carousel-media video {
+  transform: scale(1.04);
+}
+
+.model-carousel-copy {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20px 18px 18px;
+  background: linear-gradient(180deg, rgba(8, 12, 16, 0.08), rgba(8, 12, 16, 0.82));
+}
+
+.model-carousel-copy-title {
+  margin: 0;
+  color: #fff;
+  font-size: 1.04rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.model-carousel-copy-text {
+  margin: 10px 0 0;
+  color: rgba(246, 248, 250, 0.82);
+  line-height: 1.65;
+}
+
+.model-carousel-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.model-carousel-bullet {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(16, 23, 32, 0.16);
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.model-carousel-bullet.active {
+  transform: scale(1.18);
+  background: #b31d22;
+}
+
+.model-carousel-drawer {
+  display: grid;
+  gap: 14px;
+  padding-top: 6px;
+}
+
+.model-carousel-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.model-carousel-item {
+  padding: 11px 14px;
+  border: 1px solid rgba(16, 23, 32, 0.08);
+  background: rgba(255, 255, 255, 0.94);
+  color: #33404d;
+  text-align: left;
+  transition:
+    border-color 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.model-carousel-item.active {
+  border-color: rgba(179, 29, 34, 0.28);
+  color: #101720;
+  background: rgba(179, 29, 34, 0.04);
+  transform: translateY(-1px);
+}
+
+.model-carousel-item-title {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.35;
+}
+
+.model-carousel-drawer-text {
+  margin: 0;
+  color: #55626f;
+  line-height: 1.8;
+}
+
+.model-banner {
+  position: relative;
+  min-height: 440px;
+  background: center / cover no-repeat;
+}
+
+.model-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(5, 8, 12, 0.06), rgba(5, 8, 12, 0.72)),
+    linear-gradient(90deg, rgba(5, 8, 12, 0.68), rgba(5, 8, 12, 0.18) 50%, rgba(5, 8, 12, 0.56));
+}
+
+.model-banner-inner {
+  position: relative;
+  z-index: 1;
+  min-height: 440px;
+  display: grid;
+  align-content: end;
+  gap: 12px;
+  padding-top: 84px;
+  padding-bottom: 58px;
+}
+
+.model-banner-title {
+  margin: 0;
+  max-width: 900px;
+  color: #fff;
+  font-size: clamp(2.1rem, 4.6vw, 4.7rem);
+  line-height: 0.98;
+}
+
+.model-banner-subtitle {
+  margin: 0;
+  max-width: 760px;
+  color: rgba(242, 246, 249, 0.84);
+  line-height: 1.75;
+}
+
+@media (max-width: 1100px) {
+  .model-detail-grid,
+  .model-carousel-stage {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .model-media-section.reverse .model-media-copy,
-  .model-media-section.reverse .model-media-stack {
-    order: initial;
+  .model-carousel-rail {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .model-carousel-card {
+    opacity: 1;
+    transform: none;
   }
 }
 
 @media (max-width: 768px) {
   .model-media-section {
-    padding: 58px 0;
+    padding: 64px 0 58px;
   }
 
-  .model-media-primary {
-    min-height: 300px;
+  .model-banner,
+  .model-banner-inner {
+    min-height: 320px;
   }
 
-  .model-media-secondary {
+  .model-detail-card {
+    min-height: 0;
+    padding: 20px 18px;
+  }
+
+  .model-carousel-card--rail {
+    grid-template-columns: 88px minmax(0, 1fr);
+  }
+
+  .model-carousel-rail {
     grid-template-columns: minmax(0, 1fr);
-  }
-
-  .model-media-secondary figure {
-    min-height: 220px;
   }
 }
 </style>

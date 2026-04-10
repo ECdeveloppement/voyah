@@ -2,6 +2,7 @@ import gsap from 'gsap'
 
 type RevealOptions = {
   y?: number
+  scale?: number
   duration?: number
   stagger?: number
   threshold?: number
@@ -39,13 +40,14 @@ export const useSectionReveal = (options: RevealOptions = {}) => {
 
         gsap.fromTo(
           pending,
-          { autoAlpha: 0.01, y: options.y ?? 36 },
+          { autoAlpha: 0.01, y: options.y ?? 24, scale: options.scale ?? 0.985 },
           {
             autoAlpha: 1,
             y: 0,
-            duration: options.duration ?? 0.9,
+            scale: 1,
+            duration: options.duration ?? 0.86,
             ease: 'power3.out',
-            stagger: options.stagger ?? 0.12,
+            stagger: options.stagger ?? 0.11,
             onComplete: () => {
               pending.forEach((node) => animated.add(node))
               observer?.disconnect()
@@ -53,7 +55,7 @@ export const useSectionReveal = (options: RevealOptions = {}) => {
           }
         )
       },
-      { threshold: options.threshold ?? 0.08, rootMargin: '0px 0px -12% 0px' }
+      { threshold: options.threshold ?? 0.12, rootMargin: '0px 0px -8% 0px' }
     )
 
     observer.observe(element)

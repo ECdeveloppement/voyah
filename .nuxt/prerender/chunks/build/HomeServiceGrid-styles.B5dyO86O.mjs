@@ -1,8 +1,0 @@
-const HomeServiceGrid_vue_vue_type_style_index_0_scoped_021d35f9_lang = ".service-section[data-v-021d35f9]{background:#fff}.section-title--dark[data-v-021d35f9]{color:#111}.section-copy--dark[data-v-021d35f9]{color:#111111ad}.service-grid[data-v-021d35f9]{display:grid;gap:16px;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:30px}.service-card[data-v-021d35f9]{background:#eef2f4;border:0;border-radius:0;min-height:360px;overflow:hidden;position:relative;transition:transform .26s ease}.service-card[data-v-021d35f9]:hover{transform:translateY(-3px)}.service-card img[data-v-021d35f9]{height:100%;inset:0;-o-object-fit:cover;object-fit:cover;position:absolute;transition:transform .6s cubic-bezier(.22,1,.36,1);width:100%}.service-card:hover img[data-v-021d35f9]{transform:scale(1.03)}.service-card-body[data-v-021d35f9]{background:linear-gradient(180deg,#0a0e1400,#0a0e14d6);inset:auto 0 0;padding:74px 24px 24px;position:absolute;z-index:1}.service-card-title[data-v-021d35f9]{color:#fff;font-size:1.12rem;margin:0}.service-card-copy[data-v-021d35f9]{color:#ffffffbd;line-height:1.7;margin:10px 0 0}@media(max-width:900px){.service-grid[data-v-021d35f9]{grid-template-columns:minmax(0,1fr)}}";
-
-const HomeServiceGridStyles_B5dyO86O = [
-  HomeServiceGrid_vue_vue_type_style_index_0_scoped_021d35f9_lang
-];
-
-export { HomeServiceGridStyles_B5dyO86O as default };
-//# sourceMappingURL=HomeServiceGrid-styles.B5dyO86O.mjs.map

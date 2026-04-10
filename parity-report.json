@@ -1,0 +1,54 @@
+{
+  "measuredAt": "2026-04-09T11:05:42.036Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "method": "Top-2400px pixel similarity against live desktop official pages with text made transparent + animations disabled (layout preserved).",
+  "routesMeasured": 15,
+  "overallScore": 0.1309698559670782,
+  "lowest5": [
+    {
+      "slug": "brand.html",
+      "score": 0.043631944444444404
+    },
+    {
+      "slug": "service.html",
+      "score": 0.051316358024691366
+    },
+    {
+      "slug": "corporate.html",
+      "score": 0.05280555555555555
+    },
+    {
+      "slug": "store.html",
+      "score": 0.06159027777777781
+    },
+    {
+      "slug": "joinus.html",
+      "score": 0.14910648148148153
+    }
+  ],
+  "highest5": [
+    {
+      "slug": "cookie.html",
+      "score": 0.16036265432098762
+    },
+    {
+      "slug": "ir.html",
+      "score": 0.16342592592592597
+    },
+    {
+      "slug": "book-drive.html",
+      "score": 0.16345910493827165
+    },
+    {
+      "slug": "document.html",
+      "score": 0.16359722222222217
+    },
+    {
+      "slug": "purchasing.html",
+      "score": 0.1645771604938272
+    }
+  ]
+}

@@ -31,6 +31,13 @@ interface _GlobalComponents {
   PageInfoPage: typeof import("../../components/page/InfoPage.vue")['default']
   PageLegalPage: typeof import("../../components/page/LegalPage.vue")['default']
   PageModelPage: typeof import("../../components/page/ModelPage.vue")['default']
+  PageInfoDocumentRows: typeof import("../../components/page/info/InfoDocumentRows.vue")['default']
+  PageInfoEditorialSections: typeof import("../../components/page/info/InfoEditorialSections.vue")['default']
+  PageLegacyEnergyCenterPage: typeof import("../../components/page/legacy/EnergyCenterPage.vue")['default']
+  PageLegacyBusinessPage: typeof import("../../components/page/legacy/LegacyBusinessPage.vue")['default']
+  PageLegacyDisclosurePage: typeof import("../../components/page/legacy/LegacyDisclosurePage.vue")['default']
+  PageLegacyServiceCenterPage: typeof import("../../components/page/legacy/ServiceCenterPage.vue")['default']
+  PageLegacyStoreCenterPage: typeof import("../../components/page/legacy/StoreCenterPage.vue")['default']
   PageModelChapterNav: typeof import("../../components/page/model/ModelChapterNav.vue")['default']
   PageModelMediaSection: typeof import("../../components/page/model/ModelMediaSection.vue")['default']
   NuxtWelcome: typeof import("../../node_modules/nuxt/dist/app/components/welcome.vue")['default']
@@ -75,6 +82,13 @@ interface _GlobalComponents {
   LazyPageInfoPage: LazyComponent<typeof import("../../components/page/InfoPage.vue")['default']>
   LazyPageLegalPage: LazyComponent<typeof import("../../components/page/LegalPage.vue")['default']>
   LazyPageModelPage: LazyComponent<typeof import("../../components/page/ModelPage.vue")['default']>
+  LazyPageInfoDocumentRows: LazyComponent<typeof import("../../components/page/info/InfoDocumentRows.vue")['default']>
+  LazyPageInfoEditorialSections: LazyComponent<typeof import("../../components/page/info/InfoEditorialSections.vue")['default']>
+  LazyPageLegacyEnergyCenterPage: LazyComponent<typeof import("../../components/page/legacy/EnergyCenterPage.vue")['default']>
+  LazyPageLegacyBusinessPage: LazyComponent<typeof import("../../components/page/legacy/LegacyBusinessPage.vue")['default']>
+  LazyPageLegacyDisclosurePage: LazyComponent<typeof import("../../components/page/legacy/LegacyDisclosurePage.vue")['default']>
+  LazyPageLegacyServiceCenterPage: LazyComponent<typeof import("../../components/page/legacy/ServiceCenterPage.vue")['default']>
+  LazyPageLegacyStoreCenterPage: LazyComponent<typeof import("../../components/page/legacy/StoreCenterPage.vue")['default']>
   LazyPageModelChapterNav: LazyComponent<typeof import("../../components/page/model/ModelChapterNav.vue")['default']>
   LazyPageModelMediaSection: LazyComponent<typeof import("../../components/page/model/ModelMediaSection.vue")['default']>
   LazyNuxtWelcome: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/welcome.vue")['default']>

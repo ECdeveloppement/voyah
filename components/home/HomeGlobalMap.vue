@@ -48,8 +48,8 @@ defineProps<{
 }>()
 
 const { buildPath, textFor } = useSiteContent()
-const sectionRef = useSectionReveal()
-const activeTab = ref(4)
+const sectionRef = useSectionReveal({ y: 28, duration: 0.9 })
+const activeTab = ref(0)
 </script>
 
 <style scoped>
@@ -59,13 +59,13 @@ const activeTab = ref(4)
 }
 
 .footprint-cta {
-  margin-top: 24px;
+  margin-top: 18px;
   display: flex;
   justify-content: center;
 }
 
 .footprint-stage {
-  margin-top: 30px;
+  margin-top: 24px;
 }
 
 .footprint-globe {
@@ -76,20 +76,20 @@ const activeTab = ref(4)
 
 .footprint-image {
   width: 100%;
-  min-height: 520px;
+  min-height: 500px;
   object-fit: cover;
-  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.54s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
 .footprint-globe:hover .footprint-image {
-  transform: scale(1.03);
+  transform: scale(1.015);
 }
 
 .tab-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 28px;
-  margin-top: 28px;
+  gap: 24px;
+  margin-top: 24px;
   justify-content: center;
   padding-bottom: 12px;
   border-bottom: 1px solid rgba(16, 23, 32, 0.08);
@@ -103,7 +103,13 @@ const activeTab = ref(4)
   background: transparent;
   color: rgba(16, 23, 32, 0.46);
   font-size: 0.96rem;
-  transition: color 0.22s ease;
+  transition:
+    color 0.22s ease,
+    transform 0.22s ease;
+}
+
+.tab-button:hover {
+  transform: translateY(-1px);
 }
 
 .tab-button::after {
@@ -131,7 +137,7 @@ const activeTab = ref(4)
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px 14px;
-  margin-top: 18px;
+  margin-top: 14px;
 }
 
 .country-list span {

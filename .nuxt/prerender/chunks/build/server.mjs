@@ -672,8 +672,8 @@ function getRouteRules(arg) {
 }
 const locales = [
   { code: "en", name: "English", dir: "ltr" },
-  { code: "fr", name: "FranÃ§ais", dir: "ltr" },
-  { code: "ar", name: "Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©", dir: "rtl" }
+  { code: "fr", name: "Français", dir: "ltr" },
+  { code: "ar", name: "العربية", dir: "rtl" }
 ];
 const t = (en, fr, ar) => ({ en, fr, ar });
 const metric = (value, en, fr, ar) => ({
@@ -686,10 +686,322 @@ const block = (image, enTitle, frTitle, arTitle, enBody, frBody, arBody) => ({
   body: t(enBody, frBody, arBody)
 });
 const modelFeatureTitles = [
-  t("Exterior expression", "Expression extÃ©rieure", "Ø§Ù„Ù‡ÙˆÙŠØ© Ø§Ù„Ø®Ø§Ø±Ø¬ÙŠØ©"),
-  t("Immersive cabin", "Habitacle immersif", "Ù…Ù‚ØµÙˆØ±Ø© ØºØ§Ù…Ø±Ø©"),
-  t("Intelligent travel", "Voyage intelligent", "ØªÙ†Ù‚Ù„ Ø°ÙƒÙŠ")
+  t("Exterior expression", "Expression extérieure", "الهوية الخارجية"),
+  t("Immersive cabin", "Habitacle immersif", "مقصورة غامرة"),
+  t("Intelligent travel", "Voyage intelligent", "تنقل ذكي")
 ];
+const modelFeatureOverrides = {
+  "titan.html": [
+    t("Winged welcome", "Accueil à ailes", "ترحيب جناحي"),
+    t("Smart entry lighting", "Éclairage d’entrée intelligent", "إضاءة دخول ذكية"),
+    t("Quiet cabin luxury", "Luxe d’habitacle silencieux", "فخامة مقصورة هادئة")
+  ],
+  "newDreamer26.html": [
+    t("Ceremonial MPV presence", "Présence MPV cérémonielle", "حضور MPV احتفالي"),
+    t("AI cloud-seat comfort", "Confort des sièges cloud IA", "راحة المقاعد السحابية الذكية"),
+    t("Executive hospitality", "Hospitalité exécutive", "ضيافة تنفيذية")
+  ],
+  "passion-L.html": [
+    t("Oriental flagship aesthetics", "Esthétique phare orientale", "جماليات شرقية رائدة"),
+    t("All-dimensional comfort cabin", "Habitacle confort intégral", "مقصورة راحة شاملة"),
+    t("HarmonySpace cockpit", "Cockpit HarmonySpace", "مقصورة HarmonySpace")
+  ],
+  "passion.html": [
+    t("Streamlined sedan stance", "Posture berline élancée", "هيئة سيدان انسيابية"),
+    t("Executive digital cabin", "Habitacle numérique exécutif", "مقصورة رقمية تنفيذية"),
+    t("Composed touring comfort", "Confort grand tourisme", "راحة رحلات طويلة")
+  ],
+  "titan_blackedition.html": [
+    t("Black flagship styling", "Style phare noir", "تصميم رائد أسود"),
+    t("Dark premium cabin", "Habitacle premium sombre", "مقصورة فاخرة داكنة"),
+    t("Stealth confidence", "Confiance furtive", "ثقة هادئة")
+  ],
+  "titan_X8.html": [
+    t("Expanded family SUV", "SUV familial étendu", "SUV عائلية موسعة"),
+    t("Three-row usability", "Polyvalence trois rangs", "عملية بثلاثة صفوف"),
+    t("Long-trip confidence", "Confiance longue distance", "ثقة الرحلات الطويلة")
+  ],
+  "free+.html": [
+    t("Urban light-and-shadow aesthetics", "Esthétique urbaine d’ombres et de lumière", "جماليات الضوء والظل الحضرية"),
+    t("Free Cabin 2.0", "Habitacle Free 2.0", "مقصورة Free 2.0"),
+    t("HarmonySpace 5 cockpit", "Cockpit HarmonySpace 5", "مقصورة HarmonySpace 5")
+  ],
+  "free.html": [
+    t("Long-range crossover stance", "Posture crossover longue autonomie", "حضور كروس أوفر بعيد المدى"),
+    t("Touring cabin comfort", "Confort de voyage", "راحة السفر"),
+    t("Daily versatility", "Polyvalence quotidienne", "تنوع يومي")
+  ],
+  "newCourage.html": [
+    t("Original aesthetics design", "Design esthétique original", "تصميم جمالي أصلي"),
+    t("Electric power at full scale", "Puissance électrique à pleine échelle", "طاقة كهربائية كاملة"),
+    t("Smart family cockpit", "Cockpit familial intelligent", "مقصورة عائلية ذكية")
+  ],
+  "newDreamer.html": [
+    t("Panoramic luxury exterior", "Extérieur luxe panoramique", "خارجية فاخرة بانورامية"),
+    t("Executive lounge cabin", "Habitacle salon exécutif", "مقصورة صالون تنفيذي"),
+    t("Harmony intelligent travel", "Voyage intelligent Harmony", "سفر ذكي Harmony")
+  ],
+  "dreamer-champion.html": [
+    t("Champion edition presence", "Présence d’édition Champion", "حضور إصدار Champion"),
+    t("Executive lounge comfort", "Confort lounge exécutif", "راحة صالون تنفيذي"),
+    t("Curated premium hospitality", "Hospitalité premium soignée", "ضيافة فاخرة منتقاة")
+  ],
+  "dreamriver.html": [
+    t("Scenic edition presence", "Présence d’édition panoramique", "حضور إصدار مشهدي"),
+    t("Warm lounge cabin", "Cabine salon chaleureuse", "مقصورة صالون دافئة"),
+    t("Shared journey calm", "Sérénité de voyage", "هدوء السفر")
+  ],
+  "dreamer.html": [
+    t("Luxury MPV presence", "Présence MPV de luxe", "حضور MPV فاخرة"),
+    t("Rear cabin comfort", "Confort arrière", "راحة الصف الخلفي"),
+    t("Smart family cockpit", "Cockpit familial intelligent", "مقصورة عائلية ذكية")
+  ],
+  "courage.html": [
+    t("Original aesthetics design", "Design esthétique original", "تصميم جمالي أصلي"),
+    t("Electric range and efficiency", "Autonomie et efficience électriques", "مدى وكفاءة كهربائية"),
+    t("Family comfort cockpit", "Cockpit confort familial", "مقصورة راحة عائلية")
+  ]
+};
+const modelFeatureBodyOverrides = {
+  "titan.html": [
+    t(
+      "Titan starts with a ceremonial welcome and winged hardware details that make the flagship feel instantly special.",
+      "Titan s’ouvre par un accueil cérémoniel et des détails matériels à ailes déployées qui rendent ce flagship immédiatement distinctif.",
+      "تبدأ Titan بترحيب احتفالي وتفاصيل جناحية تجعل الإحساس الرائد مميزًا منذ اللحظة الأولى."
+    ),
+    t(
+      "Projection lighting, smart entry scenes, and electric steering memory lift the interaction flow into a more executive tone.",
+      "L’éclairage de projection, les scènes d’entrée intelligentes et la mémoire de direction électrique élèvent l’expérience vers un ton plus exécutif.",
+      "ترفع إضاءة العرض ومشاهد الدخول الذكية وذاكرة التوجيه الكهربائية التجربة إلى طابع تنفيذي أكثر."
+    ),
+    t(
+      "Quiet-cabin tuning, immersive sound, and privacy features complete the Titan story with calm luxury.",
+      "Le réglage de l’habitacle silencieux, le son immersif et les fonctions d’intimité complètent l’histoire Titan avec une luxe apaisé.",
+      "تُكمل معايرة المقصورة الهادئة والصوت الغامر وميزات الخصوصية قصة Titan بفخامة هادئة."
+    )
+  ],
+  "newDreamer26.html": [
+    t(
+      "Dreamer 26 presents a ceremonial MPV presence with lounge-like proportions and a premium family-first identity.",
+      "Dreamer 26 présente une présence MPV cérémonielle, des proportions façon salon et une identité premium centrée sur la famille.",
+      "تقدم Dreamer 26 حضور MPV احتفاليًا وتناسبات بطابع الصالون وهوية فاخرة تركز على العائلة."
+    ),
+    t(
+      "Fast charging and long-range composure keep large-cabin travel calm and effortless.",
+      "La charge rapide et la sérénité longue distance rendent le voyage dans le grand habitacle calme et sans effort.",
+      "يجعل الشحن السريع والاتزان في المدى الطويل السفر داخل المقصورة الكبيرة هادئًا وسهلًا."
+    ),
+    t(
+      "Huawei Qiankun driving, Harmony cockpit integration, and AI interaction turn the cabin into an executive lounge.",
+      "La conduite Huawei Qiankun, l’intégration du cockpit Harmony et l’interaction IA transforment l’habitacle en salon exécutif.",
+      "تحول قيادة Huawei Qiankun وتكامل مقصورة Harmony وتفاعل الذكاء الاصطناعي المقصورة إلى صالون تنفيذي."
+    )
+  ],
+  "passion-L.html": [
+    t(
+      "Passion L brings ceremonial front graphics and an elongated sedan stance into a composed executive look.",
+      "Passion L associe une face avant cérémonielle et une posture de berline allongée pour créer une allure exécutive posée.",
+      "تجمع Passion L بين الواجهة الاحتفالية وهيئة السيدان الطويلة لإظهار حضور تنفيذي متزن."
+    ),
+    t(
+      "The long-wheelbase cabin emphasizes rear comfort, calm seating, and premium space for both driver and passengers.",
+      "L’habitacle à empattement long met l’accent sur le confort arrière, la sérénité des sièges et l’espace premium pour le conducteur comme pour les passagers.",
+      "تركز المقصورة ذات قاعدة العجلات الطويلة على راحة الخلف، وهدوء المقاعد، والمساحة الفاخرة للسائق والركاب."
+    ),
+    t(
+      "HarmonySpace centers the digital cockpit with a clear display, seamless ecosystem flow, and calmer interaction.",
+      "HarmonySpace place le cockpit numérique au centre avec un affichage clair, un écosystème fluide et une interaction plus apaisée.",
+      "تضع HarmonySpace المقصورة الرقمية في المركز عبر شاشة واضحة وتدفق بيئي سلس وتفاعل أكثر هدوءًا."
+    )
+  ],
+  "passion.html": [
+    t(
+      "Passion brings a cleaner sedan silhouette and a more restrained premium tone into the model page rhythm.",
+      "Passion apporte une silhouette de berline plus pure et un ton premium plus retenu dans le rythme de la page modèle.",
+      "تجلب Passion هيئة سيدان أنقى ونبرة فاخرة أكثر هدوءًا إلى إيقاع صفحة الطراز."
+    ),
+    t(
+      "The digital cabin keeps the route focused on a calm executive feel with everyday comfort and connected control.",
+      "L’habitacle numérique maintient le parcours sur une sensation exécutive calme avec confort quotidien et contrôle connecté.",
+      "تحافظ المقصورة الرقمية على مسار هادئ بطابع تنفيذي مع راحة يومية وتحكم متصل."
+    ),
+    t(
+      "Touring composure, chassis tuning, and long-distance confidence complete the sedan with a quieter luxury message.",
+      "La sérénité de grand tourisme, le réglage châssis et la confiance longue distance complètent la berline avec un message de luxe plus discret.",
+      "تُكمل الثقة في الرحلات الطويلة ومعايرة الهيكل وهدوء السفر هذه السيدان برسالة فخامة أكثر هدوءًا."
+    )
+  ],
+  "titan_blackedition.html": [
+    t(
+      "The Black Edition route begins with darker exterior graphics and a more dramatic flagship posture.",
+      "Le parcours Black Edition commence avec des graphismes extérieurs plus sombres et une posture phare plus dramatique.",
+      "يبدأ مسار Black Edition برسومات خارجية أكثر قتامة وحضور رائد أكثر درامية."
+    ),
+    t(
+      "Premium dark materials and a restrained cabin mood keep the edition aligned with a stealth-luxury identity.",
+      "Des matériaux sombres premium et une ambiance cabine retenue maintiennent l’édition dans une identité de luxe furtif.",
+      "تحافظ الخامات الداكنة الفاخرة وأجواء المقصورة الهادئة على هوية الفخامة الهادئة لهذه النسخة."
+    ),
+    t(
+      "Assisted driving and safety structure finish the page as a complete Titan-family flagship, not a style package.",
+      "La conduite assistée et la structure de sécurité concluent la page comme un vrai flagship de la famille Titan, pas comme un simple pack stylistique.",
+      "تختتم القيادة المساعدة وبنية السلامة الصفحة بوصفها طرازًا رائدًا كاملًا لعائلة Titan لا مجرد حزمة مظهر."
+    )
+  ],
+  "titan_X8.html": [
+    t(
+      "Titan X8 starts with a larger family SUV statement and a practical three-row presence.",
+      "Titan X8 commence par une déclaration de grand SUV familial et une présence pratique à trois rangs.",
+      "يبدأ Titan X8 بحضور SUV عائلية أكبر وتوزيع عملي بثلاثة صفوف."
+    ),
+    t(
+      "The cabin chapter emphasizes access, space, and comfort for real multi-person travel.",
+      "Le chapitre habitacle met l’accent sur l’accès, l’espace et le confort pour les vrais trajets à plusieurs.",
+      "يركز فصل المقصورة على سهولة الدخول والمساحة والراحة لرحلات متعددة الركاب."
+    ),
+    t(
+      "Road-trip composure and safety close the route with the same flagship confidence as the wider Titan family.",
+      "La sérénité sur route et la sécurité referment le parcours avec la même assurance phare que la famille Titan élargie.",
+      "تغلق الثقة في الرحلات الطويلة والسلامة المسار بنفس الثقة الرائدة لعائلة Titan الأوسع."
+    )
+  ],
+  "free+.html": [
+    t(
+      "FREE+ frames its identity through urban light-and-shadow aesthetics, athletic SUV proportions, and a sharper premium presence for city life.",
+      "FREE+ affirme son identité par une esthétique urbaine d’ombres et de lumière, des proportions de SUV athlétiques et une présence premium plus affûtée pour la ville.",
+      "ترسم FREE+ هويتها عبر جماليات الضوء والظل الحضرية وتناسبات SUV الرياضية وحضور فاخر أوضح للحياة المدنية."
+    ),
+    t(
+      "Free Cabin 2.0 focuses on openness, seating comfort, and practical room for daily use while preserving a premium digital character.",
+      "Free Cabin 2.0 met l’accent sur l’ouverture, le confort d’assise et l’espace pratique au quotidien tout en conservant un caractère numérique premium.",
+      "تركز Free Cabin 2.0 على الانفتاح وراحة المقاعد والمساحة العملية للاستخدام اليومي مع الحفاظ على طابع رقمي فاخر."
+    ),
+    t(
+      "HarmonySpace 5 extends the intelligent cockpit experience with a clearer interface, connected assistance, and a more natural urban rhythm.",
+      "HarmonySpace 5 prolonge l’expérience du cockpit intelligent grâce à une interface plus claire, une assistance connectée et un rythme urbain plus naturel.",
+      "توسع HarmonySpace 5 تجربة المقصورة الذكية عبر واجهة أوضح ومساعدة متصلة وإيقاع حضري أكثر طبيعية."
+    )
+  ],
+  "free.html": [
+    t(
+      "FREE 318 opens with long-range crossover character and a calmer touring stance.",
+      "FREE 318 s’ouvre sur un caractère de crossover longue autonomie et une posture de voyage plus calme.",
+      "تبدأ FREE 318 بطابع كروس أوفر بعيد المدى وحضور سفر أكثر هدوءًا."
+    ),
+    t(
+      "The comfort chapter leans into relaxed seating, elevated visibility, and everyday usability.",
+      "Le chapitre confort met l’accent sur des sièges détendus, une visibilité surélevée et une vraie praticité au quotidien.",
+      "يركز فصل الراحة على الجلسة المريحة والرؤية المرتفعة والعملية اليومية."
+    ),
+    t(
+      "The model closes with practical premium confidence that keeps the page feeling like a real touring crossover.",
+      "Le modèle se conclut par une confiance premium pragmatique qui conserve à la page l’allure d’un vrai crossover de voyage.",
+      "يُختتم الطراز بثقة عملية فاخرة تجعل الصفحة تبدو كأنها صفحة كروس أوفر للرحلات فعلًا."
+    )
+  ],
+  "newCourage.html": [
+    t(
+      "The new Courage starts with original aesthetics and a cleaner urban SUV language built around family warmth.",
+      "Le nouveau Courage commence par une esthétique originale et un langage de SUV urbain plus pur, pensé autour de la chaleur familiale.",
+      "تبدأ Courage الجديدة بجماليات أصلية ولغة SUV حضرية أنقى مبنية حول دفء العائلة."
+    ),
+    t(
+      "It becomes an efficient electric home through long range, a large battery pack, and 800V architecture.",
+      "Elle devient un foyer électrique efficient grâce à une grande autonomie, une batterie de forte capacité et une architecture 800V.",
+      "وتصبح منزلًا كهربائيًا فعّالًا بفضل المدى الطويل وحزمة البطارية الكبيرة وبنية 800V."
+    ),
+    t(
+      "A smart family cockpit comes from digital screens, Harmony audio, and expressive in-cabin lighting.",
+      "Un cockpit familial intelligent naît des écrans numériques, de l’audio Harmony et d’un éclairage expressif dans l’habitacle.",
+      "تنبع المقصورة العائلية الذكية من الشاشات الرقمية وصوت Harmony والإضاءة المعبرة داخل المقصورة."
+    )
+  ],
+  "newDreamer.html": [
+    t(
+      "Panoramic luxury design frames Dreamer with a flagship MPV presence and an executive-scale body.",
+      "Le design de luxe panoramique encadre Dreamer avec une présence MPV phare et une carrosserie à l’échelle exécutive.",
+      "يؤطر التصميم الفاخر البانورامي Dreamer بحضور MPV رائد وهيكل بحجم تنفيذي."
+    ),
+    t(
+      "The executive lounge cabin focuses on rear comfort, seat engineering, and calm long-distance travel.",
+      "L’habitacle salon exécutif met l’accent sur le confort arrière, l’ingénierie des sièges et la sérénité longue distance.",
+      "تركز مقصورة الصالون التنفيذي على راحة الخلف وهندسة المقاعد وهدوء الرحلات الطويلة."
+    ),
+    t(
+      "Harmony intelligent travel connects the smart cockpit, family convenience, and premium hospitality into one flow.",
+      "Le voyage intelligent Harmony relie le cockpit intelligent, la praticité familiale et l’hospitalité premium dans un même ensemble.",
+      "يربط السفر الذكي Harmony المقصورة الذكية والراحة العائلية والضيافة الفاخرة في تدفق واحد."
+    )
+  ],
+  "dreamer-champion.html": [
+    t(
+      "Dreamer Champion opens with a more ceremonial MPV identity and stronger special-edition presence than the standard Dreamer range.",
+      "Dreamer Champion s’ouvre sur une identité de MPV plus cérémonielle et une présence d’édition spéciale plus affirmée que la gamme Dreamer standard.",
+      "تبدأ Dreamer Champion بهوية MPV أكثر احتفالية وحضور إصدار خاص أقوى من مجموعة Dreamer القياسية."
+    ),
+    t(
+      "Its second-row hospitality, quieter lounge atmosphere, and curated trim details make the cabin feel more executive and more exclusive.",
+      "Son hospitalité au deuxième rang, son ambiance lounge plus silencieuse et ses détails de finition choisis rendent l’habitacle plus exécutif et plus exclusif.",
+      "تجعل ضيافة الصف الثاني وأجواء الصالون الأكثر هدوءًا وتفاصيل الخامات المنتقاة المقصورة أكثر تنفيذية وأكثر خصوصية."
+    ),
+    t(
+      "The route closes with a more curated premium-hospitality tone, keeping Dreamer Champion distinct from the regular Dreamer family pages.",
+      "Le parcours se conclut sur une tonalité d’hospitalité premium plus soignée, afin de distinguer Dreamer Champion des pages Dreamer classiques.",
+      "يختتم المسار بنبرة ضيافة فاخرة أكثر عناية بما يبقي Dreamer Champion مختلفة عن صفحات Dreamer العادية."
+    )
+  ],
+  "dreamriver.html": [
+    t(
+      "Dreamer Mountain River presents a scenic MPV expression with hospitality-first styling.",
+      "Dreamer Mountain River présente une expression MPV panoramique au style centré sur l’hospitalité.",
+      "تقدم Dreamer Mountain River تعبير MPV مشهديًا بطابع يركز على الضيافة."
+    ),
+    t(
+      "The lounge-like cabin keeps the route warm and family-friendly without losing premium calm.",
+      "L’habitacle façon salon garde le parcours chaleureux et familial sans perdre le calme premium.",
+      "تحافظ المقصورة بطابع الصالون على دفء المسار وروحه العائلية من دون فقدان الهدوء الفاخر."
+    ),
+    t(
+      "Shared travel comfort and safety complete the special-edition story with a polished, scenic tone.",
+      "Le confort de voyage partagé et la sécurité concluent l’histoire de l’édition spéciale avec un ton soigné et panoramique.",
+      "يكمل السفر المشترك المريح والسلامة قصة النسخة الخاصة بنبرة مصقولة ومشهدية."
+    )
+  ],
+  "dreamer.html": [
+    t(
+      "Dreamer opens with a luxury MPV presence and a family-first silhouette.",
+      "Dreamer s’ouvre sur une présence MPV de luxe et une silhouette centrée sur la famille.",
+      "تبدأ Dreamer بحضور MPV فاخر وهيئة موجهة للعائلة."
+    ),
+    t(
+      "Rear cabin comfort and lounge seating drive the middle of the route with a calmer executive rhythm.",
+      "Le confort arrière et les sièges façon salon portent le milieu du parcours avec un rythme exécutif plus calme.",
+      "تقود راحة الصف الخلفي ومقاعد الصالون منتصف المسار بإيقاع تنفيذي أكثر هدوءًا."
+    ),
+    t(
+      "The page closes on smart-family convenience and reassuring safety to keep the MPV story complete.",
+      "La page se conclut sur la praticité familiale intelligente et une sécurité rassurante pour garder l’histoire MPV complète.",
+      "تختتم الصفحة بالعملية العائلية الذكية والسلامة المطمئنة لإبقاء قصة MPV متكاملة."
+    )
+  ],
+  "courage.html": [
+    t(
+      "Original aesthetics design frames Courage with a cleaner electric-SUV silhouette and a warmer family tone.",
+      "Le design esthétique original cadre Courage avec une silhouette de SUV électrique plus pure et un ton familial plus chaleureux.",
+      "يؤطر التصميم الجمالي الأصلي Courage بهيئة SUV كهربائية أنقى وطابع عائلي أكثر دفئًا."
+    ),
+    t(
+      "Electric range and efficiency keep the route calm, practical, and ready for everyday travel.",
+      "L’autonomie et l’efficience électriques rendent le trajet calme, pratique et prêt pour un usage quotidien.",
+      "يحافظ المدى والكفاءة الكهربائية على تنقل هادئ وعملي وجاهز للاستخدام اليومي."
+    ),
+    t(
+      "The family comfort cockpit adds digital screens, Harmony audio, and expressive in-cabin lighting for a more lively mood.",
+      "Le cockpit confort familial ajoute des écrans numériques, l’audio Harmony et un éclairage expressif pour une ambiance plus vivante.",
+      "تضيف المقصورة العائلية المريحة شاشات رقمية وصوت Harmony وإضاءة معبرة لجو أكثر حيوية."
+    )
+  ]
+};
 const makeModel = (options) => ({
   kind: "model",
   ...options,
@@ -697,26 +1009,26 @@ const makeModel = (options) => ({
     const subtitle = options.subtitle.en.toLowerCase();
     const isMpv = subtitle.includes("mpv");
     const isSedan = subtitle.includes("sedan");
-    const titles = isMpv ? [
-      t("Ceremonial exterior", "ExtÃ©rieur cÃ©rÃ©moniel", "Ø®Ø§Ø±Ø¬ÙŠØ© Ø¨Ø·Ø§Ø¨Ø¹ Ø§Ø­ØªÙØ§Ù„ÙŠ"),
-      t("Lounge-like cabin", "Habitacle esprit salon", "Ù…Ù‚ØµÙˆØ±Ø© Ø¨Ø·Ø§Ø¨Ø¹ Ø§Ù„ØµØ§Ù„ÙˆÙ†"),
-      t("Long-distance hospitality", "HospitalitÃ© grand trajet", "Ø¶ÙŠØ§ÙØ© Ù…Ø«Ø§Ù„ÙŠØ© Ù„Ù„Ø±Ø­Ù„Ø§Øª Ø§Ù„Ø·ÙˆÙŠÙ„Ø©")
+    const titles = modelFeatureOverrides[options.slug] ?? (isMpv ? [
+      t("Ceremonial exterior", "Extérieur cérémoniel", "خارجية بطابع احتفالي"),
+      t("Lounge-like cabin", "Habitacle esprit salon", "مقصورة بطابع الصالون"),
+      t("Long-distance hospitality", "Hospitalité grand trajet", "ضيافة مثالية للرحلات الطويلة")
     ] : isSedan ? [
-      t("Flagship exterior proportion", "Proportions extÃ©rieures de prestige", "ØªÙ†Ø§Ø³Ø¨Ø§Øª Ø®Ø§Ø±Ø¬ÙŠØ© Ø±Ø§Ø¦Ø¯Ø©"),
-      t("Executive digital cabin", "Habitacle numÃ©rique exÃ©cutif", "Ù…Ù‚ØµÙˆØ±Ø© Ø±Ù‚Ù…ÙŠØ© ØªÙ†ÙÙŠØ°ÙŠØ©"),
-      t("Composed intelligent travel", "Voyage intelligent et serein", "Ø³ÙØ± Ø°ÙƒÙŠ ÙˆÙˆØ§Ø«Ù‚")
+      t("Flagship exterior proportion", "Proportions extérieures de prestige", "تناسبات خارجية رائدة"),
+      t("Executive digital cabin", "Habitacle numérique exécutif", "مقصورة رقمية تنفيذية"),
+      t("Composed intelligent travel", "Voyage intelligent et serein", "سفر ذكي وواثق")
     ] : [
-      t("Commanding exterior stance", "Prestance extÃ©rieure affirmÃ©e", "Ø­Ø¶ÙˆØ± Ø®Ø§Ø±Ø¬ÙŠ Ù‚ÙˆÙŠ"),
-      t("Spacious intelligent cabin", "Habitacle intelligent et spacieux", "Ù…Ù‚ØµÙˆØ±Ø© Ø°ÙƒÙŠØ© ÙˆØ±Ø­Ø¨Ø©"),
-      t("All-scenario confidence", "SÃ©rÃ©nitÃ© tous usages", "Ø«Ù‚Ø© ÙÙŠ ÙƒÙ„ Ø§Ù„Ø³ÙŠÙ†Ø§Ø±ÙŠÙˆÙ‡Ø§Øª")
-    ];
-    const bodies = [
+      t("Commanding exterior stance", "Prestance extérieure affirmée", "حضور خارجي قوي"),
+      t("Spacious intelligent cabin", "Habitacle intelligent et spacieux", "مقصورة ذكية ورحبة"),
+      t("All-scenario confidence", "Sérénité tous usages", "ثقة في كل السيناريوهات")
+    ]);
+    const bodies = modelFeatureBodyOverrides[options.slug] ?? [
       options.description,
       options.subtitle,
       t(
-        `Centered on ${options.price.en.toLowerCase()}, this page highlights the premium design, digital experience, and composed road character of ${options.title.en}.`,
-        `CentrÃ©e sur ${options.price.fr.toLowerCase()}, cette page met en avant le design premium, l'expÃ©rience numÃ©rique et le caractÃ¨re routier maÃ®trisÃ© de ${options.title.fr}.`,
-        `ØªÙØ¨Ø±Ø² Ù‡Ø°Ù‡ Ø§Ù„ØµÙØ­Ø©ØŒ Ø§Ù†Ø·Ù„Ø§Ù‚Ø§Ù‹ Ù…Ù† ${options.price.ar}ØŒ Ø§Ù„ØªØµÙ…ÙŠÙ… Ø§Ù„ÙØ§Ø®Ø± ÙˆØ§Ù„ØªØ¬Ø±Ø¨Ø© Ø§Ù„Ø±Ù‚Ù…ÙŠØ© ÙˆØ§Ù„Ø­Ø¶ÙˆØ± Ø§Ù„ÙˆØ§Ø«Ù‚ Ù„Ø·Ø±Ø§Ø² ${options.title.ar}.`
+        `${options.title.en} combines premium design, an immersive digital experience, and composed road manners for refined daily and long-distance travel.`,
+        `${options.title.fr} associe un design premium, une expérience numérique immersive et un comportement routier maîtrisé pour les trajets quotidiens comme longue distance.`,
+        `يجمع ${options.title.ar} بين التصميم الفاخر والتجربة الرقمية الغامرة والأداء المتزن على الطريق ليمنح تجربة راقية في الاستخدام اليومي والرحلات الطويلة.`
       )
     ];
     return {
@@ -725,14 +1037,14 @@ const makeModel = (options) => ({
       body: bodies[index] ?? bodies[2]
     };
   }),
-  ctaPrimary: t("Book a test drive", "RÃ©server un essai", "Ø§Ø­Ø¬Ø² ØªØ¬Ø±Ø¨Ø© Ù‚ÙŠØ§Ø¯Ø©"),
-  ctaSecondary: t("Store center", "Centre de magasins", "Ù…Ø±ÙƒØ² Ø§Ù„Ù…Ø¹Ø§Ø±Ø¶"),
+  ctaPrimary: t("Order now", "Commander maintenant", "اطلب الآن"),
+  ctaSecondary: t("Configuration list", "Liste des configurations", "قائمة التجهيزات"),
   secondarySlug: "store.html"
 });
 const navigation = [
-  { label: t("Voyah Brand", "Marque Voyah", "Ø¹Ù„Ø§Ù…Ø© Voyah"), slug: "brand.html" },
+  { label: t("Voyah Brand", "Marque Voyah", "علامة Voyah"), slug: "brand.html" },
   {
-    label: t("Models", "ModÃ¨les", "Ø§Ù„Ø·Ø±Ø§Ø²Ø§Øª"),
+    label: t("Models", "Modèles", "الطرازات"),
     children: [
       { label: t("Voyah Passion L", "Voyah Passion L", "Voyah Passion L"), slug: "passion-L.html", thumb: "/voyah-resources/images/car/car_logo/passion-L.png" },
       { label: t("Voyah Passion", "Voyah Passion", "Voyah Passion"), slug: "passion.html", thumb: "/voyah-resources/images/car/car_logo/passion.png" },
@@ -741,32 +1053,33 @@ const navigation = [
       { label: t("Voyah Titan X8", "Voyah Titan X8", "Voyah Titan X8"), slug: "titan_X8.html", thumb: "/voyah-resources/images/car/car_logo/titan_X8.png" },
       { label: t("Voyah FREE+", "Voyah FREE+", "Voyah FREE+"), slug: "free+.html", thumb: "/voyah-resources/images/car/car_logo/free+.png" },
       { label: t("Voyah FREE 318", "Voyah FREE 318", "Voyah FREE 318"), slug: "free.html", thumb: "/voyah-resources/images/car/car_logo/free.png" },
-      { label: t("New Voyah Courage", "Nouveau Voyah Courage", "Voyah Courage Ø§Ù„Ø¬Ø¯ÙŠØ¯"), slug: "newCourage.html", thumb: "/voyah-resources/images/car/car_logo/newCourage.png" },
+      { label: t("New Voyah Courage", "Nouveau Voyah Courage", "Voyah Courage الجديد"), slug: "newCourage.html", thumb: "/voyah-resources/images/car/car_logo/newCourage.png" },
       { label: t("Voyah Courage", "Voyah Courage", "Voyah Courage"), slug: "courage.html", thumb: "/voyah-resources/images/car/car_logo/courage.png" },
       { label: t("26 Voyah Dreamer", "Voyah Dreamer 26", "Voyah Dreamer 26"), slug: "newDreamer26.html", thumb: "/voyah-resources/images/car/car_logo/newDreamer26.png" },
+      { label: t("Voyah Dreamer Champion", "Voyah Dreamer Champion", "Voyah Dreamer Champion"), slug: "dreamer-champion.html", thumb: "/voyah-resources/images/car/car_logo/dreamer-champion.png" },
       { label: t("25 Voyah Dreamer", "Voyah Dreamer 25", "Voyah Dreamer 25"), slug: "newDreamer.html", thumb: "/voyah-resources/images/car/car_logo/newDreamer.png" },
-      { label: t("Voyah Dreamer Mountain River", "Voyah Dreamer Montagne-RiviÃ¨re", "Voyah Dreamer Mountain River"), slug: "dreamriver.html", thumb: "/voyah-resources/images/car/car_logo/dreamriver.png" },
+      { label: t("Voyah Dreamer Mountain River", "Voyah Dreamer Montagne-Rivière", "Voyah Dreamer Mountain River"), slug: "dreamriver.html", thumb: "/voyah-resources/images/car/car_logo/dreamriver.png" },
       { label: t("24 Voyah Dreamer", "Voyah Dreamer 24", "Voyah Dreamer 24"), slug: "dreamer.html", thumb: "/voyah-resources/images/car/car_logo/dreamer.png" }
     ]
   },
-  { label: t("Store Center", "Centre de magasins", "Ù…Ø±ÙƒØ² Ø§Ù„Ù…Ø¹Ø§Ø±Ø¶"), slug: "store.html" },
+  { label: t("Store Center", "Centre de magasins", "مركز المعارض"), slug: "store.html" },
   {
-    label: t("Voyah Service", "Service Voyah", "Ø®Ø¯Ù…Ø§Øª Voyah"),
+    label: t("Voyah Service", "Service Voyah", "خدمات Voyah"),
     children: [
-      { label: t("User Service", "Service client", "Ø®Ø¯Ù…Ø© Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù…"), slug: "service.html" },
-      { label: t("Voyah Energy", "Ã‰nergie Voyah", "Ø·Ø§Ù‚Ø© Voyah"), slug: "energy.html" },
-      { label: t("Procurement", "Achats", "Ø§Ù„Ù…Ø´ØªØ±ÙŠØ§Øª"), slug: "purchasing.html" },
-      { label: t("Environmental Disclosure", "Informations environnementales", "Ø§Ù„Ø¥ÙØµØ§Ø­ Ø§Ù„Ø¨ÙŠØ¦ÙŠ"), slug: "environmental.html" },
-      { label: t("Document Download", "TÃ©lÃ©chargements", "ØªÙ†Ø²ÙŠÙ„ Ø§Ù„Ù…Ø³ØªÙ†Ø¯Ø§Øª"), slug: "document.html" }
+      { label: t("User Service", "Service client", "خدمة المستخدم"), slug: "service.html" },
+      { label: t("Voyah Energy", "Énergie Voyah", "طاقة Voyah"), slug: "energy.html" },
+      { label: t("Procurement", "Achats", "المشتريات"), slug: "purchasing.html" },
+      { label: t("Environmental Disclosure", "Informations environnementales", "الإفصاح البيئي"), slug: "environmental.html" },
+      { label: t("Document Download", "Téléchargements", "تنزيل المستندات"), slug: "document.html" }
     ]
   },
   {
-    label: t("About Voyah", "Ã€ propos de Voyah", "Ø¹Ù† Voyah"),
+    label: t("About Voyah", "À propos de Voyah", "عن Voyah"),
     children: [
-      { label: t("Corporate Culture", "Culture dâ€™entreprise", "Ø§Ù„Ø«Ù‚Ø§ÙØ© Ø§Ù„Ù…Ø¤Ø³Ø³ÙŠØ©"), slug: "corporate.html" },
-      { label: t("Join Us", "Rejoignez-nous", "Ø§Ù†Ø¶Ù… Ø¥Ù„ÙŠÙ†Ø§"), slug: "joinus.html" },
-      { label: t("Partner Recruitment", "Recrutement de partenaires", "Ø§Ø³ØªÙ‚Ø·Ø§Ø¨ Ø§Ù„Ø´Ø±ÙƒØ§Ø¡"), slug: "recruit-partners.html" },
-      { label: t("Investor Relations", "Relations investisseurs", "Ø¹Ù„Ø§Ù‚Ø§Øª Ø§Ù„Ù…Ø³ØªØ«Ù…Ø±ÙŠÙ†"), slug: "ir.html" }
+      { label: t("Corporate Culture", "Culture d’entreprise", "الثقافة المؤسسية"), slug: "corporate.html" },
+      { label: t("Join Us", "Rejoignez-nous", "انضم إلينا"), slug: "joinus.html" },
+      { label: t("Partner Recruitment", "Recrutement de partenaires", "استقطاب الشركاء"), slug: "recruit-partners.html" },
+      { label: t("Investor Relations", "Relations investisseurs", "علاقات المستثمرين"), slug: "ir.html" }
     ]
   }
 ];
@@ -774,9 +1087,9 @@ const models = [
   makeModel({
     slug: "passion-L.html",
     title: t("Voyah Passion L", "Voyah Passion L", "Voyah Passion L"),
-    subtitle: t("Executive electric flagship sedan", "Berline Ã©lectrique exÃ©cutive", "Ø³ÙŠØ¯Ø§Ù† ÙƒÙ‡Ø±Ø¨Ø§Ø¦ÙŠØ© ØªÙ†ÙÙŠØ°ÙŠØ©"),
-    description: t("A long-wheelbase luxury sedan shaped around calm authority, digital refinement, and first-class rear comfort.", "Une berline de luxe Ã  empattement long conÃ§ue pour offrir prestance, raffinement numÃ©rique et confort arriÃ¨re de premiÃ¨re classe.", "Ø³ÙŠØ¯Ø§Ù† ÙØ§Ø®Ø±Ø© Ø¨Ù‚Ø§Ø¹Ø¯Ø© Ø¹Ø¬Ù„Ø§Øª Ø·ÙˆÙŠÙ„Ø© ØªØ¬Ù…Ø¹ Ø¨ÙŠÙ† Ø§Ù„Ø­Ø¶ÙˆØ± Ø§Ù„Ø±Ø§Ù‚ÙŠ ÙˆØ§Ù„ÙˆØ§Ø¬Ù‡Ø© Ø§Ù„Ø±Ù‚Ù…ÙŠØ© Ø§Ù„Ù…ØªÙ…ÙŠØ²Ø© ÙˆØ±Ø§Ø­Ø© Ø§Ù„ØµÙ Ø§Ù„Ø®Ù„ÙÙŠ."),
-    price: t("Flagship sedan", "Berline phare", "Ø§Ù„Ø³ÙŠØ¯Ø§Ù† Ø§Ù„Ø±Ø§Ø¦Ø¯Ø©"),
+    subtitle: t("New-era flagship sedan", "Berline phare de nouvelle génération", "سيدان رائدة من الجيل الجديد"),
+    description: t("Starting from RMB 279,900.", "À partir de 279 900 RMB.", "السعر يبدأ من 279,900 يوان"),
+    price: t("Starting from RMB 279,900", "À partir de 279 900 RMB", "السعر يبدأ من 279,900 يوان"),
     heroImage: "/voyah-resources/images/car/passion-L/1920/sc_1.jpg",
     logo: "/voyah-resources/images/car/car_logo/passion-L.png",
     gallery: [
@@ -785,18 +1098,19 @@ const models = [
       "/voyah-resources/images/car/passion-L/1920/sc_39.jpg"
     ],
     metrics: [
-      metric("Luxury sedan", "Positioning", "Positionnement", "Ø§Ù„ÙØ¦Ø©"),
-      metric("Rear lounge", "Rear experience", "ExpÃ©rience arriÃ¨re", "ØªØ¬Ø±Ø¨Ø© Ø§Ù„Ù…Ù‚Ø§Ø¹Ø¯ Ø§Ù„Ø®Ù„ÙÙŠØ©"),
-      metric("Smart cockpit", "Digital cabin", "Habitacle numÃ©rique", "Ø§Ù„Ù…Ù‚ØµÙˆØ±Ø© Ø§Ù„Ø±Ù‚Ù…ÙŠØ©")
+      metric("Sedan", "Body type", "Carrosserie", "نوع الهيكل"),
+      metric("Flagship", "Positioning", "Positionnement", "الفئة"),
+      metric("Executive luxury", "Experience", "Expérience", "التجربة")
     ]
   }),
   makeModel({
     slug: "passion.html",
     title: t("Voyah Passion", "Voyah Passion", "Voyah Passion"),
-    subtitle: t("Performance electric sedan", "Berline Ã©lectrique performante", "Ø³ÙŠØ¯Ø§Ù† ÙƒÙ‡Ø±Ø¨Ø§Ø¦ÙŠØ© Ø¹Ø§Ù„ÙŠØ© Ø§Ù„Ø£Ø¯Ø§Ø¡"),
-    description: t("A sleek electric sedan pairing decisive proportions with a quiet cabin and high-speed touring character.", "Une berline Ã©lectrique Ã©lancÃ©e qui associe des proportions affirmÃ©es Ã  un habitacle silencieux et un tempÃ©rament grand tourisme.", "Ø³ÙŠØ¯Ø§Ù† ÙƒÙ‡Ø±Ø¨Ø§Ø¦ÙŠØ© Ø£Ù†ÙŠÙ‚Ø© ØªØ¬Ù…Ø¹ Ø¨ÙŠÙ† Ø§Ù„ØªÙ†Ø§Ø³Ù‚ Ø§Ù„Ø¬Ø±ÙŠØ¡ ÙˆØ§Ù„Ù…Ù‚ØµÙˆØ±Ø© Ø§Ù„Ù‡Ø§Ø¯Ø¦Ø© ÙˆØ±ÙˆØ­ Ø§Ù„Ø³ÙØ± Ø§Ù„Ø³Ø±ÙŠØ¹."),
-    price: t("Performance sedan", "Berline performante", "Ø³ÙŠØ¯Ø§Ù† Ø£Ø¯Ø§Ø¡"),
+    subtitle: t("Performance electric sedan", "Berline électrique performante", "سيدان كهربائية عالية الأداء"),
+    description: t("A sleek electric sedan pairing decisive proportions, a quieter executive cabin, and composed grand-touring confidence.", "Une berline électrique élancée qui associe des proportions affirmées, un habitacle exécutif plus silencieux et une assurance de grand tourisme maîtrisée.", "سيدان كهربائية أنيقة تجمع بين التناسق الجريء والمقصورة التنفيذية الأكثر هدوءًا وثقة السفر الطويل المتزنة."),
+    price: t("Executive performance sedan", "Berline exécutive performante", "سيدان تنفيذية عالية الأداء"),
     heroImage: "/voyah-resources/images/car/passion/1920/fl01.jpg",
+    heroVideo: "/voyah-resources/images/car/passion/video_01.mp4",
     logo: "/voyah-resources/images/car/car_logo/passion.png",
     gallery: [
       "/voyah-resources/images/car/passion/1920/fl04.jpg",
@@ -804,17 +1118,17 @@ const models = [
       "/voyah-resources/images/car/passion/1920/fl21.jpg"
     ],
     metrics: [
-      metric("Grand tourer", "Character", "CaractÃ¨re", "Ø§Ù„Ø·Ø§Ø¨Ø¹"),
-      metric("Refined ride", "Chassis tuning", "Mise au point chÃ¢ssis", "Ù…Ø¹Ø§ÙŠØ±Ø© Ø§Ù„Ù‡ÙŠÙƒÙ„"),
-      metric("Digital luxury", "Cabin feel", "Ambiance intÃ©rieure", "Ø£Ø¬ÙˆØ§Ø¡ Ø§Ù„Ù…Ù‚ØµÙˆØ±Ø©")
+      metric("Grand tourer", "Character", "Caractère", "الطابع"),
+      metric("Refined ride", "Chassis tuning", "Mise au point châssis", "معايرة الهيكل"),
+      metric("Digital luxury", "Cabin feel", "Ambiance intérieure", "أجواء المقصورة")
     ]
   }),
   makeModel({
     slug: "titan.html",
     title: t("Voyah Titan", "Voyah Titan", "Voyah Titan"),
-    subtitle: t("Full-size intelligent SUV", "SUV intelligent grand format", "Ø³ÙŠØ§Ø±Ø© SUV Ø°ÙƒÙŠØ© ÙƒØ¨ÙŠØ±Ø© Ø§Ù„Ø­Ø¬Ù…"),
-    description: t("A large SUV built around commanding stance, confident family space, and composed all-road capability.", "Un grand SUV conÃ§u autour dâ€™une prestance affirmÃ©e, dâ€™un espace familial gÃ©nÃ©reux et dâ€™une aisance sereine sur tous types de routes.", "Ø³ÙŠØ§Ø±Ø© SUV ÙƒØ¨ÙŠØ±Ø© ØªØ¬Ù…Ø¹ Ø¨ÙŠÙ† Ø§Ù„Ø­Ø¶ÙˆØ± Ø§Ù„Ù‚ÙˆÙŠ ÙˆØ§Ù„Ù…Ø³Ø§Ø­Ø© Ø§Ù„Ø¹Ø§Ø¦Ù„ÙŠØ© Ø§Ù„Ø±Ø­Ø¨Ø© ÙˆØ§Ù„Ø«Ø¨Ø§Øª Ø¹Ù„Ù‰ Ù…Ø®ØªÙ„Ù Ø§Ù„Ø·Ø±Ù‚."),
-    price: t("Large SUV flagship", "SUV phare grand format", "SUV Ø±Ø§Ø¦Ø¯Ø© ÙƒØ¨ÙŠØ±Ø©"),
+    subtitle: t("New-era flagship six-seat SUV", "SUV phare à six places de nouvelle génération", "سيارة SUV رائدة بستة مقاعد من الجيل الجديد"),
+    description: t("Starting from RMB 379,900.", "À partir de 379 900 RMB.", "السعر يبدأ من 379,900 يوان"),
+    price: t("Starting from RMB 379,900", "À partir de 379 900 RMB", "السعر يبدأ من 379,900 يوان"),
     heroImage: "/voyah-resources/images/car/titan/1920/sc_1.jpg",
     logo: "/voyah-resources/images/car/car_logo/titan.png",
     gallery: [
@@ -823,16 +1137,16 @@ const models = [
       "/voyah-resources/images/car/titan/1920/sc_30.jpg"
     ],
     metrics: [
-      metric("Family flagship", "Vehicle role", "RÃ´le du vÃ©hicule", "Ø¯ÙˆØ± Ø§Ù„Ø³ÙŠØ§Ø±Ø©"),
-      metric("Flexible cabin", "Interior package", "ModularitÃ© intÃ©rieure", "Ù…Ø±ÙˆÙ†Ø© Ø§Ù„Ù…Ù‚ØµÙˆØ±Ø©"),
-      metric("Confident traction", "Road confidence", "Confiance routiÃ¨re", "Ø§Ù„Ø«Ø¨Ø§Øª Ø¹Ù„Ù‰ Ø§Ù„Ø·Ø±ÙŠÙ‚")
+      metric("2.87X", "Length-height ratio", "Rapport longueur/hauteur", "نسبة الطول إلى الارتفاع"),
+      metric("2.25X", "Wheel-height ratio", "Rapport roue/hauteur", "نسبة العجلة إلى الارتفاع"),
+      metric("59.68%", "Front nose ratio", "Rapport du nez avant", "نسبة المقدمة الأمامية")
     ]
   }),
   makeModel({
     slug: "titan_blackedition.html",
     title: t("Voyah Titan Black Edition", "Voyah Titan Black Edition", "Voyah Titan Black Edition"),
-    subtitle: t("Stealth-focused luxury SUV", "SUV de luxe au style noir", "SUV ÙØ§Ø®Ø±Ø© Ø¨Ø·Ø§Ø¨Ø¹ Ø£Ø³ÙˆØ¯"),
-    description: t("A darker, sharper interpretation of the Titan formula with bold finishes and a more dramatic visual tone.", "Une interprÃ©tation plus sombre et plus tranchante de la Titan, avec des finitions audacieuses et un langage visuel plus dramatique.", "Ù†Ø³Ø®Ø© Ø£ÙƒØ«Ø± Ø¬Ø±Ø£Ø© Ù…Ù† Titan Ø¨ØªØ´Ø·ÙŠØ¨Ø§Øª Ø¯Ø§ÙƒÙ†Ø© ÙˆØ­Ø¶ÙˆØ± Ø¨ØµØ±ÙŠ Ø£ÙƒØ«Ø± Ø­Ø¯Ø©."),
+    subtitle: t("Stealth-focused luxury SUV", "SUV de luxe au style noir", "SUV فاخرة بطابع أسود"),
+    description: t("A darker, sharper interpretation of the Titan formula with bold finishes and a more dramatic visual tone.", "Une interprétation plus sombre et plus tranchante de la Titan, avec des finitions audacieuses et un langage visuel plus dramatique.", "نسخة أكثر جرأة من Titan بتشطيبات داكنة وحضور بصري أكثر حدة."),
     price: t("Black Edition", "Black Edition", "Black Edition"),
     heroImage: "/voyah-resources/images/car/titan_blackedition/1920/sc_1.jpg",
     logo: "/voyah-resources/images/car/car_logo/titan_blackedition.png",
@@ -842,33 +1156,34 @@ const models = [
       "/voyah-resources/images/car/titan_blackedition/1920/sc_18_1.jpg"
     ],
     metrics: [
-      metric("Dark styling", "Design theme", "ThÃ¨me design", "Ù†Ø³Ù‚ Ø§Ù„ØªØµÙ…ÙŠÙ…"),
-      metric("Premium trim", "Material tone", "Finition premium", "Ø§Ù„Ø®Ø§Ù…Ø§Øª Ø§Ù„ÙØ§Ø®Ø±Ø©"),
-      metric("SUV command", "Presence", "Prestance", "Ø§Ù„Ø­Ø¶ÙˆØ±")
+      metric("Dark styling", "Design theme", "Thème design", "نسق التصميم"),
+      metric("Premium trim", "Material tone", "Finition premium", "الخامات الفاخرة"),
+      metric("SUV command", "Presence", "Prestance", "الحضور")
     ]
   }),
   makeModel({
     slug: "titan_X8.html",
     title: t("Voyah Titan X8", "Voyah Titan X8", "Voyah Titan X8"),
-    subtitle: t("Expanded family utility", "Polyvalence familiale Ã©tendue", "Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø¹Ø§Ø¦Ù„ÙŠ Ù…ÙˆØ³Ø¹"),
-    description: t("A Titan derivative tuned for generous multi-row practicality and long-range family confidence.", "Une dÃ©clinaison de Titan pensÃ©e pour une praticitÃ© multirang gÃ©nÃ©reuse et des voyages familiaux sereins.", "Ù†Ø³Ø®Ø© Ù…Ù† Titan Ù…Ù‡ÙŠØ£Ø© Ù„Ø¹Ù…Ù„ÙŠØ© Ø£ÙƒØ¨Ø± Ø¹Ø¨Ø± Ø§Ù„ØµÙÙˆÙ Ø§Ù„Ù…ØªØ¹Ø¯Ø¯Ø© ÙˆØ«Ù‚Ø© Ø£ÙƒØ¨Ø± ÙÙŠ Ø§Ù„Ø±Ø­Ù„Ø§Øª Ø§Ù„Ø¹Ø§Ø¦Ù„ÙŠØ©."),
-    price: t("Eight-seat family focus", "Orientation familiale", "ØªØ±ÙƒÙŠØ² Ø¹Ø§Ø¦Ù„ÙŠ"),
+    subtitle: t("Expanded flagship family SUV", "SUV familial phare étendu", "SUV عائلية رائدة موسعة"),
+    description: t("A Titan derivative tuned for more generous multi-row practicality, calmer family comfort, and long-range travel confidence.", "Une déclinaison de Titan pensée pour une praticité multirang plus généreuse, un confort familial plus serein et une meilleure assurance sur longue distance.", "نسخة من Titan مهيأة لعملية أكبر عبر الصفوف المتعددة وراحة عائلية أكثر هدوءًا وثقة أكبر في الرحلات الطويلة."),
+    price: t("Expanded family flagship", "Flagship familial étendu", "رائدة عائلية موسعة"),
     heroImage: "/voyah-resources/images/car/titan_X8/1920/sc_1.jpg",
     logo: "/voyah-resources/images/car/car_logo/titan_X8.png",
     gallery: ["/voyah-resources/images/car/titan_X8/1920/sc_1.jpg"],
     metrics: [
-      metric("Expanded seating", "Space plan", "Plan dâ€™espace", "ØªØ®Ø·ÙŠØ· Ø§Ù„Ù…Ø³Ø§Ø­Ø©"),
-      metric("Travel ready", "Use case", "Usage", "Ø§Ù„Ø§Ø³ØªØ®Ø¯Ø§Ù…"),
-      metric("SUV comfort", "Comfort focus", "Confort", "Ø§Ù„Ø±Ø§Ø­Ø©")
+      metric("Expanded seating", "Space plan", "Plan d’espace", "تخطيط المساحة"),
+      metric("Travel ready", "Use case", "Usage", "الاستخدام"),
+      metric("SUV comfort", "Comfort focus", "Confort", "الراحة")
     ]
   }),
   makeModel({
     slug: "free+.html",
     title: t("Voyah FREE+", "Voyah FREE+", "Voyah FREE+"),
-    subtitle: t("Premium performance SUV", "SUV premium haute performance", "SUV ÙØ§Ø®Ø±Ø© Ø¹Ø§Ù„ÙŠØ© Ø§Ù„Ø£Ø¯Ø§Ø¡"),
-    description: t("A sharply sculpted SUV with athletic stance, expressive lighting, and a focused digital cockpit.", "Un SUV sculptÃ© avec prÃ©cision, dotÃ© dâ€™une posture athlÃ©tique, dâ€™une signature lumineuse expressive et dâ€™un cockpit numÃ©rique centrÃ© sur le conducteur.", "Ø³ÙŠØ§Ø±Ø© SUV Ù…Ù†Ø­ÙˆØªØ© Ø¨Ø¯Ù‚Ø© ØªØ¬Ù…Ø¹ Ø¨ÙŠÙ† Ø§Ù„ÙˆÙ‚ÙØ© Ø§Ù„Ø±ÙŠØ§Ø¶ÙŠØ© ÙˆØ§Ù„Ø¥Ø¶Ø§Ø¡Ø© Ø§Ù„ØªØ¹Ø¨ÙŠØ±ÙŠØ© ÙˆØ§Ù„Ù…Ù‚ØµÙˆØ±Ø© Ø§Ù„Ø±Ù‚Ù…ÙŠØ© Ø§Ù„Ù…Ø±ÙƒØ²Ø© Ø¹Ù„Ù‰ Ø§Ù„Ø³Ø§Ø¦Ù‚."),
-    price: t("Performance SUV", "SUV performance", "SUV Ø£Ø¯Ø§Ø¡"),
+    subtitle: t("Premium intelligent SUV", "SUV premium intelligente", "سيارة SUV ذكية فاخرة"),
+    description: t("A premium urban SUV with expressive light-and-shadow design, a more refined cabin, and Huawei intelligent driving.", "Un SUV urbain premium au design d’ombres et de lumière, à l’habitacle plus raffiné et à la conduite intelligente Huawei.", "سيارة SUV حضرية فاخرة بتصميم ضوء وظل مع مقصورة أكثر تنقيحًا وقيادة ذكية من Huawei."),
+    price: t("Premium intelligent SUV", "SUV premium intelligente", "سيارة SUV ذكية فاخرة"),
     heroImage: "/voyah-resources/images/car/free+/kv_1920.png",
+    heroVideo: "/voyah-resources/images/car/free+/video_01_20250712.mp4",
     logo: "/voyah-resources/images/car/car_logo/free+.png",
     gallery: [
       "/voyah-resources/images/car/free+/img_03_1920.png",
@@ -876,18 +1191,19 @@ const models = [
       "/voyah-resources/images/car/free+/img_42_1920.png"
     ],
     metrics: [
-      metric("Athletic stance", "Design", "Design", "Ø§Ù„ØªØµÙ…ÙŠÙ…"),
-      metric("Connected cockpit", "Cabin", "Habitacle", "Ø§Ù„Ù…Ù‚ØµÙˆØ±Ø©"),
-      metric("Daily versatility", "Use case", "Usage", "Ø§Ù„Ø§Ø³ØªØ®Ø¯Ø§Ù…")
+      metric("Urban design", "Design", "Design", "التصميم"),
+      metric("Harmony cockpit", "Cabin", "Habitacle", "المقصورة"),
+      metric("ADS 4", "Driving tech", "Conduite intelligente", "تقنية القيادة")
     ]
   }),
   makeModel({
     slug: "free.html",
     title: t("Voyah FREE 318", "Voyah FREE 318", "Voyah FREE 318"),
-    subtitle: t("Long-range crossover expression", "Expression crossover longue autonomie", "ÙƒØ±ÙˆØ³ Ø£ÙˆÙØ± Ø¨Ù…Ø¯Ù‰ Ø·ÙˆÙŠÙ„"),
-    description: t("A crossover package balancing touring composure, elevated seating, and everyday premium usability.", "Un crossover qui Ã©quilibre sÃ©rÃ©nitÃ© sur long trajet, position de conduite surÃ©levÃ©e et usage premium au quotidien.", "Ø­Ø²Ù…Ø© ÙƒØ±ÙˆØ³ Ø£ÙˆÙØ± ØªÙˆØ§Ø²Ù† Ø¨ÙŠÙ† Ø§Ù„Ø±Ø§Ø­Ø© ÙÙŠ Ø§Ù„Ø³ÙØ± ÙˆØ§Ù„Ø¬Ù„ÙˆØ³ Ø§Ù„Ù…Ø±ØªÙØ¹ ÙˆØ§Ù„Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø§Ù„ÙØ§Ø®Ø± Ø§Ù„ÙŠÙˆÙ…ÙŠ."),
-    price: t("Long-range crossover", "Crossover longue autonomie", "ÙƒØ±ÙˆØ³ Ø£ÙˆÙØ± Ø¨Ù…Ø¯Ù‰ Ø·ÙˆÙŠÙ„"),
+    subtitle: t("Long-range premium crossover", "Crossover premium longue autonomie", "كروس أوفر فاخر بعيد المدى"),
+    description: t("A long-range crossover with relaxed touring comfort, a calmer smart cockpit, and premium everyday versatility.", "Un crossover longue autonomie avec confort de voyage apaisé, cockpit intelligent plus serein et polyvalence premium au quotidien.", "كروس أوفر بعيد المدى يجمع بين راحة السفر الهادئة والمقصورة الذكية الأكثر سكينة والتنوع الفاخر اليومي."),
+    price: t("Long-range premium crossover", "Crossover premium longue autonomie", "كروس أوفر فاخر بعيد المدى"),
     heroImage: "/voyah-resources/images/car/free/bg-free-h97D-1.jpg",
+    heroVideo: "/voyah-resources/images/car/free/video_01.mp4",
     logo: "/voyah-resources/images/car/car_logo/free.png",
     gallery: [
       "/voyah-resources/images/car/free/bg-free-h97D-5.jpg",
@@ -895,17 +1211,17 @@ const models = [
       "/voyah-resources/images/car/free/bg-free-h97D-12.jpg"
     ],
     metrics: [
-      metric("Travel comfort", "Long-route feel", "Confort longue route", "Ø±Ø§Ø­Ø© Ø§Ù„Ø³ÙØ±"),
-      metric("Elevated seating", "Driving position", "Position de conduite", "ÙˆØ¶Ø¹ÙŠØ© Ø§Ù„Ù‚ÙŠØ§Ø¯Ø©"),
-      metric("Practical luxury", "Daily use", "Usage quotidien", "Ø§Ù„Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø§Ù„ÙŠÙˆÙ…ÙŠ")
+      metric("Touring comfort", "Long-route feel", "Confort longue route", "راحة السفر"),
+      metric("High seating", "Driving position", "Position de conduite", "وضعية القيادة"),
+      metric("Practical luxury", "Daily use", "Usage quotidien", "الاستخدام اليومي")
     ]
   }),
   makeModel({
     slug: "newCourage.html",
-    title: t("New Voyah Courage", "Nouveau Voyah Courage", "Voyah Courage Ø§Ù„Ø¬Ø¯ÙŠØ¯"),
-    subtitle: t("Urban electric SUV upgrade", "SUV Ã©lectrique urbain revisitÃ©", "ØªØ­Ø¯ÙŠØ« SUV ÙƒÙ‡Ø±Ø¨Ø§Ø¦ÙŠØ© Ø­Ø¶Ø±ÙŠØ©"),
-    description: t("An updated Courage with sharper surfaces, clean proportions, and a stronger digital-first interior theme.", "Une Courage renouvelÃ©e, avec des surfaces plus tendues, des proportions nettes et une ambiance intÃ©rieure davantage centrÃ©e sur le numÃ©rique.", "Ù†Ø³Ø®Ø© Ù…Ø­Ø¯Ø«Ø© Ù…Ù† Courage Ø¨ØªÙØ§ØµÙŠÙ„ Ø£ÙƒØ«Ø± Ø­Ø¯Ø© ÙˆØªÙ†Ø§Ø³Ù‚ Ø£Ù†Ø¸Ù ÙˆÙ…Ù‚ØµÙˆØ±Ø© Ø±Ù‚Ù…ÙŠØ© Ø£ÙƒØ«Ø± ÙˆØ¶ÙˆØ­Ø§Ù‹."),
-    price: t("Urban premium SUV", "SUV urbain premium", "SUV Ø­Ø¶Ø±ÙŠØ© ÙØ§Ø®Ø±Ø©"),
+    title: t("New Voyah Courage", "Nouveau Voyah Courage", "Voyah Courage الجديد"),
+    subtitle: t("New luxury pure-electric SUV", "Nouveau SUV de luxe 100 % électrique", "سيارة SUV كهربائية فاخرة جديدة"),
+    description: t("A new-generation pure-electric SUV with a warm family cabin, long range, and Huawei intelligent driving.", "Un SUV 100 % électrique de nouvelle génération avec habitacle familial chaleureux, grande autonomie et conduite intelligente Huawei.", "سيارة SUV كهربائية بالكامل من الجيل الجديد بمقصورة عائلية دافئة ومدى طويل وقيادة ذكية من Huawei."),
+    price: t("New luxury pure-electric SUV", "Nouveau SUV de luxe 100 % électrique", "سيارة SUV كهربائية فاخرة جديدة"),
     heroImage: "/voyah-resources/images/car/newCourage/1920/sc_1.jpg",
     logo: "/voyah-resources/images/car/car_logo/newCourage.png",
     gallery: [
@@ -914,17 +1230,17 @@ const models = [
       "/voyah-resources/images/car/newCourage/1920/sc_18.jpg"
     ],
     metrics: [
-      metric("City focused", "Context", "Contexte", "Ø§Ù„Ø³ÙŠØ§Ù‚"),
-      metric("Sharper form", "Styling", "Style", "Ø§Ù„Ø£Ø³Ù„ÙˆØ¨"),
-      metric("Connected comfort", "Interior theme", "Ambiance intÃ©rieure", "Ø·Ø§Ø¨Ø¹ Ø§Ù„Ù…Ù‚ØµÙˆØ±Ø©")
+      metric("Pure electric", "Powertrain", "Motorisation", "منظومة الحركة"),
+      metric("Huawei ADS", "Driving tech", "Conduite intelligente", "تقنية القيادة"),
+      metric("Harmony cockpit", "Cabin", "Cockpit", "المقصورة")
     ]
   }),
   makeModel({
     slug: "courage.html",
     title: t("Voyah Courage", "Voyah Courage", "Voyah Courage"),
-    subtitle: t("Compact premium electric SUV", "SUV Ã©lectrique premium compact", "SUV ÙƒÙ‡Ø±Ø¨Ø§Ø¦ÙŠØ© ÙØ§Ø®Ø±Ø© Ù…Ø¯Ù…Ø¬Ø©"),
-    description: t("A compact premium SUV shaped for agile urban use while preserving Voyah refinement and visual confidence.", "Un SUV premium compact pensÃ© pour lâ€™agilitÃ© urbaine sans sacrifier le raffinement Voyah ni sa prÃ©sence visuelle.", "Ø³ÙŠØ§Ø±Ø© SUV ÙØ§Ø®Ø±Ø© Ù…Ø¯Ù…Ø¬Ø© Ù…ÙˆØ¬Ù‡Ø© Ù„Ù„Ù…Ø¯ÙŠÙ†Ø© Ù…Ø¹ Ø§Ù„Ø­ÙØ§Ø¸ Ø¹Ù„Ù‰ Ø±Ù‚ÙŠ Voyah ÙˆØ­Ø¶ÙˆØ±Ù‡Ø§ Ø§Ù„ÙˆØ§Ø«Ù‚."),
-    price: t("Compact electric SUV", "SUV Ã©lectrique compact", "SUV ÙƒÙ‡Ø±Ø¨Ø§Ø¦ÙŠØ© Ù…Ø¯Ù…Ø¬Ø©"),
+    subtitle: t("Luxury pure-electric family SUV", "SUV familial de luxe 100 % électrique", "سيارة SUV عائلية كهربائية فاخرة"),
+    description: t("A full-electric SUV focused on expressive design, practical family comfort, and everyday long-range confidence.", "Un SUV électrique centré sur un design expressif, un confort familial pratique et une confiance d’autonomie au quotidien.", "سيارة SUV كهربائية بالكامل تركز على التصميم التعبيري والراحة العائلية العملية والثقة في المدى اليومي الطويل."),
+    price: t("Luxury pure-electric family SUV", "SUV familial de luxe 100 % électrique", "سيارة SUV عائلية كهربائية فاخرة"),
     heroImage: "/voyah-resources/images/car/courage/1920/h37_pc01_0001.jpg",
     logo: "/voyah-resources/images/car/car_logo/courage.png",
     gallery: [
@@ -933,17 +1249,17 @@ const models = [
       "/voyah-resources/images/car/courage/1920/h37_pc06_0001.jpg"
     ],
     metrics: [
-      metric("Compact footprint", "Vehicle size", "Gabarit", "Ø§Ù„Ø­Ø¬Ù…"),
-      metric("Urban agility", "Driving use", "Usage de conduite", "Ø·Ø¨ÙŠØ¹Ø© Ø§Ù„Ù‚ÙŠØ§Ø¯Ø©"),
-      metric("Premium detail", "Finish", "Finition", "Ø§Ù„ØªØ´Ø·ÙŠØ¨")
+      metric("901 km", "Electric range", "Autonomie électrique", "مدى القيادة"),
+      metric("109 kWh", "Battery", "Batterie", "البطارية"),
+      metric("800 V", "Platform", "Plateforme", "المنصة")
     ]
   }),
   makeModel({
     slug: "newDreamer26.html",
     title: t("26 Voyah Dreamer", "Voyah Dreamer 26", "Voyah Dreamer 26"),
-    subtitle: t("Luxury family MPV flagship", "Monospace familial de luxe", "MPV Ø¹Ø§Ø¦Ù„ÙŠØ© ÙØ§Ø®Ø±Ø©"),
-    description: t("A new-generation Dreamer with lounge-like comfort, refined long-distance composure, and premium family focus.", "Une nouvelle gÃ©nÃ©ration Dreamer avec un confort de salon, une grande sÃ©rÃ©nitÃ© sur longue distance et une vocation familiale premium.", "Ø§Ù„Ø¬ÙŠÙ„ Ø§Ù„Ø¬Ø¯ÙŠØ¯ Ù…Ù† Dreamer ÙŠÙˆÙØ± Ø±Ø§Ø­Ø© Ø´Ø¨ÙŠÙ‡Ø© Ø¨Ø§Ù„ØµØ§Ù„ÙˆÙ† ÙˆØ«Ø¨Ø§ØªØ§Ù‹ Ø±Ø§Ù‚ÙŠØ§Ù‹ ÙÙŠ Ø§Ù„Ø±Ø­Ù„Ø§Øª Ø§Ù„Ø·ÙˆÙŠÙ„Ø© ÙˆØªØ±ÙƒÙŠØ²Ø§Ù‹ Ø¹Ø§Ø¦Ù„ÙŠØ§Ù‹ ÙØ§Ø®Ø±Ø§Ù‹."),
-    price: t("Luxury MPV flagship", "Monospace phare de luxe", "MPV ÙØ§Ø®Ø±Ø© Ø±Ø§Ø¦Ø¯Ø©"),
+    subtitle: t("A new-era flagship MPV", "Monospace phare de nouvelle génération", "سيارة MPV رائدة من الجيل الجديد"),
+    description: t("A new-generation Dreamer with lounge-like comfort, refined long-distance composure, and premium family focus.", "Une nouvelle génération Dreamer avec un confort de salon, une grande sérénité sur longue distance et une vocation familiale premium.", "الجيل الجديد من Dreamer يوفر راحة شبيهة بالصالون وثباتاً راقياً في الرحلات الطويلة وتركيزاً عائلياً فاخراً."),
+    price: t("A new-era flagship MPV", "Monospace phare de nouvelle génération", "سيارة MPV رائدة من الجيل الجديد"),
     heroImage: "/voyah-resources/images/car/newDreamer26/kv_1920.jpg",
     logo: "/voyah-resources/images/car/car_logo/newDreamer26.png",
     gallery: [
@@ -952,17 +1268,36 @@ const models = [
       "/voyah-resources/images/car/newDreamer26/bg_22_1920.jpg"
     ],
     metrics: [
-      metric("Family lounge", "Cabin concept", "Concept habitacle", "Ù…ÙÙ‡ÙˆÙ… Ø§Ù„Ù…Ù‚ØµÙˆØ±Ø©"),
-      metric("Long-distance ease", "Travel focus", "Confort voyage", "Ø±Ø§Ø­Ø© Ø§Ù„Ø³ÙØ±"),
-      metric("Premium hospitality", "Second-row feel", "ExpÃ©rience deuxiÃ¨me rang", "ØªØ¬Ø±Ø¨Ø© Ø§Ù„ØµÙ Ø§Ù„Ø«Ø§Ù†ÙŠ")
+      metric("MPV", "Body type", "Carrosserie", "نوع الهيكل"),
+      metric("Flagship", "Positioning", "Positionnement", "الفئة"),
+      metric("Six / seven seats", "Seating", "Places", "عدد المقاعد")
+    ]
+  }),
+  makeModel({
+    slug: "dreamer-champion.html",
+    title: t("Voyah Dreamer Champion", "Voyah Dreamer Champion", "Voyah Dreamer Champion"),
+    subtitle: t("Special-edition flagship MPV", "MPV phare en édition spéciale", "سيارة MPV رائدة بإصدار خاص"),
+    description: t("A special Dreamer expression with ceremonial presence, executive lounge comfort, and a more curated premium hospitality tone.", "Une expression spéciale de Dreamer avec présence cérémonielle, confort de salon exécutif et tonalité d’hospitalité premium plus soignée.", "نسخة خاصة من Dreamer بحضور احتفالي وراحة صالون تنفيذي ونبرة ضيافة فاخرة أكثر عناية."),
+    price: t("Champion special edition", "Édition spéciale Champion", "إصدار Champion الخاص"),
+    heroImage: "/voyah-resources/images/car/dreamer-champion/kv_1920.jpg",
+    logo: "/voyah-resources/images/car/car_logo/dreamer-champion.png",
+    gallery: [
+      "/voyah-resources/images/car/dreamer-champion/bg_11_n_1920.jpg",
+      "/voyah-resources/images/car/dreamer-champion/bg_15_n_1920.jpg",
+      "/voyah-resources/images/car/dreamer-champion/bg_21_n_1920.jpg"
+    ],
+    metrics: [
+      metric("Special edition", "Series", "Série", "السلسلة"),
+      metric("Executive MPV", "Positioning", "Positionnement", "الفئة"),
+      metric("Ceremonial comfort", "Cabin mood", "Ambiance intérieure", "أجواء المقصورة")
     ]
   }),
   makeModel({
     slug: "newDreamer.html",
     title: t("25 Voyah Dreamer", "Voyah Dreamer 25", "Voyah Dreamer 25"),
-    subtitle: t("Refined premium MPV", "Monospace premium raffinÃ©", "MPV ÙØ§Ø®Ø±Ø© Ù…ØµÙ‚ÙˆÙ„Ø©"),
-    description: t("A premium MPV combining poised body control, spacious seating, and a polished travel atmosphere.", "Un monospace premium qui associe maÃ®trise des mouvements, espace Ã  bord gÃ©nÃ©reux et atmosphÃ¨re de voyage soignÃ©e.", "Ø³ÙŠØ§Ø±Ø© MPV ÙØ§Ø®Ø±Ø© ØªØ¬Ù…Ø¹ Ø¨ÙŠÙ† Ø§Ù„Ø«Ø¨Ø§Øª Ø§Ù„Ø±Ø­Ø¨ ÙˆØ§Ù„Ù…Ø³Ø§Ø­Ø© Ø§Ù„ÙˆØ§Ø³Ø¹Ø© ÙˆØ£Ø¬ÙˆØ§Ø¡ Ø§Ù„Ø³ÙØ± Ø§Ù„Ù…ØµÙ‚ÙˆÙ„Ø©."),
-    price: t("Premium MPV", "Monospace premium", "MPV ÙØ§Ø®Ø±Ø©"),
+    subtitle: t("Panoramic luxury technology flagship MPV", "Monospace phare technologique de luxe panoramique", "MPV رائدة تجمع بين الفخامة والتقنية البانورامية"),
+    description: t("A panoramic luxury flagship MPV with premium comfort, intelligent cabin tech, and long-distance composure.", "Un MPV phare de luxe panoramique avec confort premium, technologie d’habitacle intelligente et sérénité longue distance.", "سيارة MPV رائدة فاخرة بانورامية مع راحة فاخرة وتقنية مقصورة ذكية وثبات في الرحلات الطويلة."),
+    price: t("Starting from RMB 329,900", "À partir de 329 900 RMB", "السعر يبدأ من 329,900 يوان"),
     heroImage: "/voyah-resources/images/car/newDreamer/h56c_pc08_banner01.jpg",
     logo: "/voyah-resources/images/car/car_logo/newDreamer.png",
     gallery: [
@@ -971,17 +1306,17 @@ const models = [
       "/voyah-resources/images/car/newDreamer/h56c_pc03_0003.jpg"
     ],
     metrics: [
-      metric("Premium MPV", "Vehicle type", "Type de vÃ©hicule", "Ù†ÙˆØ¹ Ø§Ù„Ø³ÙŠØ§Ø±Ø©"),
-      metric("Quiet travel", "Ride quality", "QualitÃ© de roulage", "Ø¬ÙˆØ¯Ø© Ø§Ù„Ø±Ø­Ù„Ø©"),
-      metric("Family luxury", "Use focus", "Usage", "Ø§Ù„Ø§Ø³ØªØ®Ø¯Ø§Ù…")
+      metric("MPV", "Body type", "Carrosserie", "نوع الهيكل"),
+      metric("Flagship", "Positioning", "Positionnement", "الفئة"),
+      metric("Seven seats", "Seating", "Places", "عدد المقاعد")
     ]
   }),
   makeModel({
     slug: "dreamriver.html",
-    title: t("Voyah Dreamer Mountain River", "Voyah Dreamer Montagne-RiviÃ¨re", "Voyah Dreamer Mountain River"),
-    subtitle: t("Scenic travel expression", "Expression du voyage panoramique", "Ø·Ø§Ø¨Ø¹ Ø§Ù„Ø³ÙØ± Ø§Ù„Ù…Ø´Ù‡Ø¯ÙŠ"),
-    description: t("A special Dreamer expression emphasizing serene scenery, warm hospitality, and elegant multi-person travel.", "Une interprÃ©tation spÃ©ciale de Dreamer axÃ©e sur le paysage, lâ€™accueil chaleureux et lâ€™Ã©lÃ©gance des voyages Ã  plusieurs.", "Ù†Ø³Ø®Ø© Ø®Ø§ØµØ© Ù…Ù† Dreamer ØªØ±ÙƒØ² Ø¹Ù„Ù‰ Ø§Ù„Ù…Ø´Ù‡Ø¯ Ø§Ù„Ù‡Ø§Ø¯Ø¦ ÙˆØ§Ù„Ø¶ÙŠØ§ÙØ© Ø§Ù„Ø¯Ø§ÙØ¦Ø© ÙˆØ£Ù†Ø§Ù‚Ø© Ø§Ù„Ø³ÙØ± Ø§Ù„Ø¬Ù…Ø§Ø¹ÙŠ."),
-    price: t("Special edition MPV", "Ã‰dition spÃ©ciale MPV", "MPV Ø¥ØµØ¯Ø§Ø± Ø®Ø§Øµ"),
+    title: t("Voyah Dreamer Mountain River", "Voyah Dreamer Montagne-Rivière", "Voyah Dreamer Mountain River"),
+    subtitle: t("Scenic travel expression", "Expression du voyage panoramique", "طابع السفر المشهدي"),
+    description: t("A special Dreamer expression emphasizing serene scenery, warm hospitality, and elegant multi-person travel.", "Une interprétation spéciale de Dreamer axée sur le paysage, l’accueil chaleureux et l?élégance des voyages à plusieurs.", "نسخة خاصة من Dreamer تركز على المشهد الهادئ والضيافة الدافئة وأناقة السفر الجماعي."),
+    price: t("Special edition MPV", "Édition spéciale MPV", "MPV إصدار خاص"),
     heroImage: "/voyah-resources/images/car/dreamriver/kv_1920.png",
     logo: "/voyah-resources/images/car/car_logo/dreamriver.png",
     gallery: [
@@ -990,17 +1325,17 @@ const models = [
       "/voyah-resources/images/car/dreamriver/sc_8.png"
     ],
     metrics: [
-      metric("Scenic theme", "Edition theme", "ThÃ¨me de lâ€™Ã©dition", "Ø·Ø§Ø¨Ø¹ Ø§Ù„Ø¥ØµØ¯Ø§Ø±"),
-      metric("Warm cabin", "Interior mood", "Ambiance intÃ©rieure", "Ø£Ø¬ÙˆØ§Ø¡ Ø§Ù„Ù…Ù‚ØµÙˆØ±Ø©"),
-      metric("Shared journeys", "Travel mode", "Mode de voyage", "Ù†Ù…Ø· Ø§Ù„Ø³ÙØ±")
+      metric("Scenic theme", "Edition theme", "Thème de l?édition", "طابع الإصدار"),
+      metric("Warm cabin", "Interior mood", "Ambiance intérieure", "أجواء المقصورة"),
+      metric("Shared journeys", "Travel mode", "Mode de voyage", "نمط السفر")
     ]
   }),
   makeModel({
     slug: "dreamer.html",
     title: t("24 Voyah Dreamer", "Voyah Dreamer 24", "Voyah Dreamer 24"),
-    subtitle: t("Luxury electric MPV", "Monospace Ã©lectrique de luxe", "MPV ÙƒÙ‡Ø±Ø¨Ø§Ø¦ÙŠØ© ÙØ§Ø®Ø±Ø©"),
-    description: t("A spacious electric MPV created for premium family mobility with broad comfort and reassuring calm.", "Un monospace Ã©lectrique spacieux pensÃ© pour une mobilitÃ© familiale premium avec beaucoup de confort et une sÃ©rÃ©nitÃ© rassurante.", "Ø³ÙŠØ§Ø±Ø© MPV ÙƒÙ‡Ø±Ø¨Ø§Ø¦ÙŠØ© ÙˆØ§Ø³Ø¹Ø© ØµÙ…Ù…Øª Ù„Ù„Ø­Ø±ÙƒØ© Ø§Ù„Ø¹Ø§Ø¦Ù„ÙŠØ© Ø§Ù„ÙØ§Ø®Ø±Ø© Ù…Ø¹ Ø±Ø§Ø­Ø© ÙƒØ¨ÙŠØ±Ø© ÙˆÙ‡Ø¯ÙˆØ¡ Ù…Ø·Ù…Ø¦Ù†."),
-    price: t("Electric luxury MPV", "Monospace Ã©lectrique de luxe", "MPV ÙƒÙ‡Ø±Ø¨Ø§Ø¦ÙŠØ© ÙØ§Ø®Ø±Ø©"),
+    subtitle: t("Luxury electric MPV", "Monospace électrique de luxe", "MPV كهربائية فاخرة"),
+    description: t("A spacious electric MPV created for premium family mobility with broad comfort and reassuring calm.", "Un monospace électrique spacieux pensé pour une mobilité familiale premium avec beaucoup de confort et une sérénité rassurante.", "سيارة MPV كهربائية واسعة صممت للحركة العائلية الفاخرة مع راحة كبيرة وهدوء مطمئن."),
+    price: t("Electric luxury MPV", "Monospace électrique de luxe", "MPV كهربائية فاخرة"),
     heroImage: "/voyah-resources/images/car/dreamer/bg_2_1920.jpg",
     logo: "/voyah-resources/images/car/car_logo/dreamer.png",
     gallery: [
@@ -1009,9 +1344,9 @@ const models = [
       "/voyah-resources/images/car/dreamer/bg_24_1920.jpg"
     ],
     metrics: [
-      metric("Three-row comfort", "Space", "Espace", "Ø§Ù„Ù…Ø³Ø§Ø­Ø©"),
-      metric("Family calm", "Travel atmosphere", "Ambiance de voyage", "Ø£Ø¬ÙˆØ§Ø¡ Ø§Ù„Ø±Ø­Ù„Ø©"),
-      metric("Electric luxury", "Power theme", "Motorisation", "Ø§Ù„Ù…Ù†Ø¸ÙˆÙ…Ø©")
+      metric("Three-row comfort", "Space", "Espace", "المساحة"),
+      metric("Family calm", "Travel atmosphere", "Ambiance de voyage", "أجواء الرحلة"),
+      metric("Electric luxury", "Power theme", "Motorisation", "المنظومة")
     ]
   })
 ];
@@ -1019,187 +1354,216 @@ const infoPages = [
   {
     kind: "info",
     slug: "brand.html",
-    eyebrow: t("Brand", "Marque", "Ø§Ù„Ø¹Ù„Ø§Ù…Ø©"),
+    eyebrow: t("Brand story", "Histoire de la marque", "قصة العلامة"),
     title: t("Hello world, I am Voyah!", "Bonjour le monde, je suis Voyah !", "مرحباً أيها العالم، أنا Voyah!"),
-    summary: t("A premium intelligent new-energy brand originating from Dongfeng Motor.", "Une marque haut de gamme de véhicules à énergies nouvelles intelligents issue de Dongfeng Motor.", "علامة راقية للمركبات الذكية العاملة بالطاقة الجديدة تنتمي إلى Dongfeng Motor."),
+    summary: t(
+      'As a premium brand rooted in Chinese culture, Voyah blends Chinese elegance with modern technology. Under the promise of "Intelligent Voyah, Creating Happiness," Voyah works with the new-generation backbone of society to pursue a better life.',
+      'En tant que marque premium enracinée dans la culture chinoise, Voyah associe l’élégance chinoise à la technologie moderne. Sous la promesse de "Voyah intelligente, créer le bonheur", Voyah avance avec la nouvelle génération de forces vives de la société pour poursuivre une vie meilleure.',
+      'بصفتها علامة راقية متجذرة في الثقافة الصينية، تمزج Voyah بين الأناقة الصينية والتكنولوجيا الحديثة. وضمن وعد "Voyah الذكية، تصنع السعادة"، تسير مع الجيل الجديد من القوى الفاعلة في المجتمع نحو حياة أفضل.'
+    ),
     heroImage: "/static/assets/world-fec50d02.jpg",
-    metrics: [
-      metric("Premium brand", "Brand role", "Role de la marque", "دور العلامة"),
-      metric("Dongfeng origin", "Origin", "Origine", "المنشأ"),
-      metric("Intelligent NEV", "Positioning", "Positionnement", "التموضع")
-    ],
     blocks: [
-      block("/static/assets/greeting-b368cd0d.jpg", "Hello world, I am Voyah!", "Bonjour le monde, je suis Voyah !", "مرحباً أيها العالم، أنا Voyah!", "A premium intelligent new-energy brand originating from Dongfeng Motor.", "Une marque haut de gamme de véhicules à énergies nouvelles intelligents issue de Dongfeng Motor.", "علامة راقية للمركبات الذكية العاملة بالطاقة الجديدة تنتمي إلى Dongfeng Motor."),
-      block("/static/assets/future-6727dcc7.png", "Explore Voyah technology", "Explorer la technologie Voyah", "استكشف تقنية Voyah", "Voyah is not only a pioneer on the electric track for a central state-owned enterprise, but also a benchmark for the transformation of mature Chinese automakers.", "Voyah n est pas seulement un pionnier de la course à l électrification pour une entreprise centrale, mais aussi un nouveau repère pour la transformation des constructeurs chinois matures.", "ليست Voyah مجرد شركة رائدة في مسار الكهرباء داخل مؤسسة مركزية، بل أيضاً معياراً جديداً لتحول شركات السيارات الصينية الناضجة."),
-      block("/static/assets/world-6e618fb7.png", "Leading in China, expanding globally", "Leader en Chine, déploiement mondial", "ريادة في الصين وانتشار عالمي", "The Chinese premium intelligent new-energy vehicle brand that moved from the local market to overseas markets the fastest.", "La marque chinoise haut de gamme de véhicules à énergies nouvelles intelligents qui a réalisé le passage du marché local aux marchés étrangers le plus rapidement.", "العلامة الصينية الراقية للمركبات الذكية العاملة بالطاقة الجديدة التي انتقلت من السوق المحلية إلى الأسواق الخارجية بأسرع وتيرة.")
-    ],
-    ctaLabel: t("Explore Voyah models", "Explorer les modèles Voyah", "استكشف طرازات Voyah"),
-    ctaSlug: "titan.html"
+      block("/static/assets/greeting-b368cd0d.jpg", "Brand story", "Histoire de la marque", "قصة العلامة", "Voyah is a premium brand rooted in Chinese culture and defined by Chinese elegance and modern technology.", "Voyah est une marque premium enracinée dans la culture chinoise et définie par l’élégance chinoise et la technologie moderne.", "Voyah علامة راقية متجذرة في الثقافة الصينية وتقوم على الأناقة الصينية والتكنولوجيا الحديثة."),
+      block("/static/assets/future-6727dcc7.png", "Design philosophy", "Philosophie de design", "فلسفة التصميم", "A calm, flowing form language that balances warmth, confidence, and forward motion.", "Un langage formel fluide et apaisé qui équilibre chaleur, assurance et élan vers l’avant.", "لغة تصميم هادئة وانسيابية توازن بين الدفء والثقة والحركة إلى الأمام."),
+      block("/static/assets/world-6e618fb7.png", "Technology philosophy", "Philosophie technologique", "فلسفة التكنولوجيا", "Warm technology, human-centered interaction, and intelligent systems work together for a premium experience.", "La technologie chaleureuse, l’interaction centrée sur l’humain et les systèmes intelligents travaillent ensemble pour une expérience premium.", "تعمل التكنولوجيا الودية والتفاعل المتمحور حول الإنسان والأنظمة الذكية معاً لتقديم تجربة راقية."),
+      block("/static/assets/greeting2-5b965b2d.png", "ESSA architecture", "Architecture ESSA", "منصة ESSA", "The native intelligent electric architecture brings extreme safety, intuitive control, and all-round comfort.", "L’architecture électrique intelligente native apporte une sécurité extrême, une maîtrise intuitive et un confort global.", "توفر المنصة الكهربائية الذكية الأصلية سلامة قصوى وتحكماً بديهياً وراحة شاملة."),
+      block("/static/assets/world-fec50d02.jpg", "Voyah Power", "Voyah Power", "Voyah Power", "A native multi-power technology platform built for power, efficiency, battery safety, and smoothness.", "Une plateforme technologique multi-énergie native conçue pour la puissance, l’efficacité, la sécurité batterie et la douceur.", "منصة تقنية متعددة الطاقة أصلية تجمع بين القوة والكفاءة وسلامة البطارية والنعومة.")
+    ]
   },
   {
     kind: "info",
     slug: "store.html",
-    eyebrow: t("Store center", "Centre de magasins", "Ù…Ø±ÙƒØ² Ø§Ù„Ù…Ø¹Ø§Ø±Ø¶"),
-    title: t("Store center built around the user journey", "Centre de magasins construit autour du parcours utilisateur", "Ù…Ø±ÙƒØ² Ù…Ø¹Ø§Ø±Ø¶ Ù…Ø¨Ù†ÙŠ Ø­ÙˆÙ„ Ø±Ø­Ù„Ø© Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù…"),
-    summary: t("Voyah stores bring together vehicle discovery, consultation, booking, delivery, and ownership support in one premium environment.", "Les espaces Voyah rÃ©unissent dÃ©couverte des vÃ©hicules, conseil, rÃ©servation, livraison et accompagnement dans un mÃªme environnement premium.", "ØªØ¬Ù…Ø¹ Ù…Ø¹Ø§Ø±Ø¶ Voyah Ø¨ÙŠÙ† Ø§ÙƒØªØ´Ø§Ù Ø§Ù„Ù…Ø±ÙƒØ¨Ø§Øª ÙˆØ§Ù„Ø§Ø³ØªØ´Ø§Ø±Ø© ÙˆØ§Ù„Ø­Ø¬Ø² ÙˆØ§Ù„ØªØ³Ù„ÙŠÙ… ÙˆØ¯Ø¹Ù… Ø§Ù„Ù…Ù„ÙƒÙŠØ© Ø¶Ù…Ù† Ø¨ÙŠØ¦Ø© ÙØ§Ø®Ø±Ø© ÙˆØ§Ø­Ø¯Ø©."),
+    eyebrow: t("Store center", "Centre de magasins", "مركز المعارض"),
+    title: t("Store Center", "Centre de magasins", "مركز المعارض"),
+    summary: t("Find Voyah spaces, full-function user centers, delivery centers, and service centers near you.", "Trouvez les espaces Voyah, centres utilisateurs à service complet, centres de livraison et centres de service près de chez vous.", "اعثر على مساحات Voyah ومراكز المستخدمين متكاملة الوظائف ومراكز التسليم ومراكز الخدمة القريبة منك."),
     heroImage: "/static/assets/service_bg-047aedf5.png",
     metrics: [
-      metric("Retail", "Experience type", "Type dâ€™expÃ©rience", "Ù†ÙˆØ¹ Ø§Ù„ØªØ¬Ø±Ø¨Ø©"),
-      metric("1 journey", "Service flow", "Parcours de service", "Ù…Ø³Ø§Ø± Ø§Ù„Ø®Ø¯Ù…Ø©"),
-      metric("Local support", "Ownership touchpoint", "Point de contact", "Ù†Ù‚Ø·Ø© Ø§Ù„ØªÙˆØ§ØµÙ„")
+      metric("Retail", "Experience type", "Type d’expérience", "نوع التجربة"),
+      metric("1 journey", "Service flow", "Parcours de service", "مسار الخدمة"),
+      metric("User center", "Ownership touchpoint", "Point de contact", "نقطة التواصل")
     ],
     blocks: [
-      block("/static/assets/service-502e6c35.jpg", "Hospitality and consultation", "HospitalitÃ© et conseil", "Ø§Ù„Ø¶ÙŠØ§ÙØ© ÙˆØ§Ù„Ø§Ø³ØªØ´Ø§Ø±Ø©", "A calm reception flow helps visitors understand products, compare plans, and align the right Voyah experience to their needs.", "Un parcours dâ€™accueil apaisÃ© aide les visiteurs Ã  comprendre les produits, comparer les solutions et identifier lâ€™expÃ©rience Voyah qui leur convient.", "ÙŠØ³Ø§Ø¹Ø¯ Ù…Ø³Ø§Ø± Ø§Ø³ØªÙ‚Ø¨Ø§Ù„ Ù‡Ø§Ø¯Ø¦ Ø§Ù„Ø²ÙˆØ§Ø± Ø¹Ù„Ù‰ ÙÙ‡Ù… Ø§Ù„Ù…Ù†ØªØ¬Ø§Øª ÙˆÙ…Ù‚Ø§Ø±Ù†Ø© Ø§Ù„Ø­Ù„ÙˆÙ„ ÙˆØªØ­Ø¯ÙŠØ¯ ØªØ¬Ø±Ø¨Ø© Voyah Ø§Ù„Ø£Ù†Ø³Ø¨ Ù„Ù‡Ù…."),
-      block("/static/assets/store2-00eb05d9.png", "Model exploration", "Exploration des modÃ¨les", "Ø§Ø³ØªÙƒØ´Ø§Ù Ø§Ù„Ø·Ø±Ø§Ø²Ø§Øª", "From display vehicles to test-drive coordination, the store center is designed to move naturally from discovery to decision.", "Du vÃ©hicule exposÃ© Ã  la coordination des essais, le centre de magasins est conÃ§u pour faire passer naturellement de la dÃ©couverte Ã  la dÃ©cision.", "Ù…Ù† Ø³ÙŠØ§Ø±Ø§Øª Ø§Ù„Ø¹Ø±Ø¶ Ø¥Ù„Ù‰ ØªÙ†Ø³ÙŠÙ‚ ØªØ¬Ø§Ø±Ø¨ Ø§Ù„Ù‚ÙŠØ§Ø¯Ø©ØŒ ØµÙ…Ù… Ù…Ø±ÙƒØ² Ø§Ù„Ù…Ø¹Ø§Ø±Ø¶ Ù„Ù„Ø§Ù†ØªÙ‚Ø§Ù„ Ø¨Ø³Ù„Ø§Ø³Ø© Ù…Ù† Ø§Ù„Ø§ÙƒØªØ´Ø§Ù Ø¥Ù„Ù‰ Ø§Ù„Ù‚Ø±Ø§Ø±."),
-      block("/static/assets/store3-397705c8.png", "Digital onboarding and delivery", "IntÃ©gration numÃ©rique et livraison", "Ø§Ù„ØªÙ‡ÙŠØ¦Ø© Ø§Ù„Ø±Ù‚Ù…ÙŠØ© ÙˆØ§Ù„ØªØ³Ù„ÙŠÙ…", "Configuration guidance, order follow-up, and handover support continue the premium journey beyond the visit itself.", "Le guidage de configuration, le suivi de commande et lâ€™accompagnement Ã  la remise prolongent lâ€™expÃ©rience premium au-delÃ  de la visite.", "ØªÙˆØ§ØµÙ„ Ø¥Ø±Ø´Ø§Ø¯Ø§Øª Ø§Ù„ØªØ¬Ù‡ÙŠØ² ÙˆÙ…ØªØ§Ø¨Ø¹Ø© Ø§Ù„Ø·Ù„Ø¨ ÙˆØ¯Ø¹Ù… Ø§Ù„ØªØ³Ù„Ù… Ø§Ù„Ø±Ø­Ù„Ø© Ø§Ù„ÙØ§Ø®Ø±Ø© Ø¨Ø¹Ø¯ Ø§Ù„Ø²ÙŠØ§Ø±Ø© Ù†ÙØ³Ù‡Ø§.")
+      block("/static/assets/service-502e6c35.jpg", "Voyah Space and full-function user center", "Espace Voyah et centre utilisateur à service complet", "مساحة Voyah ومركز المستخدم متكامل الوظائف", "Voyah retail spaces combine consultation, experience, booking, and delivery support in one premium environment.", "Les espaces de vente Voyah réunissent conseil, expérience, réservation et accompagnement à la livraison dans un même environnement premium.", "تجمع مساحات Voyah بين الاستشارة والتجربة والحجز ودعم التسليم في بيئة فاخرة واحدة."),
+      block("/static/assets/store2-00eb05d9.png", "Model discovery and test-drive coordination", "Découverte des modèles et coordination des essais", "اكتشاف الطرازات وتنسيق تجربة القيادة", "The store route helps users move from first contact to test-drive confidence through a calm, guided experience.", "Le parcours en magasin aide l’utilisateur à passer du premier contact à la confiance de l’essai grâce à une expérience calme et guidée.", "يساعد المسار داخل المعرض المستخدم على الانتقال من أول تواصل إلى الثقة في تجربة القيادة عبر تجربة هادئة وموجهة."),
+      block("/static/assets/store3-397705c8.png", "Ordering, delivery, and ownership onboarding", "Commande, livraison et prise en main de la possession", "الطلب والتسليم والتهيئة للملكية", "Ordering support, delivery preparation, and digital onboarding extend the premium experience beyond the visit.", "L’accompagnement à la commande, la préparation à la livraison et l’intégration numérique prolongent l’expérience premium au-delà de la visite.", "يمد دعم الطلب وتجهيز التسليم والتهيئة الرقمية التجربة الفاخرة إلى ما بعد الزيارة."),
+      block("/static/assets/store1-ae6ca1c1.png", "Service reception and aftersales coordination", "Accueil service et coordination après-vente", "الاستقبال الخدمي وتنسيق ما بعد البيع", "Service appointments, handoffs, and follow-up are coordinated so that support feels consistent at every touchpoint.", "Les rendez-vous service, la remise du véhicule et le suivi sont coordonnés afin que l’assistance reste cohérente à chaque point de contact.", "تُنسَّق مواعيد الخدمة وتسليم السيارة والمتابعة بحيث تبدو المساندة متسقة عبر كل نقطة تواصل.")
     ],
-    ctaLabel: t("Book a visit", "RÃ©server une visite", "Ø§Ø­Ø¬Ø² Ø²ÙŠØ§Ø±Ø©"),
+    ctaLabel: t("Book a visit", "Réserver une visite", "احجز زيارة"),
     ctaSlug: "book-drive.html"
   },
   {
     kind: "info",
     slug: "service.html",
-    eyebrow: t("Service", "Service", "Ø§Ù„Ø®Ø¯Ù…Ø©"),
+    eyebrow: t("Service", "Service", "الخدمة"),
     title: t("Voyah Service", "Service Voyah", "خدمات Voyah"),
-    summary: t("You focus on chasing freedom and dreams, while we focus on protecting every journey with care.", "Vous poursuivez la liberté et les rêves, tandis que nous veillons à protéger chaque trajet avec soin.", "أنت تنطلق نحو الحرية والأحلام، ونحن نتولى حماية كل رحلة بعناية."),
+    summary: t("You are responsible for free pursuit of dreams; Voyah is responsible for attentive protection.", "Vous êtes responsable de la poursuite libre des rêves; Voyah est responsable d’une protection attentive.", "أنت مسؤول عن السعي الحر وراء الأحلام، وVoyah مسؤولة عن الحماية الدقيقة."),
     heroImage: "/static/assets/service-502e6c35.jpg",
-    metrics: [
-      metric("Sincere", "Reception", "Accueil", "Ø§Ù„Ø§Ø³ØªÙ‚Ø¨Ø§Ù„"),
-      metric("Ceremonial", "Delivery", "Livraison", "Ø§Ù„ØªØ³Ù„ÙŠÙ…"),
-      metric("7×24 h", "Protection", "Protection", "Ø§Ù„Ø­Ù…Ø§ÙŠØ©")
-    ],
     blocks: [
-      block("/static/assets/section3_2-4fb471c7.jpg", "Sincere reception", "Accueil sincère", "استقبال صادق", "Voyah Service follows a wholehearted service philosophy and is committed to delivering a trusted full-journey ownership experience.", "Voyah Service suit une philosophie de service entièrement dédiée et s engage à offrir une expérience de possession digne de confiance sur l ensemble du parcours.", "تلتزم Voyah Service بفلسفة خدمة تقوم على الإخلاص الكامل، وتهدف إلى تقديم تجربة ملكية موثوقة عبر الرحلة بأكملها."),
-      block("/static/assets/section3_3-20237755.jpg", "Ceremonial delivery", "Livraison cérémonielle", "تسليم يحمل طابعاً احتفالياً", "Every sincere detail and every promise are treated as part of a premium handover experience.", "Chaque détail sincère et chaque engagement sont considérés comme partie intégrante d une expérience de livraison premium.", "يُنظر إلى كل تفصيل صادق وكل وعد يتم الوفاء به كجزء من تجربة تسليم فاخرة."),
-      block("/static/assets/section4_1-f7cf566b.jpg", "7×24-hour protection", "Protection 7×24 h", "حماية على مدار 7×24 ساعة", "Professional teams, all-day support, and a nationwide service network protect every journey with confidence.", "Des équipes professionnelles, une assistance continue et un réseau national protègent chaque trajet avec assurance.", "توفر الفرق المتخصصة والدعم المتواصل وشبكة الخدمة الوطنية حماية موثوقة لكل رحلة.")
-    ],
-    ctaLabel: t("View service network", "Voir le réseau de service", "عرض شبكة الخدمة"),
-    ctaSlug: "energy.html"
+      block("/static/assets/section3_2-4fb471c7.jpg", "Sincere reception", "Accueil sincère", "استقبال صادق", "Every detail is treated with sincerity.", "Chaque détail est traité avec sincérité.", "يُعامل كل تفصيل بإخلاص."),
+      block("/static/assets/section3_3-20237755.jpg", "Ceremonial delivery", "Livraison cérémonielle", "تسليم احتفالي", "Every promise is honored with ceremony.", "Chaque promesse est honorée avec cérémonie.", "يُوفى بكل وعد بطابع احتفالي."),
+      block("/static/assets/section4_1-f7cf566b.jpg", "7×24-hour protection", "Protection 7×24 h", "حماية على مدار 7×24 ساعة", "Voyah stands guard for every journey around the clock.", "Voyah veille sur chaque trajet jour et nuit.", "تظل Voyah في خدمة كل رحلة على مدار الساعة."),
+      block("/static/assets/section5_2-771f4ab2.jpg", "Professional team", "Équipe professionnelle", "فريق محترف", "A trustworthy full-journey service experience.", "Une expérience de service complète et digne de confiance.", "تجربة خدمة موثوقة على امتداد الرحلة.")
+    ]
   },
   {
     kind: "info",
     slug: "energy.html",
-    eyebrow: t("Energy", "Ã‰nergie", "Ø§Ù„Ø·Ø§Ù‚Ø©"),
-    title: t("A connected energy ecosystem for users", "Un Ã©cosystÃ¨me Ã©nergÃ©tique connectÃ©", "Ù…Ù†Ø¸ÙˆÙ…Ø© Ø·Ø§Ù‚Ø© Ù…ØªØ±Ø§Ø¨Ø·Ø© Ù„Ù„Ù…Ø³ØªØ®Ø¯Ù…ÙŠÙ†"),
-    summary: t("Voyah Energy links charging scenes, partner infrastructure, and digital guidance to support daily and long-distance use.", "Voyah Energy relie scÃ©narios de recharge, infrastructures partenaires et guidage numÃ©rique pour accompagner lâ€™usage quotidien et longue distance.", "ØªØ±Ø¨Ø· Ø·Ø§Ù‚Ø© Voyah Ø¨ÙŠÙ† Ø³ÙŠÙ†Ø§Ø±ÙŠÙˆÙ‡Ø§Øª Ø§Ù„Ø´Ø­Ù† ÙˆØ§Ù„Ø¨Ù†ÙŠØ© Ø§Ù„Ø´Ø±ÙŠÙƒØ© ÙˆØ§Ù„Ø¥Ø±Ø´Ø§Ø¯ Ø§Ù„Ø±Ù‚Ù…ÙŠ Ù„Ø¯Ø¹Ù… Ø§Ù„Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø§Ù„ÙŠÙˆÙ…ÙŠ ÙˆØ§Ù„Ø³ÙØ± Ø§Ù„Ø·ÙˆÙŠÙ„."),
+    eyebrow: t("Energy", "Énergie", "الطاقة"),
+    title: t("Voyah Energy", "Énergie Voyah", "طاقة Voyah"),
+    summary: t(
+      "A connected energy ecosystem combining charging access, route intelligence, and long-distance confidence.",
+      "Un écosystème énergie connecté qui combine l’accès à la recharge, l’intelligence d’itinéraire et la confiance sur longue distance.",
+      "منظومة طاقة مترابطة تجمع بين الوصول إلى الشحن وذكاء المسار والثقة في الرحلات الطويلة."
+    ),
     heroImage: "/static/assets/energy_bg-4482e81f.jpg",
     metrics: [
-      metric("1,540,000+", "Integrated charging resources", "Ressources de recharge intÃ©grÃ©es", "Ù…ÙˆØ§Ø±Ø¯ Ø§Ù„Ø´Ø­Ù† Ø§Ù„Ù…ØªÙƒØ§Ù…Ù„Ø©"),
-      metric("16,000+", "Supercharging resources", "Ressources de supercharge", "Ù…ÙˆØ§Ø±Ø¯ Ø§Ù„Ø´Ø­Ù† Ø§Ù„ÙØ§Ø¦Ù‚"),
-      metric("530M+ kWh", "Charged for users", "Recharge cumulÃ©e", "Ø¥Ø¬Ù…Ø§Ù„ÙŠ Ø§Ù„Ø´Ø­Ù† Ù„Ù„Ù…Ø³ØªØ®Ø¯Ù…ÙŠÙ†")
+      metric("1,540,000+", "Integrated charging resources", "Ressources de recharge intégrées", "موارد الشحن المدمجة"),
+      metric("16,000+", "Ultra-fast charging resources", "Ressources de recharge ultra-rapide", "موارد الشحن فائق السرعة"),
+      metric("530,000,000+ kWh", "Cumulative charging delivered", "Recharge cumulée fournie", "إجمالي الطاقة المشحونة"),
+      metric("170,000+ tons", "Cumulative carbon reduction", "Réduction carbone cumulée", "إجمالي خفض انبعاثات الكربون")
     ],
     blocks: [
-      block("/static/assets/charge_pc-1c0a2e91.png", "Home and destination charging", "Recharge Ã  domicile et destination", "Ø§Ù„Ø´Ø­Ù† Ø§Ù„Ù…Ù†Ø²Ù„ÙŠ ÙˆØ§Ù„ÙˆØ¬Ù‡Ø©", "A broad mix of charging touchpoints helps match energy access to different ownership routines.", "Une combinaison Ã©tendue de solutions de recharge adapte lâ€™accÃ¨s Ã  lâ€™Ã©nergie aux diffÃ©rents rythmes dâ€™usage.", "ÙŠØ³Ø§Ø¹Ø¯ ØªÙ†ÙˆØ¹ Ù†Ù‚Ø§Ø· Ø§Ù„Ø´Ø­Ù† Ø¹Ù„Ù‰ Ù…ÙˆØ§Ø¡Ù…Ø© Ø§Ù„ÙˆØµÙˆÙ„ Ø¥Ù„Ù‰ Ø§Ù„Ø·Ø§Ù‚Ø© Ù…Ø¹ Ø£Ù†Ù…Ø§Ø· Ø§Ù„Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø§Ù„Ù…Ø®ØªÙ„ÙØ©."),
-      block("/static/assets/super_charge_pc-3886645d.png", "High-speed replenishment", "Recharge rapide", "Ø¥Ø¹Ø§Ø¯Ø© Ø´Ø­Ù† Ø³Ø±ÙŠØ¹Ø©", "Fast charging capability and partner networks reduce stop time during longer journeys.", "La recharge rapide et les rÃ©seaux partenaires rÃ©duisent le temps dâ€™arrÃªt lors des longs trajets.", "ØªÙ‚Ù„Ù„ Ù‚Ø¯Ø±Ø§Øª Ø§Ù„Ø´Ø­Ù† Ø§Ù„Ø³Ø±ÙŠØ¹ ÙˆØ§Ù„Ø´Ø¨ÙƒØ§Øª Ø§Ù„Ø´Ø±ÙŠÙƒØ© Ø²Ù…Ù† Ø§Ù„ØªÙˆÙ‚Ù ÙÙŠ Ø§Ù„Ø±Ø­Ù„Ø§Øª Ø§Ù„Ø·ÙˆÙŠÙ„Ø©."),
-      block("/static/assets/V2G-cba13343.jpg", "Energy intelligence", "Intelligence Ã©nergÃ©tique", "Ø°ÙƒØ§Ø¡ Ø§Ù„Ø·Ø§Ù‚Ø©", "The energy layer is designed to be visible, guided, and integrated across the digital ownership journey.", "La couche Ã©nergie est pensÃ©e pour Ãªtre lisible, guidÃ©e et intÃ©grÃ©e dans lâ€™ensemble du parcours numÃ©rique.", "ØªÙ… ØªØµÙ…ÙŠÙ… Ø·Ø¨Ù‚Ø© Ø§Ù„Ø·Ø§Ù‚Ø© Ù„ØªÙƒÙˆÙ† ÙˆØ§Ø¶Ø­Ø© ÙˆÙ…ÙˆØ¬Ù‡Ø© ÙˆÙ…ØªÙƒØ§Ù…Ù„Ø© Ø¹Ø¨Ø± Ø§Ù„Ø±Ø­Ù„Ø© Ø§Ù„Ø±Ù‚Ù…ÙŠØ© Ù„Ù„Ù…Ù„ÙƒÙŠØ©.")
-    ],
-    ctaLabel: t("Read service details", "Lire les dÃ©tails de service", "Ù‚Ø±Ø§Ø¡Ø© ØªÙØ§ØµÙŠÙ„ Ø§Ù„Ø®Ø¯Ù…Ø©"),
-    ctaSlug: "service.html"
+      block("/static/assets/energy_bg-4482e81f.jpg", "Network collaboration", "Collaboration réseau", "تكامل الشبكة", "Voyah Energy links brand, partner, and public charging infrastructure into one coordinated user-facing network.", "Voyah Energy relie les infrastructures de recharge de la marque, des partenaires et du réseau public dans un même système coordonné.", "تربط طاقة Voyah بين بنية الشحن التابعة للعلامة والشركاء والشبكة العامة ضمن نظام موحد ومنسق."),
+      block("/static/assets/charge_pile_bg-2c7b414e.png", "Fast replenishment", "Recharge rapide", "إعادة شحن سريعة", "High-power charging scenarios are optimized for both daily commutes and long-distance travel rhythms.", "Les scénarios de recharge haute puissance sont optimisés pour les trajets quotidiens comme pour les longues distances.", "تم تحسين سيناريوهات الشحن عالي القدرة لتناسب التنقل اليومي والرحلات الطويلة."),
+      block("/static/assets/power_bg1-7048cd30.png", "Smart route planning", "Planification intelligente", "تخطيط ذكي للمسار", "Digital guidance helps users plan charging stops based on route length, station availability, and vehicle status.", "Le guidage numérique aide à planifier les arrêts de recharge selon la distance, la disponibilité des stations et l’état du véhicule.", "يساعد الإرشاد الرقمي على تخطيط محطات الشحن وفق طول المسار وتوفر المحطات وحالة المركبة."),
+      block("/static/assets/power_bg2-a6639f1e.png", "Long-term sustainability", "Durabilité long terme", "استدامة طويلة المدى", "The energy platform supports efficient operation and contributes to measurable long-term carbon reduction outcomes.", "La plateforme énergétique soutient une exploitation efficace et contribue à des résultats mesurables de réduction carbone.", "تدعم منصة الطاقة التشغيل الفعال وتسهم في نتائج قابلة للقياس لخفض الانبعاثات على المدى الطويل.")
+    ]
   },
   {
     kind: "info",
     slug: "corporate.html",
-    eyebrow: t("About Voyah", "Ã€ propos de Voyah", "Ø¹Ù† Voyah"),
-    title: t("Corporate culture and long-term brand development", "Culture dâ€™entreprise et dÃ©veloppement de long terme", "Ø§Ù„Ø«Ù‚Ø§ÙØ© Ø§Ù„Ù…Ø¤Ø³Ø³ÙŠØ© ÙˆØ§Ù„ØªØ·ÙˆØ± Ø·ÙˆÙŠÙ„ Ø§Ù„Ù…Ø¯Ù‰"),
-    summary: t("Voyah positions its culture around user value, innovation, disciplined execution, and a premium mobility outlook.", "Voyah articule sa culture autour de la valeur utilisateur, de lâ€™innovation, de lâ€™exÃ©cution disciplinÃ©e et dâ€™une vision premium de la mobilitÃ©.", "ØªØ±ÙƒØ² Ø«Ù‚Ø§ÙØ© Voyah Ø¹Ù„Ù‰ Ù‚ÙŠÙ…Ø© Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù… ÙˆØ§Ù„Ø§Ø¨ØªÙƒØ§Ø± ÙˆØ§Ù„ØªÙ†ÙÙŠØ° Ø§Ù„Ù…Ù†Ø¶Ø¨Ø· ÙˆØ±Ø¤ÙŠØ© ÙØ§Ø®Ø±Ø© Ù„Ù„ØªÙ†Ù‚Ù„."),
+    eyebrow: t("About Voyah", "À propos de Voyah", "عن Voyah"),
+    title: t("Corporate Culture", "Culture d’entreprise", "الثقافة المؤسسية"),
+    summary: t("Voyah is committed to becoming a user-oriented technology company and a trusted Chinese premium intelligent new-energy vehicle brand.", "Voyah s’engage à devenir une entreprise technologique orientée utilisateur et une marque chinoise premium de véhicules intelligents à énergie nouvelle digne de confiance.", "تلتزم Voyah بأن تصبح شركة تقنية موجهة للمستخدم وعلامة صينية راقية موثوقة في المركبات الذكية العاملة بالطاقة الجديدة."),
     heroImage: "/static/assets/corporate_bg_1-33cad798.png",
     blocks: [
-      block("/static/assets/corporate_poster_1-c2c8c7ca.jpg", "Mission", "Mission", "Ø§Ù„Ù…Ù‡Ù…Ø©", "The brand mission emphasizes premium new-energy mobility with stronger user empathy and product clarity.", "La mission de la marque met lâ€™accent sur une mobilitÃ© premium Ã  Ã©nergie nouvelle avec plus dâ€™empathie utilisateur et de clartÃ© produit.", "ØªØ¤ÙƒØ¯ Ù…Ù‡Ù…Ø© Ø§Ù„Ø¹Ù„Ø§Ù…Ø© Ø¹Ù„Ù‰ Ø§Ù„ØªÙ†Ù‚Ù„ Ø§Ù„ÙØ§Ø®Ø± Ù„Ù„Ø·Ø§Ù‚Ø© Ø§Ù„Ø¬Ø¯ÙŠØ¯Ø© Ù…Ø¹ ØªØ¹Ø§Ø·Ù Ø£ÙƒØ¨Ø± Ù…Ø¹ Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù… ÙˆÙˆØ¶ÙˆØ­ Ø£Ø¹Ù„Ù‰ ÙÙŠ Ø§Ù„Ù…Ù†ØªØ¬."),
-      block("/static/assets/corporate_poster_8-7da49d74.png", "Innovation", "Innovation", "Ø§Ù„Ø§Ø¨ØªÙƒØ§Ø±", "Technology, industrial capability, and digital experience are aligned to support a coherent premium standard.", "Technologie, capacitÃ© industrielle et expÃ©rience numÃ©rique sont alignÃ©es pour soutenir un standard premium cohÃ©rent.", "ØªØªÙƒØ§Ù…Ù„ Ø§Ù„ØªÙƒÙ†ÙˆÙ„ÙˆØ¬ÙŠØ§ ÙˆØ§Ù„Ù‚Ø¯Ø±Ø© Ø§Ù„ØµÙ†Ø§Ø¹ÙŠØ© ÙˆØ§Ù„Ø®Ø¨Ø±Ø© Ø§Ù„Ø±Ù‚Ù…ÙŠØ© Ù„Ø¯Ø¹Ù… Ù…Ø¹ÙŠØ§Ø± ÙØ§Ø®Ø± Ù…ØªÙ…Ø§Ø³Ùƒ."),
-      block("/static/assets/corporate_poster_14-b8674e6c.png", "Values", "Valeurs", "Ø§Ù„Ù‚ÙŠÙ…", "Long-term development depends on execution quality, responsible growth, and brand consistency.", "Le dÃ©veloppement de long terme dÃ©pend de la qualitÃ© dâ€™exÃ©cution, dâ€™une croissance responsable et dâ€™une cohÃ©rence de marque.", "ÙŠØ¹ØªÙ…Ø¯ Ø§Ù„ØªØ·ÙˆØ± Ø·ÙˆÙŠÙ„ Ø§Ù„Ù…Ø¯Ù‰ Ø¹Ù„Ù‰ Ø¬ÙˆØ¯Ø© Ø§Ù„ØªÙ†ÙÙŠØ° ÙˆØ§Ù„Ù†Ù…Ùˆ Ø§Ù„Ù…Ø³Ø¤ÙˆÙ„ ÙˆØ§Ù„Ø§ØªØ³Ø§Ù‚ ÙÙŠ Ø§Ù„Ø¹Ù„Ø§Ù…Ø©.")
+      block("/static/assets/corporate_poster_1-c2c8c7ca.jpg", "Mission", "Mission", "المهمة", "Voyah is committed to becoming a user-oriented technology company.", "Voyah s’engage à devenir une entreprise technologique orientée utilisateur.", "تلتزم Voyah بأن تصبح شركة تقنية موجهة للمستخدم."),
+      block("/static/assets/corporate_poster_8-7da49d74.png", "Vision", "Vision", "الرؤية", "A trusted Chinese premium intelligent new-energy vehicle brand.", "Une marque chinoise premium de véhicules intelligents à énergie nouvelle digne de confiance.", "علامة صينية راقية موثوقة في المركبات الذكية العاملة بالطاقة الجديدة."),
+      block("/static/assets/corporate_poster_14-b8674e6c.png", "Core values", "Valeurs fondamentales", "القيم الأساسية", "Responsibility, sincerity, quality, and continuous refinement.", "Responsabilité, sincérité, qualité et amélioration continue.", "المسؤولية والصدق والجودة والتحسين المستمر."),
+      block("/static/assets/corporate_poster_5-a736217c.png", "Technology philosophy", "Philosophie technologique", "فلسفة التكنولوجيا", "Architecture, intelligence, safety, and efficiency as one connected system.", "Architecture, intelligence, sécurité et efficacité dans un seul système connecté.", "البنية والذكاء والسلامة والكفاءة ضمن منظومة مترابطة واحدة."),
+      block("/static/assets/corporate_poster_10-0a7e5fec.png", "User value orientation", "Orientation vers la valeur utilisateur", "توجه القيمة للمستخدم", "Decisions guided by long-term user value.", "Des décisions guidées par la valeur utilisateur à long terme.", "قرارات تسترشد بالقيمة طويلة الأمد للمستخدم."),
+      block("/static/assets/corporate_poster_17-43a6bf2c.png", "China-rooted, globally aware", "Ancrée en Chine, ouverte au monde", "متجذرة في الصين ومنفتحة عالمياً", "A clear global outlook in product, technology, and service standards.", "Une ouverture internationale nette dans les standards produit, technologiques et de service.", "رؤية عالمية واضحة في معايير المنتج والتقنية والخدمة.")
     ]
   },
   {
     kind: "info",
     slug: "joinus.html",
-    eyebrow: t("Careers", "CarriÃ¨res", "Ø§Ù„Ù…Ø³Ø§Ø± Ø§Ù„Ù…Ù‡Ù†ÙŠ"),
-    title: t("Build the next chapter of premium new-energy mobility", "Construire la prochaine Ã©tape de la mobilitÃ© premium", "Ø¨Ù†Ø§Ø¡ Ø§Ù„ÙØµÙ„ Ø§Ù„ØªØ§Ù„ÙŠ Ù…Ù† Ø§Ù„ØªÙ†Ù‚Ù„ Ø§Ù„ÙØ§Ø®Ø± Ù„Ù„Ø·Ø§Ù‚Ø© Ø§Ù„Ø¬Ø¯ÙŠØ¯Ø©"),
-    summary: t("Voyah presents career opportunities across brand, technology, retail, service, and intelligent mobility systems.", "Voyah prÃ©sente des opportunitÃ©s de carriÃ¨re dans la marque, la technologie, le retail, le service et les systÃ¨mes de mobilitÃ© intelligente.", "ØªÙ‚Ø¯Ù… Voyah ÙØ±ØµØ§Ù‹ Ù…Ù‡Ù†ÙŠØ© Ø¹Ø¨Ø± Ø§Ù„Ø¹Ù„Ø§Ù…Ø© ÙˆØ§Ù„ØªÙ‚Ù†ÙŠØ© ÙˆØ§Ù„Ø¨ÙŠØ¹ ÙˆØ§Ù„Ø®Ø¯Ù…Ø© ÙˆØ£Ù†Ø¸Ù…Ø© Ø§Ù„ØªÙ†Ù‚Ù„ Ø§Ù„Ø°ÙƒÙŠ."),
+    eyebrow: t("Careers", "Carrières", "الوظائف"),
+    title: t("Join Us", "Rejoignez-nous", "انضم إلينا"),
+    summary: t(
+      "We look forward to your joining so that we can build the blueprint together.",
+      "Nous attendons votre arrivée pour construire ensemble le plan d’avenir.",
+      "نتطلع إلى انضمامك حتى نبني معاً المخطط المستقبلي."
+    ),
     heroImage: "/static/assets/joinus_bg_1920-f7158f6f.png",
     blocks: [
-      block("/static/assets/recruit_poster_1-679c5306.png", "Open roles", "Postes ouverts", "Ø§Ù„ÙˆØ¸Ø§Ø¦Ù Ø§Ù„Ù…ÙØªÙˆØ­Ø©", "Teams span vehicle programs, product planning, digital systems, user operations, and market development.", "Les Ã©quipes couvrent programmes vÃ©hicule, planification produit, systÃ¨mes numÃ©riques, opÃ©rations utilisateurs et dÃ©veloppement marchÃ©.", "ØªØ´Ù…Ù„ Ø§Ù„ÙØ±Ù‚ Ø¨Ø±Ø§Ù…Ø¬ Ø§Ù„Ù…Ø±ÙƒØ¨Ø§Øª ÙˆØªØ®Ø·ÙŠØ· Ø§Ù„Ù…Ù†ØªØ¬ ÙˆØ§Ù„Ø£Ù†Ø¸Ù…Ø© Ø§Ù„Ø±Ù‚Ù…ÙŠØ© ÙˆØ¹Ù…Ù„ÙŠØ§Øª Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù…ÙŠÙ† ÙˆØªØ·ÙˆÙŠØ± Ø§Ù„Ø³ÙˆÙ‚."),
-      block("/static/assets/recruit_poster_2-7a882da6.png", "Growth environment", "Environnement de croissance", "Ø¨ÙŠØ¦Ø© Ø§Ù„ØªØ·ÙˆØ±", "Voyah positions growth around responsibility, cross-functional collaboration, and product quality.", "Voyah place la progression sous le signe de la responsabilitÃ©, de la collaboration transversale et de la qualitÃ© produit.", "ØªØ¶Ø¹ Voyah Ø§Ù„ØªØ·ÙˆØ± ÙÙŠ Ø¥Ø·Ø§Ø± Ø§Ù„Ù…Ø³Ø¤ÙˆÙ„ÙŠØ© ÙˆØ§Ù„ØªØ¹Ø§ÙˆÙ† Ø¨ÙŠÙ† Ø§Ù„ÙˆØ¸Ø§Ø¦Ù ÙˆØ¬ÙˆØ¯Ø© Ø§Ù„Ù…Ù†ØªØ¬."),
-      block("/static/assets/recruit_form_bg-107b0556.jpg", "Join the team", "Rejoindre lâ€™Ã©quipe", "Ø§Ù†Ø¶Ù… Ø¥Ù„Ù‰ Ø§Ù„ÙØ±ÙŠÙ‚", "Recruitment channels are designed to make application and role matching clearer for candidates.", "Les parcours de recrutement sont conÃ§us pour rendre la candidature et lâ€™adÃ©quation des rÃ´les plus claires.", "ØµÙ…Ù…Øª Ù‚Ù†ÙˆØ§Øª Ø§Ù„ØªÙˆØ¸ÙŠÙ Ù„Ø¬Ø¹Ù„ Ø§Ù„ØªÙ‚Ø¯ÙŠÙ… ÙˆÙ…ÙˆØ§Ø¡Ù…Ø© Ø§Ù„Ø£Ø¯ÙˆØ§Ø± Ø£ÙƒØ«Ø± ÙˆØ¶ÙˆØ­Ø§Ù‹ Ù„Ù„Ù…Ø±Ø´Ø­ÙŠÙ†.")
+      block(
+        "/static/assets/recruit_poster_1-679c5306.png",
+        "Campus recruitment",
+        "Recrutement campus",
+        "التوظيف الجامعي",
+        "Campus recruitment paths for young talent in engineering, design, digital systems, and user-facing roles.",
+        "Des parcours de recrutement campus pour les jeunes talents en ingénierie, design, systèmes numériques et métiers orientés utilisateur.",
+        "مسارات التوظيف الجامعي تستهدف المواهب الشابة في الهندسة والتصميم والأنظمة الرقمية والأدوار المواجهة للمستخدم."
+      ),
+      block(
+        "/static/assets/recruit_poster_2-7a882da6.png",
+        "Social recruitment",
+        "Recrutement externe",
+        "التوظيف من السوق",
+        "Experienced talent for product, manufacturing, digital, and service roles.",
+        "Des talents expérimentés pour les métiers du produit, de l’industrie, du numérique et du service.",
+        "مواهب ذات خبرة في أدوار المنتج والتصنيع والرقمنة والخدمة."
+      ),
+      block(
+        "/static/assets/recruit_form_bg-107b0556.jpg",
+        "Scan to join the Voyah family",
+        "Scanner pour rejoindre la famille Voyah",
+        "امسح للانضمام إلى عائلة Voyah",
+        "Recruitment information and role matching are organized for prospective candidates.",
+        "L’information de recrutement et l’adéquation des postes sont organisées pour les candidats.",
+        "تُنظم معلومات التوظيف ومواءمة الأدوار للمرشحين المحتملين."
+      )
     ]
   },
   {
     kind: "info",
     slug: "recruit-partners.html",
-    eyebrow: t("Partners", "Partenaires", "Ø§Ù„Ø´Ø±ÙƒØ§Ø¡"),
-    title: t("Partner recruitment for broader service reach", "Recrutement de partenaires pour Ã©largir le service", "Ø§Ø³ØªÙ‚Ø·Ø§Ø¨ Ø§Ù„Ø´Ø±ÙƒØ§Ø¡ Ù„ØªÙˆØ³ÙŠØ¹ Ù†Ø·Ø§Ù‚ Ø§Ù„Ø®Ø¯Ù…Ø©"),
-    summary: t("Voyah partner programs support expansion across retail, service touchpoints, and local operational capability.", "Les programmes partenaires de Voyah accompagnent lâ€™expansion du retail, des points de service et des capacitÃ©s opÃ©rationnelles locales.", "ØªØ¯Ø¹Ù… Ø¨Ø±Ø§Ù…Ø¬ Ø§Ù„Ø´Ø±ÙƒØ§Ø¡ Ù„Ø¯Ù‰ Voyah Ø§Ù„ØªÙˆØ³Ø¹ Ø¹Ø¨Ø± Ø§Ù„Ø¨ÙŠØ¹ ÙˆØ§Ù„Ø®Ø¯Ù…Ø© ÙˆØ§Ù„Ù‚Ø¯Ø±Ø§Øª Ø§Ù„ØªØ´ØºÙŠÙ„ÙŠØ© Ø§Ù„Ù…Ø­Ù„ÙŠØ©."),
+    eyebrow: t("Partners", "Partenaires", "الشركاء"),
+    title: t("Partner Recruitment", "Recrutement de partenaires", "استقطاب الشركاء"),
+    summary: t("Build broader user reach through retail, delivery, and service collaboration.", "Développez une portée utilisateur plus large grâce à la collaboration retail, livraison et service.", "ابنوا نطاق وصول أوسع إلى المستخدمين عبر التعاون في البيع والتسليم والخدمة."),
     heroImage: "/static/assets/recruit_partners_bg_1920-81ee18a9.png",
     blocks: [
-      block("/static/assets/recruit_partners_poster_1-f48b5641.jpg", "Network development", "DÃ©veloppement du rÃ©seau", "ØªØ·ÙˆÙŠØ± Ø§Ù„Ø´Ø¨ÙƒØ©", "Partner recruitment is framed around long-term market development and service consistency.", "Le recrutement de partenaires sâ€™inscrit dans une logique de dÃ©veloppement de marchÃ© Ã  long terme et de cohÃ©rence de service.", "ÙŠØªÙ… Ø§Ø³ØªÙ‚Ø·Ø§Ø¨ Ø§Ù„Ø´Ø±ÙƒØ§Ø¡ Ø¶Ù…Ù† Ø¥Ø·Ø§Ø± ØªØ·ÙˆÙŠØ± Ø§Ù„Ø³ÙˆÙ‚ Ø¹Ù„Ù‰ Ø§Ù„Ù…Ø¯Ù‰ Ø§Ù„Ø·ÙˆÙŠÙ„ ÙˆØ§ØªØ³Ø§Ù‚ Ø§Ù„Ø®Ø¯Ù…Ø©."),
-      block("/static/assets/recruit_partners_poster_5-eff94200.png", "Capability standards", "Standards de capacitÃ©", "Ù…Ø¹Ø§ÙŠÙŠØ± Ø§Ù„Ù‚Ø¯Ø±Ø©", "Operational readiness, user care, and brand presentation are core to partner evaluation.", "La prÃ©paration opÃ©rationnelle, la qualitÃ© de service et la prÃ©sentation de la marque sont centrales dans lâ€™Ã©valuation des partenaires.", "ØªØ¹Ø¯ Ø§Ù„Ø¬Ø§Ù‡Ø²ÙŠØ© Ø§Ù„ØªØ´ØºÙŠÙ„ÙŠØ© ÙˆØ§Ù„Ø¹Ù†Ø§ÙŠØ© Ø¨Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù… ÙˆØªÙ‚Ø¯ÙŠÙ… Ø§Ù„Ø¹Ù„Ø§Ù…Ø© Ø¹Ù†Ø§ØµØ± Ø£Ø³Ø§Ø³ÙŠØ© ÙÙŠ ØªÙ‚ÙŠÙŠÙ… Ø§Ù„Ø´Ø±ÙƒØ§Ø¡."),
-      block("/static/assets/recruit_partners_poster_9-c73e7510.jpg", "Shared growth", "Croissance partagÃ©e", "Ø§Ù„Ù†Ù…Ùˆ Ø§Ù„Ù…Ø´ØªØ±Ùƒ", "The model emphasizes durable cooperation rather than short-term channel expansion.", "Le modÃ¨le privilÃ©gie une coopÃ©ration durable plutÃ´t quâ€™une simple expansion de canal Ã  court terme.", "ÙŠØ±ÙƒØ² Ø§Ù„Ù†Ù…ÙˆØ°Ø¬ Ø¹Ù„Ù‰ ØªØ¹Ø§ÙˆÙ† Ù…Ø³ØªØ¯Ø§Ù… Ø¨Ø¯Ù„Ø§Ù‹ Ù…Ù† ØªÙˆØ³Ø¹ Ù‚Ù†ÙˆØ§Øª Ù‚ØµÙŠØ± Ø§Ù„Ø£Ù…Ø¯.")
+      block("/static/assets/recruit_partners_poster_1-f48b5641.jpg", "Network development", "Développement du réseau", "تطوير الشبكة", "Partner recruitment is positioned around long-term market development, regional coverage, and a consistent user experience across retail and service touchpoints.", "Le recrutement de partenaires est pensé autour du développement de marché à long terme, de la couverture régionale et d’une expérience utilisateur cohérente à travers les points de vente et de service.", "يتمحور استقطاب الشركاء حول تطوير السوق على المدى الطويل والتغطية الإقليمية وتقديم تجربة مستخدم متسقة عبر نقاط البيع والخدمة."),
+      block("/static/assets/recruit_partners_poster_5-eff94200.png", "Capability requirements", "Exigences de capacité", "متطلبات القدرات", "Operational readiness, service capability, and premium brand presentation are the core standards in partner evaluation and onboarding.", "La préparation opérationnelle, la capacité de service et la présentation premium de la marque constituent les principaux standards de l’évaluation et de l’intégration des partenaires.", "تمثل الجاهزية التشغيلية والقدرة الخدمية وتقديم العلامة بصورة فاخرة المعايير الأساسية في تقييم الشركاء وضمهم."),
+      block("/static/assets/recruit_partners_poster_9-c73e7510.jpg", "Shared growth", "Croissance partagée", "النمو المشترك", "The cooperation model emphasizes durable capability building and shared growth rather than short-term channel expansion alone.", "Le modèle de coopération privilégie la construction durable des capacités et la croissance partagée plutôt qu’une expansion de canal à court terme.", "يركز نموذج التعاون على بناء القدرات بصورة مستدامة وتحقيق نمو مشترك بدلاً من الاكتفاء بتوسيع القنوات على المدى القصير.")
     ]
   },
   {
     kind: "info",
     slug: "ir.html",
-    eyebrow: t("Investor relations", "Relations investisseurs", "Ø¹Ù„Ø§Ù‚Ø§Øª Ø§Ù„Ù…Ø³ØªØ«Ù…Ø±ÙŠÙ†"),
-    title: t("Investor-facing materials and governance information", "Informations investisseurs et gouvernance", "Ù…ÙˆØ§Ø¯ Ø§Ù„Ù…Ø³ØªØ«Ù…Ø±ÙŠÙ† ÙˆÙ…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ø­ÙˆÙƒÙ…Ø©"),
-    summary: t("This section gathers governance references, prospectus materials, and key investor-oriented documents.", "Cette section regroupe des rÃ©fÃ©rences de gouvernance, des documents de prospectus et des contenus destinÃ©s aux investisseurs.", "ÙŠØ¬Ù…Ø¹ Ù‡Ø°Ø§ Ø§Ù„Ù‚Ø³Ù… Ù…Ø±Ø§Ø¬Ø¹ Ø§Ù„Ø­ÙˆÙƒÙ…Ø© ÙˆÙ…ÙˆØ§Ø¯ Ù†Ø´Ø±Ø© Ø§Ù„Ø¥ØµØ¯Ø§Ø± ÙˆØ§Ù„Ù…Ø³ØªÙ†Ø¯Ø§Øª Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ© Ø§Ù„Ù…ÙˆØ¬Ù‡Ø© Ù„Ù„Ù…Ø³ØªØ«Ù…Ø±ÙŠÙ†."),
+    eyebrow: t("Investor relations", "Relations investisseurs", "علاقات المستثمرين"),
+    title: t("Investor Relations", "Relations investisseurs", "علاقات المستثمرين"),
+    summary: t("Access company information, governance materials, and investor-facing reference documents.", "Accédez aux informations de l’entreprise, aux documents de gouvernance et aux supports de référence destinés aux investisseurs.", "اطلع على معلومات الشركة ومواد الحوكمة والمستندات المرجعية الموجهة إلى المستثمرين."),
     heroImage: "/static/assets/ir-3663d9c1.png",
     blocks: [
-      block("/static/assets/prospectus-4ce8b045.png", "Prospectus materials", "Documents de prospectus", "Ù…ÙˆØ§Ø¯ Ù†Ø´Ø±Ø© Ø§Ù„Ø¥ØµØ¯Ø§Ø±", "Core disclosure materials are organized for structured review and reference.", "Les principaux documents de divulgation sont organisÃ©s pour une consultation et une rÃ©fÃ©rence structurÃ©es.", "ØªÙ†Ø¸Ù… Ù…ÙˆØ§Ø¯ Ø§Ù„Ø¥ÙØµØ§Ø­ Ø§Ù„Ø£Ø³Ø§Ø³ÙŠØ© Ù„Ø³Ù‡ÙˆÙ„Ø© Ø§Ù„Ù…Ø±Ø§Ø¬Ø¹Ø© ÙˆØ§Ù„Ø±Ø¬ÙˆØ¹ Ø¥Ù„ÙŠÙ‡Ø§."),
-      block("/static/assets/corporate-governance-1d981bac.png", "Governance structure", "Structure de gouvernance", "Ù‡ÙŠÙƒÙ„ Ø§Ù„Ø­ÙˆÙƒÙ…Ø©", "Governance information clarifies institutional design and corporate oversight principles.", "Les informations de gouvernance clarifient lâ€™organisation institutionnelle et les principes de supervision.", "ØªÙˆØ¶Ø­ Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ø­ÙˆÙƒÙ…Ø© Ø§Ù„ØªØµÙ…ÙŠÙ… Ø§Ù„Ù…Ø¤Ø³Ø³ÙŠ ÙˆÙ…Ø¨Ø§Ø¯Ø¦ Ø§Ù„Ø¥Ø´Ø±Ø§Ù Ø§Ù„Ù…Ø¤Ø³Ø³ÙŠ."),
-      block("/static/assets/ir2-93691f3f.png", "Reference materials", "Documents de rÃ©fÃ©rence", "Ù…ÙˆØ§Ø¯ Ù…Ø±Ø¬Ø¹ÙŠØ©", "Supporting materials provide context for financial, governance, and strategic review.", "Les documents complÃ©mentaires apportent du contexte pour la revue financiÃ¨re, stratÃ©gique et de gouvernance.", "ØªÙˆÙØ± Ø§Ù„Ù…ÙˆØ§Ø¯ Ø§Ù„Ø¯Ø§Ø¹Ù…Ø© Ø³ÙŠØ§Ù‚Ø§Ù‹ Ù„Ù„Ù…Ø±Ø§Ø¬Ø¹Ø© Ø§Ù„Ù…Ø§Ù„ÙŠØ© ÙˆØ§Ù„Ø§Ø³ØªØ±Ø§ØªÙŠØ¬ÙŠØ© ÙˆØ§Ù„Ø­ÙˆÙƒÙ…Ø©.")
+      block("/static/assets/prospectus-4ce8b045.png", "Company profile", "Profil de l’entreprise", "الملف التعريفي للشركة", "Core company profile materials are organized for structured review so that investors can quickly understand the company, its positioning, and its strategic direction.", "Les principaux documents de présentation de l’entreprise sont organisés pour une lecture structurée afin que les investisseurs comprennent rapidement la société, son positionnement et sa direction stratégique.", "نُظمت مواد الملف التعريفي الأساسية بصورة منظمة كي يتمكن المستثمرون من فهم الشركة وتموضعها واتجاهها الاستراتيجي بسرعة."),
+      block("/static/assets/corporate-governance-1d981bac.png", "Governance structure", "Structure de gouvernance", "هيكل الحوكمة", "Governance information clarifies the company’s institutional structure, oversight framework, and operating principles for long-term development.", "Les informations de gouvernance clarifient la structure institutionnelle de l’entreprise, son cadre de supervision et ses principes de fonctionnement au service du développement de long terme.", "توضح معلومات الحوكمة الهيكل المؤسسي للشركة وإطار الرقابة ومبادئ التشغيل الداعمة للتطور طويل المدى."),
+      block("/static/assets/ir2-93691f3f.png", "Reference materials", "Documents de référence", "مواد مرجعية", "Supporting materials provide additional context for financial review, governance understanding, and strategic reference.", "Les documents complémentaires apportent un contexte additionnel pour l’analyse financière, la compréhension de la gouvernance et la référence stratégique.", "توفر المواد الداعمة سياقاً إضافياً للمراجعة المالية وفهم الحوكمة والرجوع إلى التوجهات الاستراتيجية.")
     ]
   },
   {
     kind: "info",
     slug: "environmental.html",
-    eyebrow: t("Environmental disclosure", "Informations environnementales", "Ø§Ù„Ø¥ÙØµØ§Ø­ Ø§Ù„Ø¨ÙŠØ¦ÙŠ"),
-    title: t("Environmental and responsibility-oriented disclosures", "Informations environnementales et de responsabilitÃ©", "Ø¥ÙØµØ§Ø­Ø§Øª Ø¨ÙŠØ¦ÙŠØ© ÙˆÙ…Ø³Ø¤ÙˆÙ„ÙŠØ© Ù…Ø¤Ø³Ø³ÙŠØ©"),
-    summary: t("Environmental disclosure aligns brand operations, manufacturing context, and long-term development responsibility.", "Les informations environnementales relient opÃ©rations de marque, contexte industriel et responsabilitÃ© de dÃ©veloppement Ã  long terme.", "ÙŠØ±Ø¨Ø· Ø§Ù„Ø¥ÙØµØ§Ø­ Ø§Ù„Ø¨ÙŠØ¦ÙŠ Ø¨ÙŠÙ† Ø¹Ù…Ù„ÙŠØ§Øª Ø§Ù„Ø¹Ù„Ø§Ù…Ø© ÙˆØ§Ù„Ø³ÙŠØ§Ù‚ Ø§Ù„ØµÙ†Ø§Ø¹ÙŠ ÙˆÙ…Ø³Ø¤ÙˆÙ„ÙŠØ© Ø§Ù„ØªØ·ÙˆØ± Ø·ÙˆÙŠÙ„ Ø§Ù„Ù…Ø¯Ù‰."),
+    eyebrow: t("Environmental disclosure", "Informations environnementales", "الإفصاح البيئي"),
+    title: t("Environmental Disclosure", "Informations environnementales", "الإفصاح البيئي"),
+    summary: t("View official environmental disclosure information released by Voyah for public review.", "Consultez les informations environnementales officielles publiées par Voyah à destination du public.", "اطلع على معلومات الإفصاح البيئي الرسمية التي تنشرها Voyah للمراجعة العامة."),
     heroImage: "/static/assets/world-fec50d02.jpg",
     blocks: [
-      block("/static/assets/earth_index-e4c6ae99.jpg", "Environmental view", "Vision environnementale", "Ø§Ù„Ø±Ø¤ÙŠØ© Ø§Ù„Ø¨ÙŠØ¦ÙŠØ©", "The environmental narrative is presented as part of the broader new-energy brand ecosystem.", "Le rÃ©cit environnemental sâ€™inscrit dans lâ€™Ã©cosystÃ¨me plus large de la marque Ã  Ã©nergie nouvelle.", "ÙŠÙ‚Ø¯Ù… Ø§Ù„Ø³Ø±Ø¯ Ø§Ù„Ø¨ÙŠØ¦ÙŠ ÙƒØ¬Ø²Ø¡ Ù…Ù† Ù…Ù†Ø¸ÙˆÙ…Ø© Ø£ÙˆØ³Ø¹ Ù„Ù„Ø¹Ù„Ø§Ù…Ø© Ø§Ù„Ø¹Ø§Ù…Ù„Ø© Ø¨Ø§Ù„Ø·Ø§Ù‚Ø© Ø§Ù„Ø¬Ø¯ÙŠØ¯Ø©."),
-      block("/static/assets/power_bg1-7048cd30.png", "Operational responsibility", "ResponsabilitÃ© opÃ©rationnelle", "Ø§Ù„Ù…Ø³Ø¤ÙˆÙ„ÙŠØ© Ø§Ù„ØªØ´ØºÙŠÙ„ÙŠØ©", "Responsibility extends across the way the brand grows, serves, and expands its footprint.", "La responsabilitÃ© sâ€™Ã©tend Ã  la maniÃ¨re dont la marque croÃ®t, sert ses utilisateurs et dÃ©veloppe son empreinte.", "ØªÙ…ØªØ¯ Ø§Ù„Ù…Ø³Ø¤ÙˆÙ„ÙŠØ© Ø¥Ù„Ù‰ Ø·Ø±ÙŠÙ‚Ø© Ù†Ù…Ùˆ Ø§Ù„Ø¹Ù„Ø§Ù…Ø© ÙˆØ®Ø¯Ù…ØªÙ‡Ø§ Ù„Ù„Ù…Ø³ØªØ®Ø¯Ù…ÙŠÙ† ÙˆØªÙˆØ³ÙŠØ¹ Ø­Ø¶ÙˆØ±Ù‡Ø§."),
-      block("/static/assets/world-6e618fb7.png", "Long-term orientation", "Orientation de long terme", "Ø§Ù„ØªÙˆØ¬Ù‡ Ø·ÙˆÙŠÙ„ Ø§Ù„Ù…Ø¯Ù‰", "The overall frame emphasizes sustainable development rather than short-term messaging.", "Le cadre gÃ©nÃ©ral met lâ€™accent sur le dÃ©veloppement durable plutÃ´t que sur des messages de court terme.", "ÙŠØ±ÙƒØ² Ø§Ù„Ø¥Ø·Ø§Ø± Ø§Ù„Ø¹Ø§Ù… Ø¹Ù„Ù‰ Ø§Ù„ØªÙ†Ù…ÙŠØ© Ø§Ù„Ù…Ø³ØªØ¯Ø§Ù…Ø© Ù„Ø§ Ø§Ù„Ø±Ø³Ø§Ø¦Ù„ Ù‚ØµÙŠØ±Ø© Ø§Ù„Ø£Ø¬Ù„.")
+      block("/static/assets/earth_index-e4c6ae99.jpg", "Environmental disclosure information", "Informations d’ordre environnemental", "معلومات الإفصاح البيئي", "This section centralizes the official environmental disclosure information released by Voyah for public reference and review.", "Cette section centralise les informations officielles d’ordre environnemental publiées par Voyah pour la consultation publique.", "يعمل هذا القسم على تجميع معلومات الإفصاح البيئي الرسمية الصادرة عن Voyah لغايات المراجعة والاطلاع العام."),
+      block("/static/assets/power_bg1-7048cd30.png", "Operational responsibility", "Responsabilité opérationnelle", "المسؤولية التشغيلية", "Environmental disclosure reflects the company’s operational responsibility and its commitment to compliant, transparent, and sustainable development.", "Les informations environnementales reflètent la responsabilité opérationnelle de l’entreprise et son engagement en faveur d’un développement conforme, transparent et durable.", "يعكس الإفصاح البيئي المسؤولية التشغيلية للشركة والتزامها بالتطور المتوافق والشفاف والمستدام."),
+      block("/static/assets/world-6e618fb7.png", "Long-term orientation", "Orientation de long terme", "التوجه طويل المدى", "The disclosure framework emphasizes sustainable operation, ongoing management, and long-term environmental accountability.", "Le cadre de divulgation met l’accent sur une exploitation durable, une gestion continue et une responsabilité environnementale de long terme.", "يركز إطار الإفصاح على التشغيل المستدام والإدارة المستمرة والمساءلة البيئية طويلة الأجل.")
     ]
   },
   {
     kind: "info",
     slug: "document.html",
-    eyebrow: t("Downloads", "TÃ©lÃ©chargements", "Ø§Ù„ØªÙ†Ø²ÙŠÙ„Ø§Øª"),
-    title: t("Documents and references for owners and visitors", "Documents et rÃ©fÃ©rences pour propriÃ©taires et visiteurs", "Ù…Ø³ØªÙ†Ø¯Ø§Øª ÙˆÙ…Ø±Ø§Ø¬Ø¹ Ù„Ù„Ù…Ø§Ù„ÙƒÙŠÙ† ÙˆØ§Ù„Ø²ÙˆØ§Ø±"),
-    summary: t("Voyah centralizes manuals, reference documents, and service-oriented materials for easier access.", "Voyah centralise manuels, documents de rÃ©fÃ©rence et contenus de service pour un accÃ¨s simplifiÃ©.", "ØªØ¬Ù…Ø¹ Voyah Ø§Ù„Ø£Ø¯Ù„Ø© ÙˆØ§Ù„Ù…Ø³ØªÙ†Ø¯Ø§Øª Ø§Ù„Ù…Ø±Ø¬Ø¹ÙŠØ© ÙˆØ§Ù„Ù…ÙˆØ§Ø¯ Ø§Ù„Ù…Ø±ØªØ¨Ø·Ø© Ø¨Ø§Ù„Ø®Ø¯Ù…Ø© Ù„ØªØ³Ù‡ÙŠÙ„ Ø§Ù„ÙˆØµÙˆÙ„ Ø¥Ù„ÙŠÙ‡Ø§."),
+    eyebrow: t("Downloads", "Téléchargements", "التنزيلات"),
+    title: t("Document Download", "Téléchargement de documents", "تنزيل المستندات"),
+    summary: t("Download official manuals, reference documents, and related materials released by Voyah.", "Téléchargez les manuels officiels, documents de référence et matériaux associés publiés par Voyah.", "قم بتنزيل الأدلة الرسمية والمستندات المرجعية والمواد المرتبطة التي تنشرها Voyah."),
     heroImage: "/static/assets/user_manual-4441c1d3.png",
     blocks: [
-      block("/static/assets/user_manual-4441c1d3.png", "User manuals", "Manuels utilisateur", "Ø£Ø¯Ù„Ø© Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù…", "Vehicle documents are organized to support onboarding and continued ownership use.", "Les documents vÃ©hicules sont organisÃ©s pour accompagner la prise en main puis lâ€™usage au long cours.", "ØªÙ†Ø¸Ù… Ù…Ø³ØªÙ†Ø¯Ø§Øª Ø§Ù„Ù…Ø±ÙƒØ¨Ø§Øª Ù„Ø¯Ø¹Ù… Ø§Ù„Ø¨Ø¯Ø¡ ÙÙŠ Ø§Ù„Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø«Ù… Ø§Ù„Ø§Ø³ØªÙØ§Ø¯Ø© Ø§Ù„Ù…Ø³ØªÙ…Ø±Ø© Ø£Ø«Ù†Ø§Ø¡ Ø§Ù„Ù…Ù„ÙƒÙŠØ©."),
-      block("/static/assets/prospectus2-00a82650.png", "Reference files", "Fichiers de rÃ©fÃ©rence", "Ù…Ù„ÙØ§Øª Ù…Ø±Ø¬Ø¹ÙŠØ©", "Supplementary references are grouped to improve search and download clarity.", "Les rÃ©fÃ©rences complÃ©mentaires sont regroupÃ©es pour rendre la recherche et le tÃ©lÃ©chargement plus lisibles.", "ØªÙ… ØªØ¬Ù…ÙŠØ¹ Ø§Ù„Ù…Ø±Ø§Ø¬Ø¹ Ø§Ù„Ø¥Ø¶Ø§ÙÙŠØ© Ù„ØªØ­Ø³ÙŠÙ† ÙˆØ¶ÙˆØ­ Ø§Ù„Ø¨Ø­Ø« ÙˆØ§Ù„ØªÙ†Ø²ÙŠÙ„."),
-      block("/static/assets/app_code_160-5b2a34cc.png", "Digital access", "AccÃ¨s numÃ©rique", "Ø§Ù„ÙˆØµÙˆÙ„ Ø§Ù„Ø±Ù‚Ù…ÙŠ", "Documents are connected to digital touchpoints to make retrieval more convenient.", "Les documents sont reliÃ©s Ã  des points de contact numÃ©riques pour simplifier leur consultation.", "ØªÙ… Ø±Ø¨Ø· Ø§Ù„Ù…Ø³ØªÙ†Ø¯Ø§Øª Ø¨Ù†Ù‚Ø§Ø· ÙˆØµÙˆÙ„ Ø±Ù‚Ù…ÙŠØ© Ù„Ø¬Ø¹Ù„ Ø§Ø³ØªØ±Ø¬Ø§Ø¹Ù‡Ø§ Ø£ÙƒØ«Ø± Ø³Ù‡ÙˆÙ„Ø©.")
+      block("/static/assets/user_manual-4441c1d3.png", "User manuals", "Manuels utilisateur", "أدلة المستخدم", "Vehicle user manuals and owner documents are organized to support onboarding, daily use, and continued ownership reference.", "Les manuels utilisateur et documents propriétaires des véhicules sont organisés pour accompagner la prise en main, l’usage quotidien et la consultation continue pendant la possession.", "تم تنظيم أدلة المستخدم ووثائق المالك الخاصة بالمركبات لدعم البدء في الاستخدام والاستعمال اليومي والرجوع إليها أثناء فترة الملكية."),
+      block("/static/assets/prospectus2-00a82650.png", "Reference documents", "Documents de référence", "مستندات مرجعية", "Supplementary reference documents are grouped to make searching, downloading, and comparison clearer and more efficient.", "Les documents de référence complémentaires sont regroupés afin de rendre la recherche, le téléchargement et la comparaison plus clairs et plus efficaces.", "جُمعت المستندات المرجعية الإضافية لجعل البحث والتنزيل والمقارنة أوضح وأكثر كفاءة."),
+      block("/static/assets/app_code_160-5b2a34cc.png", "Digital retrieval", "Accès numérique", "الوصول الرقمي", "Document retrieval is connected to digital touchpoints so that official materials can be found conveniently and consistently.", "La récupération des documents est reliée aux points de contact numériques afin que les supports officiels puissent être trouvés de manière pratique et cohérente.", "يرتبط الوصول إلى المستندات بنقاط الوصول الرقمية بحيث يمكن العثور على المواد الرسمية بسهولة وبصورة متسقة.")
     ]
   },
   {
     kind: "info",
     slug: "purchasing.html",
-    eyebrow: t("Procurement", "Achats", "Ø§Ù„Ù…Ø´ØªØ±ÙŠØ§Øª"),
-    title: t("Procurement and supplier collaboration context", "Contexte des achats et de la collaboration fournisseurs", "Ø³ÙŠØ§Ù‚ Ø§Ù„Ù…Ø´ØªØ±ÙŠØ§Øª ÙˆØ§Ù„ØªØ¹Ø§ÙˆÙ† Ù…Ø¹ Ø§Ù„Ù…ÙˆØ±Ø¯ÙŠÙ†"),
-    summary: t("Voyah procurement emphasizes capability, quality, and long-term supplier collaboration across a growing ecosystem.", "Les achats Voyah mettent lâ€™accent sur la capacitÃ©, la qualitÃ© et la collaboration fournisseur de long terme dans un Ã©cosystÃ¨me en croissance.", "ØªØ±ÙƒØ² Ù…Ø´ØªØ±ÙŠØ§Øª Voyah Ø¹Ù„Ù‰ Ø§Ù„ÙƒÙØ§Ø¡Ø© ÙˆØ§Ù„Ø¬ÙˆØ¯Ø© ÙˆØ§Ù„ØªØ¹Ø§ÙˆÙ† Ø·ÙˆÙŠÙ„ Ø§Ù„Ù…Ø¯Ù‰ Ù…Ø¹ Ø§Ù„Ù…ÙˆØ±Ø¯ÙŠÙ† Ø¶Ù…Ù† Ù…Ù†Ø¸ÙˆÙ…Ø© Ù…ØªÙ†Ø§Ù…ÙŠØ©."),
+    eyebrow: t("Procurement", "Achats", "المشتريات"),
+    title: t("Procurement Information Disclosure", "Informations achats", "معلومات المشتريات"),
+    summary: t("View official procurement information, historical procurement data, and supplier-related disclosures from Voyah.", "Consultez les informations achats officielles, les données historiques d’achats et les éléments de divulgation liés aux fournisseurs publiés par Voyah.", "اطلع على معلومات المشتريات الرسمية وبيانات المشتريات التاريخية والإفصاحات المرتبطة بالموردين المنشورة من Voyah."),
     heroImage: "/static/assets/partner_pc-b12d249b.png",
     blocks: [
-      block("/static/assets/partner_pc-b12d249b.png", "Supplier network", "RÃ©seau fournisseurs", "Ø´Ø¨ÙƒØ© Ø§Ù„Ù…ÙˆØ±Ø¯ÙŠÙ†", "Supplier collaboration is framed around shared quality standards and industrial coordination.", "La collaboration fournisseurs sâ€™appuie sur des standards qualitÃ© communs et une coordination industrielle solide.", "ÙŠÙ‚ÙˆÙ… Ø§Ù„ØªØ¹Ø§ÙˆÙ† Ù…Ø¹ Ø§Ù„Ù…ÙˆØ±Ø¯ÙŠÙ† Ø¹Ù„Ù‰ Ù…Ø¹Ø§ÙŠÙŠØ± Ø¬ÙˆØ¯Ø© Ù…Ø´ØªØ±ÙƒØ© ÙˆØªÙ†Ø³ÙŠÙ‚ ØµÙ†Ø§Ø¹ÙŠ Ù‚ÙˆÙŠ."),
-      block("/static/assets/charge_pile_bg-2c7b414e.png", "Capability alignment", "Alignement des capacitÃ©s", "Ù…ÙˆØ§Ø¡Ù…Ø© Ø§Ù„Ù‚Ø¯Ø±Ø§Øª", "The procurement model values consistency, delivery reliability, and structured cooperation.", "Le modÃ¨le dâ€™achats valorise la constance, la fiabilitÃ© dâ€™exÃ©cution et une coopÃ©ration structurÃ©e.", "ÙŠÙ‚Ø¯Ù‘Ø± Ù†Ù…ÙˆØ°Ø¬ Ø§Ù„Ù…Ø´ØªØ±ÙŠØ§Øª Ø§Ù„Ø§ØªØ³Ø§Ù‚ ÙˆØ§Ù„Ù…ÙˆØ«ÙˆÙ‚ÙŠØ© ÙÙŠ Ø§Ù„ØªØ³Ù„ÙŠÙ… ÙˆØ§Ù„ØªØ¹Ø§ÙˆÙ† Ø§Ù„Ù…Ù†Ø¸Ù…."),
-      block("/static/assets/power_bg2-a6639f1e.png", "Long-term development", "DÃ©veloppement long terme", "Ø§Ù„ØªØ·ÙˆØ± Ø·ÙˆÙŠÙ„ Ø§Ù„Ù…Ø¯Ù‰", "Partnerships are positioned as durable capability building rather than transactional sourcing alone.", "Les partenariats sont pensÃ©s comme une construction durable de capacitÃ©s et non comme un simple sourcing transactionnel.", "ØªÙÙÙ‡Ù… Ø§Ù„Ø´Ø±Ø§ÙƒØ§Øª Ø¨Ø§Ø¹ØªØ¨Ø§Ø±Ù‡Ø§ Ø¨Ù†Ø§Ø¡ Ù‚Ø¯Ø±Ø§Øª Ù…Ø³ØªØ¯Ø§Ù…Ø§Ù‹ Ù„Ø§ Ù…Ø¬Ø±Ø¯ ØªÙˆØ±ÙŠØ¯ ØªØ¹Ø§Ù‚Ø¯ÙŠ.")
+      block("/static/assets/partner_pc-b12d249b.png", "Procurement information", "Informations achats", "معلومات المشتريات", "Procurement information is disclosed for public reference around supplier cooperation, sourcing transparency, and long-term industrial coordination.", "Les informations achats sont publiées à titre de référence publique autour de la coopération fournisseurs, de la transparence du sourcing et de la coordination industrielle de long terme.", "يتم الإفصاح عن معلومات المشتريات للرجوع العام حول تعاون الموردين وشفافية التوريد والتنسيق الصناعي طويل الأمد."),
+      block("/static/assets/charge_pile_bg-2c7b414e.png", "Historical procurement data", "Données historiques d’achats", "بيانات المشتريات التاريخية", "Historical procurement data supports document review and gives partners a clearer view of the structure and continuity of purchasing activity.", "Les données historiques d’achats soutiennent la consultation documentaire et donnent aux partenaires une vision plus claire de la structure et de la continuité de l’activité d’achat.", "تدعم بيانات المشتريات التاريخية مراجعة المستندات وتمنح الشركاء تصوراً أوضح عن هيكل نشاط الشراء واستمراريته."),
+      block("/static/assets/power_bg2-a6639f1e.png", "Supplier collaboration", "Coopération fournisseurs", "تعاون الموردين", "Supplier collaboration emphasizes quality standards, delivery reliability, process clarity, and structured long-term cooperation.", "La coopération avec les fournisseurs met l’accent sur les standards qualité, la fiabilité d’exécution, la clarté des processus et une coopération structurée sur le long terme.", "يركز التعاون مع الموردين على معايير الجودة وموثوقية التنفيذ ووضوح العمليات والتعاون المنظم طويل الأمد.")
     ]
   },
   {
     kind: "info",
     slug: "book-drive.html",
-    eyebrow: t("Experience", "ExpÃ©rience", "Ø§Ù„ØªØ¬Ø±Ø¨Ø©"),
-    title: t("Book a test drive with the Voyah lineup", "RÃ©server un essai avec la gamme Voyah", "Ø§Ø­Ø¬Ø² ØªØ¬Ø±Ø¨Ø© Ù‚ÙŠØ§Ø¯Ø© Ù…Ø¹ Ù…Ø¬Ù…ÙˆØ¹Ø© Voyah"),
-    summary: t("Test-drive booking is connected to product consultation, store support, and guided model selection.", "La rÃ©servation dâ€™essai est reliÃ©e au conseil produit, au support magasin et Ã  lâ€™orientation vers le modÃ¨le adaptÃ©.", "ÙŠØ±ØªØ¨Ø· Ø­Ø¬Ø² ØªØ¬Ø±Ø¨Ø© Ø§Ù„Ù‚ÙŠØ§Ø¯Ø© Ø¨Ø§Ø³ØªØ´Ø§Ø±Ø© Ø§Ù„Ù…Ù†ØªØ¬ ÙˆØ¯Ø¹Ù… Ø§Ù„Ù…Ø¹Ø±Ø¶ ÙˆØªÙˆØ¬ÙŠÙ‡ Ø§Ø®ØªÙŠØ§Ø± Ø§Ù„Ø·Ø±Ø§Ø² Ø§Ù„Ù…Ù†Ø§Ø³Ø¨."),
+    eyebrow: t("Experience", "Expérience", "التجربة"),
+    title: t("Book a Test Drive", "Réserver un essai", "احجز تجربة قيادة"),
+    summary: t("Book a guided test drive with the Voyah lineup.", "Réservez un essai guidé avec la gamme Voyah.", "احجز تجربة قيادة موجّهة مع مجموعة Voyah."),
     heroImage: "/static/assets/drive1-2ff63958.png",
     blocks: [
-      block("/static/assets/drive2-aa10c694.png", "Guided selection", "Choix guidÃ©", "Ø§Ø®ØªÙŠØ§Ø± Ù…ÙˆØ¬Ù‘Ù‡", "Prospective owners can narrow the lineup through usage needs, size preferences, and vehicle character.", "Les futurs clients peuvent affiner leur choix selon lâ€™usage, les prÃ©fÃ©rences dâ€™espace et le caractÃ¨re du vÃ©hicule.", "ÙŠÙ…ÙƒÙ† Ù„Ù„Ø¹Ù…Ù„Ø§Ø¡ Ø§Ù„Ù…Ø­ØªÙ…Ù„ÙŠÙ† ØªØ¶ÙŠÙŠÙ‚ Ø§Ù„Ø§Ø®ØªÙŠØ§Ø± ÙˆÙÙ‚ Ø§Ù„Ø§Ø­ØªÙŠØ§Ø¬Ø§Øª ÙˆØ·Ø¨ÙŠØ¹Ø© Ø§Ù„Ø§Ø³ØªØ®Ø¯Ø§Ù… ÙˆØªÙØ¶ÙŠÙ„Ø§Øª Ø§Ù„Ø­Ø¬Ù…."),
-      block("/static/assets/store3-fe6e8d7d.jpg", "Store coordination", "Coordination magasin", "ØªÙ†Ø³ÙŠÙ‚ Ø§Ù„Ù…Ø¹Ø±Ø¶", "The booking flow connects directly to physical service and retail support touchpoints.", "Le parcours de rÃ©servation se connecte directement aux points de service et dâ€™accompagnement en magasin.", "ÙŠØ±ØªØ¨Ø· Ù…Ø³Ø§Ø± Ø§Ù„Ø­Ø¬Ø² Ù…Ø¨Ø§Ø´Ø±Ø© Ø¨Ù†Ù‚Ø§Ø· Ø§Ù„Ø®Ø¯Ù…Ø© ÙˆØ§Ù„Ø¯Ø¹Ù… Ø¯Ø§Ø®Ù„ Ø§Ù„Ù…Ø¹Ø±Ø¶."),
-      block("/static/assets/life_center_poster-fb653778.png", "Ownership onboarding", "Prise en main", "ØªÙ‡ÙŠØ¦Ø© Ø§Ù„Ù…Ù„ÙƒÙŠØ©", "Test drives support not only discovery but also a clearer understanding of the ownership experience.", "Lâ€™essai ne sert pas seulement Ã  dÃ©couvrir le produit, mais aussi Ã  mieux comprendre lâ€™expÃ©rience de possession.", "Ù„Ø§ ØªØ®Ø¯Ù… ØªØ¬Ø±Ø¨Ø© Ø§Ù„Ù‚ÙŠØ§Ø¯Ø© Ø§Ù„Ø§ÙƒØªØ´Ø§Ù ÙÙ‚Ø· Ø¨Ù„ ØªØ³Ø§Ø¹Ø¯ Ø£ÙŠØ¶Ø§Ù‹ Ø¹Ù„Ù‰ ÙÙ‡Ù… Ø£ÙˆØ¶Ø­ Ù„ØªØ¬Ø±Ø¨Ø© Ø§Ù„Ù…Ù„ÙƒÙŠØ©.")
+      block("/static/assets/drive2-aa10c694.png", "Guided selection", "Choix guidé", "اختيار موجّه", "Prospective owners can narrow the lineup according to usage needs, size preference, and product character before scheduling an in-person drive.", "Les futurs clients peuvent affiner la gamme selon les besoins d’usage, les préférences d’espace et le caractère du produit avant de programmer un essai en magasin.", "يمكن للعملاء المحتملين تضييق الاختيار بحسب احتياجات الاستخدام وتفضيلات الحجم وطابع المنتج قبل تحديد موعد تجربة القيادة في المعرض."),
+      block("/static/assets/store3-fe6e8d7d.jpg", "Store coordination", "Coordination en magasin", "تنسيق المعرض", "The booking flow connects directly to the physical store network so that consultation, arrival planning, and drive preparation stay within one smooth process.", "Le parcours de réservation se connecte directement au réseau de magasins afin que le conseil, la préparation de la visite et l’organisation de l’essai restent dans un processus fluide unique.", "يرتبط مسار الحجز مباشرة بشبكة المعارض الفعلية حتى تظل الاستشارة والتخطيط للزيارة وتجهيز تجربة القيادة ضمن عملية سلسة واحدة."),
+      block("/static/assets/life_center_poster-fb653778.png", "Ownership onboarding", "Découverte de la possession", "تهيئة الملكية", "A test drive supports not only product discovery but also a clearer understanding of the full ownership journey and service experience.", "L’essai sert non seulement à découvrir le produit, mais aussi à mieux comprendre le parcours de possession complet et l’expérience de service.", "لا تخدم تجربة القيادة اكتشاف المنتج فقط، بل تساعد أيضاً على فهم أوضح لرحلة الملكية الكاملة وتجربة الخدمة.")
     ],
-    ctaLabel: t("Visit store center", "Visiter le centre de magasins", "Ø²ÙŠØ§Ø±Ø© Ù…Ø±ÙƒØ² Ø§Ù„Ù…Ø¹Ø§Ø±Ø¶"),
+    ctaLabel: t("Visit store center", "Visiter le centre de magasins", "زيارة مركز المعارض"),
     ctaSlug: "store.html"
   }
 ];
@@ -1207,21 +1571,33 @@ const legalPages = [
   {
     kind: "legal",
     slug: "legal.html",
-    eyebrow: t("Legal", "Mentions lÃ©gales", "Ø§Ù„Ø´Ø¤ÙˆÙ† Ø§Ù„Ù‚Ø§Ù†ÙˆÙ†ÙŠØ©"),
-    title: t("Legal information", "Informations lÃ©gales", "Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ù‚Ø§Ù†ÙˆÙ†ÙŠØ©"),
-    summary: t("Legal notices for the local Voyah reconstruction environment.", "Mentions lÃ©gales pour lâ€™environnement local reconstruit de Voyah.", "Ø¥Ø´Ø¹Ø§Ø±Ø§Øª Ù‚Ø§Ù†ÙˆÙ†ÙŠØ© Ù„Ø¨ÙŠØ¦Ø© Voyah Ø§Ù„Ù…Ø­Ù„ÙŠØ© Ø§Ù„Ù…Ø¹Ø§Ø¯ Ø¨Ù†Ø§Ø¤Ù‡Ø§."),
+    eyebrow: t("Legal", "Mentions légales", "الشؤون القانونية"),
+    title: t("Legal statement", "Déclaration légale", "البيان القانوني"),
+    summary: t("This website is operated by Voyah Automotive Technology Co., Ltd. The content, trademarks, visual materials, and related rights displayed on this website are protected by applicable laws and regulations.", "Ce site web est exploité par Voyah Automotive Technology Co., Ltd. Les contenus, marques, éléments visuels et droits associés présentés sur ce site sont protégés par les lois et règlements applicables.", "يتم تشغيل هذا الموقع بواسطة Voyah Automotive Technology Co., Ltd. وتخضع المحتويات والعلامات التجارية والمواد البصرية والحقوق المرتبطة المعروضة على هذا الموقع للحماية بموجب القوانين واللوائح المعمول بها."),
     sections: [
       {
-        title: t("Ownership", "PropriÃ©tÃ©", "Ø§Ù„Ù…Ù„ÙƒÙŠØ©"),
+        title: t("Intellectual property", "Propriété intellectuelle", "الملكية الفكرية"),
         paragraphs: [
-          t("All site assets in this project are served locally within the Nuxt application.", "Tous les contenus de ce projet sont servis localement dans lâ€™application Nuxt.", "ÙŠØªÙ… ØªÙ‚Ø¯ÙŠÙ… Ø¬Ù…ÙŠØ¹ Ø£ØµÙˆÙ„ Ù‡Ø°Ø§ Ø§Ù„Ù…Ø´Ø±ÙˆØ¹ Ù…Ø­Ù„ÙŠØ§Ù‹ Ø¯Ø§Ø®Ù„ ØªØ·Ø¨ÙŠÙ‚ Nuxt."),
-          t("The brand name Voyah remains unchanged in every locale.", "Le nom de marque Voyah reste inchangÃ© dans toutes les langues.", "ÙŠØ¨Ù‚Ù‰ Ø§Ø³Ù… Ø§Ù„Ø¹Ù„Ø§Ù…Ø© Voyah Ø¯ÙˆÙ† ØªØºÙŠÙŠØ± ÙÙŠ Ø¬Ù…ÙŠØ¹ Ø§Ù„Ù„ØºØ§Øª.")
+          t("Without prior written consent from Voyah, no organization or individual may copy, reproduce, modify, republish, transmit, display, mirror, or otherwise use the contents of this website in any form.", "Sans l’accord écrit préalable de Voyah, aucune organisation ni aucun individu ne peut copier, reproduire, modifier, republier, transmettre, afficher, reproduire en miroir ou utiliser de toute autre manière les contenus de ce site sous quelque forme que ce soit.", "من دون موافقة كتابية مسبقة من Voyah، لا يجوز لأي جهة أو فرد نسخ أو إعادة إنتاج أو تعديل أو إعادة نشر أو نقل أو عرض أو إنشاء نسخ معكوسة أو استخدام محتويات هذا الموقع بأي شكل من الأشكال."),
+          t("The brand name Voyah, product names, logos, images, videos, and related design materials are owned by Voyah or the relevant rights holders.", "Le nom de marque Voyah, les noms de produits, les logos, les images, les vidéos et les éléments de design associés appartiennent à Voyah ou aux titulaires de droits concernés.", "إن اسم العلامة Voyah وأسماء المنتجات والشعارات والصور ومقاطع الفيديو والمواد التصميمية المرتبطة بها مملوكة لـ Voyah أو لأصحاب الحقوق المعنيين.")
         ]
       },
       {
-        title: t("Use of content", "Utilisation du contenu", "Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø§Ù„Ù…Ø­ØªÙˆÙ‰"),
+        title: t("Disclaimer", "Clause de non-responsabilité", "إخلاء المسؤولية"),
         paragraphs: [
-          t("This implementation is structured as reusable local components and localized content records.", "Cette implÃ©mentation est structurÃ©e sous forme de composants locaux rÃ©utilisables et de contenus localisÃ©s.", "ØªÙ…Øª Ù‡ÙŠÙƒÙ„Ø© Ù‡Ø°Ø§ Ø§Ù„ØªÙ†ÙÙŠØ° ÙƒÙ…ÙƒÙˆÙ†Ø§Øª Ù…Ø­Ù„ÙŠØ© Ù‚Ø§Ø¨Ù„Ø© Ù„Ø¥Ø¹Ø§Ø¯Ø© Ø§Ù„Ø§Ø³ØªØ®Ø¯Ø§Ù… ÙˆØ³Ø¬Ù„Ø§Øª Ù…Ø­ØªÙˆÙ‰ Ù…ØªØ±Ø¬Ù…Ø©.")
+          t("The information published on this website is provided for reference. Vehicle configurations, colors, functions, services, and availability may vary by model, market, and time of release. Please refer to the latest official product information and local retail channels.", "Les informations publiées sur ce site sont fournies à titre indicatif. Les configurations, couleurs, fonctions, services et disponibilités des véhicules peuvent varier selon les modèles, les marchés et les périodes de lancement. Veuillez vous référer aux dernières informations produits officielles et aux canaux commerciaux locaux.", "تُقدَّم المعلومات المنشورة على هذا الموقع لأغراض مرجعية. وقد تختلف تجهيزات المركبات والألوان والوظائف والخدمات ومدى التوافر بحسب الطراز والسوق وتوقيت الإطلاق. يُرجى الرجوع إلى أحدث المعلومات الرسمية الخاصة بالمنتج وإلى قنوات البيع المحلية.")
+        ]
+      },
+      {
+        title: t("External links", "Liens externes", "روابط خارجية"),
+        paragraphs: [
+          t("This website may contain links to third-party websites for convenience. Voyah does not control those websites and is not responsible for their content, privacy practices, or availability.", "Ce site peut contenir des liens vers des sites tiers à titre pratique. Voyah ne contrôle pas ces sites et n’est pas responsable de leur contenu, de leurs pratiques de confidentialité ou de leur disponibilité.", "قد يحتوي هذا الموقع على روابط إلى مواقع تابعة لجهات خارجية لغايات التسهيل. لا تتحكم Voyah في هذه المواقع ولا تتحمل مسؤولية محتواها أو ممارسات الخصوصية فيها أو مدى توافرها.")
+        ]
+      },
+      {
+        title: t("Governing law", "Droit applicable", "القانون الواجب التطبيق"),
+        paragraphs: [
+          t("Unless otherwise required by mandatory law, these terms are governed by the laws applicable to the operator of this website. Any disputes should be handled through lawful procedures in the competent jurisdiction.", "Sauf disposition contraire imposée par une loi impérative, les présentes conditions sont régies par les lois applicables à l’exploitant de ce site. Tout litige doit être traité selon les procédures légales devant la juridiction compétente.", "ما لم تقتضِ القوانين الإلزامية خلاف ذلك، تخضع هذه الشروط للقوانين السارية على الجهة المشغلة لهذا الموقع. ويجب معالجة أي نزاع وفق الإجراءات القانونية أمام الجهة القضائية المختصة.")
         ]
       }
     ]
@@ -1229,20 +1605,34 @@ const legalPages = [
   {
     kind: "legal",
     slug: "privacy.html",
-    eyebrow: t("Privacy", "ConfidentialitÃ©", "Ø§Ù„Ø®ØµÙˆØµÙŠØ©"),
-    title: t("Privacy notice", "Avis de confidentialitÃ©", "Ø¥Ø´Ø¹Ø§Ø± Ø§Ù„Ø®ØµÙˆØµÙŠØ©"),
-    summary: t("Privacy-oriented notice for this static local site build.", "Avis relatif Ã  la confidentialitÃ© pour cette version locale statique du site.", "Ø¥Ø´Ø¹Ø§Ø± Ù…ØªØ¹Ù„Ù‚ Ø¨Ø§Ù„Ø®ØµÙˆØµÙŠØ© Ù„Ù‡Ø°Ø§ Ø§Ù„Ø¨Ù†Ø§Ø¡ Ø§Ù„Ù…Ø­Ù„ÙŠ Ø§Ù„Ø«Ø§Ø¨Øª Ù„Ù„Ù…ÙˆÙ‚Ø¹."),
+    eyebrow: t("Privacy", "Confidentialité", "الخصوصية"),
+    title: t("Privacy policy", "Politique de confidentialité", "سياسة الخصوصية"),
+    summary: t("Voyah values and protects the personal information of users. This policy explains how personal information may be collected, used, stored, protected, and managed when using Voyah websites, applications, mini programs, products, and services.", "Voyah attache une grande importance à la protection des informations personnelles des utilisateurs. Cette politique explique comment les informations personnelles peuvent être collectées, utilisées, stockées, protégées et gérées lors de l’utilisation des sites web, applications, mini-programmes, produits et services Voyah.", "تولي Voyah أهمية كبيرة لحماية المعلومات الشخصية للمستخدمين. وتوضح هذه السياسة كيفية جمع المعلومات الشخصية واستخدامها وتخزينها وحمايتها وإدارتها عند استخدام مواقع Voyah وتطبيقاتها وبرامجها المصغرة ومنتجاتها وخدماتها."),
     sections: [
       {
-        title: t("Static delivery", "Livraison statique", "Ø§Ù„ØªØ³Ù„ÙŠÙ… Ø§Ù„Ø«Ø§Ø¨Øª"),
+        title: t("Information collection and use", "Collecte et utilisation des informations", "جمع المعلومات واستخدامها"),
         paragraphs: [
-          t("This project is generated as static pages without remote runtime content dependencies.", "Ce projet est gÃ©nÃ©rÃ© en pages statiques sans dÃ©pendances de contenu distantes au runtime.", "ÙŠØªÙ… ØªÙˆÙ„ÙŠØ¯ Ù‡Ø°Ø§ Ø§Ù„Ù…Ø´Ø±ÙˆØ¹ ÙƒØµÙØ­Ø§Øª Ø«Ø§Ø¨ØªØ© Ù…Ù† Ø¯ÙˆÙ† ØªØ¨Ø¹ÙŠØ§Øª Ù…Ø­ØªÙˆÙ‰ Ø¨Ø¹ÙŠØ¯Ø© Ø£Ø«Ù†Ø§Ø¡ Ø§Ù„ØªØ´ØºÙŠÙ„.")
+          t("Depending on the services you use, Voyah may collect information necessary to provide account login, test-drive booking, vehicle purchase, after-sales service, charging, customer support, and community functions.", "Selon les services que vous utilisez, Voyah peut collecter les informations nécessaires à la connexion au compte, à la réservation d’essai, à l’achat du véhicule, au service après-vente, à la recharge, au support client et aux fonctions communautaires.", "وفقاً للخدمات التي تستخدمها، قد تجمع Voyah المعلومات اللازمة لتسجيل الدخول إلى الحساب وحجز تجربة القيادة وشراء السيارة وخدمة ما بعد البيع والشحن ودعم العملاء ووظائف المجتمع."),
+          t("Voyah uses personal information to deliver services, verify identity, maintain operational security, improve products and services, and meet legal and regulatory obligations.", "Voyah utilise les informations personnelles pour fournir les services, vérifier l’identité, assurer la sécurité opérationnelle, améliorer les produits et services et satisfaire aux obligations légales et réglementaires.", "تستخدم Voyah المعلومات الشخصية لتقديم الخدمات والتحقق من الهوية والحفاظ على أمن التشغيل وتحسين المنتجات والخدمات والامتثال للالتزامات القانونية والتنظيمية.")
         ]
       },
       {
-        title: t("Local assets", "Ressources locales", "Ø§Ù„Ø£ØµÙˆÙ„ Ø§Ù„Ù…Ø­Ù„ÙŠØ©"),
+        title: t("Storage and protection", "Conservation et protection", "التخزين والحماية"),
         paragraphs: [
-          t("Images, videos, fonts, and page content are hosted locally in the project.", "Les images, vidÃ©os, polices et contenus de page sont hÃ©bergÃ©s localement dans le projet.", "ØªØªÙ… Ø§Ø³ØªØ¶Ø§ÙØ© Ø§Ù„ØµÙˆØ± ÙˆØ§Ù„ÙÙŠØ¯ÙŠÙˆÙ‡Ø§Øª ÙˆØ§Ù„Ø®Ø·ÙˆØ· ÙˆÙ…Ø­ØªÙˆÙ‰ Ø§Ù„ØµÙØ­Ø§Øª Ù…Ø­Ù„ÙŠØ§Ù‹ Ø¯Ø§Ø®Ù„ Ø§Ù„Ù…Ø´Ø±ÙˆØ¹.")
+          t("Voyah adopts management, technical, and organizational measures to protect personal information from unauthorized access, disclosure, alteration, damage, or loss.", "Voyah adopte des mesures de gestion, techniques et organisationnelles pour protéger les informations personnelles contre tout accès, divulgation, modification, dommage ou perte non autorisés.", "تعتمد Voyah تدابير إدارية وتقنية وتنظيمية لحماية المعلومات الشخصية من الوصول غير المصرح به أو الكشف أو التعديل أو التلف أو الفقدان."),
+          t("Where required by law or regulation, you may exercise rights such as access, correction, deletion, withdrawal of consent, and account cancellation through the official channels provided by Voyah.", "Lorsque la loi ou la réglementation l’exige, vous pouvez exercer des droits tels que l’accès, la rectification, la suppression, le retrait du consentement et la suppression du compte via les canaux officiels fournis par Voyah.", "عند الاقتضاء بموجب القوانين أو اللوائح، يمكنك ممارسة حقوق مثل الوصول إلى المعلومات وتصحيحها وحذفها وسحب الموافقة وإلغاء الحساب عبر القنوات الرسمية التي توفرها Voyah.")
+        ]
+      },
+      {
+        title: t("Sharing and transfer", "Partage et transfert", "المشاركة والنقل"),
+        paragraphs: [
+          t("Voyah may share personal information with service providers when necessary to deliver services (for example, appointment scheduling, delivery, connectivity, or customer support). Voyah requires such parties to follow applicable laws and security standards.", "Voyah peut partager des informations personnelles avec des prestataires lorsque cela est nécessaire pour fournir les services (par exemple, prise de rendez-vous, livraison, connectivité ou support client). Voyah exige de ces parties qu’elles respectent les lois applicables et des standards de sécurité.", "قد تشارك Voyah المعلومات الشخصية مع مزودي الخدمات عند الضرورة لتقديم الخدمات (مثل جدولة المواعيد أو التسليم أو الاتصال أو دعم العملاء). وتُلزم Voyah هذه الجهات بالامتثال للقوانين المعمول بها ومعايير الأمان.")
+        ]
+      },
+      {
+        title: t("Contact", "Contact", "التواصل"),
+        paragraphs: [
+          t("If you have questions about this policy or wish to exercise privacy-related rights, please use the official Voyah service channels provided on this website.", "Si vous avez des questions concernant cette politique ou souhaitez exercer des droits liés à la confidentialité, veuillez utiliser les canaux officiels de service Voyah indiqués sur ce site.", "إذا كانت لديك أسئلة حول هذه السياسة أو رغبت في ممارسة حقوق تتعلق بالخصوصية، يُرجى استخدام قنوات خدمة Voyah الرسمية المتاحة على هذا الموقع.")
         ]
       }
     ]
@@ -1250,20 +1640,32 @@ const legalPages = [
   {
     kind: "legal",
     slug: "cookie.html",
-    eyebrow: t("Cookies", "Cookies", "Ù…Ù„ÙØ§Øª ØªØ¹Ø±ÙŠÙ Ø§Ù„Ø§Ø±ØªØ¨Ø§Ø·"),
-    title: t("Cookie notice", "Avis sur les cookies", "Ø¥Ø´Ø¹Ø§Ø± Ù…Ù„ÙØ§Øª ØªØ¹Ø±ÙŠÙ Ø§Ù„Ø§Ø±ØªØ¨Ø§Ø·"),
-    summary: t("Cookie-related guidance for the local static implementation.", "Informations relatives aux cookies pour lâ€™implÃ©mentation statique locale.", "Ø¥Ø±Ø´Ø§Ø¯Ø§Øª Ø®Ø§ØµØ© Ø¨Ù…Ù„ÙØ§Øª ØªØ¹Ø±ÙŠÙ Ø§Ù„Ø§Ø±ØªØ¨Ø§Ø· Ù„Ù„ØªÙ†ÙÙŠØ° Ø§Ù„Ù…Ø­Ù„ÙŠ Ø§Ù„Ø«Ø§Ø¨Øª."),
+    eyebrow: t("Cookies", "Cookies", "ملفات تعريف الارتباط"),
+    title: t("Cookie policy", "Politique relative aux cookies", "سياسة ملفات تعريف الارتباط"),
+    summary: t("To ensure the proper operation of the website and improve your browsing experience, Voyah may use cookies and similar technologies. This policy explains the categories, purposes, and management methods of such technologies.", "Afin d’assurer le bon fonctionnement du site et d’améliorer votre expérience de navigation, Voyah peut utiliser des cookies et des technologies similaires. Cette politique explique les catégories, les finalités et les modalités de gestion de ces technologies.", "لضمان التشغيل السليم للموقع وتحسين تجربة التصفح، قد تستخدم Voyah ملفات تعريف الارتباط والتقنيات المشابهة. وتوضح هذه السياسة فئات هذه التقنيات وأغراضها وطرق إدارتها."),
     sections: [
       {
-        title: t("Local experience", "ExpÃ©rience locale", "Ø§Ù„ØªØ¬Ø±Ø¨Ø© Ø§Ù„Ù…Ø­Ù„ÙŠØ©"),
+        title: t("Use of cookies", "Utilisation des cookies", "استخدام ملفات تعريف الارتباط"),
         paragraphs: [
-          t("The site is built for local delivery and does not rely on the original remote website.", "Le site est conÃ§u pour une diffusion locale et ne dÃ©pend pas du site distant dâ€™origine.", "ØªÙ… Ø¨Ù†Ø§Ø¡ Ø§Ù„Ù…ÙˆÙ‚Ø¹ Ù„Ù„ØªÙ‚Ø¯ÙŠÙ… Ø§Ù„Ù…Ø­Ù„ÙŠ ÙˆÙ„Ø§ ÙŠØ¹ØªÙ…Ø¯ Ø¹Ù„Ù‰ Ø§Ù„Ù…ÙˆÙ‚Ø¹ Ø§Ù„Ø£ØµÙ„ÙŠ Ø§Ù„Ø¨Ø¹ÙŠØ¯.")
+          t("Cookies may be used to remember language preferences, maintain login status, optimize performance, analyze traffic, and support service security and service quality improvement.", "Les cookies peuvent être utilisés pour mémoriser les préférences linguistiques, maintenir la connexion, optimiser les performances, analyser le trafic et soutenir la sécurité ainsi que l’amélioration de la qualité de service.", "قد تُستخدم ملفات تعريف الارتباط لتذكر تفضيلات اللغة والحفاظ على حالة تسجيل الدخول وتحسين الأداء وتحليل الزيارات ودعم أمن الخدمة وتحسين جودتها.")
         ]
       },
       {
-        title: t("Client behavior", "Comportement client", "Ø³Ù„ÙˆÙƒ Ø§Ù„Ø¹Ù…ÙŠÙ„"),
+        title: t("Cookie categories", "Catégories de cookies", "فئات ملفات تعريف الارتباط"),
         paragraphs: [
-          t("Any browser-level behavior depends on the local app bundle generated by Nuxt.", "Tout comportement cÃ´tÃ© navigateur dÃ©pend du bundle local gÃ©nÃ©rÃ© par Nuxt.", "ÙŠØ¹ØªÙ…Ø¯ Ø£ÙŠ Ø³Ù„ÙˆÙƒ Ø¹Ù„Ù‰ Ù…Ø³ØªÙˆÙ‰ Ø§Ù„Ù…ØªØµÙØ­ Ø¹Ù„Ù‰ Ø§Ù„Ø­Ø²Ù…Ø© Ø§Ù„Ù…Ø­Ù„ÙŠØ© Ø§Ù„ØªÙŠ ÙŠÙˆÙ„Ø¯Ù‡Ø§ Nuxt.")
+          t("Cookies can be categorized as strictly necessary (site operation), functional (preferences), analytics (measurement), and marketing (relevance). Some categories may not be used in all markets or on all pages.", "Les cookies peuvent être classés en cookies strictement nécessaires (fonctionnement du site), fonctionnels (préférences), analytiques (mesure) et marketing (pertinence). Certaines catégories peuvent ne pas être utilisées sur tous les marchés ou sur toutes les pages.", "يمكن تصنيف ملفات تعريف الارتباط إلى ضرورية للغاية (لتشغيل الموقع) ووظيفية (للتفضيلات) وتحليلية (للقياس) وتسويقية (للملاءمة). وقد لا تُستخدم بعض الفئات في جميع الأسواق أو على جميع الصفحات.")
+        ]
+      },
+      {
+        title: t("Management and control", "Gestion et contrôle", "الإدارة والتحكم"),
+        paragraphs: [
+          t("Most browsers allow you to manage or disable cookies through their settings. Please note that disabling certain cookies may affect the availability or user experience of some functions.", "La plupart des navigateurs permettent de gérer ou de désactiver les cookies via leurs paramètres. Veuillez noter que la désactivation de certains cookies peut affecter la disponibilité ou l’expérience utilisateur de certaines fonctions.", "تتيح معظم المتصفحات إدارة ملفات تعريف الارتباط أو تعطيلها عبر الإعدادات. ويُرجى ملاحظة أن تعطيل بعض الملفات قد يؤثر في توفر بعض الوظائف أو في تجربة استخدامها.")
+        ]
+      },
+      {
+        title: t("Third-party technologies", "Technologies tierces", "تقنيات الجهات الخارجية"),
+        paragraphs: [
+          t("Some services may rely on third-party measurement or media technologies. Where used, these providers may set or read cookies according to their own policies.", "Certaines fonctionnalités peuvent s’appuyer sur des technologies de mesure ou de média de tiers. Le cas échéant, ces fournisseurs peuvent déposer ou lire des cookies selon leurs propres politiques.", "قد تعتمد بعض الخدمات على تقنيات قياس أو وسائط تابعة لجهات خارجية. وعند استخدامها، قد تقوم هذه الجهات بوضع ملفات تعريف ارتباط أو قراءتها وفق سياساتها الخاصة.")
         ]
       }
     ]
@@ -1271,20 +1673,32 @@ const legalPages = [
   {
     kind: "legal",
     slug: "authorization.html",
-    eyebrow: t("Authorization", "Autorisation", "Ø§Ù„ØªÙÙˆÙŠØ¶"),
-    title: t("Authorization statement", "DÃ©claration dâ€™autorisation", "Ø¨ÙŠØ§Ù† Ø§Ù„ØªÙÙˆÙŠØ¶"),
-    summary: t("Authorization-oriented statement for use of the local project implementation.", "DÃ©claration dâ€™autorisation relative Ã  lâ€™usage de lâ€™implÃ©mentation locale du projet.", "Ø¨ÙŠØ§Ù† Ù…ØªØ¹Ù„Ù‚ Ø¨Ø§Ù„ØªÙÙˆÙŠØ¶ Ù„Ø§Ø³ØªØ®Ø¯Ø§Ù… ØªÙ†ÙÙŠØ° Ø§Ù„Ù…Ø´Ø±ÙˆØ¹ Ø§Ù„Ù…Ø­Ù„ÙŠ."),
+    eyebrow: t("Permissions", "Autorisations", "الأذونات"),
+    title: t("Permissions statement", "Déclaration relative aux autorisations", "بيان الأذونات"),
+    summary: t("When using Voyah applications, mini programs, website functions, and connected services, certain device permissions may be requested in order to deliver the corresponding features and service experience.", "Lors de l’utilisation des applications Voyah, des mini-programmes, des fonctions du site et des services connectés, certaines autorisations de l’appareil peuvent être demandées afin de fournir les fonctionnalités correspondantes et l’expérience de service.", "عند استخدام تطبيقات Voyah وبرامجها المصغرة ووظائف الموقع والخدمات المتصلة، قد يتم طلب بعض أذونات الجهاز لتقديم الوظائف المقابلة وتجربة الخدمة المرتبطة بها."),
     sections: [
       {
-        title: t("Project scope", "PÃ©rimÃ¨tre du projet", "Ù†Ø·Ø§Ù‚ Ø§Ù„Ù…Ø´Ø±ÙˆØ¹"),
+        title: t("Typical permissions", "Autorisations courantes", "الأذونات المعتادة"),
         paragraphs: [
-          t("The current implementation is a local Nuxt reconstruction using reusable page components and local media.", "Lâ€™implÃ©mentation actuelle est une reconstruction Nuxt locale utilisant des composants de page rÃ©utilisables et des mÃ©dias locaux.", "Ø§Ù„ØªÙ†ÙÙŠØ° Ø§Ù„Ø­Ø§Ù„ÙŠ Ø¹Ø¨Ø§Ø±Ø© Ø¹Ù† Ø¥Ø¹Ø§Ø¯Ø© Ø¨Ù†Ø§Ø¡ Ù…Ø­Ù„ÙŠØ© Ø¨Ù€ Nuxt Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… Ù…ÙƒÙˆÙ†Ø§Øª ØµÙØ­Ø§Øª Ù‚Ø§Ø¨Ù„Ø© Ù„Ø¥Ø¹Ø§Ø¯Ø© Ø§Ù„Ø§Ø³ØªØ®Ø¯Ø§Ù… ÙˆÙˆØ³Ø§Ø¦Ø· Ù…Ø­Ù„ÙŠØ©.")
+          t("Depending on the feature in use, Voyah may request permissions such as location, camera, photo album, microphone, Bluetooth, notifications, and storage access.", "Selon la fonctionnalité utilisée, Voyah peut demander des autorisations telles que la localisation, l’appareil photo, l’album photo, le microphone, le Bluetooth, les notifications et l’accès au stockage.", "بحسب الوظيفة المستخدمة، قد تطلب Voyah أذونات مثل الموقع والكاميرا وألبوم الصور والميكروفون والبلوتوث والإشعارات والوصول إلى التخزين.")
         ]
       },
       {
-        title: t("Brand handling", "Gestion de marque", "Ø§Ù„ØªØ¹Ø§Ù…Ù„ Ù…Ø¹ Ø§Ù„Ø¹Ù„Ø§Ù…Ø©"),
+        title: t("Purpose and management", "Finalité et gestion", "الغرض والإدارة"),
         paragraphs: [
-          t("Voyah remains the exact brand name across English, French, and Arabic locales.", "Voyah reste le nom de marque exact en anglais, franÃ§ais et arabe.", "ØªØ¸Ù„ Voyah Ø§Ø³Ù… Ø§Ù„Ø¹Ù„Ø§Ù…Ø© Ø§Ù„Ø¯Ù‚ÙŠÙ‚ ÙÙŠ Ø§Ù„Ù„ØºØ§Øª Ø§Ù„Ø¥Ù†Ø¬Ù„ÙŠØ²ÙŠØ© ÙˆØ§Ù„ÙØ±Ù†Ø³ÙŠØ© ÙˆØ§Ù„Ø¹Ø±Ø¨ÙŠØ©.")
+          t("Permissions are only used for the functions described above. You may manage or revoke permissions through your system settings, but doing so may affect the availability of related services.", "Les autorisations sont utilisées uniquement pour les fonctions décrites ci-dessus. Vous pouvez les gérer ou les révoquer via les paramètres du système, mais cela peut affecter la disponibilité des services associés.", "تُستخدم الأذونات فقط للوظائف المذكورة أعلاه. ويمكنك إدارتها أو سحبها من خلال إعدادات النظام، إلا أن ذلك قد يؤثر في توفر الخدمات المرتبطة بها.")
+        ]
+      },
+      {
+        title: t("When permissions are requested", "Quand les autorisations sont demandées", "متى يتم طلب الأذونات"),
+        paragraphs: [
+          t("Permissions are requested only when a feature requires them. For example, location may be requested for store discovery, Bluetooth for vehicle connectivity, and camera/photo access for uploading materials.", "Les autorisations ne sont demandées que lorsqu’une fonctionnalité en a besoin. Par exemple, la localisation peut être requise pour trouver un magasin, le Bluetooth pour la connectivité du véhicule et l’accès caméra/photo pour le téléchargement de contenus.", "لا يتم طلب الأذونات إلا عندما تتطلبها الوظيفة. فعلى سبيل المثال، قد يُطلب الموقع للعثور على المعرض، والبلوتوث لاتصال السيارة، والوصول إلى الكاميرا أو الصور لرفع المحتوى.")
+        ]
+      },
+      {
+        title: t("Notifications", "Notifications", "الإشعارات"),
+        paragraphs: [
+          t("If you enable notifications, Voyah may send service-related reminders such as booking updates, delivery status, or safety notices. You can disable notifications at any time through system settings.", "Si vous activez les notifications, Voyah peut envoyer des rappels liés au service tels que les mises à jour de réservation, l’état de livraison ou des avis de sécurité. Vous pouvez les désactiver à tout moment via les paramètres du système.", "إذا قمت بتفعيل الإشعارات، فقد ترسل Voyah تذكيرات مرتبطة بالخدمة مثل تحديثات الحجز أو حالة التسليم أو إشعارات السلامة. ويمكنك تعطيل الإشعارات في أي وقت من خلال إعدادات النظام.")
         ]
       }
     ]
@@ -1309,9 +1723,9 @@ const homePage = {
       video: "/website/advertisingbanner/video/f0c4f930-2c5e-4b18-8212-e73cb76c18b11770618136349.mp4",
       logo: "/website/advertisingbanner/image/c3a9ed8d-150d-4c86-a584-119c0c7bd3e91770618125835.png",
       title: t("", "", ""),
-      description: t("A new-era flagship six-seat SUV", "Un SUV phare Ã  six places de nouvelle gÃ©nÃ©ration", "Ø³ÙŠØ§Ø±Ø© SUV Ø±Ø§Ø¦Ø¯Ø© Ø¨Ø³ØªØ© Ù…Ù‚Ø§Ø¹Ø¯ Ù…Ù† Ø§Ù„Ø¬ÙŠÙ„ Ø§Ù„Ø¬Ø¯ÙŠØ¯"),
-      primaryLabel: t("Learn more", "En savoir plus", "Ø§Ø¹Ø±Ù Ø§Ù„Ù…Ø²ÙŠØ¯"),
-      secondaryLabel: t("Order now", "Commander", "Ø§Ø·Ù„Ø¨ Ø§Ù„Ø¢Ù†"),
+      description: t("A new-era flagship six-seat SUV", "Un SUV phare à six places de nouvelle génération", "سيارة SUV رائدة بستة مقاعد من الجيل الجديد"),
+      primaryLabel: t("Learn more", "En savoir plus", "اعرف المزيد"),
+      secondaryLabel: t("Order now", "Commander", "اطلب الآن"),
       primarySlug: "titan.html",
       secondarySlug: "store.html"
     },
@@ -1320,9 +1734,9 @@ const homePage = {
       video: "/website/advertisingbanner/video/785c4160-8515-46a2-8bc9-a4f7b1907c0c1770618243037.mp4",
       logo: "/website/advertisingbanner/image/5be64d32-9133-4283-8994-3350cca635d81770618274334.png",
       title: t("", "", ""),
-      description: t("A new-era flagship MPV", "Un monospace phare de nouvelle gÃ©nÃ©ration", "Ø³ÙŠØ§Ø±Ø© MPV Ø±Ø§Ø¦Ø¯Ø© Ù…Ù† Ø§Ù„Ø¬ÙŠÙ„ Ø§Ù„Ø¬Ø¯ÙŠØ¯"),
-      primaryLabel: t("Learn more", "En savoir plus", "Ø§Ø¹Ø±Ù Ø§Ù„Ù…Ø²ÙŠØ¯"),
-      secondaryLabel: t("Order now", "Commander", "Ø§Ø·Ù„Ø¨ Ø§Ù„Ø¢Ù†"),
+      description: t("A new-era flagship MPV with panoramic luxury and family-first comfort", "Un monospace phare de nouvelle génération avec luxe panoramique et confort familial", "سيارة MPV رائدة من الجيل الجديد مع فخامة بانورامية وراحة عائلية"),
+      primaryLabel: t("Learn more", "En savoir plus", "اعرف المزيد"),
+      secondaryLabel: t("Order now", "Commander", "اطلب الآن"),
       primarySlug: "newDreamer26.html",
       secondarySlug: "store.html"
     },
@@ -1331,9 +1745,9 @@ const homePage = {
       video: "/website/advertisingbanner/video/1779ce91-787b-4a77-9fec-1deb13fedeb31770618459950.mp4",
       logo: "/website/advertisingbanner/image/9c751c14-cd46-439c-b9de-5a7d595655991770618438688.png",
       title: t("", "", ""),
-      description: t("A new-era flagship sedan", "Une berline phare de nouvelle gÃ©nÃ©ration", "Ø³ÙŠØ¯Ø§Ù† Ø±Ø§Ø¦Ø¯Ø© Ù…Ù† Ø§Ù„Ø¬ÙŠÙ„ Ø§Ù„Ø¬Ø¯ÙŠØ¯"),
-      primaryLabel: t("Learn more", "En savoir plus", "Ø§Ø¹Ø±Ù Ø§Ù„Ù…Ø²ÙŠØ¯"),
-      secondaryLabel: t("Order now", "Commander", "Ø§Ø·Ù„Ø¨ Ø§Ù„Ø¢Ù†"),
+      description: t("A new-era flagship sedan with executive luxury and calm long-distance composure", "Une berline phare de nouvelle génération avec luxe exécutif et sérénité longue distance", "سيدان رائدة من الجيل الجديد مع فخامة تنفيذية واتزان في الرحلات الطويلة"),
+      primaryLabel: t("Learn more", "En savoir plus", "اعرف المزيد"),
+      secondaryLabel: t("Order now", "Commander", "اطلب الآن"),
       primarySlug: "passion-L.html",
       secondarySlug: "store.html"
     },
@@ -1342,9 +1756,9 @@ const homePage = {
       video: "/website/advertisingbanner/video/e33e96dc-3430-4882-946d-62abdf88dc0d1770618522586.mp4",
       logo: "/website/advertisingbanner/image/05088b2b-9041-4d17-8730-ab52def1319e1770618558478.png",
       title: t("", "", ""),
-      description: t("SUV with Huawei intelligent driving and Harmony cockpit", "SUV avec conduite intelligente Huawei et cockpit Harmony", "Ø³ÙŠØ§Ø±Ø© SUV Ù…Ø²ÙˆØ¯Ø© Ø¨Ù‚ÙŠØ§Ø¯Ø© Ø°ÙƒÙŠØ© Ù…Ù† Huawei ÙˆÙ…Ù‚ØµÙˆØ±Ø© Harmony"),
-      primaryLabel: t("Learn more", "En savoir plus", "Ø§Ø¹Ø±Ù Ø§Ù„Ù…Ø²ÙŠØ¯"),
-      secondaryLabel: t("Order now", "Commander", "Ø§Ø·Ù„Ø¨ Ø§Ù„Ø¢Ù†"),
+      description: t("Premium intelligent SUV with Huawei ADS and Harmony cockpit", "SUV premium intelligente avec Huawei ADS et cockpit Harmony", "سيارة SUV ذكية فاخرة مع Huawei ADS ومقصورة Harmony"),
+      primaryLabel: t("Learn more", "En savoir plus", "اعرف المزيد"),
+      secondaryLabel: t("Order now", "Commander", "اطلب الآن"),
       primarySlug: "free+.html",
       secondarySlug: "store.html"
     },
@@ -1354,27 +1768,27 @@ const homePage = {
       logo: "/website/advertisingbanner/image/ef3b7afe-0f2b-4f6f-b575-4679c59d8c3a1770618630272.png",
       title: t("", "", ""),
       description: t(
-        "Pure-electric SUV with Huawei intelligent driving and Harmony cockpit",
-        "SUV 100 % Ã©lectrique avec conduite intelligente Huawei et cockpit Harmony",
-        "Ø³ÙŠØ§Ø±Ø© SUV ÙƒÙ‡Ø±Ø¨Ø§Ø¦ÙŠØ© Ø¨Ø§Ù„ÙƒØ§Ù…Ù„ Ù…Ø²ÙˆØ¯Ø© Ø¨Ù‚ÙŠØ§Ø¯Ø© Ø°ÙƒÙŠØ© Ù…Ù† Huawei ÙˆÙ…Ù‚ØµÙˆØ±Ø© Harmony"
+        "New luxury pure-electric SUV with long range and family comfort",
+        "Nouveau SUV de luxe 100 % électrique avec grande autonomie et confort familial",
+        "سيارة SUV كهربائية فاخرة جديدة بمدى طويل وراحة عائلية"
       ),
-      primaryLabel: t("Learn more", "En savoir plus", "Ø§Ø¹Ø±Ù Ø§Ù„Ù…Ø²ÙŠØ¯"),
-      secondaryLabel: t("Order now", "Commander", "Ø§Ø·Ù„Ø¨ Ø§Ù„Ø¢Ù†"),
+      primaryLabel: t("Learn more", "En savoir plus", "اعرف المزيد"),
+      secondaryLabel: t("Order now", "Commander", "اطلب الآن"),
       primarySlug: "newCourage.html",
       secondarySlug: "store.html"
     }
   ],
   brandIntro: {
-    title: t("Hello world, I am Voyah!", "Bonjour le monde, je suis Voyah !", "Ù…Ø±Ø­Ø¨Ø§Ù‹ Ø£ÙŠÙ‡Ø§ Ø§Ù„Ø¹Ø§Ù„Ù…ØŒ Ø£Ù†Ø§ Voyah!"),
+    title: t("Hello world, I am Voyah!", "Bonjour le monde, je suis Voyah !", "مرحباً أيها العالم، أنا Voyah!"),
     body: t(
       "A premium intelligent new-energy brand originating from Dongfeng Motor.",
-      "Une marque haut de gamme de vÃ©hicules Ã  Ã©nergies nouvelles intelligents issue de Dongfeng Motor.",
-      "Ø¹Ù„Ø§Ù…Ø© Ø±Ø§Ù‚ÙŠØ© Ù„Ù„Ù…Ø±ÙƒØ¨Ø§Øª Ø§Ù„Ø°ÙƒÙŠØ© Ø§Ù„Ø¹Ø§Ù…Ù„Ø© Ø¨Ø§Ù„Ø·Ø§Ù‚Ø© Ø§Ù„Ø¬Ø¯ÙŠØ¯Ø© ØªÙ†ØªÙ…ÙŠ Ø¥Ù„Ù‰ Dongfeng Motor."
+      "Une marque haut de gamme de véhicules à énergies nouvelles intelligents issue de Dongfeng Motor.",
+      "علامة راقية للمركبات الذكية العاملة بالطاقة الجديدة تنتمي إلى Dongfeng Motor."
     ),
-    cta: t("Discover the brand", "DÃ©couvrir la marque", "Ø§ÙƒØªØ´Ù Ø§Ù„Ø¹Ù„Ø§Ù…Ø©"),
+    cta: t("Discover the brand", "Découvrir la marque", "اكتشف العلامة"),
     image: "/static/assets/world-fec50d02.jpg"
   },
-  modelsTitle: t("Explore Voyah models", "Explorer les modÃ¨les Voyah", "Ø§Ø³ØªÙƒØ´Ù Ø·Ø±Ø§Ø²Ø§Øª Voyah"),
+  modelsTitle: t("Explore Voyah models", "Explorer les modèles Voyah", "استكشف طرازات Voyah"),
   modelsBody: t("", "", ""),
   models: [
     {
@@ -1383,35 +1797,35 @@ const homePage = {
       title: t("Voyah Titan", "Voyah Titan", "Voyah Titan"),
       category: t(
         "A new-era flagship six-seat SUV",
-        "Un SUV phare six places de nouvelle gÃ©nÃ©ration",
-        "Ø³ÙŠØ§Ø±Ø© SUV Ø±Ø§Ø¦Ø¯Ø© Ø¨Ø³ØªØ© Ù…Ù‚Ø§Ø¹Ø¯ Ù…Ù† Ø§Ù„Ø¬ÙŠÙ„ Ø§Ù„Ø¬Ø¯ÙŠØ¯"
+        "Un SUV phare six places de nouvelle génération",
+        "سيارة SUV رائدة بستة مقاعد من الجيل الجديد"
       ),
       metrics: [
-        metric("5000 mm", "Length", "Longueur", "Ø§Ù„Ø·ÙˆÙ„"),
-        metric("1995 mm", "Width", "Largeur", "Ø§Ù„Ø¹Ø±Ø¶"),
-        metric("1820 mm", "Height", "Hauteur", "Ø§Ù„Ø§Ø±ØªÙØ§Ø¹")
+        metric("5000 mm", "Length", "Longueur", "الطول"),
+        metric("1995 mm", "Width", "Largeur", "العرض"),
+        metric("1820 mm", "Height", "Hauteur", "الارتفاع")
       ]
     },
     {
       slug: "newDreamer26.html",
       image: "/website/advertisingseries/image/7ef23102-331e-418d-9139-72a7c77264011770618843718.jpg",
       title: t("26 Voyah Dreamer", "Voyah Dreamer 26", "Voyah Dreamer 26"),
-      category: t("A new-era flagship MPV", "Un monospace phare de nouvelle gÃ©nÃ©ration", "Ø³ÙŠØ§Ø±Ø© MPV Ø±Ø§Ø¦Ø¯Ø© Ù…Ù† Ø§Ù„Ø¬ÙŠÙ„ Ø§Ù„Ø¬Ø¯ÙŠØ¯"),
+      category: t("A new-era flagship MPV", "Un monospace phare de nouvelle génération", "سيارة MPV رائدة من الجيل الجديد"),
       metrics: [
-        metric("MPV", "Body type", "Carrosserie", "Ù†ÙˆØ¹ Ø§Ù„Ù‡ÙŠÙƒÙ„"),
-        metric("Flagship", "Positioning", "Positionnement", "Ø§Ù„ÙØ¦Ø©"),
-        metric("Six / seven seats", "Seating", "Places", "Ø¹Ø¯Ø¯ Ø§Ù„Ù…Ù‚Ø§Ø¹Ø¯")
+        metric("MPV", "Body type", "Carrosserie", "نوع الهيكل"),
+        metric("Flagship", "Positioning", "Positionnement", "الفئة"),
+        metric("6 / 7 seats", "Seating", "Places", "عدد المقاعد")
       ]
     },
     {
       slug: "passion-L.html",
       image: "/website/advertisingseries/image/c6a84270-5367-4b46-9bbb-ca363039b20f1770618873239.jpg",
       title: t("Voyah Passion L", "Voyah Passion L", "Voyah Passion L"),
-      category: t("A new-era flagship sedan", "Une berline phare de nouvelle gÃ©nÃ©ration", "Ø³ÙŠØ¯Ø§Ù† Ø±Ø§Ø¦Ø¯Ø© Ù…Ù† Ø§Ù„Ø¬ÙŠÙ„ Ø§Ù„Ø¬Ø¯ÙŠØ¯"),
+      category: t("A new-era flagship sedan", "Une berline phare de nouvelle génération", "سيدان رائدة من الجيل الجديد"),
       metrics: [
-        metric("Sedan", "Body type", "Carrosserie", "Ù†ÙˆØ¹ Ø§Ù„Ù‡ÙŠÙƒÙ„"),
-        metric("Flagship", "Positioning", "Positionnement", "Ø§Ù„ÙØ¦Ø©"),
-        metric("Executive luxury", "Experience", "ExpÃ©rience", "Ø§Ù„ØªØ¬Ø±Ø¨Ø©")
+        metric("Sedan", "Body type", "Carrosserie", "نوع الهيكل"),
+        metric("Flagship", "Positioning", "Positionnement", "الفئة"),
+        metric("Executive luxury", "Experience", "Expérience", "التجربة")
       ]
     },
     {
@@ -1419,209 +1833,209 @@ const homePage = {
       image: "/website/advertisingseries/image/e8a95859-ce35-4110-8156-b9f6a9c3365d1770618911247.jpg",
       title: t("Voyah FREE+", "Voyah FREE+", "Voyah FREE+"),
       category: t(
-        "SUV with Huawei intelligent driving and Harmony cockpit",
-        "SUV avec conduite intelligente Huawei et cockpit Harmony",
-        "Ø³ÙŠØ§Ø±Ø© SUV Ù…Ø²ÙˆØ¯Ø© Ø¨Ù‚ÙŠØ§Ø¯Ø© Ø°ÙƒÙŠØ© Ù…Ù† Huawei ÙˆÙ…Ù‚ØµÙˆØ±Ø© Harmony"
+        "Premium intelligent SUV",
+        "SUV premium intelligente",
+        "سيارة SUV ذكية فاخرة"
       ),
       metrics: [
-        metric("SUV", "Body type", "Carrosserie", "Ù†ÙˆØ¹ Ø§Ù„Ù‡ÙŠÙƒÙ„"),
-        metric("Huawei ADS", "Driving tech", "Conduite intelligente", "ØªÙ‚Ù†ÙŠØ© Ø§Ù„Ù‚ÙŠØ§Ø¯Ø©"),
-        metric("Harmony cockpit", "Cabin", "Cockpit", "Ø§Ù„Ù…Ù‚ØµÙˆØ±Ø©")
+        metric("SUV", "Body type", "Carrosserie", "نوع الهيكل"),
+        metric("Huawei ADS", "Driving tech", "Conduite intelligente", "تقنية القيادة"),
+        metric("Harmony cockpit", "Cabin", "Cockpit", "المقصورة")
       ]
     },
     {
       slug: "newCourage.html",
       image: "/website/advertisingseries/image/927d6e8d-3182-420f-891e-0f47c492d9141770618945147.jpg",
-      title: t("New Voyah Courage", "Nouveau Voyah Courage", "Voyah Courage Ø§Ù„Ø¬Ø¯ÙŠØ¯"),
+      title: t("New Voyah Courage", "Nouveau Voyah Courage", "Voyah Courage الجديد"),
       category: t(
-        "Pure-electric SUV with Huawei intelligent driving and Harmony cockpit",
-        "SUV 100 % Ã©lectrique avec conduite intelligente Huawei et cockpit Harmony",
-        "Ø³ÙŠØ§Ø±Ø© SUV ÙƒÙ‡Ø±Ø¨Ø§Ø¦ÙŠØ© Ø¨Ø§Ù„ÙƒØ§Ù…Ù„ Ù…Ø²ÙˆØ¯Ø© Ø¨Ù‚ÙŠØ§Ø¯Ø© Ø°ÙƒÙŠØ© Ù…Ù† Huawei ÙˆÙ…Ù‚ØµÙˆØ±Ø© Harmony"
+        "New luxury pure-electric SUV",
+        "Nouveau SUV de luxe 100 % électrique",
+        "سيارة SUV كهربائية فاخرة جديدة"
       ),
       metrics: [
-        metric("Pure electric", "Powertrain", "Motorisation", "Ù…Ù†Ø¸ÙˆÙ…Ø© Ø§Ù„Ø­Ø±ÙƒØ©"),
-        metric("Huawei ADS", "Driving tech", "Conduite intelligente", "ØªÙ‚Ù†ÙŠØ© Ø§Ù„Ù‚ÙŠØ§Ø¯Ø©"),
-        metric("Harmony cockpit", "Cabin", "Cockpit", "Ø§Ù„Ù…Ù‚ØµÙˆØ±Ø©")
+        metric("Pure electric", "Powertrain", "Motorisation", "منظومة الحركة"),
+        metric("Huawei ADS", "Driving tech", "Conduite intelligente", "تقنية القيادة"),
+        metric("Harmony cockpit", "Cabin", "Cockpit", "المقصورة")
       ]
     }
   ],
   energy: {
-    title: t("Voyah Energy", "Ã‰nergie Voyah", "Ø·Ø§Ù‚Ø© Voyah"),
+    title: t("Voyah Energy", "Énergie Voyah", "طاقة Voyah"),
     body: t(
       "Let users enjoy the best replenishment experience with more choice, more speed, more intelligence, and more efficiency.",
-      "Offrir aux utilisateurs la meilleure expÃ©rience de recharge, avec davantage de choix, de rapiditÃ©, dâ€™intelligence et dâ€™efficacitÃ©.",
-      "Ø¥ØªØ§Ø­Ø© Ø£ÙØ¶Ù„ ØªØ¬Ø±Ø¨Ø© ØªØ²ÙˆÙ‘Ø¯ Ø¨Ø§Ù„Ø·Ø§Ù‚Ø© Ù„Ù„Ù…Ø³ØªØ®Ø¯Ù…ÙŠÙ†ØŒ Ø¨Ù…Ø²ÙŠØ¯ Ù…Ù† Ø§Ù„Ø®ÙŠØ§Ø±Ø§Øª ÙˆØ§Ù„Ø³Ø±Ø¹Ø© ÙˆØ§Ù„Ø°ÙƒØ§Ø¡ ÙˆØ§Ù„ÙƒÙØ§Ø¡Ø©."
+      "Offrir aux utilisateurs la meilleure expérience de recharge, avec davantage de choix, de rapidité, d’intelligence et d’efficacité.",
+      "إتاحة أفضل تجربة تزوّد بالطاقة للمستخدمين، بمزيد من الخيارات والسرعة والذكاء والكفاءة."
     ),
-    label: t("Learn more", "En savoir plus", "Ø§Ø¹Ø±Ù Ø§Ù„Ù…Ø²ÙŠØ¯"),
+    label: t("Learn more", "En savoir plus", "اعرف المزيد"),
     image: "/static/assets/energy_bg-4482e81f.jpg",
     metrics: [
-      metric("1,540,000+", "Integrated charging resources", "Ressources de recharge intÃ©grÃ©es", "Ù…ÙˆØ§Ø±Ø¯ Ø§Ù„Ø´Ø­Ù† Ø§Ù„Ù…Ø¯Ù…Ø¬Ø©"),
-      metric("16,000+", "Ultra-fast charging resources", "Ressources de recharge ultra-rapide", "Ù…ÙˆØ§Ø±Ø¯ Ø§Ù„Ø´Ø­Ù† ÙØ§Ø¦Ù‚ Ø§Ù„Ø³Ø±Ø¹Ø©"),
-      metric("530,000,000+ kWh", "Cumulative charging delivered to users", "Recharge cumulÃ©e fournie aux utilisateurs", "Ø¥Ø¬Ù…Ø§Ù„ÙŠ Ø§Ù„ÙƒÙ‡Ø±Ø¨Ø§Ø¡ Ø§Ù„Ù…Ø´Ø­ÙˆÙ†Ø© Ù„Ù„Ù…Ø³ØªØ®Ø¯Ù…ÙŠÙ†"),
-      metric("170,000+ tons", "Cumulative carbon reduction", "RÃ©duction cumulÃ©e des Ã©missions de carbone", "Ø¥Ø¬Ù…Ø§Ù„ÙŠ Ø®ÙØ¶ Ø§Ù†Ø¨Ø¹Ø§Ø«Ø§Øª Ø§Ù„ÙƒØ±Ø¨ÙˆÙ†")
+      metric("1,540,000+", "Integrated charging resources", "Ressources de recharge intégrées", "موارد الشحن المدمجة"),
+      metric("16,000+", "Ultra-fast charging resources", "Ressources de recharge ultra-rapide", "موارد الشحن فائق السرعة"),
+      metric("530,000,000+ kWh", "Cumulative charging delivered to users", "Recharge cumulée fournie aux utilisateurs", "إجمالي الكهرباء المشحونة للمستخدمين"),
+      metric("170,000+ tons", "Cumulative carbon reduction", "Réduction cumulée des émissions de carbone", "إجمالي خفض انبعاثات الكربون")
     ]
   },
   technology: {
-    title: t("Explore Voyah technology", "Explorer les technologies Voyah", "Ø§Ø³ØªÙƒØ´Ù ØªÙ‚Ù†ÙŠØ§Øª Voyah"),
+    title: t("Explore Voyah technology", "Explorer les technologies Voyah", "استكشف تقنيات Voyah"),
     body: t(
-      "Voyah is not only a pioneer among central-state enterprises on the electric track, but also a new benchmark for the transformation and upgrade of mature Chinese automakers and a successful practice of Dongfeng Motor Groupâ€™s â€œnew five modernizationsâ€: lightweighting, electrification, intelligence, connectivity, and sharing.",
-      "Voyah nâ€™est pas seulement un pionnier des entreprises centrales sur la voie de lâ€™Ã©lectrique, mais aussi une nouvelle rÃ©fÃ©rence pour la transformation des constructeurs chinois matures et une concrÃ©tisation rÃ©ussie des â€œcinq nouvelles modernisationsâ€ de Dongfeng Motor Group : allÃ¨gement, Ã©lectrification, intelligence, connectivitÃ© et partage.",
-      "Ù„Ø§ ØªÙØ¹Ø¯ Voyah Ù…Ø¬Ø±Ø¯ Ø±Ø§Ø¦Ø¯Ø© Ø¨ÙŠÙ† Ø§Ù„Ø´Ø±ÙƒØ§Øª Ø§Ù„Ù…Ø±ÙƒØ²ÙŠØ© Ø¹Ù„Ù‰ Ù…Ø³Ø§Ø± Ø§Ù„Ø³ÙŠØ§Ø±Ø§Øª Ø§Ù„ÙƒÙ‡Ø±Ø¨Ø§Ø¦ÙŠØ©ØŒ Ø¨Ù„ ØªÙ…Ø«Ù„ Ø£ÙŠØ¶Ø§Ù‹ Ù…Ø¹ÙŠØ§Ø±Ø§Ù‹ Ø¬Ø¯ÙŠØ¯Ø§Ù‹ Ù„ØªØ­ÙˆÙ„ Ø´Ø±ÙƒØ§Øª Ø§Ù„Ø³ÙŠØ§Ø±Ø§Øª Ø§Ù„ØµÙŠÙ†ÙŠØ© Ø§Ù„Ù†Ø§Ø¶Ø¬Ø© ÙˆØªØ­Ø¯ÙŠØ«Ù‡Ø§ØŒ ÙƒÙ…Ø§ Ø£Ù†Ù‡Ø§ ØªØ¬Ø³ÙŠØ¯ Ù†Ø§Ø¬Ø­ Ù„Ù€Â«Ø§Ù„ØªØ­ÙˆÙ„Ø§Øª Ø§Ù„Ø®Ù…Ø³Ø© Ø§Ù„Ø¬Ø¯ÙŠØ¯Ø©Â» Ù„Ø¯Ù‰ Dongfeng Motor Group: Ø§Ù„Ø®ÙØ©ØŒ ÙˆØ§Ù„ÙƒÙ‡Ø±Ø¨Ø§Ø¡ØŒ ÙˆØ§Ù„Ø°ÙƒØ§Ø¡ØŒ ÙˆØ§Ù„Ø§ØªØµØ§Ù„ØŒ ÙˆØ§Ù„Ù…Ø´Ø§Ø±ÙƒØ©."
+      'Voyah is not only a pioneer among central-state enterprises on the electric track, but also a new benchmark for the transformation and upgrade of mature Chinese automakers and a successful practice of Dongfeng Motor Group’s "new five modernizations": lightweighting, electrification, intelligence, connectivity, and sharing.',
+      'Voyah n’est pas seulement un pionnier des entreprises centrales sur la voie de l’électrique, mais aussi une nouvelle référence pour la transformation des constructeurs chinois matures et une concrétisation réussie des "cinq nouvelles modernisations" de Dongfeng Motor Group : allègement, électrification, intelligence, connectivité et partage.',
+      "لا تُعد Voyah مجرد رائدة بين الشركات المركزية على مسار السيارات الكهربائية، بل تمثل أيضاً معياراً جديداً لتحول شركات السيارات الصينية الناضجة وتحديثها، كما أنها تجسيد ناجح لـ«التحولات الخمسة الجديدة» لدى Dongfeng Motor Group: الخفة، والكهرباء، والذكاء، والاتصال، والمشاركة."
     ),
     tabs: [
       {
-        label: t("ESSA native intelligent electric architecture", "Architecture Ã©lectrique intelligente ESSA", "Ù…Ù†ØµØ© ESSA Ø§Ù„ÙƒÙ‡Ø±Ø¨Ø§Ø¦ÙŠØ© Ø§Ù„Ø°ÙƒÙŠØ© Ø§Ù„Ø£ØµÙ„ÙŠØ©"),
+        label: t("ESSA native intelligent electric architecture", "Architecture électrique intelligente ESSA", "منصة ESSA الكهربائية الذكية الأصلية"),
         tags: [
-          t("Native intelligence", "Intelligence native", "Ø°ÙƒØ§Ø¡ Ø£ØµÙŠÙ„"),
-          t("Ultimate safety", "SÃ©curitÃ© ultime", "Ø³Ù„Ø§Ù…Ø© Ù‚ØµÙˆÙ‰"),
-          t("Freer control", "ContrÃ´le fluide", "ØªØ­ÙƒÙ… Ø£ÙƒØ«Ø± Ø­Ø±ÙŠØ©"),
-          t("Full comfort", "Confort global", "Ø±Ø§Ø­Ø© Ø´Ø§Ù…Ù„Ø©")
+          t("Native intelligence", "Intelligence native", "ذكاء أصيل"),
+          t("Ultimate safety", "Sécurité ultime", "سلامة قصوى"),
+          t("Freer control", "Contrôle fluide", "تحكم أكثر حرية"),
+          t("Full comfort", "Confort global", "راحة شاملة")
         ],
         image: "/static/assets/tansuo-927d66e5.png",
-        cta: t("Watch the full film", "Voir le film complet", "Ø´Ø§Ù‡Ø¯ Ø§Ù„ÙÙŠÙ„Ù… Ø§Ù„ÙƒØ§Ù…Ù„")
+        cta: t("Watch the full film", "Voir le film complet", "شاهد الفيلم الكامل")
       },
       {
-        label: t("Tianyuan architecture", "Architecture Tianyuan", "Ù…Ù†ØµØ© ØªÙŠØ§Ù†ÙŠÙˆØ§Ù†"),
+        label: t("Tianyuan architecture", "Architecture Tianyuan", "منصة تيانيوان"),
         tags: [
-          t("Efficient core", "CÅ“ur efficace", "Ù†ÙˆØ§Ø© ÙØ¹Ù‘Ø§Ù„Ø©"),
-          t("Agile systems", "SystÃ¨mes agiles", "Ø£Ù†Ø¸Ù…Ø© Ù…Ø±Ù†Ø©"),
-          t("Smart interconnection", "Interconnexion intelligente", "ØªØ±Ø§Ø¨Ø· Ø°ÙƒÙŠ"),
-          t("Open co-creation", "Co-crÃ©ation ouverte", "Ø§Ø¨ØªÙƒØ§Ø± Ù…ÙØªÙˆØ­")
+          t("Efficient core", "Cœur efficace", "نواة فعّالة"),
+          t("Agile systems", "Systèmes agiles", "أنظمة مرنة"),
+          t("Smart interconnection", "Interconnexion intelligente", "ترابط ذكي"),
+          t("Open co-creation", "Co-création ouverte", "ابتكار مفتوح")
         ],
         image: "/static/assets/tansuo_2-8336799c.png",
-        cta: t("Watch the full film", "Voir le film complet", "Ø´Ø§Ù‡Ø¯ Ø§Ù„ÙÙŠÙ„Ù… Ø§Ù„ÙƒØ§Ù…Ù„")
+        cta: t("Watch the full film", "Voir le film complet", "شاهد الفيلم الكامل")
       }
     ]
   },
   service: {
-    title: t("Voyah Service", "Service Voyah", "Ø®Ø¯Ù…Ø§Øª Voyah"),
+    title: t("Voyah Service", "Service Voyah", "خدمات Voyah"),
     body: t(
       "With one sincere heart, every detail is treated sincerely; with one honest intention, every promise is fulfilled with sincerity.",
-      "Avec un cÅ“ur sincÃ¨re, chaque dÃ©tail est traitÃ© avec sincÃ©ritÃ© ; avec une intention honnÃªte, chaque promesse est tenue avec sincÃ©ritÃ©.",
-      "Ø¨Ù‚Ù„Ø¨ ØµØ§Ø¯Ù‚ Ù†ØªØ¹Ø§Ù…Ù„ Ø¨Ø¥Ø®Ù„Ø§Øµ Ù…Ø¹ ÙƒÙ„ ØªÙØµÙŠÙ„ØŒ ÙˆØ¨Ù†ÙŠØ© ØµØ§Ø¯Ù‚Ø© Ù†ÙÙŠ ÙƒÙ„ ÙˆØ¹Ø¯ Ø¨Ø¥Ø®Ù„Ø§Øµ."
+      "Avec un cœur sincère, chaque détail est traité avec sincérité ; avec une intention honnête, chaque promesse est tenue avec sincérité.",
+      "بقلب صادق نتعامل بإخلاص مع كل تفصيل، وبنية صادقة نفي كل وعد بإخلاص."
     ),
     cards: [
-      block("/static/assets/section3_2-4fb471c7.jpg", "Sincere reception", "Accueil sincÃ¨re", "Ø§Ø³ØªÙ‚Ø¨Ø§Ù„ ØµØ§Ø¯Ù‚", "", "", ""),
-      block("/static/assets/section3_3-20237755.jpg", "Ceremonial delivery", "Livraison avec sens du rituel", "ØªØ³Ù„ÙŠÙ… Ø¨Ø·Ø§Ø¨Ø¹ Ø§Ø­ØªÙØ§Ù„ÙŠ", "", "", ""),
-      block("/static/assets/section4_1-f7cf566b.jpg", "7Ã—24-hour protection", "Protection 7Ã—24 h", "Ø­Ù…Ø§ÙŠØ© Ø¹Ù„Ù‰ Ù…Ø¯Ø§Ø± 7Ã—24 Ø³Ø§Ø¹Ø©", "", "", ""),
-      block("/static/assets/section4_2-aa55795b.jpg", "Professional team", "Ã‰quipe professionnelle", "ÙØ±ÙŠÙ‚ Ù…Ø­ØªØ±Ù", "", "", "")
+      block("/static/assets/section3_2-4fb471c7.jpg", "Sincere reception", "Accueil sincère", "استقبال صادق", "", "", ""),
+      block("/static/assets/section3_3-20237755.jpg", "Ceremonial delivery", "Livraison avec sens du rituel", "تسليم بطابع احتفالي", "", "", ""),
+      block("/static/assets/section4_1-f7cf566b.jpg", "7×24-hour protection", "Protection 7×24 h", "حماية على مدار 7×24 ساعة", "", "", ""),
+      block("/static/assets/section4_2-aa55795b.jpg", "Professional team", "Équipe professionnelle", "فريق محترف", "", "", "")
     ]
   },
   community: {
-    title: t("Community News", "ActualitÃ©s de la communautÃ©", "Ø£Ø®Ø¨Ø§Ø± Ø§Ù„Ù…Ø¬ØªÙ…Ø¹"),
+    title: t("Community News", "Actualités de la communauté", "أخبار المجتمع"),
     body: t(
       "Fresh stories from owners and lively conversations about life with the car.",
-      "Des histoires fraÃ®ches de propriÃ©taires et des Ã©changes vivants autour de la vie avec la voiture.",
-      "Ù‚ØµØµ Ø¬Ø¯ÙŠØ¯Ø© Ù…Ù† Ø§Ù„Ù…Ø§Ù„ÙƒÙŠÙ† ÙˆØ­ÙˆØ§Ø±Ø§Øª Ù…Ù…ØªØ¹Ø© Ø¹Ù† Ø§Ù„Ø­ÙŠØ§Ø© Ù…Ø¹ Ø§Ù„Ø³ÙŠØ§Ø±Ø©."
+      "Des histoires fraîches de propriétaires et des échanges vivants autour de la vie avec la voiture.",
+      "قصص جديدة من المالكين وحوارات ممتعة عن الحياة مع السيارة."
     ),
     posts: [
       {
         image: "/static/assets/experience1-96467d92.jpg",
         title: t(
-          "Owner story | Chairman Li Peng and the â€œdockside worldâ€ of 6,000 owners",
-          "Histoire de propriÃ©taire | Li Peng et le Â« monde du quai Â» de 6 000 propriÃ©taires",
-          "Ù‚ØµØ© Ù…Ø§Ù„Ùƒ | Ù„ÙŠ Ø¨Ù†Øº ÙˆÂ«Ø¹Ø§Ù„Ù… Ø§Ù„Ù…ÙŠÙ†Ø§Ø¡Â» Ù…Ø¹ 6000 Ù…Ù† Ø§Ù„Ù…Ø§Ù„ÙƒÙŠÙ†"
+          'Owner story | Chairman Li Peng and the "dockside world" of 6,000 owners',
+          "Histoire de propriétaire | Li Peng et le « monde du quai » de 6 000 propriétaires",
+          "قصة مالك | لي بنغ و«عالم الميناء» مع 6000 من المالكين"
         ),
-        body: t("Buying Voyah five times, bound by loyalty and friendship.", "Cinq achats de Voyah, portÃ©s par la fidÃ©litÃ© et lâ€™amitiÃ©.", "Ø®Ù…Ø³ Ù…Ø±Ø§Øª Ù…Ù† Ø§Ù‚ØªÙ†Ø§Ø¡ Voyah Ø¨Ø¯Ø§ÙØ¹ Ø§Ù„ÙˆÙØ§Ø¡ ÙˆØ§Ù„ØµØ¯Ø§Ù‚Ø©."),
+        body: t("Buying Voyah five times, bound by loyalty and friendship.", "Cinq achats de Voyah, portés par la fidélité et l’amitié.", "خمس مرات من اقتناء Voyah بدافع الوفاء والصداقة."),
         slug: "brand.html"
       },
       {
         image: "/static/assets/experience2-306e063e.jpg",
         title: t(
           "Owner story | When design aesthetics meet craftsmanship",
-          "Histoire de propriÃ©taire | Quand lâ€™esthÃ©tique du design rencontre lâ€™artisanat",
-          "Ù‚ØµØ© Ù…Ø§Ù„Ùƒ | Ø­ÙŠÙ† ÙŠÙ„ØªÙ‚ÙŠ Ø¬Ù…Ø§Ù„ Ø§Ù„ØªØµÙ…ÙŠÙ… Ø¨Ø±ÙˆØ­ Ø§Ù„Ø­Ø±ÙØ©"
+          "Histoire de propriétaire | Quand l’esthétique du design rencontre l’artisanat",
+          "قصة مالك | حين يلتقي جمال التصميم بروح الحرفة"
         ),
-        body: t("Liu Lingfeng and his deep resonance with three Voyah FREE models.", "Liu Lingfeng et sa profonde rÃ©sonance avec trois Voyah FREE.", "Ù„ÙŠÙˆ Ù„ÙŠÙ†ØºÙÙ†Øº ÙˆØ±Ø§Ø¨Ø·Ù‡ Ø§Ù„Ø¹Ù…ÙŠÙ‚ Ù…Ø¹ Ø«Ù„Ø§Ø« Ø³ÙŠØ§Ø±Ø§Øª Voyah FREE."),
+        body: t("Liu Lingfeng and his deep resonance with three Voyah FREE models.", "Liu Lingfeng et sa profonde résonance avec trois Voyah FREE.", "ليو لينغفنغ ورابطه العميق مع ثلاث سيارات Voyah FREE."),
         slug: "service.html"
       },
       {
         image: "/static/assets/experience3-a8085d28.jpg",
         title: t(
           "Owner story | The dream-chasing journey of a jewelry livestream host",
-          "Histoire de propriÃ©taire | Le voyage de rÃªve dâ€™une animatrice de bijoux en direct",
-          "Ù‚ØµØ© Ù…Ø§Ù„Ùƒ | Ø±Ø­Ù„Ø© Ù…Ø·Ø§Ø±Ø¯Ø© Ø§Ù„Ø£Ø­Ù„Ø§Ù… Ù„Ù…Ù‚Ø¯Ù…Ø© Ø¨Ø« Ù…Ø¨Ø§Ø´Ø± Ù„Ù„Ù…Ø¬ÙˆÙ‡Ø±Ø§Øª"
+          "Histoire de propriétaire | Le voyage de rêve d’une animatrice de bijoux en direct",
+          "قصة مالك | رحلة مطاردة الأحلام لمقدمة بث مباشر للمجوهرات"
         ),
-        body: t("With Voyah FREE 318 as a companion, she heads toward the road of life.", "Avec Voyah FREE 318 comme compagnon, elle avance sur le chemin de la vie.", "Ø¨Ø±ÙÙ‚Ø© Voyah FREE 318 ØªÙ†Ø·Ù„Ù‚ ÙÙŠ Ø±Ø­Ù„Ø© Ø§Ù„Ø­ÙŠØ§Ø©."),
+        body: t("With Voyah FREE 318 as a companion, she heads toward the road of life.", "Avec Voyah FREE 318 comme compagnon, elle avance sur le chemin de la vie.", "برفقة Voyah FREE 318 تنطلق في رحلة الحياة."),
         slug: "energy.html"
       }
     ]
   },
   footprint: {
-    title: t("Leading in China, expanding globally", "Leader en Chine, dÃ©ploiement mondial", "Ø±ÙŠØ§Ø¯Ø© ÙÙŠ Ø§Ù„ØµÙŠÙ† ÙˆØ§Ù†ØªØ´Ø§Ø± Ø¹Ø§Ù„Ù…ÙŠ"),
+    title: t("Leading in China, expanding globally", "Leader en Chine, déploiement mondial", "ريادة في الصين وانتشار عالمي"),
     body: t(
       "The Chinese premium intelligent new-energy vehicle brand that moved from the local market to overseas markets the fastest.",
-      "La marque chinoise haut de gamme de vÃ©hicules Ã  Ã©nergies nouvelles intelligents qui a rÃ©alisÃ© le passage du marchÃ© local aux marchÃ©s Ã©trangers le plus rapidement.",
-      "Ø§Ù„Ø¹Ù„Ø§Ù…Ø© Ø§Ù„ØµÙŠÙ†ÙŠØ© Ø§Ù„Ø±Ø§Ù‚ÙŠØ© Ù„Ù„Ù…Ø±ÙƒØ¨Ø§Øª Ø§Ù„Ø°ÙƒÙŠØ© Ø§Ù„Ø¹Ø§Ù…Ù„Ø© Ø¨Ø§Ù„Ø·Ø§Ù‚Ø© Ø§Ù„Ø¬Ø¯ÙŠØ¯Ø© Ø§Ù„ØªÙŠ Ø§Ù†ØªÙ‚Ù„Øª Ù…Ù† Ø§Ù„Ø³ÙˆÙ‚ Ø§Ù„Ù…Ø­Ù„ÙŠØ© Ø¥Ù„Ù‰ Ø§Ù„Ø£Ø³ÙˆØ§Ù‚ Ø§Ù„Ø®Ø§Ø±Ø¬ÙŠØ© Ø¨Ø£Ø³Ø±Ø¹ ÙˆØªÙŠØ±Ø©."
+      "La marque chinoise haut de gamme de véhicules à énergies nouvelles intelligents qui a réalisé le passage du marché local aux marchés étrangers le plus rapidement.",
+      "العلامة الصينية الراقية للمركبات الذكية العاملة بالطاقة الجديدة التي انتقلت من السوق المحلية إلى الأسواق الخارجية بأسرع وتيرة."
     ),
-    cta: t("Overseas website", "Site international", "Ø§Ù„Ù…ÙˆÙ‚Ø¹ Ø§Ù„Ø®Ø§Ø±Ø¬ÙŠ"),
+    cta: t("Overseas website", "Site international", "الموقع الخارجي"),
     image: "/static/assets/earth_index-e4c6ae99.jpg",
     tabs: [
       {
-        label: t("Europe (21)", "Europe (21)", "Ø£ÙˆØ±ÙˆØ¨Ø§ (21)"),
+        label: t("Europe (21)", "Europe (21)", "أوروبا (21)"),
         countries: [
-          t("Norway", "NorvÃ¨ge", "Ø§Ù„Ù†Ø±ÙˆÙŠØ¬"),
-          t("Portugal", "Portugal", "Ø§Ù„Ø¨Ø±ØªØºØ§Ù„"),
-          t("Spain", "Espagne", "Ø¥Ø³Ø¨Ø§Ù†ÙŠØ§"),
-          t("Italy", "Italie", "Ø¥ÙŠØ·Ø§Ù„ÙŠØ§"),
-          t("Switzerland", "Suisse", "Ø³ÙˆÙŠØ³Ø±Ø§"),
-          t("Finland", "Finlande", "ÙÙ†Ù„Ù†Ø¯Ø§"),
-          t("Netherlands", "Pays-Bas", "Ù‡ÙˆÙ„Ù†Ø¯Ø§"),
-          t("Belgium", "Belgique", "Ø¨Ù„Ø¬ÙŠÙƒØ§"),
-          t("Germany", "Allemagne", "Ø£Ù„Ù…Ø§Ù†ÙŠØ§"),
-          t("Poland", "Pologne", "Ø¨ÙˆÙ„Ù†Ø¯Ø§"),
-          t("Czech Republic", "RÃ©publique tchÃ¨que", "Ø§Ù„ØªØ´ÙŠÙƒ"),
-          t("Slovakia", "Slovaquie", "Ø³Ù„ÙˆÙØ§quie"),
-          t("Hungary", "Hongrie", "Ø§Ù„Ù…Ø¬Ø±"),
-          t("Slovenia", "SlovÃ©nie", "Ø³Ù„ÙˆÙÙŠÙ†ÙŠØ§"),
-          t("Bulgaria", "Bulgarie", "Ø¨Ù„ØºØ§Ø±ÙŠØ§"),
-          t("Latvia", "Lettonie", "Ù„Ø§ØªÙÙŠØ§"),
-          t("Estonia", "Estonie", "Ø¥Ø³ØªÙˆÙ†ÙŠØ§"),
-          t("Lithuania", "Lituanie", "Ù„ÙŠØªÙˆØ§Ù†ÙŠØ§"),
-          t("Moldova", "Moldavie", "Ù…ÙˆÙ„Ø¯ÙˆÙØ§"),
-          t("Bosnia and Herzegovina", "Bosnie-HerzÃ©govine", "Ø§Ù„Ø¨ÙˆØ³Ù†Ø© ÙˆØ§Ù„Ù‡Ø±Ø³Ùƒ"),
-          t("Greece", "GrÃ¨ce", "Ø§Ù„ÙŠÙˆÙ†Ø§Ù†")
+          t("Norway", "Norvège", "النرويج"),
+          t("Portugal", "Portugal", "البرتغال"),
+          t("Spain", "Espagne", "إسبانيا"),
+          t("Italy", "Italie", "إيطاليا"),
+          t("Switzerland", "Suisse", "سويسرا"),
+          t("Finland", "Finlande", "فنلندا"),
+          t("Netherlands", "Pays-Bas", "هولندا"),
+          t("Belgium", "Belgique", "بلجيكا"),
+          t("Germany", "Allemagne", "ألمانيا"),
+          t("Poland", "Pologne", "بولندا"),
+          t("Czech Republic", "République tchèque", "التشيك"),
+          t("Slovakia", "Slovaquie", "سلوفاquie"),
+          t("Hungary", "Hongrie", "المجر"),
+          t("Slovenia", "Slovénie", "سلوفينيا"),
+          t("Bulgaria", "Bulgarie", "بلغاريا"),
+          t("Latvia", "Lettonie", "لاتفيا"),
+          t("Estonia", "Estonie", "إستونيا"),
+          t("Lithuania", "Lituanie", "ليتوانيا"),
+          t("Moldova", "Moldavie", "مولدوفا"),
+          t("Bosnia and Herzegovina", "Bosnie-Herzégovine", "البوسنة والهرسك"),
+          t("Greece", "Grèce", "اليونان")
         ]
       },
       {
-        label: t("Middle East (7)", "Moyen-Orient (7)", "Ø§Ù„Ø´Ø±Ù‚ Ø§Ù„Ø£ÙˆØ³Ø· (7)"),
+        label: t("Middle East (7)", "Moyen-Orient (7)", "الشرق الأوسط (7)"),
         countries: [
-          t("United Arab Emirates", "Ã‰mirats arabes unis", "Ø§Ù„Ø¥Ù…Ø§Ø±Ø§Øª Ø§Ù„Ø¹Ø±Ø¨ÙŠØ© Ø§Ù„Ù…ØªØ­Ø¯Ø©"),
-          t("Qatar", "Qatar", "Ù‚Ø·Ø±"),
-          t("Saudi Arabia", "Arabie saoudite", "Ø§Ù„Ù…Ù…Ù„ÙƒØ© Ø§Ù„Ø¹Ø±Ø¨ÙŠØ© Ø§Ù„Ø³Ø¹ÙˆØ¯ÙŠØ©"),
-          t("Oman", "Oman", "Ø¹ÙÙ…Ø§Ù†"),
-          t("Kuwait", "KoweÃ¯t", "Ø§Ù„ÙƒÙˆÙŠØª"),
-          t("Bahrain", "BahreÃ¯n", "Ø§Ù„Ø¨Ø­Ø±ÙŠÙ†"),
-          t("Jordan", "Jordanie", "Ø§Ù„Ø£Ø±Ø¯Ù†")
+          t("United Arab Emirates", "Émirats arabes unis", "الإمارات العربية المتحدة"),
+          t("Qatar", "Qatar", "قطر"),
+          t("Saudi Arabia", "Arabie saoudite", "المملكة العربية السعودية"),
+          t("Oman", "Oman", "عُمان"),
+          t("Kuwait", "Koweït", "الكويت"),
+          t("Bahrain", "Bahreïn", "البحرين"),
+          t("Jordan", "Jordanie", "الأردن")
         ]
       },
       {
-        label: t("Africa (2)", "Afrique (2)", "Ø£ÙØ±ÙŠÙ‚ÙŠØ§ (2)"),
+        label: t("Africa (2)", "Afrique (2)", "أفريقيا (2)"),
         countries: [
-          t("Egypt", "Ã‰gypte", "Ù…ØµØ±"),
-          t("Angola", "Angola", "Ø£Ù†ØºÙˆÙ„Ø§")
+          t("Egypt", "Égypte", "مصر"),
+          t("Angola", "Angola", "أنغولا")
         ]
       },
       {
-        label: t("Americas (3)", "AmÃ©riques (3)", "Ø§Ù„Ø£Ù…Ø±ÙŠÙƒØªØ§Ù† (3)"),
+        label: t("Americas (3)", "Amériques (3)", "الأمريكتان (3)"),
         countries: [
-          t("Panama", "Panama", "Ø¨Ù†Ù…Ø§"),
-          t("Colombia", "Colombie", "ÙƒÙˆÙ„ÙˆÙ…Ø¨ÙŠØ§"),
-          t("Costa Rica", "Costa Rica", "ÙƒÙˆØ³ØªØ§Ø±ÙŠÙƒØ§")
+          t("Panama", "Panama", "بنما"),
+          t("Colombia", "Colombie", "كولومبيا"),
+          t("Costa Rica", "Costa Rica", "كوستاريكا")
         ]
       },
       {
-        label: t("Asia (9)", "Asie (9)", "Ø¢Ø³ÙŠØ§ (9)"),
+        label: t("Asia (9)", "Asie (9)", "آسيا (9)"),
         countries: [
-          t("China", "Chine", "Ø§Ù„ØµÙŠÙ†"),
-          t("Azerbaijan", "AzerbaÃ¯djan", "Ø£Ø°Ø±Ø¨ÙŠØ¬Ø§Ù†"),
-          t("Uzbekistan", "OuzbÃ©kistan", "Ø£ÙˆØ²Ø¨ÙƒØ³ØªØ§Ù†"),
-          t("Kazakhstan", "Kazakhstan", "ÙƒØ§Ø²Ø§Ø®Ø³ØªØ§Ù†"),
-          t("Turkmenistan", "TurkmÃ©nistan", "ØªØ±ÙƒÙ…Ø§Ù†Ø³ØªØ§Ù†"),
-          t("Armenia", "ArmÃ©nie", "Ø£Ø±Ù…ÙŠÙ†ÙŠØ§"),
-          t("Myanmar", "Myanmar", "Ù…ÙŠØ§Ù†Ù…Ø§Ø±"),
-          t("Laos", "Laos", "Ù„Ø§ÙˆØ³"),
-          t("Cambodia", "Cambodge", "ÙƒÙ…Ø¨ÙˆØ¯ÙŠØ§")
+          t("China", "Chine", "الصين"),
+          t("Azerbaijan", "Azerbaïdjan", "أذربيجان"),
+          t("Uzbekistan", "Ouzbékistan", "أوزبكستان"),
+          t("Kazakhstan", "Kazakhstan", "كازاخستان"),
+          t("Turkmenistan", "Turkménistan", "تركمانستان"),
+          t("Armenia", "Arménie", "أرمينيا"),
+          t("Myanmar", "Myanmar", "ميانمار"),
+          t("Laos", "Laos", "لاوس"),
+          t("Cambodia", "Cambodge", "كمبوديا")
         ]
       }
     ]
@@ -1629,42 +2043,65 @@ const homePage = {
 };
 const footerColumns = [
   {
-    title: t("Models", "ModÃ¨les", "Ø§Ù„Ø·Ø±Ø§Ø²Ø§Øª"),
+    title: t("Voyah Brand", "Marque Voyah", "علامة Voyah"),
+    links: [
+      { label: t("Voyah Brand", "Marque Voyah", "علامة Voyah"), slug: "brand.html" }
+    ]
+  },
+  {
+    title: t("Models", "Modèles", "الطرازات"),
     links: [
       { label: t("Voyah Passion L", "Voyah Passion L", "Voyah Passion L"), slug: "passion-L.html" },
+      { label: t("Voyah Passion", "Voyah Passion", "Voyah Passion"), slug: "passion.html" },
       { label: t("Voyah Titan", "Voyah Titan", "Voyah Titan"), slug: "titan.html" },
+      { label: t("Voyah Titan Black Edition", "Voyah Titan Black Edition", "Voyah Titan Black Edition"), slug: "titan_blackedition.html" },
+      { label: t("Voyah Titan X8", "Voyah Titan X8", "Voyah Titan X8"), slug: "titan_X8.html" },
       { label: t("Voyah FREE+", "Voyah FREE+", "Voyah FREE+"), slug: "free+.html" },
-      { label: t("26 Voyah Dreamer", "Voyah Dreamer 26", "Voyah Dreamer 26"), slug: "newDreamer26.html" }
+      { label: t("New Voyah Courage", "Nouveau Voyah Courage", "Voyah Courage الجديد"), slug: "newCourage.html" },
+      { label: t("Voyah FREE 318", "Voyah FREE 318", "Voyah FREE 318"), slug: "free.html" },
+      { label: t("Voyah Courage", "Voyah Courage", "Voyah Courage"), slug: "courage.html" },
+      { label: t("26 Voyah Dreamer", "Voyah Dreamer 26", "Voyah Dreamer 26"), slug: "newDreamer26.html" },
+      { label: t("Voyah Dreamer Champion", "Voyah Dreamer Champion", "Voyah Dreamer Champion"), slug: "dreamer-champion.html" },
+      { label: t("25 Voyah Dreamer", "Voyah Dreamer 25", "Voyah Dreamer 25"), slug: "newDreamer.html" },
+      { label: t("Voyah Dreamer Mountain River", "Voyah Dreamer Montagne-Rivière", "Voyah Dreamer Mountain River"), slug: "dreamriver.html" },
+      { label: t("24 Voyah Dreamer", "Voyah Dreamer 24", "Voyah Dreamer 24"), slug: "dreamer.html" }
     ]
   },
   {
-    title: t("Services", "Services", "Ø§Ù„Ø®Ø¯Ù…Ø§Øª"),
+    title: t("Store Center", "Centre de magasins", "مركز المعارض"),
     links: [
-      { label: t("Store center", "Centre de magasins", "Ù…Ø±ÙƒØ² Ø§Ù„Ù…Ø¹Ø§Ø±Ø¶"), slug: "store.html" },
-      { label: t("Voyah Service", "Service Voyah", "Ø®Ø¯Ù…Ø§Øª Voyah"), slug: "service.html" },
-      { label: t("Voyah Energy", "Ã‰nergie Voyah", "Ø·Ø§Ù‚Ø© Voyah"), slug: "energy.html" },
-      { label: t("Downloads", "TÃ©lÃ©chargements", "Ø§Ù„ØªÙ†Ø²ÙŠÙ„Ø§Øª"), slug: "document.html" }
+      { label: t("Store center", "Centre de magasins", "مركز المعارض"), slug: "store.html" }
     ]
   },
   {
-    title: t("About", "Ã€ propos", "Ø¹Ù†"),
+    title: t("Voyah Service", "Service Voyah", "خدمات Voyah"),
     links: [
-      { label: t("Brand", "Marque", "Ø§Ù„Ø¹Ù„Ø§Ù…Ø©"), slug: "brand.html" },
-      { label: t("Corporate", "Entreprise", "Ø§Ù„Ù…Ø¤Ø³Ø³Ø©"), slug: "corporate.html" },
-      { label: t("Join Us", "Rejoignez-nous", "Ø§Ù†Ø¶Ù… Ø¥Ù„ÙŠÙ†Ø§"), slug: "joinus.html" },
-      { label: t("Investor Relations", "Relations investisseurs", "Ø¹Ù„Ø§Ù‚Ø§Øª Ø§Ù„Ù…Ø³ØªØ«Ù…Ø±ÙŠÙ†"), slug: "ir.html" }
+      { label: t("Voyah Service", "Service Voyah", "خدمات Voyah"), slug: "service.html" },
+      { label: t("Voyah Energy", "Énergie Voyah", "طاقة Voyah"), slug: "energy.html" },
+      { label: t("Procurement disclosure", "Informations achats", "معلومات المشتريات"), slug: "purchasing.html" },
+      { label: t("Environmental disclosure", "Informations environnementales", "المعلومات البيئية"), slug: "environmental.html" },
+      { label: t("Downloads", "Téléchargements", "التنزيلات"), slug: "document.html" }
+    ]
+  },
+  {
+    title: t("About Voyah", "À propos de Voyah", "عن Voyah"),
+    links: [
+      { label: t("Corporate Culture", "Culture d’entreprise", "الثقافة المؤسسية"), slug: "corporate.html" },
+      { label: t("Join Us", "Rejoignez-nous", "انضم إلينا"), slug: "joinus.html" },
+      { label: t("Partner recruitment", "Recrutement de partenaires", "استقطاب الشركاء"), slug: "recruit-partners.html" },
+      { label: t("Investor Relations", "Relations investisseurs", "علاقات المستثمرين"), slug: "ir.html" }
     ]
   }
 ];
 const footerLegalLinks = [
-  { label: t("Legal", "Mentions lÃ©gales", "Ø§Ù„Ø´Ø¤ÙˆÙ† Ø§Ù„Ù‚Ø§Ù†ÙˆÙ†ÙŠØ©"), slug: "legal.html" },
-  { label: t("Privacy", "ConfidentialitÃ©", "Ø§Ù„Ø®ØµÙˆØµÙŠØ©"), slug: "privacy.html" },
-  { label: t("Cookies", "Cookies", "Ù…Ù„ÙØ§Øª ØªØ¹Ø±ÙŠÙ Ø§Ù„Ø§Ø±ØªØ¨Ø§Ø·"), slug: "cookie.html" },
-  { label: t("Authorization", "Autorisation", "Ø§Ù„ØªÙÙˆÙŠØ¶"), slug: "authorization.html" }
+  { label: t("Legal", "Mentions légales", "الشؤون القانونية"), slug: "legal.html" },
+  { label: t("Privacy", "Confidentialité", "الخصوصية"), slug: "privacy.html" },
+  { label: t("Cookies", "Cookies", "ملفات تعريف الارتباط"), slug: "cookie.html" },
+  { label: t("Authorization", "Autorisation", "التفويض"), slug: "authorization.html" }
 ];
 const footerContact = {
-  title: t("Stay connected with Voyah", "Restez connectÃ© Ã  Voyah", "Ø§Ø¨Ù‚ÙŽ Ø¹Ù„Ù‰ ØªÙˆØ§ØµÙ„ Ù…Ø¹ Voyah"),
-  body: t("Scan the local app and mini-program codes to continue the experience through digital channels.", "Scannez les codes de lâ€™application et du mini-programme pour prolonger lâ€™expÃ©rience via les canaux numÃ©riques.", "Ø§Ù…Ø³Ø­ Ø±Ù…ÙˆØ² Ø§Ù„ØªØ·Ø¨ÙŠÙ‚ ÙˆØ§Ù„Ø¨Ø±Ù†Ø§Ù…Ø¬ Ø§Ù„Ù…ØµØºØ± Ù„Ù…ØªØ§Ø¨Ø¹Ø© Ø§Ù„ØªØ¬Ø±Ø¨Ø© Ø¹Ø¨Ø± Ø§Ù„Ù‚Ù†ÙˆØ§Øª Ø§Ù„Ø±Ù‚Ù…ÙŠØ©."),
+  title: t("Download the Voyah App and explore a new world of Voyah", "Téléchargez l’application Voyah et explorez un nouvel univers Voyah", "حمّل تطبيق Voyah واستكشف عالماً جديداً من Voyah"),
+  body: t("Stay up to date with the latest Voyah news and discover community activities with distinctive taste.", "Restez au plus près des dernières actualités Voyah et découvrez des activités communautaires au caractère affirmé.", "اطلع على أحدث أخبار Voyah واكتشف أنشطة المجتمع التي تحمل طابعاً مميزاً."),
   appCode: "/static/assets/app_code_160-5b2a34cc.png",
   miniProgramCode: "/static/assets/xcx_code_160-73cf3be6.png"
 };
@@ -1684,15 +2121,45 @@ const _routes = [
     component: () => import('./index-CkaEyWO9.mjs')
   },
   {
+    name: "store",
+    path: "/store",
+    component: () => import('./store-Bl1ZIo83.mjs')
+  },
+  {
+    name: "energy",
+    path: "/energy",
+    component: () => import('./energy-ZZOof-zh.mjs')
+  },
+  {
+    name: "service",
+    path: "/service",
+    component: () => import('./service-Dbv66l_s.mjs')
+  },
+  {
+    name: "document",
+    path: "/document",
+    component: () => import('./document-BmQHFEJW.mjs')
+  },
+  {
+    name: "purchasing",
+    path: "/purchasing",
+    component: () => import('./purchasing-iXveVnk9.mjs')
+  },
+  {
+    name: "environmental",
+    path: "/environmental",
+    component: () => import('./environmental-DR7A-MAH.mjs')
+  },
+  {
     name: "locale",
     path: "/:locale()",
-    component: () => import('./index-CyW4XoPT.mjs')
+    component: () => import('./index-CUDbFzxW.mjs')
   },
   {
     name: "locale-slug",
     path: "/:locale()/:slug()",
     meta: __nuxt_page_meta || {},
-    component: () => import('./_slug_-BCCcv6fz.mjs')
+    component: () => import('./_slug_-GAhDqcE9.mjs')
   }
 ];
 const _wrapInTransition = (props, children) => {
@@ -2269,13 +2736,13 @@ const normalizedLocales = [
   },
   {
     code: "fr",
-    name: "FranÃ§ais",
+    name: "Français",
     dir: "ltr",
     files: []
   },
   {
     code: "ar",
-    name: "Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©",
+    name: "العربية",
     dir: "rtl",
     files: []
   }
@@ -8235,7 +8702,7 @@ const plugins = [
   ssg_detect_IpHCGcQQ_IR5Rl99qyukWoMA9fJGfuTYyoksTzy81cs
 ];
 const layouts = {
-  default: defineAsyncComponent(() => import('./default-DCKt7HR-.mjs').then((m) => m.default || m))
+  default: defineAsyncComponent(() => import('./default-gCtOu30j.mjs').then((m) => m.default || m))
 };
 const routeRulesMatcher = _routeRulesMatcher;
 const LayoutLoader = defineComponent({

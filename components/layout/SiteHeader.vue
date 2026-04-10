@@ -3,7 +3,8 @@
     class="site-header"
     :class="{
       'site-header--mobile-open': mobileOpen,
-      'site-header--transparent': isTransparent
+      'site-header--transparent': isTransparent,
+      'site-header--scrolled': isScrolled
     }"
   >
     <div class="container header-bar">
@@ -26,7 +27,7 @@
             :key="item.slug ?? item.label.en"
             class="nav-group"
             @mouseenter="openGroup(item.label.en)"
-            @mouseleave="queueClose"
+            @mouseleave="closeGroup"
           >
             <NuxtLink
               v-if="item.slug"
@@ -55,8 +56,7 @@
                   'nav-dropdown--models': item.label.en === 'Models'
                 }
               ]"
-              @mouseenter="cancelClose"
-              @mouseleave="queueClose"
+              @mouseleave="closeGroup"
             >
               <div v-if="item.label.en === 'Models'" class="models-dropdown">
                 <div class="models-dropdown__main">
@@ -105,10 +105,55 @@
                 </aside>
               </div>
 
+              <div
+                v-else-if="item.label.en === 'Voyah Service' || item.label.en === 'About Voyah'"
+                class="grouped-dropdown"
+              >
+                <div class="grouped-dropdown__main">
+                  <h5 class="grouped-dropdown__title">
+                    {{ textFor(item.label.en === 'Voyah Service' ? serviceMenu.primaryTitle : aboutMenu.primaryTitle) }}
+                  </h5>
+
+                  <div class="grouped-dropdown__feature-list">
+                    <NuxtLink
+                      v-for="child in item.label.en === 'Voyah Service' ? serviceMenu.primaryItems : aboutMenu.primaryItems"
+                      :key="child.slug"
+                      :to="buildPath(child.slug)"
+                      class="grouped-dropdown__feature"
+                    >
+                      <img
+                        v-if="child.thumb"
+                        :src="child.thumb"
+                        :alt="textFor(child.label)"
+                        class="grouped-dropdown__feature-image"
+                      />
+                      <span class="grouped-dropdown__feature-label">{{ textFor(child.label) }}</span>
+                    </NuxtLink>
+                  </div>
+                </div>
+
+                <aside class="grouped-dropdown__aside">
+                  <div class="grouped-dropdown__aside-title">
+                    {{ textFor(item.label.en === 'Voyah Service' ? serviceMenu.secondaryTitle : aboutMenu.secondaryTitle) }}
+                  </div>
+
+                  <div class="grouped-dropdown__aside-list">
+                    <NuxtLink
+                      v-for="child in item.label.en === 'Voyah Service' ? serviceMenu.secondaryItems : aboutMenu.secondaryItems"
+                      :key="child.slug"
+                      :to="buildPath(child.slug)"
+                      class="grouped-dropdown__aside-item"
+                    >
+                      {{ textFor(child.label) }}
+                    </NuxtLink>
+                  </div>
+                </aside>
+              </div>
+
               <div v-else class="dropdown-inner">
                 <NuxtLink
                   v-for="child in item.children"
-                  :key="child.slug ?? child.label.en"
+                  :key="child.slug ?? item.label.en"
                   :to="buildPath(child.slug)"
                   class="dropdown-card"
                 >
@@ -166,10 +211,21 @@
           </button>
 
           <NuxtLink
+            :to="buildPath(currentModel?.slug ?? 'titan.html')"
+            class="header-cta header-cta--ghost"
+          >
+            {{ configLabel }}
+          </NuxtLink>
+
+          <NuxtLink
             :to="buildPath('book-drive.html')"
             class="header-cta header-cta--ghost"
           >
             {{ testDriveLabel }}
+          </NuxtLink>
+
+          <NuxtLink :to="buildPath(currentModel?.slug ?? 'titan.html')" class="header-cta header-cta--primary">
+            {{ orderLabel }}
           </NuxtLink>
         </template>
 
@@ -207,7 +263,7 @@
       </div>
 
       <button
-        class="menu-toggle mobile-only"
+        :class="['menu-toggle', 'mobile-only', { 'menu-toggle--active': mobileOpen }]"
         type="button"
         :aria-expanded="mobileOpen ? 'true' : 'false'"
         aria-label="Toggle menu"
@@ -296,11 +352,15 @@
     </transition>
 
     <transition name="header-mask-fade">
+      <div v-if="mobileOpen" class="mobile-panel-mask mobile-only" @click="mobileOpen = false" />
+    </transition>
+
+    <transition name="header-mask-fade">
       <div
         v-if="activeGroup && !mobileOpen"
         class="header-menu-mask desktop-only"
-        @mouseenter="queueClose"
-        @click="activeGroup = null"
+        @mouseenter="closeGroup"
+        @click="closeGroup"
       />
     </transition>
   </header>
@@ -318,12 +378,12 @@ const route = useRoute()
 const mobileOpen = ref(false)
 const activeGroup = ref<string | null>(null)
 const localeOpen = ref(false)
-let closeTimer: ReturnType<typeof setTimeout> | null = null
 const currentPage = computed(() => resolveCurrentPage())
 const currentModel = computed(() => (currentPage.value?.kind === 'model' ? currentPage.value : null))
 const scrollY = ref(0)
 const isHomeRoute = computed(() => !currentPage.value)
 const isTransparent = computed(() => isHomeRoute.value && scrollY.value < 44 && !mobileOpen.value)
+const isScrolled = computed(() => scrollY.value > 28 || !isHomeRoute.value)
 
 const copy = (en: string, fr: string, ar: string): LocalizedText => ({ en, fr, ar })
 
@@ -334,19 +394,19 @@ const loginLabel = computed(() => {
 })
 
 const configLabel = computed(() => {
-  if (locale.value.code === 'fr') return 'All configs'
+  if (locale.value.code === 'fr') return 'Voir toutes les configurations'
   if (locale.value.code === 'ar') return 'كل المواصفات'
   return 'All configs'
 })
 
 const testDriveLabel = computed(() => {
-  if (locale.value.code === 'fr') return 'Test drive'
+  if (locale.value.code === 'fr') return 'Réserver un essai'
   if (locale.value.code === 'ar') return 'تجربة قيادة'
   return 'Test drive'
 })
 
 const orderLabel = computed(() => {
-  if (locale.value.code === 'fr') return 'Order now'
+  if (locale.value.code === 'fr') return 'Commander'
   if (locale.value.code === 'ar') return 'اطلب الآن'
   return 'Order now'
 })
@@ -446,33 +506,53 @@ const toolMenu = {
   title: copy('Tools', 'Outils', 'الأدوات'),
   items: [
     { slug: 'book-drive.html', label: copy('Book a test drive', 'Réserver un essai', 'احجز تجربة قيادة') },
-    { slug: 'store.html', label: copy('Store center', 'Centre de magasins', 'مركز المعارض') }
+    { slug: 'titan.html', label: copy('Configure', 'Configurer', 'التهيئة') }
   ]
 }
+
+const serviceChildren = computed(() => {
+  const items = Array.isArray(navigation.value) ? navigation.value : []
+  return items.find((item) => item.label.en === 'Voyah Service')?.children ?? []
+})
+
+const aboutChildren = computed(() => {
+  const items = Array.isArray(navigation.value) ? navigation.value : []
+  return items.find((item) => item.label.en === 'About Voyah')?.children ?? []
+})
+const serviceMenu = computed(() => ({
+  primaryTitle: copy('Service', 'Service', 'الخدمة'),
+  primaryItems: serviceChildren.value.slice(0, 2).map((child, index) => ({
+    ...child,
+    thumb: [
+      '/website/navigationbar/image/984a8ea8-534a-46fb-b57c-b87ebd915faf1770618777959.png',
+      '/website/navigationbar/image/c0159214-6002-494d-a913-44771be8f4891770618857442.png'
+    ][index]
+  })),
+  secondaryTitle: copy('Related Information', 'Informations associées', 'معلومات ذات صلة'),
+  secondaryItems: serviceChildren.value.slice(2)
+}))
+
+const aboutMenu = computed(() => ({
+  primaryTitle: copy('Communication', 'Communication', 'التواصل'),
+  primaryItems: aboutChildren.value.slice(0, 1).map((child) => ({
+    ...child,
+    thumb: '/website/navigationbar/image/a0423ec8-30e1-431b-a9fa-d9bea9d0c5701770622210658.png'
+  })),
+  secondaryTitle: copy('Cooperation', 'Coopération', 'التعاون'),
+  secondaryItems: aboutChildren.value.slice(1)
+}))
 
 const isItemActive = (item: { slug?: string }) => {
   if (!item.slug) return false
   return route.path.endsWith(item.slug)
 }
 
-const cancelClose = () => {
-  if (closeTimer) {
-    clearTimeout(closeTimer)
-    closeTimer = null
-  }
-}
-
 const openGroup = (label: string) => {
-  cancelClose()
   activeGroup.value = label
 }
 
-const queueClose = () => {
-  cancelClose()
-  closeTimer = setTimeout(() => {
-    activeGroup.value = null
-    closeTimer = null
-  }, 110)
+const closeGroup = () => {
+  activeGroup.value = null
 }
 
 watch(
@@ -484,9 +564,18 @@ watch(
   }
 )
 
+let scrollRaf = 0
 const updateScroll = () => {
-  scrollY.value = window.scrollY
+  if (scrollRaf) return
+  scrollRaf = window.requestAnimationFrame(() => {
+    scrollY.value = window.scrollY
+    scrollRaf = 0
+  })
 }
+
+watch(mobileOpen, (isOpen) => {
+  document.body.style.overflow = isOpen ? 'hidden' : ''
+})
 
 onMounted(() => {
   updateScroll()
@@ -494,8 +583,9 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => {
-  cancelClose()
+  if (scrollRaf) window.cancelAnimationFrame(scrollRaf)
   window.removeEventListener('scroll', updateScroll)
+  document.body.style.overflow = ''
 })
 </script>
 
@@ -504,24 +594,29 @@ onBeforeUnmount(() => {
   position: fixed;
   inset: 0 0 auto;
   z-index: 100;
-  background: rgba(0, 0, 0, 0.82);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(14px);
+  background: rgba(7, 10, 14, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(22px);
   transition:
-    background-color 0.28s ease,
-    border-color 0.28s ease,
-    backdrop-filter 0.28s ease;
+    background-color 0.24s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.24s cubic-bezier(0.22, 1, 0.36, 1),
+    backdrop-filter 0.24s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .site-header--transparent {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.76), rgba(0, 0, 0, 0));
-  border-bottom-color: transparent;
+  background: linear-gradient(180deg, rgba(7, 10, 14, 0.82), rgba(7, 10, 14, 0));
+  border-bottom-color: rgba(255, 255, 255, 0.02);
   backdrop-filter: blur(0);
 }
 
 .site-header--mobile-open {
-  background: rgba(6, 10, 14, 0.96);
+  background: rgba(6, 10, 14, 0.98);
   backdrop-filter: blur(18px);
+}
+
+.site-header--scrolled {
+  background: rgba(6, 10, 14, 0.96);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
 }
 
 .header-bar {
@@ -531,13 +626,14 @@ onBeforeUnmount(() => {
   align-items: center;
   justify-content: space-between;
   gap: 32px;
-  min-height: 68px;
+  min-height: 64px;
+  transition: min-height 0.24s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .header-left {
   display: flex;
   align-items: center;
-  gap: 34px;
+  gap: 26px;
   min-width: 0;
 }
 
@@ -548,11 +644,11 @@ onBeforeUnmount(() => {
 }
 
 .brand-mark img {
-  width: 116px;
+  width: 108px;
   height: auto;
   display: block;
   filter: brightness(0) invert(1);
-  opacity: 0.96;
+  opacity: 1;
 }
 
 .header-model {
@@ -577,7 +673,6 @@ onBeforeUnmount(() => {
   color: #fff;
   font-size: 0.72rem;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
 }
 
 .header-model__price {
@@ -600,18 +695,27 @@ onBeforeUnmount(() => {
   position: relative;
   display: inline-flex;
   align-items: center;
-  min-height: 68px;
-  padding: 0 15px;
+  min-height: 64px;
+  padding: 0 16px;
   background: transparent;
   border: 0;
   color: rgba(255, 255, 255, 0.84);
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   font-weight: 400;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.015em;
   line-height: 1;
   cursor: pointer;
   white-space: nowrap;
-  transition: color 0.2s ease;
+  transition: color 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.site-header--scrolled .header-bar {
+  min-height: 56px;
+}
+
+.site-header--scrolled .nav-link,
+.site-header--scrolled .nav-button {
+  min-height: 56px;
 }
 
 .nav-link::after,
@@ -620,12 +724,12 @@ onBeforeUnmount(() => {
   position: absolute;
   left: 15px;
   right: 15px;
-  bottom: 18px;
+  bottom: 16px;
   height: 2px;
   background: #b31d22;
   transform: scaleX(0);
   transform-origin: center;
-  transition: transform 0.22s ease;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .nav-link:hover,
@@ -633,6 +737,11 @@ onBeforeUnmount(() => {
 .nav-link.active,
 .nav-button.active {
   color: #fff;
+}
+
+.nav-link:hover,
+.nav-button:hover {
+  transform: translateY(-1px);
 }
 
 .nav-link:hover::after,
@@ -650,7 +759,9 @@ onBeforeUnmount(() => {
   opacity: 0;
   pointer-events: none;
   transform: translateY(14px);
-  transition: opacity 0.24s ease, transform 0.24s ease;
+  transition:
+    opacity 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.36s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .nav-dropdown.open {
@@ -661,6 +772,7 @@ onBeforeUnmount(() => {
 
 .nav-dropdown--models {
   left: 50%;
+  width: min(1320px, calc(100vw - 24px));
   min-width: 1180px;
   transform: translate(-50%, 14px);
 }
@@ -671,22 +783,24 @@ onBeforeUnmount(() => {
 
 .models-dropdown {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 250px;
+  grid-template-columns: minmax(0, 1fr) 256px;
   background: #fff;
   color: #262626;
-  border-radius: 0 0 16px 16px;
-  box-shadow: 0 22px 54px rgba(0, 0, 0, 0.12);
+  border-radius: 0;
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.12);
 }
 
 .models-dropdown__main {
-  padding: 28px 32px 30px;
+  padding: 22px 24px 24px;
   display: grid;
-  gap: 24px;
+  gap: 18px;
+  max-height: min(600px, calc(100vh - 120px));
+  overflow: auto;
 }
 
 .models-section {
   display: grid;
-  gap: 14px;
+  gap: 12px;
 }
 
 .models-section__title {
@@ -699,32 +813,35 @@ onBeforeUnmount(() => {
 }
 
 .models-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(164px, 1fr));
   gap: 12px;
 }
 
 .models-card {
-  width: 144px;
-  min-height: 114px;
+  min-height: 162px;
   display: grid;
-  gap: 10px;
+  gap: 8px;
   align-content: start;
-  padding: 12px;
+  padding: 12px 12px 11px;
   background: #fff;
-  border: 1px solid #e6e6e6;
-  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  border: 1px solid #ececec;
+  transition:
+    border-color 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .models-card:hover {
   border-color: #262626;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
   background: #fafafa;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.07);
 }
 
 .models-card__media {
-  height: 56px;
+  height: 92px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -732,9 +849,9 @@ onBeforeUnmount(() => {
 
 .models-card__image {
   width: 100%;
-  height: 56px;
+  height: 92px;
   object-fit: contain;
-  transition: transform 0.3s ease;
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .models-card:hover .models-card__image {
@@ -744,19 +861,19 @@ onBeforeUnmount(() => {
 .models-card__name {
   margin: 0;
   color: #262626;
-  font-size: 0.75rem;
-  line-height: 1.4;
+  font-size: 0.76rem;
+  line-height: 1.22;
 }
 
 .models-dropdown__tools {
-  border-left: 1px solid #e6e6e6;
-  padding: 28px 24px;
+  border-left: 1px solid #e9e9e9;
+  padding: 22px 18px;
   background: #fafafa;
 }
 
 .models-tools {
   display: grid;
-  gap: 14px;
+  gap: 12px;
 }
 
 .models-tools__title {
@@ -769,24 +886,28 @@ onBeforeUnmount(() => {
 
 .models-tools__list {
   display: grid;
-  gap: 10px;
+  gap: 9px;
 }
 
 .models-tools__item {
   display: inline-flex;
   align-items: center;
-  min-height: 44px;
+  min-height: 42px;
   padding: 0 14px;
   background: #fff;
-  border: 1px solid #e6e6e6;
+  border: 1px solid #ececec;
   color: #262626;
-  font-size: 0.81rem;
-  transition: border-color 0.2s ease, background 0.2s ease;
+  font-size: 0.78rem;
+  transition:
+    border-color 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .models-tools__item:hover {
   border-color: #262626;
   background: #f5f5f5;
+  transform: translateX(1px);
 }
 
 .dropdown-inner {
@@ -797,8 +918,104 @@ onBeforeUnmount(() => {
   gap: 12px;
   background: #fff;
   color: #262626;
-  border-radius: 0 0 14px 14px;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.12);
+  border-radius: 0;
+  box-shadow: 0 28px 66px rgba(0, 0, 0, 0.14);
+}
+
+.grouped-dropdown {
+  min-width: 760px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 270px;
+  background: #fff;
+  color: #262626;
+  border-radius: 0;
+  box-shadow: 0 28px 66px rgba(0, 0, 0, 0.14);
+}
+
+.grouped-dropdown__main {
+  padding: 30px 34px 32px;
+}
+
+.grouped-dropdown__title,
+.grouped-dropdown__aside-title {
+  margin: 0;
+  color: #262626;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.grouped-dropdown__feature-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.grouped-dropdown__feature {
+  display: grid;
+  grid-template-columns: 122px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  min-height: 96px;
+  padding: 12px 14px;
+  border: 1px solid #ececec;
+  background: #fff;
+  transition:
+    border-color 0.26s cubic-bezier(0.33, 1, 0.68, 1),
+    background-color 0.26s cubic-bezier(0.33, 1, 0.68, 1),
+    transform 0.26s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.grouped-dropdown__feature:hover {
+  border-color: #262626;
+  background: #fafafa;
+  transform: translateY(-2px);
+}
+
+.grouped-dropdown__feature-image {
+  width: 100%;
+  height: 56px;
+  object-fit: contain;
+  transition: transform 0.32s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.grouped-dropdown__feature:hover .grouped-dropdown__feature-image {
+  transform: scale(1.03);
+}
+
+.grouped-dropdown__feature-label {
+  color: #262626;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.grouped-dropdown__aside {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+  padding: 30px 28px;
+  border-left: 1px solid #ececec;
+  background: #fafafa;
+}
+
+.grouped-dropdown__aside-list {
+  display: grid;
+  gap: 10px;
+}
+
+.grouped-dropdown__aside-item {
+  color: #5a6067;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  transition:
+    color 0.24s cubic-bezier(0.33, 1, 0.68, 1),
+    transform 0.24s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.grouped-dropdown__aside-item:hover {
+  color: #111;
+  transform: translateX(2px);
 }
 
 .dropdown-card {
@@ -808,12 +1025,16 @@ onBeforeUnmount(() => {
   padding: 12px;
   background: #fff;
   border: 1px solid #e6e6e6;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  transition:
+    border-color 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .dropdown-card:hover {
   border-color: #262626;
   transform: translateY(-1px);
+  background: #fafafa;
 }
 
 .dropdown-thumb {
@@ -821,7 +1042,7 @@ onBeforeUnmount(() => {
   height: 54px;
   object-fit: contain;
   object-position: left center;
-  transition: transform 0.3s ease;
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .dropdown-card:hover .dropdown-thumb {
@@ -863,7 +1084,9 @@ onBeforeUnmount(() => {
   border-radius: 8px;
   color: rgba(255, 255, 255, 0.76);
   font-size: 0.76rem;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .locale-menu__item:hover,
@@ -903,14 +1126,14 @@ onBeforeUnmount(() => {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 32px;
-  padding: 0 8px;
+  min-height: 36px;
+  padding: 0 10px;
   background: transparent;
   border: 0;
   color: rgba(255, 255, 255, 0.82);
   font-size: 0.74rem;
   letter-spacing: 0.02em;
-  transition: color 0.2s ease;
+  transition: color 0.22s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
 }
 
@@ -940,15 +1163,18 @@ onBeforeUnmount(() => {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 38px;
-  padding: 0 18px;
+  min-height: 36px;
+  padding: 0 16px;
   border: 1px solid rgba(255, 255, 255, 0.34);
-  border-radius: 8px;
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  border-radius: 4px;
+  font-size: 0.76rem;
+  letter-spacing: 0.03em;
   white-space: nowrap;
-  transition: all 0.2s ease;
+  transition:
+    background-color 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-cta--ghost {
@@ -959,6 +1185,7 @@ onBeforeUnmount(() => {
 .header-cta--ghost:hover {
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.46);
+  transform: translateY(-1px);
 }
 
 .header-cta--primary {
@@ -970,11 +1197,12 @@ onBeforeUnmount(() => {
 .header-cta--primary:hover {
   background: #f0f0f0;
   border-color: #f0f0f0;
+  transform: translateY(-1px);
 }
 
 .menu-toggle {
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   display: none;
   align-items: center;
   justify-content: center;
@@ -990,11 +1218,33 @@ onBeforeUnmount(() => {
   height: 1px;
   background: currentColor;
   display: block;
+  transition: transform 0.26s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.22s ease;
+}
+
+.menu-toggle--active .menu-toggle__line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle--active .menu-toggle__line:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle--active .menu-toggle__line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 .mobile-panel {
+  position: fixed;
+  top: 64px;
+  right: 0;
+  z-index: 110;
+  width: min(420px, 100vw);
+  max-width: 100vw;
+  height: calc(100vh - 64px);
+  overflow-y: auto;
   background: rgba(6, 10, 14, 0.98);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-inline-start: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: -24px 0 48px rgba(0, 0, 0, 0.32);
 }
 
 .mobile-stack {
@@ -1049,18 +1299,26 @@ onBeforeUnmount(() => {
 
 .mobile-panel-fade-enter-active,
 .mobile-panel-fade-leave-active {
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: opacity 0.34s cubic-bezier(0.22, 1, 0.36, 1), transform 0.34s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .mobile-panel-fade-enter-from,
 .mobile-panel-fade-leave-to {
   opacity: 0;
-  transform: translateY(-6px);
+  transform: translateX(28px);
+}
+
+.mobile-panel-mask {
+  position: fixed;
+  inset: 64px 0 0;
+  z-index: 105;
+  background: rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(2px);
 }
 
 .header-menu-mask {
   position: fixed;
-  inset: 72px 0 0;
+  inset: 64px 0 0;
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(3px);
   z-index: 1;
@@ -1068,7 +1326,7 @@ onBeforeUnmount(() => {
 
 .header-mask-fade-enter-active,
 .header-mask-fade-leave-active {
-  transition: opacity 0.2s ease;
+  transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .header-mask-fade-enter-from,
@@ -1107,12 +1365,13 @@ onBeforeUnmount(() => {
   }
 
   .header-bar {
-    min-height: 68px;
+    min-height: 64px;
   }
 
   .brand-mark img {
-    width: 108px;
+    width: 104px;
   }
 }
 </style>
 .
+

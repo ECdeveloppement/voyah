@@ -1,0 +1,80 @@
+{
+  "measuredAt": "2026-04-10T13:27:10.899Z",
+  "method": "Top-2400px pixel similarity against live official pages with text hidden and animations disabled.",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "clip": {
+    "x": 0,
+    "y": 0,
+    "width": 1440,
+    "height": 2400
+  },
+  "pages": [
+    {
+      "locale": "en",
+      "slug": "store.html",
+      "local": "http://127.0.0.1:4173/en/store.html",
+      "official": "https://www.voyah.com.cn/#/store.html",
+      "score": 0.8840972222222222
+    },
+    {
+      "locale": "en",
+      "slug": "service.html",
+      "local": "http://127.0.0.1:4173/en/service.html",
+      "official": "https://www.voyah.com.cn/#/service.html",
+      "score": 0.9395046296296297
+    },
+    {
+      "locale": "en",
+      "slug": "energy.html",
+      "local": "http://127.0.0.1:4173/en/energy.html",
+      "official": "https://www.voyah.com.cn/#/energy.html",
+      "score": 0.19689891975308638
+    },
+    {
+      "locale": "fr",
+      "slug": "store.html",
+      "local": "http://127.0.0.1:4173/fr/store.html",
+      "official": "https://www.voyah.com.cn/#/store.html",
+      "score": 0.9031157407407407
+    },
+    {
+      "locale": "fr",
+      "slug": "service.html",
+      "local": "http://127.0.0.1:4173/fr/service.html",
+      "official": "https://www.voyah.com.cn/#/service.html",
+      "score": 0.9398101851851852
+    },
+    {
+      "locale": "fr",
+      "slug": "energy.html",
+      "local": "http://127.0.0.1:4173/fr/energy.html",
+      "official": "https://www.voyah.com.cn/#/energy.html",
+      "score": 0.19720447530864194
+    },
+    {
+      "locale": "ar",
+      "slug": "store.html",
+      "local": "http://127.0.0.1:4173/ar/store.html",
+      "official": "https://www.voyah.com.cn/#/store.html",
+      "score": 0.568579475308642
+    },
+    {
+      "locale": "ar",
+      "slug": "service.html",
+      "local": "http://127.0.0.1:4173/ar/service.html",
+      "official": "https://www.voyah.com.cn/#/service.html",
+      "score": 0.9385864197530864
+    },
+    {
+      "locale": "ar",
+      "slug": "energy.html",
+      "local": "http://127.0.0.1:4173/ar/energy.html",
+      "official": "https://www.voyah.com.cn/#/energy.html",
+      "score": 0.19598302469135798
+    }
+  ],
+  "overallScore": 0.6404200102880659
+}

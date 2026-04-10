@@ -1,5 +1,5 @@
 <template>
-  <nav class="model-chapter-nav">
+  <nav :class="['model-chapter-nav', `model-chapter-nav--${variant}`]">
     <div class="container model-chapter-nav-inner">
       <a
         v-for="section in sections"
@@ -16,6 +16,7 @@
 <script setup lang="ts">
 const props = defineProps<{
   sections: Array<{ id: string; label: string }>
+  variant?: string
 }>()
 
 const activeSection = ref(props.sections[0]?.id ?? '')
@@ -66,9 +67,11 @@ onBeforeUnmount(() => {
 
 .model-chapter-nav-inner {
   display: flex;
-  gap: 12px;
+  gap: 28px;
   overflow-x: auto;
-  padding: 12px 0;
+  padding: 0;
+  min-height: 58px;
+  align-items: end;
 }
 
 .model-chapter-nav-inner::-webkit-scrollbar {
@@ -77,24 +80,31 @@ onBeforeUnmount(() => {
 
 .model-chapter-link {
   flex: 0 0 auto;
-  padding: 9px 16px;
-  border-radius: 999px;
-  border: 1px solid rgba(14, 18, 24, 0.08);
+  padding: 18px 0 14px;
+  border-radius: 0;
+  border: 0;
+  border-bottom: 2px solid transparent;
   color: #34404d;
   font-size: 0.84rem;
   white-space: nowrap;
-  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  transition:
+    border-color 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .model-chapter-link:hover {
-  border-color: rgba(197, 156, 98, 0.5);
   color: #101720;
   transform: translateY(-1px);
 }
 
+.model-chapter-link:focus-visible {
+  outline: 2px solid rgba(179, 29, 34, 0.42);
+  outline-offset: 3px;
+}
+
 .model-chapter-link.active {
-  border-color: rgba(197, 156, 98, 0.44);
-  background: rgba(197, 156, 98, 0.08);
+  border-bottom-color: #b31d22;
   color: #101720;
 }
 

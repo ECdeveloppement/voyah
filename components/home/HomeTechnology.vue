@@ -88,7 +88,7 @@ const props = defineProps<{
 }>()
 
 const { textFor } = useSiteContent()
-const sectionRef = useSectionReveal()
+const sectionRef = useSectionReveal({ y: 28, duration: 0.9 })
 const activeTab = ref(0)
 
 const activeTechnology = computed(() => props.data.tabs[activeTab.value] ?? props.data.tabs[0])
@@ -96,15 +96,15 @@ const activeTechnology = computed(() => props.data.tabs[activeTab.value] ?? prop
 
 <style scoped>
 .technology-section {
-  padding: 96px 0;
+  padding: clamp(72px, 7.4vw, 106px) 0;
   background: #fff;
 }
 
 .technology-title {
   margin: 0;
-  max-width: 960px;
+  max-width: 980px;
   color: #101720;
-  font-size: clamp(2.5rem, 5vw, 4.8rem);
+  font-size: clamp(2.2rem, 4.7vw, 4.7rem);
   line-height: 0.98;
   letter-spacing: -0.03em;
   text-align: center;
@@ -112,10 +112,10 @@ const activeTechnology = computed(() => props.data.tabs[activeTab.value] ?? prop
 }
 
 .technology-copy {
-  margin: 18px 0 0;
+  margin: 14px 0 0;
   max-width: 860px;
   color: #596573;
-  line-height: 1.82;
+  line-height: 1.74;
   text-align: center;
   margin-inline: auto;
 }
@@ -123,14 +123,14 @@ const activeTechnology = computed(() => props.data.tabs[activeTab.value] ?? prop
 .technology-desktop {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 26px;
+  gap: 18px;
   align-items: stretch;
-  margin-top: 30px;
+  margin-top: 26px;
 }
 
 .technology-stage {
   position: relative;
-  min-height: 620px;
+  min-height: 520px;
   overflow: hidden;
   background: #eef1f3;
 }
@@ -140,12 +140,16 @@ const activeTechnology = computed(() => props.data.tabs[activeTab.value] ?? prop
   inset: 0;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.45s ease;
+  transition:
+    opacity 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: scale(1.01);
 }
 
 .technology-visual.active {
   opacity: 1;
   pointer-events: auto;
+  transform: scale(1);
 }
 
 .technology-visual img {
@@ -156,18 +160,28 @@ const activeTechnology = computed(() => props.data.tabs[activeTab.value] ?? prop
 
 .technology-watch {
   position: absolute;
-  right: 24px;
+  right: 28px;
   bottom: 24px;
   display: inline-flex;
   align-items: center;
   gap: 12px;
   min-height: 44px;
   padding: 0 18px;
-  border: 1px solid rgba(255, 255, 255, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 0;
-  background: rgba(9, 13, 18, 0.54);
+  background: rgba(9, 13, 18, 0.48);
   color: #fff;
   backdrop-filter: blur(8px);
+  transition:
+    background-color 0.24s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.24s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.24s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.technology-watch:hover {
+  transform: translateY(-1px);
+  background: rgba(9, 13, 18, 0.62);
+  border-color: rgba(255, 255, 255, 0.28);
 }
 
 .technology-watch__play {

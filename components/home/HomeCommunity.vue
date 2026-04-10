@@ -55,7 +55,7 @@ defineProps<{
 }>()
 
 const { buildPath, locale, textFor } = useSiteContent()
-const sectionRef = useSectionReveal({ stagger: 0.08 })
+const sectionRef = useSectionReveal({ stagger: 0.08, y: 26, duration: 0.86 })
 
 const moreLabel = computed(() => {
   if (locale.value.code === 'fr') return 'Voir le détail'
@@ -84,7 +84,7 @@ const moreLabel = computed(() => {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
-  margin-top: 30px;
+  margin-top: 22px;
 }
 
 .community-card {
@@ -92,11 +92,14 @@ const moreLabel = computed(() => {
   border-radius: 0;
   background: #fff;
   border: 0;
-  transition: transform 0.28s ease;
+  transition:
+    transform 0.32s cubic-bezier(0.33, 1, 0.68, 1),
+    box-shadow 0.32s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
 .community-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px rgba(17, 17, 17, 0.08);
 }
 
 .community-card__link {
@@ -112,17 +115,17 @@ const moreLabel = computed(() => {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.48s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
 .community-card:hover .community-card__media img {
-  transform: scale(1.04);
+  transform: scale(1.02);
 }
 
 .community-card__body {
   display: grid;
-  gap: 12px;
-  padding: 16px 18px 18px;
+  gap: 10px;
+  padding: 14px 0 0;
 }
 
 .community-card__body h3 {
@@ -148,7 +151,7 @@ const moreLabel = computed(() => {
 
 .community-card__more::after {
   content: '→';
-  transition: transform 0.24s ease;
+  transition: transform 0.3s cubic-bezier(0, 0, 0.58, 1);
 }
 
 .community-card:hover .community-card__more::after {

@@ -1,0 +1,53 @@
+{
+  "measuredAt": "2026-04-10T10:41:38.499Z",
+  "method": "Top-2400px pixel similarity against live official pages with text hidden and animations disabled.",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "clip": {
+    "x": 0,
+    "y": 0,
+    "width": 1440,
+    "height": 2400
+  },
+  "pages": [
+    {
+      "slug": "store.html",
+      "local": "http://127.0.0.1:4173/en/store.html",
+      "official": "https://www.voyah.com.cn/store.html",
+      "score": 0.9036635802469136
+    },
+    {
+      "slug": "service.html",
+      "local": "http://127.0.0.1:4173/en/service.html",
+      "official": "https://www.voyah.com.cn/service.html",
+      "score": 0.06452469135802474
+    },
+    {
+      "slug": "energy.html",
+      "local": "http://127.0.0.1:4173/en/energy.html",
+      "official": "https://www.voyah.com.cn/energy.html",
+      "score": 0.0028040123456790633
+    },
+    {
+      "slug": "purchasing.html",
+      "local": "http://127.0.0.1:4173/en/purchasing.html",
+      "official": "https://www.voyah.com.cn/purchasing.html",
+      "score": 0.0028040123456790633
+    },
+    {
+      "slug": "environmental.html",
+      "local": "http://127.0.0.1:4173/en/environmental.html",
+      "official": "https://www.voyah.com.cn/environmental.html",
+      "score": 0.0028040123456790633
+    },
+    {
+      "slug": "document.html",
+      "local": "http://127.0.0.1:4173/en/document.html",
+      "official": "https://www.voyah.com.cn/document.html",
+      "score": 0.0028040123456790633
+    }
+  ],
+  "overallScore": 0.16323405349794243
+}

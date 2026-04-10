@@ -1,0 +1,107 @@
+{
+  "brand.html": {
+    "title": "岚图汽车｜智慧岚图，成就幸福",
+    "url": "https://www.voyah.com.cn/brand.html",
+    "titleCandidates": [
+      "岚图品牌",
+      "车型",
+      "门店中心",
+      "岚图服务",
+      "关于岚图"
+    ],
+    "summaryCandidates": [
+      "岚图追光L",
+      "岚图追光",
+      "岚图泰山",
+      "岚图泰山 黑武士",
+      "岚图泰山 X8",
+      "岚图FREE+",
+      "全新岚图知音",
+      "岚图FREE 318",
+      "岚图知音",
+      "26款岚图梦想家",
+      "岚图梦想家 冠军版",
+      "25款岚图梦想家",
+      "岚图梦想家 山河",
+      "24款岚图梦想家",
+      "用户服务",
+      "岚图能源",
+      "发帖中心",
+      "企业文化",
+      "To view this video please enable JavaScript, and consider upgrading to a web browser that",
+      "Beginning of dialog window. Escape will cancel and close the window.",
+      "End of dialog window.",
+      "To view this video please enable JavaScript, and consider upgrading to a web browser that",
+      "Beginning of dialog window. Escape will cancel and close the window.",
+      "End of dialog window.",
+      "To view this video please enable JavaScript, and consider upgrading to a web browser that",
+      "To view this video please enable JavaScript, and consider upgrading to a web browser that",
+      "极",
+      "是昂扬自信的车身姿态也是用户胸怀宽广的最好体现",
+      "润",
+      "是柔和饱满的车身曲面，有滋润万物的温润感也蕴含着水滴石穿的坚韧力量",
+      "雅",
+      "是把雅致藏在设计的细节中代表着用户内在修养与高尚品位",
+      "正心",
+      "岚图希望用户能远离外界纷扰感受泰然自若的安稳",
+      "修身",
+      "岚图把用户真实的需求对应到座舱中的每一项功能，让用户更方便、更优雅、更自在",
+      "齐家",
+      "岚图用智慧的空间满足用户多样的需求家和万事兴，让用户的每段旅程都充满欢声笑语",
+      "被动安全",
+      "电池安全"
+    ]
+  },
+  "store.html": {
+    "title": "门店中心-岚图汽车",
+    "url": "https://www.voyah.com.cn/store.html",
+    "titleCandidates": [],
+    "summaryCandidates": [
+      "岚图追光L",
+      "岚图追光",
+      "岚图泰山",
+      "岚图泰山 黑武士",
+      "岚图泰山 X8",
+      "岚图FREE+",
+      "全新岚图知音",
+      "岚图FREE 318",
+      "岚图知音",
+      "26款岚图梦想家",
+      "岚图梦想家 冠军版",
+      "25款岚图梦想家",
+      "岚图梦想家 山河",
+      "24款岚图梦想家",
+      "用户服务",
+      "岚图能源",
+      "发帖中心",
+      "企业文化"
+    ]
+  },
+  "service.html": {
+    "error": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.voyah-header-panel-item').nth(3).locator('.three-menu-item').filter({ hasText: '????' }).first()\u001b[22m\n"
+  },
+  "energy.html": {
+    "error": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.voyah-header-panel-item').nth(3).locator('.three-menu-item').filter({ hasText: '????' }).first()\u001b[22m\n"
+  },
+  "corporate.html": {
+    "error": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.voyah-header-panel-item').nth(4).locator('.three-menu-item').filter({ hasText: '????' }).first()\u001b[22m\n"
+  },
+  "joinus.html": {
+    "error": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.voyah-header-panel-item').nth(4).locator('.tool-menu-item').filter({ hasText: '????' }).first()\u001b[22m\n"
+  },
+  "recruit-partners.html": {
+    "error": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.voyah-header-panel-item').nth(4).locator('.tool-menu-item').filter({ hasText: '??????' }).first()\u001b[22m\n"
+  },
+  "ir.html": {
+    "error": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.voyah-header-panel-item').nth(4).locator('.tool-menu-item').filter({ hasText: '?????' }).first()\u001b[22m\n"
+  },
+  "purchasing.html": {
+    "error": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.voyah-header-panel-item').nth(3).locator('.tool-menu-item').filter({ hasText: '??????' }).first()\u001b[22m\n"
+  },
+  "environmental.html": {
+    "error": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.voyah-header-panel-item').nth(3).locator('.tool-menu-item').filter({ hasText: '??????' }).first()\u001b[22m\n"
+  },
+  "document.html": {
+    "error": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.voyah-header-panel-item').nth(3).locator('.tool-menu-item').filter({ hasText: '??????' }).first()\u001b[22m\n"
+  }
+}

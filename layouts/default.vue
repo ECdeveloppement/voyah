@@ -1,10 +1,10 @@
 <template>
-  <div :class="['site-shell', { 'is-rtl': currentLocale.dir === 'rtl' }]">
-    <SiteHeader />
-    <main class="site-main">
+  <div :class="['site-shell', { 'is-rtl': currentLocale.dir === 'rtl' && !isLegacyParityPage }]">
+    <SiteHeader v-if="!isLegacyParityPage" />
+    <main :class="['site-main', { 'site-main--legacy': isLegacyParityPage }]">
       <slot />
     </main>
-    <SiteFooter />
+    <SiteFooter v-if="!isLegacyParityPage" />
   </div>
 </template>
 
@@ -14,14 +14,24 @@ import SiteHeader from '~/components/layout/SiteHeader.vue'
 import { currentLocaleInfo } from '~/composables/useSiteContent'
 
 const currentLocale = currentLocaleInfo()
+const route = useRoute()
+const isLegacyParityPage = computed(() =>
+  ['store.html', 'service.html', 'energy.html'].some((slug) => route.path.endsWith(`/${slug}`) || route.path === `/${slug}`)
+)
 
 useHead(() => ({
   htmlAttrs: {
-    lang: currentLocale.value.code,
-    dir: currentLocale.value.dir
+    lang: isLegacyParityPage.value ? 'en' : currentLocale.value.code,
+    dir: isLegacyParityPage.value ? 'ltr' : currentLocale.value.dir
   },
   bodyAttrs: {
-    class: `locale-${currentLocale.value.code}`
+    class: `locale-${isLegacyParityPage.value ? 'en' : currentLocale.value.code}`
   }
 }))
 </script>
+
+<style scoped>
+.site-main--legacy {
+  padding-top: 0;
+}
+</style>

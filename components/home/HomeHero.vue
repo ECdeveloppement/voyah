@@ -1,21 +1,30 @@
 <template>
-  <section class="home-hero">
+  <section
+    ref="heroRef"
+    class="home-hero"
+    :style="{
+      '--hero-parallax-y': `${parallaxY}px`,
+      '--hero-pointer-x': `${pointerX}px`,
+      '--hero-pointer-y': `${pointerY}px`
+    }"
+    @pointermove="onPointerMove"
+    @pointerleave="onPointerLeave"
+  >
     <article
       v-for="(slide, index) in slides"
       :key="`${slide.primarySlug}-${index}`"
       :class="['hero-slide', { active: activeIndex === index }]"
     >
       <div class="hero-media">
-        <img :src="slide.image" :alt="textFor(slide.title) || 'Voyah'" class="hero-poster" />
+        <img :src="slide.image" :alt="textFor(slide.title) || 'Voyah'" class="hero-poster" :loading="activeIndex === index ? 'eager' : 'lazy'" decoding="async" />
         <video
           v-if="slide.video"
+          :ref="(el) => setVideoRef(el, index)"
           class="hero-video"
           :poster="slide.image"
-          autoplay
           muted
-          loop
           playsinline
-          preload="auto"
+          preload="metadata"
         >
           <source :src="slide.video" type="video/mp4" />
         </video>
@@ -59,7 +68,7 @@
         </div>
 
         <div class="hero-controls">
-          <button type="button" class="hero-arrow mobile-only" aria-label="Previous slide" @click="stepSlide(-1)">
+          <button type="button" class="hero-arrow" aria-label="Previous slide" @click="stepSlide(-1)">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M14.5 6.5L9 12L14.5 17.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
@@ -75,7 +84,11 @@
             />
           </div>
 
-          <button type="button" class="hero-arrow mobile-only" aria-label="Next slide" @click="stepSlide(1)">
+          <div class="hero-progress" aria-hidden="true">
+            <span class="hero-progress__bar" :style="{ transform: `scaleX(${progressScale})` }" />
+          </div>
+
+          <button type="button" class="hero-arrow" aria-label="Next slide" @click="stepSlide(1)">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M9.5 6.5L15 12L9.5 17.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
@@ -87,6 +100,8 @@
 </template>
 
 <script setup lang="ts">
+import type { ComponentPublicInstance, WatchHandle } from 'vue'
+import { gsap } from 'gsap'
 import type { HomeData } from '~/data/site'
 import BaseButton from '~/components/common/BaseButton.vue'
 import { useSiteContent } from '~/composables/useSiteContent'
@@ -98,39 +113,120 @@ const props = defineProps<{
 const { buildPath, textFor } = useSiteContent()
 
 const activeIndex = ref(2)
-let timer: ReturnType<typeof setInterval> | null = null
+const videoEls = ref<(HTMLVideoElement | null)[]>([])
+let autoplayDelay: gsap.core.Tween | null = null
+let progressTween: gsap.core.Tween | null = null
+const progressScale = ref(0)
+const heroRef = ref<HTMLElement | null>(null)
+const pointerX = ref(0)
+const pointerY = ref(0)
+const parallaxY = ref(0)
 
 const heroTitle = (slide: HomeData['slides'][number]) => textFor(slide.title).trim()
 const heroDescription = (slide: HomeData['slides'][number]) => textFor(slide.description).trim()
 
-const startAutoplay = () => {
-  if (timer) {
-    clearInterval(timer)
+const setVideoRef = (el: Element | ComponentPublicInstance | null, index: number) => {
+  videoEls.value[index] = el instanceof HTMLVideoElement ? el : null
+}
+
+const clearAutoplay = () => {
+  autoplayDelay?.kill()
+  autoplayDelay = null
+  progressTween?.kill()
+  progressTween = null
+}
+
+const scheduleAdvance = (delaySeconds: number) => {
+  clearAutoplay()
+  progressScale.value = 0
+  progressTween = gsap.to(progressScale, {
+    value: 1,
+    duration: delaySeconds,
+    ease: 'none'
+  })
+  autoplayDelay = gsap.delayedCall(delaySeconds, () => {
+    activeIndex.value = (activeIndex.value + 1) % props.slides.length
+  })
+}
+
+const syncActiveMedia = async () => {
+  for (const [index, video] of videoEls.value.entries()) {
+    if (!video) continue
+
+    if (index === activeIndex.value) {
+      video.currentTime = 0
+      video.muted = true
+      try {
+        await video.play()
+      } catch {
+        // Ignore autoplay failures and fall back to poster timing.
+      }
+    } else {
+      video.pause()
+      video.currentTime = 0
+    }
   }
 
-  timer = setInterval(() => {
-    activeIndex.value = (activeIndex.value + 1) % props.slides.length
-  }, 9000)
+  const activeSlide = props.slides[activeIndex.value]
+  const activeVideo = videoEls.value[activeIndex.value]
+  const duration = activeSlide?.video && activeVideo && Number.isFinite(activeVideo.duration) && activeVideo.duration > 0
+    ? Math.max(activeVideo.duration, 6.8)
+    : activeSlide?.video
+      ? 8.4
+      : 7.6
+
+  scheduleAdvance(duration)
 }
 
 const setSlide = (index: number) => {
   activeIndex.value = index
-  startAutoplay()
 }
 
 const stepSlide = (direction: number) => {
   activeIndex.value = (activeIndex.value + direction + props.slides.length) % props.slides.length
-  startAutoplay()
 }
 
+const onPointerMove = (event: PointerEvent) => {
+  const element = heroRef.value
+  if (!element) return
+  const rect = element.getBoundingClientRect()
+  const x = (event.clientX - rect.left) / rect.width
+  const y = (event.clientY - rect.top) / rect.height
+  pointerX.value = (x - 0.5) * 18
+  pointerY.value = (y - 0.5) * 12
+}
+
+const onPointerLeave = () => {
+  pointerX.value = 0
+  pointerY.value = 0
+}
+
+const updateParallax = () => {
+  parallaxY.value = Math.min(window.scrollY * 0.14, 34)
+}
+
+let stopIndexWatch: WatchHandle | null = null
+
 onMounted(() => {
-  startAutoplay()
+  stopIndexWatch = watch(activeIndex, () => {
+    nextTick(() => {
+      void syncActiveMedia()
+    })
+  })
+
+  nextTick(() => {
+    void syncActiveMedia()
+  })
+
+  updateParallax()
+  window.addEventListener('scroll', updateParallax, { passive: true })
 })
 
 onBeforeUnmount(() => {
-  if (timer) {
-    clearInterval(timer)
-  }
+  stopIndexWatch?.()
+  clearAutoplay()
+  videoEls.value.forEach((video) => video?.pause())
+  window.removeEventListener('scroll', updateParallax)
 })
 </script>
 
@@ -147,7 +243,7 @@ onBeforeUnmount(() => {
   inset: 0;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 1s ease;
+  transition: opacity 0.72s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
 .hero-slide.active {
@@ -173,6 +269,11 @@ onBeforeUnmount(() => {
   position: absolute;
   inset: 0;
   object-fit: cover;
+  transform: translate3d(calc(var(--hero-pointer-x, 0px) * -0.4), calc(var(--hero-parallax-y, 0px) - (var(--hero-pointer-y, 0px) * 0.25)), 0) scale(1.03);
+  transition:
+    transform 1.05s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.56s cubic-bezier(0.33, 1, 0.68, 1) 0.18s;
+  will-change: transform;
 }
 
 .hero-poster {
@@ -182,11 +283,16 @@ onBeforeUnmount(() => {
 .hero-video {
   z-index: 1;
   opacity: 0;
-  transition: opacity 0.8s ease 0.35s;
+  transition: opacity 0.56s cubic-bezier(0.33, 1, 0.68, 1) 0.18s;
 }
 
 .hero-slide.active .hero-video {
   opacity: 1;
+}
+
+.hero-slide.active .hero-poster,
+.hero-slide.active .hero-video {
+  transform: translate3d(calc(var(--hero-pointer-x, 0px) * -0.55), calc(var(--hero-parallax-y, 0px) - (var(--hero-pointer-y, 0px) * 0.3)), 0) scale(1.06);
 }
 
 .hero-overlay {
@@ -214,7 +320,9 @@ onBeforeUnmount(() => {
   max-width: 760px;
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.75s ease 0.32s, transform 0.75s ease 0.32s;
+  transition:
+    opacity 0.62s cubic-bezier(0.33, 1, 0.68, 1) 0.18s,
+    transform 0.62s cubic-bezier(0.33, 1, 0.68, 1) 0.18s;
   text-align: center;
 }
 
@@ -301,10 +409,12 @@ onBeforeUnmount(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 18px;
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.75s ease 0.48s, transform 0.75s ease 0.48s;
+  transition:
+    opacity 0.62s cubic-bezier(0.33, 1, 0.68, 1) 0.28s,
+    transform 0.62s cubic-bezier(0.33, 1, 0.68, 1) 0.28s;
 }
 
 .hero-slide.active .hero-controls {
@@ -315,24 +425,42 @@ onBeforeUnmount(() => {
 .hero-dots {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+}
+
+.hero-progress {
+  width: 92px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.24);
+  overflow: hidden;
+}
+
+.hero-progress__bar {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  transform-origin: left center;
 }
 
 .hero-arrow {
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.02);
   color: #fff;
-  transition: background-color 0.22s ease, border-color 0.22s ease;
+  transition:
+    background-color 0.3s cubic-bezier(0, 0, 0.58, 1),
+    border-color 0.3s cubic-bezier(0, 0, 0.58, 1),
+    opacity 0.3s cubic-bezier(0, 0, 0.58, 1);
 }
 
 .hero-arrow:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.36);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.28);
 }
 
 .hero-arrow svg {
@@ -341,21 +469,19 @@ onBeforeUnmount(() => {
 }
 
 .hero-dot {
-  width: 24px;
+  width: 32px;
   height: 2px;
   border: 0;
   background: rgba(255, 255, 255, 0.26);
   cursor: pointer;
-  transition: background-color 0.22s ease, transform 0.22s ease;
+  transition:
+    background-color 0.3s cubic-bezier(0, 0, 0.58, 1),
+    transform 0.3s cubic-bezier(0, 0, 0.58, 1);
 }
 
 .hero-dot.active {
   background: #fff;
-  transform: scaleX(1.3);
-}
-
-.mobile-only {
-  display: none;
+  transform: scaleX(1.12);
 }
 
 @media (max-width: 1024px) {

@@ -2,8 +2,6 @@
   <section ref="sectionRef" class="section-shell models-section">
     <div class="container">
       <h2 class="section-title section-title--dark" data-reveal>{{ textFor(title) }}</h2>
-      <p v-if="textFor(body).trim()" class="section-copy section-copy--dark" data-reveal>{{ textFor(body) }}</p>
-
       <div class="model-switcher" data-reveal>
         <button
           v-for="(model, index) in models"
@@ -18,24 +16,35 @@
 
       <div class="model-stage" data-reveal>
         <div class="model-stage__viewer">
-          <img :src="activeModel.image" :alt="textFor(activeModel.title)" class="model-stage-image" />
+          <Transition name="model-visual" mode="out-in">
+            <img
+              :key="activeModel.slug"
+              :src="activeModel.image"
+              :alt="textFor(activeModel.title)"
+              class="model-stage-image"
+            />
+          </Transition>
         </div>
 
         <div class="model-stage__frame">
           <div class="model-stage-panel">
-            <span class="model-category">{{ textFor(activeModel.category) }}</span>
-            <h3>{{ textFor(activeModel.title) }}</h3>
+            <Transition name="model-copy" mode="out-in">
+              <div :key="`copy-${activeModel.slug}`" class="model-stage-panel__content">
+                <span class="model-category">{{ textFor(activeModel.category) }}</span>
+                <h3>{{ textFor(activeModel.title) }}</h3>
 
-            <MetricGrid :metrics="activeModel.metrics" />
+                <MetricGrid :metrics="activeModel.metrics" />
 
-            <div class="model-actions">
-              <BaseButton :to="buildPath(activeModel.slug)" variant="secondary">
-                {{ moreLabel }}
-              </BaseButton>
-              <BaseButton :to="buildPath('book-drive.html')" variant="primary">
-                {{ driveLabel }}
-              </BaseButton>
-            </div>
+                <div class="model-actions">
+                  <BaseButton :to="buildPath(activeModel.slug)" variant="secondary">
+                    {{ moreLabel }}
+                  </BaseButton>
+                  <BaseButton :to="buildPath('book-drive.html')" variant="primary">
+                    {{ driveLabel }}
+                  </BaseButton>
+                </div>
+              </div>
+            </Transition>
           </div>
         </div>
       </div>
@@ -44,6 +53,7 @@
 </template>
 
 <script setup lang="ts">
+import { gsap } from 'gsap'
 import type { HomeData, LocalizedText } from '~/data/site'
 import BaseButton from '~/components/common/BaseButton.vue'
 import MetricGrid from '~/components/common/MetricGrid.vue'
@@ -57,9 +67,24 @@ const props = defineProps<{
 }>()
 
 const { buildPath, locale, textFor } = useSiteContent()
-const sectionRef = useSectionReveal({ stagger: 0.08 })
+const sectionRef = useSectionReveal({ stagger: 0.08, y: 30 })
 const activeIndex = ref(0)
 const activeModel = computed(() => props.models[activeIndex.value] ?? props.models[0])
+
+watch(activeIndex, () => {
+  // Subtle panel pulse when switching model for a premium feel.
+  gsap.fromTo(
+    '.model-stage-panel',
+    { boxShadow: '0 0 0 rgba(17, 17, 17, 0)' },
+    {
+      boxShadow: '0 18px 34px rgba(17, 17, 17, 0.08)',
+      duration: 0.24,
+      yoyo: true,
+      repeat: 1,
+      ease: 'power2.out'
+    }
+  )
+})
 
 const moreLabel = computed(() => {
   if (locale.value.code === 'fr') return 'En savoir plus'
@@ -93,9 +118,9 @@ const driveLabel = computed(() => {
 .model-switcher {
   display: flex;
   flex-wrap: wrap;
-  gap: 32px;
-  margin: 28px 0 22px;
-  padding-bottom: 18px;
+  gap: 34px;
+  margin: 22px 0 14px;
+  padding-bottom: 14px;
   border-bottom: 1px solid rgba(17, 17, 17, 0.08);
   justify-content: center;
 }
@@ -108,7 +133,9 @@ const driveLabel = computed(() => {
   color: rgba(17, 17, 17, 0.44);
   font-size: clamp(1rem, 1.5vw, 1.26rem);
   cursor: pointer;
-  transition: color 0.25s ease, transform 0.25s ease;
+  transition:
+    color 0.3s cubic-bezier(0, 0, 0.58, 1),
+    transform 0.3s cubic-bezier(0, 0, 0.58, 1);
 }
 
 .model-switch::after {
@@ -121,7 +148,7 @@ const driveLabel = computed(() => {
   background: #b31d22;
   transform: scaleX(0);
   transform-origin: center;
-  transition: transform 0.24s ease;
+  transition: transform 0.3s cubic-bezier(0, 0, 0.58, 1);
 }
 
 .model-switch.active {
@@ -136,7 +163,7 @@ const driveLabel = computed(() => {
 .model-stage {
   position: relative;
   overflow: hidden;
-  min-height: 780px;
+  min-height: 680px;
   background:
     radial-gradient(circle at 50% 34%, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0) 34%),
     linear-gradient(180deg, #f7f4ef 0%, #f1ebe3 100%);
@@ -148,7 +175,7 @@ const driveLabel = computed(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px 42px 234px;
+  padding: 6px 42px 208px;
 }
 
 .model-stage__frame {
@@ -164,6 +191,19 @@ const driveLabel = computed(() => {
   transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+.model-visual-enter-active,
+.model-visual-leave-active {
+  transition:
+    opacity 0.54s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.54s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.model-visual-enter-from,
+.model-visual-leave-to {
+  opacity: 0;
+  transform: scale(1.02);
+}
+
 .model-stage:hover .model-stage-image {
   transform: scale(1.018);
 }
@@ -171,18 +211,36 @@ const driveLabel = computed(() => {
 .model-stage-panel {
   display: grid;
   gap: 18px;
-  padding: 28px 32px 26px;
+  padding: 20px 28px 22px;
   border-radius: 0;
   background: rgba(248, 246, 242, 0.96);
   border-top: 1px solid rgba(17, 17, 17, 0.08);
   backdrop-filter: blur(10px);
 }
 
+.model-stage-panel__content {
+  display: grid;
+  gap: 18px;
+}
+
+.model-copy-enter-active,
+.model-copy-leave-active {
+  transition:
+    opacity 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.model-copy-enter-from,
+.model-copy-leave-to {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
 .model-category {
   color: rgba(17, 17, 17, 0.46);
   max-width: 520px;
-  font-size: 0.94rem;
-  line-height: 1.6;
+  font-size: 0.9rem;
+  line-height: 1.55;
   letter-spacing: 0;
 }
 
@@ -211,10 +269,19 @@ const driveLabel = computed(() => {
   color: #111;
 }
 
+.model-actions :deep(.base-button.secondary:hover) {
+  background: rgba(17, 17, 17, 0.04);
+}
+
 .model-actions :deep(.base-button.primary) {
   background: #111;
   border-color: #111;
   color: #fff;
+}
+
+.model-actions :deep(.base-button.primary:hover) {
+  background: #000;
+  border-color: #000;
 }
 
 @media (max-width: 900px) {
