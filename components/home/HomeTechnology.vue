@@ -160,7 +160,7 @@ const activeTechnology = computed(() => props.data.tabs[activeTab.value] ?? prop
 
 .technology-watch {
   position: absolute;
-  right: 28px;
+  inset-inline-end: 28px;
   bottom: 24px;
   display: inline-flex;
   align-items: center;
@@ -224,8 +224,8 @@ const activeTechnology = computed(() => props.data.tabs[activeTab.value] ?? prop
 .technology-tab::after {
   content: '';
   position: absolute;
-  left: 0;
-  right: 0;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
   bottom: -15px;
   height: 1px;
   background: #b31d22;
@@ -275,7 +275,7 @@ const activeTechnology = computed(() => props.data.tabs[activeTab.value] ?? prop
 
 .technology-tag:not(:last-child)::after {
   content: '|';
-  margin-left: 12px;
+  margin-inline-start: 12px;
   color: #a6afb8;
 }
 
@@ -314,7 +314,7 @@ const activeTechnology = computed(() => props.data.tabs[activeTab.value] ?? prop
 }
 
 .technology-watch--mobile {
-  right: 16px;
+  inset-inline-end: 16px;
   bottom: 16px;
 }
 

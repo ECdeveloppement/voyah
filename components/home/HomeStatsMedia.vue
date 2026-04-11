@@ -112,11 +112,11 @@ const videoLabel = computed(() => {
 
 .energy-stat {
   padding: 26px 22px 24px 0;
-  border-right: 1px solid rgba(16, 23, 32, 0.08);
+  border-inline-end: 1px solid rgba(16, 23, 32, 0.08);
 }
 
 .energy-stat:last-child {
-  border-right: 0;
+  border-inline-end: 0;
 }
 
 .energy-stat__value {
@@ -153,7 +153,7 @@ const videoLabel = computed(() => {
 
 .energy-stage-action {
   position: absolute;
-  right: 24px;
+  inset-inline-end: 24px;
   bottom: 24px;
   z-index: 1;
 }
@@ -184,8 +184,8 @@ const videoLabel = computed(() => {
   }
 
   .energy-stat:nth-child(2n) {
-    border-right: 0;
-    padding-right: 0;
+    border-inline-end: 0;
+    padding-inline-end: 0;
   }
 }
 
@@ -200,8 +200,8 @@ const videoLabel = computed(() => {
   }
 
   .energy-stat {
-    border-right: 0;
-    padding-right: 0;
+    border-inline-end: 0;
+    padding-inline-end: 0;
     padding-bottom: 18px;
     border-bottom: 1px solid rgba(16, 23, 32, 0.08);
   }
@@ -212,7 +212,7 @@ const videoLabel = computed(() => {
   }
 
   .energy-stage-action {
-    right: 16px;
+    inset-inline-end: 16px;
     bottom: 16px;
   }
 }

@@ -454,6 +454,10 @@ onBeforeUnmount(() => {
   transform-origin: left center;
 }
 
+html[dir="rtl"] .hero-progress__bar {
+  transform-origin: right center;
+}
+
 .hero-arrow {
   width: 42px;
   height: 42px;

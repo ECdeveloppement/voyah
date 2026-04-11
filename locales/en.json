@@ -730,6 +730,35 @@
       "eyebrow": "Corporate Culture",
       "title": "Driven by Innovation",
       "summary": "Voyah is committed to creating a reliable, zero-anxiety intelligent electric lifestyle."
+    },
+    "store": {
+      "eyebrow": "Boutique Collection",
+      "title": "Voyah Lifestyle Store",
+      "summary": "Curated accessories and lifestyle products embodying our design DNA.",
+      "cat_all": "All Products",
+      "cat_apparel": "Apparel",
+      "cat_model": "Vehicle Models",
+      "cat_access": "Car Accessories",
+      "p1_title": "Titanium Smart Multi-Thermos",
+      "p2_title": "Voyah FREE 1:18 Diecast Model",
+      "p3_title": "Signature Kunpeng Edition Jacket",
+      "p4_title": "Premium Nappa Leather Key Fob Cover"
+    },
+    "community": {
+      "eyebrow": "Voyah Club",
+      "title": "The Voyah Community",
+      "summary": "Connect, share, and embark on journeys with like-minded pioneers.",
+      "tab_all": "Discovery Feed",
+      "tab_roadtrips": "Epic Roadtrips",
+      "tab_events": "Official Events",
+      "tab_tips": "Owner Tips",
+      "post1_title": "Crossing the Alps in my Voyah FREE",
+      "post1_desc": "Tested the air suspension across 500km of unpaved mountain roads today. Zero anxiety, unparalleled comfort.",
+      "post2_title": "OTA 3.0 is a game changer",
+      "post2_desc": "Just installed the latest over-the-air update. The new NOA (Navigate on Autopilot) behaves incredibly smoothly in heavy traffic.",
+      "post3_desc": "Took some shots of the ambient lighting reacting to the driving modes.",
+      "event_title": "Voyah Owners Meetup: Geneva",
+      "load_more": "Load More Journeys"
     }
   }
 }

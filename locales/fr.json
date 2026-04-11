@@ -730,6 +730,35 @@
       "eyebrow": "Corporate Culture",
       "title": "Driven by Innovation",
       "summary": "Voyah is committed to creating a reliable, zero-anxiety intelligent electric lifestyle."
+    },
+    "store": {
+      "eyebrow": "Collection Boutique",
+      "title": "Boutique Style de Vie Voyah",
+      "summary": "Accessoires raffinés et produits lifestyle incarnant notre ADN de design.",
+      "cat_all": "Tous les produits",
+      "cat_apparel": "Vêtements",
+      "cat_model": "Modèles de véhicules",
+      "cat_access": "Accessoires automobiles",
+      "p1_title": "Multi-Thermos Intelligent en Titane",
+      "p2_title": "Modèle Réduit Voyah FREE 1:18",
+      "p3_title": "Veste Édition Signature Kunpeng",
+      "p4_title": "Étui pour Clé en Cuir Nappa Premium"
+    },
+    "community": {
+      "eyebrow": "Club Voyah",
+      "title": "La Communauté Voyah",
+      "summary": "Connectez-vous, partagez et embarquez pour des voyages avec des pionniers partageant les mêmes idées.",
+      "tab_all": "Flux de Découverte",
+      "tab_roadtrips": "Roadtrips Épiques",
+      "tab_events": "Événements Officiels",
+      "tab_tips": "Conseils de Propriétaires",
+      "post1_title": "Traversée des Alpes dans mon Voyah FREE",
+      "post1_desc": "J'ai testé la suspension pneumatique sur 500 km de routes de montagne non pavées aujourd'hui. Zéro anxiété, confort inégalé.",
+      "post2_title": "OTA 3.0 change la donne",
+      "post2_desc": "Je viens d'installer la dernière mise à jour OTA. Le nouveau NOA (Navigate on Autopilot) se comporte incroyablement bien dans la circulation dense.",
+      "post3_desc": "J'ai pris quelques photos de l'éclairage d'ambiance réagissant aux modes de conduite.",
+      "event_title": "Rencontre des Propriétaires Voyah : Genève",
+      "load_more": "Charger Plus de Voyages"
     }
   }
 }

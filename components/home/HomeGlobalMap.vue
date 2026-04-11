@@ -115,8 +115,8 @@ const activeTab = ref(0)
 .tab-button::after {
   content: '';
   position: absolute;
-  left: 0;
-  right: 0;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
   bottom: -13px;
   height: 1px;
   background: #b31d22;
