@@ -1110,7 +1110,6 @@ const models = [
     description: t("A sleek electric sedan pairing decisive proportions, a quieter executive cabin, and composed grand-touring confidence.", "Une berline électrique élancée qui associe des proportions affirmées, un habitacle exécutif plus silencieux et une assurance de grand tourisme maîtrisée.", "سيدان كهربائية أنيقة تجمع بين التناسق الجريء والمقصورة التنفيذية الأكثر هدوءًا وثقة السفر الطويل المتزنة."),
     price: t("Executive performance sedan", "Berline exécutive performante", "سيدان تنفيذية عالية الأداء"),
     heroImage: "/voyah-resources/images/car/passion/1920/fl01.jpg",
-    heroVideo: "/voyah-resources/images/car/passion/video_01.mp4",
     logo: "/voyah-resources/images/car/car_logo/passion.png",
     gallery: [
       "/voyah-resources/images/car/passion/1920/fl04.jpg",
@@ -1152,8 +1151,8 @@ const models = [
     logo: "/voyah-resources/images/car/car_logo/titan_blackedition.png",
     gallery: [
       "/voyah-resources/images/car/titan_blackedition/1920/sc_10_1.jpg",
-      "/voyah-resources/images/car/titan_blackedition/1920/sc_17.jpg",
-      "/voyah-resources/images/car/titan_blackedition/1920/sc_18_1.jpg"
+      "/voyah-resources/images/car/titan_blackedition/1920/sc_21_1.jpg",
+      "/voyah-resources/images/car/titan_blackedition/1920/sc_23_1.jpg"
     ],
     metrics: [
       metric("Dark styling", "Design theme", "Thème design", "نسق التصميم"),
@@ -1202,8 +1201,7 @@ const models = [
     subtitle: t("Long-range premium crossover", "Crossover premium longue autonomie", "كروس أوفر فاخر بعيد المدى"),
     description: t("A long-range crossover with relaxed touring comfort, a calmer smart cockpit, and premium everyday versatility.", "Un crossover longue autonomie avec confort de voyage apaisé, cockpit intelligent plus serein et polyvalence premium au quotidien.", "كروس أوفر بعيد المدى يجمع بين راحة السفر الهادئة والمقصورة الذكية الأكثر سكينة والتنوع الفاخر اليومي."),
     price: t("Long-range premium crossover", "Crossover premium longue autonomie", "كروس أوفر فاخر بعيد المدى"),
-    heroImage: "/voyah-resources/images/car/free/bg-free-h97D-1.jpg",
-    heroVideo: "/voyah-resources/images/car/free/video_01.mp4",
+    heroImage: "/voyah-resources/images/car/free/kv_1920.png",
     logo: "/voyah-resources/images/car/car_logo/free.png",
     gallery: [
       "/voyah-resources/images/car/free/bg-free-h97D-5.jpg",
@@ -1263,9 +1261,9 @@ const models = [
     heroImage: "/voyah-resources/images/car/newDreamer26/kv_1920.jpg",
     logo: "/voyah-resources/images/car/car_logo/newDreamer26.png",
     gallery: [
-      "/voyah-resources/images/car/newDreamer26/bg_11_1920.jpg",
+      "/voyah-resources/images/car/newDreamer26/sc_10.jpg",
       "/voyah-resources/images/car/newDreamer26/sc_20.jpg",
-      "/voyah-resources/images/car/newDreamer26/bg_22_1920.jpg"
+      "/voyah-resources/images/car/newDreamer26/sc_24.jpg"
     ],
     metrics: [
       metric("MPV", "Body type", "Carrosserie", "نوع الهيكل"),
@@ -1279,12 +1277,12 @@ const models = [
     subtitle: t("Special-edition flagship MPV", "MPV phare en édition spéciale", "سيارة MPV رائدة بإصدار خاص"),
     description: t("A special Dreamer expression with ceremonial presence, executive lounge comfort, and a more curated premium hospitality tone.", "Une expression spéciale de Dreamer avec présence cérémonielle, confort de salon exécutif et tonalité d’hospitalité premium plus soignée.", "نسخة خاصة من Dreamer بحضور احتفالي وراحة صالون تنفيذي ونبرة ضيافة فاخرة أكثر عناية."),
     price: t("Champion special edition", "Édition spéciale Champion", "إصدار Champion الخاص"),
-    heroImage: "/voyah-resources/images/car/dreamer-champion/kv_1920.jpg",
+    heroImage: "/voyah-resources/images/car/dreamer-champion/kv_0408_1920.jpg",
     logo: "/voyah-resources/images/car/car_logo/dreamer-champion.png",
     gallery: [
-      "/voyah-resources/images/car/dreamer-champion/bg_11_n_1920.jpg",
-      "/voyah-resources/images/car/dreamer-champion/bg_15_n_1920.jpg",
-      "/voyah-resources/images/car/dreamer-champion/bg_21_n_1920.jpg"
+      "/voyah-resources/images/car/dreamer-champion/bg_12_n_banner01.jpg",
+      "/voyah-resources/images/car/dreamer-champion/bg_16_n_banner01.jpg",
+      "/voyah-resources/images/car/dreamer-champion/bg_24_n_banner01.jpg"
     ],
     metrics: [
       metric("Special edition", "Series", "Série", "السلسلة"),
@@ -1301,9 +1299,9 @@ const models = [
     heroImage: "/voyah-resources/images/car/newDreamer/h56c_pc08_banner01.jpg",
     logo: "/voyah-resources/images/car/car_logo/newDreamer.png",
     gallery: [
-      "/voyah-resources/images/car/newDreamer/bg_2_n_1920.jpg",
+      "/voyah-resources/images/car/newDreamer/h56c_pc08_banner01.jpg",
       "/voyah-resources/images/car/newDreamer/bg_7_n_1920.jpg",
-      "/voyah-resources/images/car/newDreamer/h56c_pc03_0003.jpg"
+      "/voyah-resources/images/car/newDreamer/h56c_pc20_bg.jpg"
     ],
     metrics: [
       metric("MPV", "Body type", "Carrosserie", "نوع الهيكل"),
@@ -1321,8 +1319,8 @@ const models = [
     logo: "/voyah-resources/images/car/car_logo/dreamriver.png",
     gallery: [
       "/voyah-resources/images/car/dreamriver/sc_2.png",
-      "/voyah-resources/images/car/dreamriver/sc_5-2.png",
-      "/voyah-resources/images/car/dreamriver/sc_8.png"
+      "/voyah-resources/images/car/dreamriver/sc_6-2.png",
+      "/voyah-resources/images/car/dreamriver/sc_10.png"
     ],
     metrics: [
       metric("Scenic theme", "Edition theme", "Thème de l?édition", "طابع الإصدار"),
@@ -1339,9 +1337,9 @@ const models = [
     heroImage: "/voyah-resources/images/car/dreamer/bg_2_1920.jpg",
     logo: "/voyah-resources/images/car/car_logo/dreamer.png",
     gallery: [
-      "/voyah-resources/images/car/dreamer/bg_13_1920.jpg",
-      "/voyah-resources/images/car/dreamer/bg_21_1920.jpg",
-      "/voyah-resources/images/car/dreamer/bg_24_1920.jpg"
+      "/voyah-resources/images/car/dreamer/bg_swiper_10_1.jpg",
+      "/voyah-resources/images/car/dreamer/bg_swiper_22_1.jpg",
+      "/voyah-resources/images/car/dreamer/bg_swiper_27_1.jpg"
     ],
     metrics: [
       metric("Three-row comfort", "Space", "Espace", "المساحة"),
@@ -2128,12 +2126,12 @@ const _routes = [
   {
     name: "energy",
     path: "/energy",
-    component: () => import('./energy-ZZOof-zh.mjs')
+    component: () => import('./energy-BDy5lIZH.mjs')
   },
   {
     name: "service",
     path: "/service",
-    component: () => import('./service-Dbv66l_s.mjs')
+    component: () => import('./service-BLHTJZFL.mjs')
   },
   {
     name: "document",
@@ -2153,13 +2151,13 @@ const _routes = [
   {
     name: "locale",
     path: "/:locale()",
-    component: () => import('./index-CUDbFzxW.mjs')
+    component: () => import('./index-C1-hCgA_.mjs')
   },
   {
     name: "locale-slug",
     path: "/:locale()/:slug()",
     meta: __nuxt_page_meta || {},
-    component: () => import('./_slug_-GAhDqcE9.mjs')
+    component: () => import('./_slug_-DH6RCZDC.mjs')
   }
 ];
 const _wrapInTransition = (props, children) => {
@@ -8702,7 +8700,7 @@ const plugins = [
   ssg_detect_IpHCGcQQ_IR5Rl99qyukWoMA9fJGfuTYyoksTzy81cs
 ];
 const layouts = {
-  default: defineAsyncComponent(() => import('./default-gCtOu30j.mjs').then((m) => m.default || m))
+  default: defineAsyncComponent(() => import('./default-CeShy_cJ.mjs').then((m) => m.default || m))
 };
 const routeRulesMatcher = _routeRulesMatcher;
 const LayoutLoader = defineComponent({

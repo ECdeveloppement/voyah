@@ -1,5 +1,5 @@
 <template>
-  <footer class="site-footer">
+  <footer class="site-footer" ref="footerRef">
     <div class="footer-app-shell">
       <div class="container footer-app">
         <div class="footer-app-copy">
@@ -25,7 +25,7 @@
 
     <div class="container footer-grid">
       <div class="footer-columns">
-        <section v-for="column in footerColumns" :key="column.title.en">
+        <section v-for="(column, idx) in footerColumns" :key="column.title.en" class="stagger-column" :style="{ '--stagger-idx': idx }">
           <h3>{{ textFor(column.title) }}</h3>
           <NuxtLink v-for="link in column.links" :key="link.slug" :to="buildPath(link.slug)">
             {{ textFor(link.label) }}
@@ -48,7 +48,7 @@
 
         <div class="footer-records">
           <span>{{ recordLabel }}</span>
-          <span>Copyright © 2021 Voyah.com.cn All rights reserved.</span>
+          <span>Copyright © {{ currentYear }} Voyah.com.cn All rights reserved.</span>
         </div>
       </div>
     </div>
@@ -56,55 +56,42 @@
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
 import { useSiteContent } from '~/composables/useSiteContent'
 
 const { footerColumns, footerContact, footerLegalLinks, buildPath, locale, textFor } = useSiteContent()
+const { t } = useNuxtApp().$i18n ? useNuxtApp().$i18n : { t: (k) => k }
 
-const appEyebrow = computed(() => {
-  if (locale.value.code === 'fr') return 'Télécharger l application Voyah'
-  if (locale.value.code === 'ar') return 'حمّل تطبيق Voyah'
-  return 'Download the Voyah App'
-})
+const appEyebrow = computed(() => t('global.footer.appEyebrow'))
+const appLabel = computed(() => t('global.footer.appLabel'))
+const miniLabel = computed(() => t('global.footer.miniLabel'))
+const miniCopy = computed(() => t('global.footer.miniCopy'))
+const versionLabel = computed(() => t('global.footer.versionLabel'))
+const companyLabel = computed(() => t('global.footer.companyLabel'))
+const phoneLabel = computed(() => t('global.footer.phoneLabel'))
+const emailLabel = computed(() => t('global.footer.emailLabel'))
+const recordLabel = computed(() => t('global.footer.recordLabel'))
 
-const appLabel = computed(() => (locale.value.code === 'ar' ? 'التطبيق' : 'App'))
+const currentYear = new Date().getFullYear();
+const footerRef = ref<HTMLElement | null>(null);
+let observer: IntersectionObserver | null = null;
 
-const miniLabel = computed(() => {
-  if (locale.value.code === 'fr') return 'Mini-programme'
-  if (locale.value.code === 'ar') return 'البرنامج المصغر'
-  return 'Mini program'
-})
+onMounted(() => {
+  observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer?.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
 
-const miniCopy = computed(() => {
-  if (locale.value.code === 'fr') return 'Programme officiel WeChat'
-  if (locale.value.code === 'ar') return 'برنامج WeChat الرسمي'
-  return 'Official WeChat mini program'
-})
+  if (footerRef.value) observer.observe(footerRef.value);
+});
 
-const versionLabel = computed(() => 'Android 5.5.0  iOS 5.5.0  HarmonyOS 1.9.0')
-
-const companyLabel = computed(() => {
-  if (locale.value.code === 'fr') return 'Voyah Automotive Technology Co., Ltd.'
-  if (locale.value.code === 'ar') return 'شركة Voyah Automotive Technology Co., Ltd.'
-  return 'Voyah Automotive Technology Co., Ltd.'
-})
-
-const phoneLabel = computed(() => {
-  if (locale.value.code === 'fr') return 'Service client: 400-888-8488'
-  if (locale.value.code === 'ar') return 'خدمة العملاء: 400-888-8488'
-  return 'Customer service: 400-888-8488'
-})
-
-const emailLabel = computed(() => {
-  if (locale.value.code === 'fr') return 'E-mail: voyah-callcenter@voyah.com.cn'
-  if (locale.value.code === 'ar') return 'البريد: voyah-callcenter@voyah.com.cn'
-  return 'Email: voyah-callcenter@voyah.com.cn'
-})
-
-const recordLabel = computed(() => {
-  if (locale.value.code === 'fr') return 'Hubei ICP 2021016773-2'
-  if (locale.value.code === 'ar') return 'رقم Hubei ICP 2021016773-2'
-  return 'Hubei ICP 2021016773-2'
-})
+onUnmounted(() => {
+  if (observer) observer.disconnect();
+});
 </script>
 
 <style scoped>
@@ -112,6 +99,18 @@ const recordLabel = computed(() => {
   padding: 0 0 28px;
   color: #fff;
   background: #111821;
+}
+
+.stagger-column {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--stagger-idx) * 0.1s);
+}
+
+.site-footer.in-view .stagger-column {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .footer-app-shell {
@@ -266,5 +265,20 @@ const recordLabel = computed(() => {
   .footer-columns {
     grid-template-columns: minmax(0, 1fr);
   }
+}
+
+/* RTL Support */
+[dir="rtl"] .footer-columns {
+  direction: rtl;
+}
+
+[dir="rtl"] .footer-app {
+  grid-template-columns: auto 1.2fr;
+  direction: rtl;
+}
+
+[dir="rtl"] .footer-bottom,
+[dir="rtl"] .footer-company {
+  direction: rtl;
 }
 </style>

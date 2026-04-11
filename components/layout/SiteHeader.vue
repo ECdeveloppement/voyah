@@ -69,10 +69,11 @@
 
                     <div class="models-grid">
                       <NuxtLink
-                        v-for="entry in section.items"
+                        v-for="(entry, entryIdx) in section.items"
                         :key="entry.slug"
                         :to="buildPath(entry.slug)"
                         class="models-card"
+                        :style="{ '--stagger-idx': entryIdx }"
                       >
                         <div class="models-card__media">
                           <img
@@ -152,10 +153,11 @@
 
               <div v-else class="dropdown-inner">
                 <NuxtLink
-                  v-for="child in item.children"
+                  v-for="(child, childIdx) in item.children"
                   :key="child.slug ?? item.label.en"
                   :to="buildPath(child.slug)"
                   class="dropdown-card"
+                  :style="{ '--stagger-idx': childIdx }"
                 >
                   <img
                     v-if="child.thumb"
@@ -387,29 +389,10 @@ const isScrolled = computed(() => scrollY.value > 28 || !isHomeRoute.value)
 
 const copy = (en: string, fr: string, ar: string): LocalizedText => ({ en, fr, ar })
 
-const loginLabel = computed(() => {
-  if (locale.value.code === 'fr') return 'Connexion'
-  if (locale.value.code === 'ar') return 'تسجيل الدخول'
-  return 'Login'
-})
-
-const configLabel = computed(() => {
-  if (locale.value.code === 'fr') return 'Voir toutes les configurations'
-  if (locale.value.code === 'ar') return 'كل المواصفات'
-  return 'All configs'
-})
-
-const testDriveLabel = computed(() => {
-  if (locale.value.code === 'fr') return 'Réserver un essai'
-  if (locale.value.code === 'ar') return 'تجربة قيادة'
-  return 'Test drive'
-})
-
-const orderLabel = computed(() => {
-  if (locale.value.code === 'fr') return 'Commander'
-  if (locale.value.code === 'ar') return 'اطلب الآن'
-  return 'Order now'
-})
+const loginLabel = computed(() => useNuxtApp().$i18n.t('global.header.login'))
+const configLabel = computed(() => useNuxtApp().$i18n.t('global.header.config'))
+const testDriveLabel = computed(() => useNuxtApp().$i18n.t('global.header.testDrive'))
+const orderLabel = computed(() => useNuxtApp().$i18n.t('global.header.order'))
 
 const modelMenuSections = [
   {
@@ -596,7 +579,7 @@ onBeforeUnmount(() => {
   z-index: 100;
   background: rgba(7, 10, 14, 0.9);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(22px);
+  backdrop-filter: blur(12px) saturate(180%);
   transition:
     background-color 0.24s cubic-bezier(0.22, 1, 0.36, 1),
     border-color 0.24s cubic-bezier(0.22, 1, 0.36, 1),
@@ -1372,6 +1355,26 @@ onBeforeUnmount(() => {
     width: 104px;
   }
 }
+
+/* GSAP/Cinematic Stagger Injection */
+.nav-dropdown .models-card,
+.nav-dropdown .dropdown-card {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--stagger-idx, 0) * 0.05s);
+}
+
+.nav-dropdown.open .models-card,
+.nav-dropdown.open .dropdown-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.site-header--scrolled.site-header--transparent {
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  background: rgba(17, 24, 33, 0.85);
+}
 </style>
-.
 

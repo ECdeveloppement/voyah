@@ -167,6 +167,17 @@ const syncActiveMedia = async () => {
     }
   }
 
+  // Trigger Stagger Animation for typography
+  if (heroRef.value) {
+    const activeElements = heroRef.value.querySelectorAll(`.hero-slide:nth-child(${activeIndex.value + 1}) .hero-copy > *`)
+    gsap.killTweensOf(activeElements)
+    gsap.fromTo(
+      activeElements,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 1.2, stagger: 0.15, ease: 'power3.out', delay: 0.3 }
+    )
+  }
+
   const activeSlide = props.slides[activeIndex.value]
   const activeVideo = videoEls.value[activeIndex.value]
   const duration = activeSlide?.video && activeVideo && Number.isFinite(activeVideo.duration) && activeVideo.duration > 0
@@ -318,17 +329,17 @@ onBeforeUnmount(() => {
 
 .hero-copy {
   max-width: 760px;
-  opacity: 0;
-  transform: translateY(24px);
-  transition:
-    opacity 0.62s cubic-bezier(0.33, 1, 0.68, 1) 0.18s,
-    transform 0.62s cubic-bezier(0.33, 1, 0.68, 1) 0.18s;
   text-align: center;
+}
+
+/* Stagger initial state handled directly by GSAP */
+.hero-slide .hero-copy > * {
+  opacity: 0;
+  transform: translateY(30px);
 }
 
 .hero-slide.active .hero-copy {
   opacity: 1;
-  transform: translateY(0);
 }
 
 .hero-copy--logo {

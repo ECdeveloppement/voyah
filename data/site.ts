@@ -618,7 +618,6 @@ const models: ModelDefinition[] = [
     description: t('A sleek electric sedan pairing decisive proportions, a quieter executive cabin, and composed grand-touring confidence.', 'Une berline électrique élancée qui associe des proportions affirmées, un habitacle exécutif plus silencieux et une assurance de grand tourisme maîtrisée.', 'سيدان كهربائية أنيقة تجمع بين التناسق الجريء والمقصورة التنفيذية الأكثر هدوءًا وثقة السفر الطويل المتزنة.'),
     price: t('Executive performance sedan', 'Berline exécutive performante', 'سيدان تنفيذية عالية الأداء'),
     heroImage: '/voyah-resources/images/car/passion/1920/fl01.jpg',
-    heroVideo: '/voyah-resources/images/car/passion/video_01.mp4',
     logo: '/voyah-resources/images/car/car_logo/passion.png',
     gallery: [
       '/voyah-resources/images/car/passion/1920/fl04.jpg',
@@ -660,8 +659,8 @@ const models: ModelDefinition[] = [
     logo: '/voyah-resources/images/car/car_logo/titan_blackedition.png',
     gallery: [
       '/voyah-resources/images/car/titan_blackedition/1920/sc_10_1.jpg',
-      '/voyah-resources/images/car/titan_blackedition/1920/sc_17.jpg',
-      '/voyah-resources/images/car/titan_blackedition/1920/sc_18_1.jpg'
+      '/voyah-resources/images/car/titan_blackedition/1920/sc_21_1.jpg',
+      '/voyah-resources/images/car/titan_blackedition/1920/sc_23_1.jpg'
     ],
     metrics: [
       metric('Dark styling', 'Design theme', 'Thème design', 'نسق التصميم'),
@@ -710,8 +709,7 @@ const models: ModelDefinition[] = [
     subtitle: t('Long-range premium crossover', 'Crossover premium longue autonomie', 'كروس أوفر فاخر بعيد المدى'),
     description: t('A long-range crossover with relaxed touring comfort, a calmer smart cockpit, and premium everyday versatility.', 'Un crossover longue autonomie avec confort de voyage apaisé, cockpit intelligent plus serein et polyvalence premium au quotidien.', 'كروس أوفر بعيد المدى يجمع بين راحة السفر الهادئة والمقصورة الذكية الأكثر سكينة والتنوع الفاخر اليومي.'),
     price: t('Long-range premium crossover', 'Crossover premium longue autonomie', 'كروس أوفر فاخر بعيد المدى'),
-    heroImage: '/voyah-resources/images/car/free/bg-free-h97D-1.jpg',
-    heroVideo: '/voyah-resources/images/car/free/video_01.mp4',
+    heroImage: '/voyah-resources/images/car/free/kv_1920.png',
     logo: '/voyah-resources/images/car/car_logo/free.png',
     gallery: [
       '/voyah-resources/images/car/free/bg-free-h97D-5.jpg',
@@ -771,9 +769,9 @@ const models: ModelDefinition[] = [
     heroImage: '/voyah-resources/images/car/newDreamer26/kv_1920.jpg',
     logo: '/voyah-resources/images/car/car_logo/newDreamer26.png',
     gallery: [
-      '/voyah-resources/images/car/newDreamer26/bg_11_1920.jpg',
+      '/voyah-resources/images/car/newDreamer26/sc_10.jpg',
       '/voyah-resources/images/car/newDreamer26/sc_20.jpg',
-      '/voyah-resources/images/car/newDreamer26/bg_22_1920.jpg'
+      '/voyah-resources/images/car/newDreamer26/sc_24.jpg'
     ],
     metrics: [
       metric('MPV', 'Body type', 'Carrosserie', 'نوع الهيكل'),
@@ -787,12 +785,12 @@ const models: ModelDefinition[] = [
     subtitle: t('Special-edition flagship MPV', 'MPV phare en édition spéciale', 'سيارة MPV رائدة بإصدار خاص'),
     description: t('A special Dreamer expression with ceremonial presence, executive lounge comfort, and a more curated premium hospitality tone.', 'Une expression spéciale de Dreamer avec présence cérémonielle, confort de salon exécutif et tonalité d’hospitalité premium plus soignée.', 'نسخة خاصة من Dreamer بحضور احتفالي وراحة صالون تنفيذي ونبرة ضيافة فاخرة أكثر عناية.'),
     price: t('Champion special edition', 'Édition spéciale Champion', 'إصدار Champion الخاص'),
-    heroImage: '/voyah-resources/images/car/dreamer-champion/kv_1920.jpg',
+    heroImage: '/voyah-resources/images/car/dreamer-champion/kv_0408_1920.jpg',
     logo: '/voyah-resources/images/car/car_logo/dreamer-champion.png',
     gallery: [
-      '/voyah-resources/images/car/dreamer-champion/bg_11_n_1920.jpg',
-      '/voyah-resources/images/car/dreamer-champion/bg_15_n_1920.jpg',
-      '/voyah-resources/images/car/dreamer-champion/bg_21_n_1920.jpg'
+      '/voyah-resources/images/car/dreamer-champion/bg_12_n_banner01.jpg',
+      '/voyah-resources/images/car/dreamer-champion/bg_16_n_banner01.jpg',
+      '/voyah-resources/images/car/dreamer-champion/bg_24_n_banner01.jpg'
     ],
     metrics: [
       metric('Special edition', 'Series', 'Série', 'السلسلة'),
@@ -809,9 +807,9 @@ const models: ModelDefinition[] = [
     heroImage: '/voyah-resources/images/car/newDreamer/h56c_pc08_banner01.jpg',
     logo: '/voyah-resources/images/car/car_logo/newDreamer.png',
     gallery: [
-      '/voyah-resources/images/car/newDreamer/bg_2_n_1920.jpg',
+      '/voyah-resources/images/car/newDreamer/h56c_pc08_banner01.jpg',
       '/voyah-resources/images/car/newDreamer/bg_7_n_1920.jpg',
-      '/voyah-resources/images/car/newDreamer/h56c_pc03_0003.jpg'
+      '/voyah-resources/images/car/newDreamer/h56c_pc20_bg.jpg'
     ],
     metrics: [
       metric('MPV', 'Body type', 'Carrosserie', 'نوع الهيكل'),
@@ -829,8 +827,8 @@ const models: ModelDefinition[] = [
     logo: '/voyah-resources/images/car/car_logo/dreamriver.png',
     gallery: [
       '/voyah-resources/images/car/dreamriver/sc_2.png',
-      '/voyah-resources/images/car/dreamriver/sc_5-2.png',
-      '/voyah-resources/images/car/dreamriver/sc_8.png'
+      '/voyah-resources/images/car/dreamriver/sc_6-2.png',
+      '/voyah-resources/images/car/dreamriver/sc_10.png'
     ],
     metrics: [
       metric('Scenic theme', 'Edition theme', 'Thème de l?édition', 'طابع الإصدار'),
@@ -847,15 +845,37 @@ const models: ModelDefinition[] = [
     heroImage: '/voyah-resources/images/car/dreamer/bg_2_1920.jpg',
     logo: '/voyah-resources/images/car/car_logo/dreamer.png',
     gallery: [
-      '/voyah-resources/images/car/dreamer/bg_13_1920.jpg',
-      '/voyah-resources/images/car/dreamer/bg_21_1920.jpg',
-      '/voyah-resources/images/car/dreamer/bg_24_1920.jpg'
+      '/voyah-resources/images/car/dreamer/bg_swiper_10_1.jpg',
+      '/voyah-resources/images/car/dreamer/bg_swiper_22_1.jpg',
+      '/voyah-resources/images/car/dreamer/bg_swiper_27_1.jpg'
     ],
     metrics: [
       metric('Three-row comfort', 'Space', 'Espace', 'المساحة'),
       metric('Family calm', 'Travel atmosphere', 'Ambiance de voyage', 'أجواء الرحلة'),
       metric('Electric luxury', 'Power theme', 'Motorisation', 'المنظومة')
     ]
+  }),
+  makeModel({
+    slug: 'titan_ultra.html',
+    title: t('Titan Ultra (2026)', 'Titan Ultra (2026)', 'تيتان ألترا (2026)'),
+    subtitle: t('L3 Autonomous Roadmap', 'Feuille de route L3 Autonome', 'مخطط القيادة الذاتية L3'),
+    description: t('Future L3 autonomous driving flagship.', 'Le futur vaisseau amiral de la conduite autonome L3.', 'رائدة القيادة الذاتية L3 المستقبلية.'),
+    price: t('Coming 2026', 'Prévu pour 2026', 'قادم في 2026'),
+    heroImage: '/voyah-resources/models/titan_ultra_hero.jpg',
+    logo: '/voyah-resources/models/titan_ultra_logo.png',
+    gallery: [],
+    metrics: []
+  }),
+  makeModel({
+    slug: 'everest.html',
+    title: t('Everest (2026)', 'Everest (2026)', 'إيفرست (2026)'),
+    subtitle: t('Next-gen flagship', 'Vaisseau amiral de nouvelle génération', 'رائدة الجيل القادم'),
+    description: t('The pinnacle of Voyah innovation.', 'Le sommet de l\'innovation Voyah.', 'قمة ابتكار فوييا.'),
+    price: t('Coming 2026', 'Prévu pour 2026', 'قادم في 2026'),
+    heroImage: '/voyah-resources/models/everest_hero.jpg',
+    logo: '/voyah-resources/models/everest_logo.png',
+    gallery: [],
+    metrics: []
   })
 ]
 
@@ -1072,8 +1092,124 @@ const infoPages: InfoDefinition[] = [
       block('/static/assets/store3-fe6e8d7d.jpg', 'Store coordination', 'Coordination en magasin', 'تنسيق المعرض', 'The booking flow connects directly to the physical store network so that consultation, arrival planning, and drive preparation stay within one smooth process.', 'Le parcours de réservation se connecte directement au réseau de magasins afin que le conseil, la préparation de la visite et l’organisation de l’essai restent dans un processus fluide unique.', 'يرتبط مسار الحجز مباشرة بشبكة المعارض الفعلية حتى تظل الاستشارة والتخطيط للزيارة وتجهيز تجربة القيادة ضمن عملية سلسة واحدة.'),
       block('/static/assets/life_center_poster-fb653778.png', 'Ownership onboarding', 'Découverte de la possession', 'تهيئة الملكية', 'A test drive supports not only product discovery but also a clearer understanding of the full ownership journey and service experience.', 'L’essai sert non seulement à découvrir le produit, mais aussi à mieux comprendre le parcours de possession complet et l’expérience de service.', 'لا تخدم تجربة القيادة اكتشاف المنتج فقط، بل تساعد أيضاً على فهم أوضح لرحلة الملكية الكاملة وتجربة الخدمة.'),
     ],
-    ctaLabel: t('Visit store center', 'Visiter le centre de magasins', 'زيارة مركز المعارض'),
     ctaSlug: 'store.html'
+  },
+  {
+    kind: 'info',
+    slug: 'architecture.html',
+    eyebrow: t('Architecture', 'Architecture', 'البنية التقنية'),
+    title: t('ESSA Architecture', 'Architecture ESSA', 'منصة ESSA'),
+    summary: t('The native smart electric architecture.', 'L’architecture électrique intelligente native.', 'المنصة الكهربائية الذكية الأصلية.'),
+    heroImage: '/voyah-resources/tech/essa_diagram.png',
+    blocks: []
+  },
+  {
+    kind: 'info',
+    slug: 'safety.html',
+    eyebrow: t('Safety', 'Sécurité', 'السلامة'),
+    title: t('Voyah Safety', 'Sécurité Voyah', 'سلامة Voyah'),
+    summary: t('Battery and structural safety.', 'Sécurité structurelle et de la batterie.', 'سلامة البطارية والهيكل.'),
+    heroImage: '/voyah-resources/tech/battery_shield.png',
+    blocks: []
+  },
+  {
+    kind: 'info',
+    slug: 'smart-cockpit.html',
+    eyebrow: t('Cockpit', 'Cockpit', 'المقصورة'),
+    title: t('Cockpit', 'Cockpit', 'المقصورة'),
+    summary: t('Smart cockpit', 'Smart cockpit', 'المقصورة الذكية'),
+    heroImage: '',
+    blocks: []
+  },
+  {
+    kind: 'info',
+    slug: 'battery.html',
+    eyebrow: t('Battery', 'Batterie', 'البطارية'),
+    title: t('Battery', 'Batterie', 'البطارية'),
+    summary: t('Battery tech', 'Battery tech', 'البطارية'),
+    heroImage: '',
+    blocks: []
+  },
+  {
+    kind: 'info',
+    slug: 'about.html',
+    eyebrow: t('About', 'À propos', 'حول'),
+    title: t('About Voyah', 'À propos de Voyah', 'عن Voyah'),
+    summary: t('The premium EV brand of Dongfeng.', 'La marque EV premium de Dongfeng.', 'العلامة الفاخرة للسيارات الكهربائية من دونغفينغ.'),
+    heroImage: '/voyah-resources/brand/about_hero.jpg',
+    blocks: []
+  },
+  {
+    kind: 'info',
+    slug: 'news.html',
+    eyebrow: t('News', 'Actualités', 'الأخبار'),
+    title: t('Voyah News', 'Actualités Voyah', 'أخبار Voyah'),
+    summary: t('Latest updates and press releases.', 'Dernières mises à jour et communiqués.', 'أحدث التحديثات والبيانات الصحفية.'),
+    heroImage: '/voyah-resources/brand/news_hero.jpg',
+    blocks: []
+  },
+  {
+    kind: 'info',
+    slug: 'brand-philosophy.html',
+    eyebrow: t('Philosophy', 'Philosophie', 'الفلسفة'),
+    title: t('Brand Philosophy', 'Philosophie de marque', 'فلسفة العلامة'),
+    summary: t('Intelligent Voyah, Creating Happiness.', 'Voyah Intelligente, Créer le Bonheur.', 'فوييا الذكية، تصنع السعادة.'),
+    heroImage: '/voyah-resources/brand/philosophy_hero.jpg',
+    blocks: []
+  },
+  {
+    kind: 'info',
+    slug: 'kunpeng-design.html',
+    eyebrow: t('Design', 'Design', 'التصميم'),
+    title: t('Kunpeng Design', 'Design Kunpeng', 'تصميم كونبينج'),
+    summary: t('Chinese elegance meets modern technology.', 'L\'élégance chinoise rencontre la technologie.', 'الأناقة الصينية تلتقي بالتكنولوجيا.'),
+    heroImage: '/voyah-resources/brand/kunpeng_hero.jpg',
+    blocks: []
+  },
+  {
+    kind: 'info',
+    slug: 'warranty.html',
+    eyebrow: t('Warranty', 'Garantie', 'الضمان'),
+    title: t('Warranty Service', 'Service de Garantie', 'خدمة الضمان'),
+    summary: t('Comprehensive protection for your journey.', 'Protection complète pour votre voyage.', 'حماية شاملة لرحلتك.'),
+    heroImage: '/voyah-resources/service/warranty_hero.jpg',
+    blocks: []
+  },
+  {
+    kind: 'info',
+    slug: 'app-download.html',
+    eyebrow: t('App', 'App', 'التطبيق'),
+    title: t('Download App', 'Télécharger l\'Application', 'تحميل التطبيق'),
+    summary: t('Control your Voyah from your fingertips.', 'Contrôlez votre Voyah du bout des doigts.', 'تحكم في سيارة فوييا من أطراف أصابعك.'),
+    heroImage: '/voyah-resources/service/app_hero.jpg',
+    blocks: []
+  },
+  {
+    kind: 'info',
+    slug: 'faq.html',
+    eyebrow: t('FAQ', 'FAQ', 'الأسئلة الشائعة'),
+    title: t('Frequently Asked Questions', 'Questions Fréquemment Posées', 'الأسئلة الشائعة'),
+    summary: t('Find answers to common questions.', 'Trouvez des réponses aux questions courantes.', 'ابحث عن إجابات للأسئلة الشائعة.'),
+    heroImage: '/voyah-resources/service/faq_hero.jpg',
+    blocks: []
+  },
+  {
+    kind: 'info',
+    slug: 'community.html',
+    eyebrow: t('Community', 'Communauté', 'المجتمع'),
+    title: t('Voyah Community', 'Communauté Voyah', 'مجتمع Voyah'),
+    summary: t('Join the Voyah owners network.', 'Rejoignez le réseau des propriétaires Voyah.', 'انضم إلى شبكة مالكي فوييا.'),
+    heroImage: '/voyah-resources/lifestyle/community_hero.jpg',
+    blocks: []
+  },
+  {
+    kind: 'info',
+    slug: 'lifestyle-store.html',
+    eyebrow: t('Store', 'Boutique', 'المتجر'),
+    title: t('Lifestyle Store', 'Boutique Lifestyle', 'متجر أسلوب الحياة'),
+    summary: t('Exclusive accessories and apparel.', 'Accessoires et vêtements exclusifs.', 'إكسسوارات وملابس حصرية.'),
+    heroImage: '/voyah-resources/lifestyle/store_hero.jpg',
+    blocks: []
   }
 ]
 

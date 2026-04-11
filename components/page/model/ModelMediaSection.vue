@@ -1,5 +1,6 @@
 <template>
   <section
+    ref="sectionRef"
     :id="section.id"
     :class="[
       'model-media-section',
@@ -8,7 +9,7 @@
       { reverse: index % 2 === 1 }
     ]"
   >
-    <div v-if="section.kind === 'banner'" class="model-banner" :style="bannerStyle">
+    <div v-if="section.kind === 'banner'" class="model-banner" :style="bannerStyle" data-parallax>
       <div class="model-banner-overlay" />
       <div class="container model-banner-inner" data-reveal>
         <h2 class="model-banner-title">{{ section.title }}</h2>
@@ -26,7 +27,7 @@
       <div v-if="section.kind === 'carousel'" class="model-carousel-wrap" data-reveal>
         <div class="model-carousel-stage">
           <article v-if="activeCarouselSlide" class="model-carousel-card active model-carousel-card--featured">
-            <div class="model-carousel-media">
+            <div class="model-carousel-media" data-parallax>
               <video
                 v-if="activeCarouselSlide.video"
                 :poster="activeCarouselSlide.image"
@@ -92,7 +93,7 @@
       </div>
 
       <div v-else class="model-image-block" data-reveal>
-        <div class="model-image-frame">
+        <div class="model-image-frame" data-parallax>
           <video
             v-if="section.videos?.length"
             :poster="section.image ?? section.images[0] ?? ''"
@@ -119,6 +120,9 @@
 </template>
 
 <script setup lang="ts">
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+
 type SectionKind = 'image' | 'carousel' | 'banner'
 
 type LocalizedText = { en: string; fr: string; ar: string }
@@ -153,8 +157,10 @@ const props = defineProps<{
 }>()
 
 const activeSlide = ref(0)
+const sectionRef = ref<HTMLElement | null>(null)
 let timer: ReturnType<typeof setInterval> | null = null
 const hasMounted = ref(false)
+const triggers: ScrollTrigger[] = []
 
 const carouselSlides = computed<CarouselSlide[]>(() => {
   if (props.section.slides?.length) {
@@ -215,6 +221,58 @@ const syncCarouselTimer = () => {
 onMounted(() => {
   hasMounted.value = true
   syncCarouselTimer()
+
+  if (!sectionRef.value) {
+    return
+  }
+
+  gsap.registerPlugin(ScrollTrigger)
+
+  const revealTargets = sectionRef.value.querySelectorAll<HTMLElement>('[data-reveal]')
+  revealTargets.forEach((target, index) => {
+    gsap.fromTo(
+      target,
+      { autoAlpha: 0.01, y: 30 },
+      {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.78,
+        delay: index * 0.04,
+        ease: 'power3.out',
+        overwrite: 'auto',
+        scrollTrigger: {
+          trigger: target,
+          start: 'top 86%',
+          toggleActions: 'play none none reverse'
+        }
+      }
+    )
+  })
+
+  const parallaxTargets = sectionRef.value.querySelectorAll<HTMLElement>('[data-parallax]')
+  parallaxTargets.forEach((target) => {
+    gsap.fromTo(
+      target,
+      { yPercent: 5 },
+      {
+        yPercent: -5,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: target,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 0.45
+        }
+      }
+    )
+  })
+
+  ScrollTrigger.getAll().forEach((trigger) => {
+    const triggerElement = trigger.vars.trigger
+    if (triggerElement instanceof HTMLElement && sectionRef.value?.contains(triggerElement)) {
+      triggers.push(trigger)
+    }
+  })
 })
 
 watch(
@@ -228,24 +286,25 @@ onBeforeUnmount(() => {
   if (timer) {
     clearInterval(timer)
   }
+  triggers.forEach((trigger) => trigger.kill())
 })
 </script>
 
 <style scoped>
 .model-media-section {
-  padding: 96px 0 84px;
+  padding: 88px 0 78px;
   background: #fff;
 }
 
 .model-media-content {
   display: grid;
-  gap: 28px;
+  gap: 24px;
 }
 
 .model-media-head {
   display: grid;
-  gap: 12px;
-  max-width: 960px;
+  gap: 10px;
+  max-width: 920px;
 }
 
 .model-media-kicker {
@@ -259,26 +318,27 @@ onBeforeUnmount(() => {
 .model-media-title {
   margin: 0;
   color: #101720;
-  font-size: clamp(2rem, 3.7vw, 4rem);
-  line-height: 0.98;
+  font-size: clamp(1.85rem, 3.3vw, 3.6rem);
+  line-height: 1.02;
 }
 
 .model-media-summary {
   margin: 0;
-  max-width: 760px;
+  max-width: 720px;
   color: #55626f;
-  line-height: 1.85;
+  line-height: 1.78;
 }
 
 .model-image-block {
   display: grid;
-  gap: 18px;
+  gap: 14px;
 }
 
 .model-image-frame {
   overflow: hidden;
   border: 1px solid rgba(16, 23, 32, 0.08);
   background: #eff2f4;
+  aspect-ratio: 16 / 9;
 }
 
 .model-image-frame img,
@@ -287,17 +347,23 @@ onBeforeUnmount(() => {
   height: 100%;
   display: block;
   object-fit: cover;
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.model-image-frame:hover img,
+.model-image-frame:hover video {
+  transform: scale(1.02);
 }
 
 .model-detail-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  gap: 14px;
 }
 
 .model-detail-card {
-  min-height: 158px;
-  padding: 24px 22px;
+  min-height: 146px;
+  padding: 20px 18px;
   border-top: 1px solid rgba(16, 23, 32, 0.08);
   background: linear-gradient(180deg, rgba(247, 244, 239, 0.4), rgba(255, 255, 255, 0.96));
 }
@@ -305,26 +371,26 @@ onBeforeUnmount(() => {
 .model-detail-title {
   margin: 0;
   color: #101720;
-  font-size: 1.02rem;
+  font-size: 0.98rem;
   font-weight: 600;
   line-height: 1.35;
 }
 
 .model-detail-summary {
-  margin: 12px 0 0;
+  margin: 10px 0 0;
   color: #55626f;
-  line-height: 1.72;
+  line-height: 1.68;
 }
 
 .model-carousel-wrap {
   display: grid;
-  gap: 18px;
+  gap: 14px;
 }
 
 .model-carousel-stage {
   display: grid;
   grid-template-columns: minmax(0, 1.58fr) minmax(280px, 0.72fr);
-  gap: 18px;
+  gap: 14px;
   align-items: stretch;
 }
 
@@ -353,7 +419,7 @@ onBeforeUnmount(() => {
 
 .model-carousel-rail {
   display: grid;
-  gap: 12px;
+  gap: 10px;
   align-content: stretch;
 }
 
@@ -401,7 +467,7 @@ onBeforeUnmount(() => {
 }
 
 .model-carousel-media {
-  aspect-ratio: 1.52 / 1;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
 }
 
@@ -424,22 +490,22 @@ onBeforeUnmount(() => {
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 20px 18px 18px;
+  padding: 16px 16px 15px;
   background: linear-gradient(180deg, rgba(8, 12, 16, 0.08), rgba(8, 12, 16, 0.82));
 }
 
 .model-carousel-copy-title {
   margin: 0;
   color: #fff;
-  font-size: 1.04rem;
+  font-size: 1rem;
   font-weight: 600;
   line-height: 1.35;
 }
 
 .model-carousel-copy-text {
-  margin: 10px 0 0;
+  margin: 8px 0 0;
   color: rgba(246, 248, 250, 0.82);
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
 .model-carousel-pagination {
@@ -507,9 +573,17 @@ onBeforeUnmount(() => {
   line-height: 1.8;
 }
 
+:global(.is-rtl) .model-media-head,
+:global(.is-rtl) .model-carousel-rail-copy,
+:global(.is-rtl) .model-carousel-copy,
+:global(.is-rtl) .model-detail-card,
+:global(.is-rtl) .model-banner-inner {
+  text-align: right;
+}
+
 .model-banner {
   position: relative;
-  min-height: 440px;
+  min-height: 400px;
   background: center / cover no-repeat;
 }
 
@@ -524,27 +598,27 @@ onBeforeUnmount(() => {
 .model-banner-inner {
   position: relative;
   z-index: 1;
-  min-height: 440px;
+  min-height: 400px;
   display: grid;
   align-content: end;
-  gap: 12px;
-  padding-top: 84px;
-  padding-bottom: 58px;
+  gap: 10px;
+  padding-top: 72px;
+  padding-bottom: 50px;
 }
 
 .model-banner-title {
   margin: 0;
   max-width: 900px;
   color: #fff;
-  font-size: clamp(2.1rem, 4.6vw, 4.7rem);
-  line-height: 0.98;
+  font-size: clamp(1.9rem, 4.1vw, 4rem);
+  line-height: 1;
 }
 
 .model-banner-subtitle {
   margin: 0;
-  max-width: 760px;
+  max-width: 700px;
   color: rgba(242, 246, 249, 0.84);
-  line-height: 1.75;
+  line-height: 1.68;
 }
 
 @media (max-width: 1100px) {
@@ -565,12 +639,12 @@ onBeforeUnmount(() => {
 
 @media (max-width: 768px) {
   .model-media-section {
-    padding: 64px 0 58px;
+    padding: 54px 0 48px;
   }
 
   .model-banner,
   .model-banner-inner {
-    min-height: 320px;
+    min-height: 300px;
   }
 
   .model-detail-card {

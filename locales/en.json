@@ -1,0 +1,735 @@
+{
+  "pages": {
+    "passion_l": {
+      "hero": {
+        "title": "Voyah Passion L",
+        "subtitle": "New-era flagship sedan",
+        "description": "Starting from RMB 279,900.",
+        "price": "Starting from RMB 279,900",
+        "ctaPrimary": "Order now",
+        "ctaSecondary": "Configuration list",
+        "metrics": {
+          "type": {
+            "value": "Sedan",
+            "label": "Body type"
+          },
+          "positioning": {
+            "value": "Flagship",
+            "label": "Positioning"
+          },
+          "experience": {
+            "value": "Executive luxury",
+            "label": "Experience"
+          }
+        }
+      },
+      "sections": {
+        "chapter_1": {
+          "title": "Oriental flagship aesthetics",
+          "summary": "Passion L interprets the design language through ceremonial front graphics, an elongated sedan proportion, and an elegant rear profile shaped around executive presence."
+        },
+        "chapter_2": {
+          "title": "All-dimensional comfort cabin",
+          "summary": "The long-wheelbase cabin uses premium seat engineering, panoramic openness, and refined rear-space detailing to match the comfort-first sedan story."
+        },
+        "chapter_3": {
+          "title": "HarmonySpace cockpit",
+          "summary": "HarmonySpace brings the digital flagship expression to Passion L through a wide-format display, seamless ecosystem flow, and a calmer interaction experience."
+        },
+        "chapter_4": {
+          "title": "Huawei Qiankun ADS",
+          "summary": "The assisted-driving chapter is presented with sensor coverage, P2P navigation logic, and all-dimensional collision prevention."
+        },
+        "chapter_5": {
+          "title": "Lanhai intelligent super hybrid",
+          "summary": "Ultra-fast charging, long electric range, and the brand’s hybrid power narrative are grouped together here to echo the powertrain storytelling."
+        },
+        "chapter_6": {
+          "title": "Million-level magic carpet chassis",
+          "summary": "The chassis chapter emphasizes million-level comfort, air suspension, rear-wheel steering, and a sedan body that stays composed even when driven quickly."
+        },
+        "chapter_7": {
+          "title": "All-dimensional safety protection",
+          "summary": "Structural strength, battery protection, and in-cabin privacy and safety finish the sedan with a complete all-dimensional protection story."
+        }
+      }
+    },
+    "passion": {
+      "hero": {
+        "title": "Voyah Passion",
+        "subtitle": "Performance electric sedan",
+        "description": "A sleek electric sedan pairing decisive proportions, a quieter executive cabin, and composed grand-touring confidence.",
+        "price": "Executive performance sedan",
+        "ctaPrimary": "Order now",
+        "ctaSecondary": "Configuration list",
+        "metrics": {
+          "character": {
+            "value": "Grand tourer",
+            "label": "Character"
+          },
+          "chassis": {
+            "value": "Refined ride",
+            "label": "Chassis tuning"
+          },
+          "cabin": {
+            "value": "Digital luxury",
+            "label": "Cabin feel"
+          }
+        }
+      },
+      "sections": {
+        "chapter_1": {
+          "kicker": "01 Sedan design",
+          "title": "Oriental flowing sedan stance",
+          "summary": "Passion presents a sleeker electric-sedan stance with crisp shoulder lines, cleaner surfacing, and a calmer premium expression tuned for executive travel."
+        },
+        "chapter_2": {
+          "kicker": "02 Interior",
+          "title": "Executive cabin comfort",
+          "summary": "The cabin chapter centers on quiet travel, refined front and rear seating, and a calmer interior rhythm that gives Passion a genuine grand-touring atmosphere."
+        },
+        "chapter_3": {
+          "kicker": "03 Digital cockpit",
+          "title": "HarmonySpace digital cockpit",
+          "summary": "Digital interaction, a wider display atmosphere, and connected travel logic give Passion a cleaner, more intelligent sedan identity without losing its composed tone."
+        },
+        "chapter_4": {
+          "kicker": "04 Dynamics",
+          "title": "Touring confidence",
+          "summary": "Chassis tuning, intelligent safety logic, and long-distance composure close the route with the same measured confidence expected from Voyah’s executive sedan family."
+        },
+        "chapter_5": {
+          "kicker": "05 Safety",
+          "title": "Protective sedan assurance",
+          "summary": "A reinforced body strategy, clear driver-assistance story, and calmer long-route confidence let Passion finish on a more premium safety note."
+        }
+      }
+    },
+    "titan": {
+      "hero": {
+        "title": "Voyah Titan",
+        "subtitle": "New-era flagship six-seat SUV",
+        "description": "Starting from RMB 379,900.",
+        "price": "Starting from RMB 379,900",
+        "ctaPrimary": "Order now",
+        "ctaSecondary": "Configuration list",
+        "metrics": {
+          "lhr": {
+            "value": "2.87X",
+            "label": "Length-height ratio"
+          },
+          "whr": {
+            "value": "2.25X",
+            "label": "Wheel-height ratio"
+          },
+          "fnr": {
+            "value": "59.68%",
+            "label": "Front nose ratio"
+          }
+        }
+      },
+      "sections": {
+        "chapter_1": {
+          "kicker": "01 Luxury",
+          "title": "Flagship luxury",
+          "summary": "Titan opens with ceremonial full-size SUV proportions, a six-seat flagship posture, and a lounge-grade cabin tone shaped for premium family travel."
+        },
+        "chapter_2": {
+          "kicker": "02 Intelligence",
+          "title": "Flagship intelligence",
+          "summary": "A digital Harmony-era cockpit, Huawei-assisted driving confidence, and premium in-cabin sound stage define Titan’s flagship intelligence chapter."
+        },
+        "chapter_3": {
+          "kicker": "03 Performance",
+          "title": "Flagship performance",
+          "summary": "A million-class comfort chassis, strong road-to-road capability, and long-range composure shape Titan into a calm yet forceful flagship SUV."
+        },
+        "chapter_4": {
+          "kicker": "04 Safety",
+          "title": "Flagship safety",
+          "summary": "Reinforced body architecture, layered battery shielding, and full-cabin occupant protection complete Titan with flagship-level family security assurance."
+        }
+      }
+    },
+    "titan_blackedition": {
+      "hero": {
+        "title": "Voyah Titan Black Edition",
+        "subtitle": "Stealth-focused luxury SUV",
+        "description": "A darker, sharper interpretation of the Titan formula with bold finishes and a more dramatic visual tone.",
+        "price": "Black Edition",
+        "ctaPrimary": "Order now",
+        "ctaSecondary": "Configuration list",
+        "metrics": {
+          "design": {
+            "value": "Dark styling",
+            "label": "Design theme"
+          },
+          "trim": {
+            "value": "Premium trim",
+            "label": "Material tone"
+          },
+          "command": {
+            "value": "SUV command",
+            "label": "Presence"
+          }
+        }
+      },
+      "sections": {
+        "chapter_1": {
+          "kicker": "01 Presence",
+          "title": "Black exterior presence",
+          "summary": "The Black Edition sets a darker flagship tone with blacked-out trim, a more dramatic front face, and a stealthier premium expression."
+        },
+        "chapter_2": {
+          "kicker": "02 Texture",
+          "title": "Black cabin texture",
+          "summary": "Inside, darker materials, contrast stitching, and the calmer seat architecture keep the cabin aligned with the edition’s more restrained luxury story."
+        },
+        "chapter_3": {
+          "kicker": "03 Intelligence",
+          "title": "Executive intelligence",
+          "summary": "Assisted driving, smart cockpit interaction, and premium travel comfort keep the Black Edition feeling like a full flagship rather than a trim package."
+        },
+        "chapter_4": {
+          "kicker": "04 Confidence",
+          "title": "Quiet confidence",
+          "summary": "Safety structure, battery protection, and wide-cabin calm finish the edition with the same calm confidence expected from the Titan family."
+        }
+      }
+    },
+    "titan_X8": {
+      "hero": {
+        "title": "Voyah Titan X8",
+        "subtitle": "Expanded flagship family SUV",
+        "description": "A Titan derivative tuned for more generous multi-row practicality, calmer family comfort, and long-range travel confidence.",
+        "price": "Expanded family flagship",
+        "ctaPrimary": "Order now",
+        "ctaSecondary": "Configuration list",
+        "metrics": {
+          "space": {
+            "value": "Expanded seating",
+            "label": "Space plan"
+          },
+          "usecase": {
+            "value": "Travel ready",
+            "label": "Use case"
+          },
+          "comfort": {
+            "value": "SUV comfort",
+            "label": "Comfort focus"
+          }
+        }
+      },
+      "sections": {
+        "performance": {
+          "kicker": "01 Flagship luxury",
+          "title": "Expanded flagship luxury",
+          "summary": "Titan X8 opens with broad full-size SUV proportions and a family-oriented flagship stance that emphasizes spacious luxury over ceremonial drama."
+        },
+        "cockpit": {
+          "kicker": "02 Flagship intelligence",
+          "title": "Three-row intelligent comfort",
+          "summary": "The cabin narrative highlights easier third-row access, practical family packaging, and a calmer intelligent-cockpit rhythm for daily executive travel."
+        },
+        "safety": {
+          "kicker": "03 Flagship performance",
+          "title": "Long-route flagship composure",
+          "summary": "Composed ride tuning, broad-shouldered stability, and long-route confidence position X8 as the touring-oriented flagship branch of Titan."
+        }
+      }
+    },
+    "free_plus": {
+      "hero": {
+        "title": "Voyah FREE+",
+        "subtitle": "Performance intelligence SUV",
+        "description": "FREE+ introduces a tighter, more athletic stance to the FREE lineage, matched with class-leading Huawei intelligence and long-range hybrid confidence.",
+        "price": "Performance intelligence SUV",
+        "ctaPrimary": "Order now",
+        "ctaSecondary": "Configuration list",
+        "metrics": {
+          "acceleration": {
+            "value": "4.8s",
+            "label": "Zero to 100km/h"
+          },
+          "battery": {
+            "value": "43kWh",
+            "label": "Battery capacity"
+          },
+          "range": {
+            "value": "1201km",
+            "label": "Combined range"
+          }
+        }
+      },
+      "sections": {
+        "chapter_1": {
+          "kicker": "01 Design",
+          "title": "City light-and-shadow aesthetics",
+          "summary": "FREE+ opens with the urban design narrative: sculpted light graphics, athletic SUV proportions, and a more premium city-focused visual identity."
+        },
+        "chapter_2": {
+          "kicker": "02 Interior",
+          "title": "Voyah Cabin 2.0",
+          "summary": "A softer interior palette, comfort-centered packaging, and premium seat and audio details sharpen the cabin chapter."
+        },
+        "chapter_3": {
+          "kicker": "03 Cockpit",
+          "title": "HarmonySpace 5 cockpit",
+          "summary": "This section follows the digital-cockpit rhythm with voice assistant, seamless device flow, and the HarmonySpace ecosystem presented as a dedicated chapter."
+        },
+        "chapter_4": {
+          "kicker": "04 Intelligence",
+          "title": "Huawei Qiankun ADS 4",
+          "summary": "The assisted-driving chapter mirrors the sequence: Huawei Qiankun ADS 4, sensor hardware, and P2P parking/navigation functions arranged as one story."
+        },
+        "chapter_5": {
+          "kicker": "05 Dynamics",
+          "title": "Luxury intelligent driving control",
+          "summary": "FREE+ keeps the performance narrative through its intelligent damping chassis, suspension hardware, four-wheel-drive tuning, and expressive drive-mode presentation."
+        },
+        "chapter_6": {
+          "kicker": "06 Safety",
+          "title": "All-dimensional safety fortress",
+          "summary": "Battery protection, passive body strength, and adaptive chassis tuning complete the comfort-and-control story for FREE+."
+        }
+      }
+    },
+    "free": {
+      "hero": {
+        "title": "Voyah FREE 318",
+        "subtitle": "Intelligent long-range crossover",
+        "description": "A calm and commanding crossover prioritizing extended-range capability, everyday comfort, and cleaner digital travel logic.",
+        "price": "Long-range intelligent crossover",
+        "ctaPrimary": "Order now",
+        "ctaSecondary": "Configuration list",
+        "metrics": {
+          "pure": {
+            "value": "318km",
+            "label": "Pure range"
+          },
+          "fuel": {
+            "value": "6.69L/100km",
+            "label": "Fuel consumption"
+          },
+          "overall": {
+            "value": "1458km",
+            "label": "Overall range"
+          }
+        }
+      },
+      "sections": {
+        "chapter_1": {
+          "kicker": "01 Exterior",
+          "title": "Long-range crossover presence",
+          "summary": "FREE 318 opens with an elevated long-range crossover stance, cleaner touring-oriented SUV proportions, and a calmer visual rhythm built for distance."
+        },
+        "chapter_2": {
+          "kicker": "02 Comfort",
+          "title": "Relaxed grand-touring cabin",
+          "summary": "Everyday comfort, calmer seat architecture, and a softer premium cabin rhythm make FREE 318 feel deliberately tuned for long-route travel."
+        },
+        "chapter_3": {
+          "kicker": "03 Smart cockpit",
+          "title": "Connected cockpit confidence",
+          "summary": "Harmony-style interaction, connected travel flow, and reassuring digital assistance establish a clean, confidence-led smart cockpit chapter."
+        },
+        "chapter_4": {
+          "kicker": "04 Range and charging",
+          "title": "Electric touring confidence",
+          "summary": "Battery assurance, charging convenience, and steady long-range behavior keep FREE 318 positioned as a true touring crossover, not a minor trim refresh."
+        },
+        "chapter_5": {
+          "kicker": "05 Safety and usability",
+          "title": "Everyday premium versatility",
+          "summary": "Usability, comfort, and practical luxury close the route with a family-ready crossover tone and a stronger everyday-premium message."
+        }
+      }
+    },
+    "new_courage": {
+      "hero": {
+        "title": "New Voyah Courage",
+        "subtitle": "New luxury pure-electric SUV",
+        "description": "A new-generation pure-electric SUV with a warm family cabin, long range, and Huawei intelligent driving.",
+        "price": "New luxury pure-electric SUV",
+        "ctaPrimary": "Order now",
+        "ctaSecondary": "Configuration list",
+        "metrics": {
+          "powertrain": {
+            "value": "Pure electric",
+            "label": "Powertrain"
+          },
+          "tech": {
+            "value": "Huawei ADS",
+            "label": "Driving tech"
+          },
+          "cabin": {
+            "value": "Harmony cockpit",
+            "label": "Cabin"
+          }
+        }
+      },
+      "sections": {
+        "chapter_1": {
+          "kicker": "01 Design",
+          "title": "Starry embrace cockpit",
+          "summary": "The story starts with a softer, family-oriented design language, combining star-lit detailing and welcoming surfaces into a more emotional urban SUV identity."
+        },
+        "chapter_2": {
+          "kicker": "02 Comfort",
+          "title": "A comfortable home",
+          "summary": "Large interior volume, layered storage, zero-gravity seating, and a family-first comfort story give this section a stronger Courage identity."
+        },
+        "chapter_3": {
+          "kicker": "03 Tech",
+          "title": "A playful home",
+          "summary": "Digital screens, Harmony audio, and emotionally expressive in-cabin lighting turn the third chapter into the more playful family-tech zone seen on the site."
+        },
+        "chapter_4": {
+          "kicker": "04 Smart Driving",
+          "title": "A smart home",
+          "summary": "Huawei Qiankun ADS 4, collision-avoidance systems, and parking/navigation choreography now read as a dedicated smart-driving chapter."
+        },
+        "chapter_5": {
+          "kicker": "05 Efficiency",
+          "title": "An efficient home",
+          "summary": "The efficiency story combines 800V architecture, long range, ultra-fast charging, and energy-sharing functions into one calm EV chapter."
+        },
+        "chapter_6": {
+          "kicker": "06 Safety",
+          "title": "A secure home",
+          "summary": "Body safety, battery protection, and all-weather assurance close the New Courage story with a family-protection emphasis instead of a feature ending."
+        }
+      }
+    },
+    "courage": {
+      "hero": {
+        "title": "Voyah Courage",
+        "subtitle": "Luxury pure-electric family SUV",
+        "description": "A full-electric SUV focused on expressive design, practical family comfort, and everyday long-range confidence.",
+        "price": "Luxury pure-electric family SUV",
+        "ctaPrimary": "Order now",
+        "ctaSecondary": "Configuration list",
+        "metrics": {
+          "range": {
+            "value": "901 km",
+            "label": "Electric range"
+          },
+          "battery": {
+            "value": "109 kWh",
+            "label": "Battery"
+          },
+          "platform": {
+            "value": "800 V",
+            "label": "Platform"
+          }
+        }
+      },
+      "sections": {
+        "chapter_1": {
+          "kicker": "Exterior",
+          "title": "Original electric SUV design",
+          "summary": "Courage opens with a clearer family-electric stance, expressive surfaces, and a more approachable SUV identity than the newer launch-led route."
+        },
+        "chapter_2": {
+          "kicker": "Cabin",
+          "title": "Family comfort cabin",
+          "summary": "The cabin chapter focuses on easier daily comfort, softer lounge-like space, and a more practical family rhythm than a dramatic showpiece interior."
+        },
+        "chapter_3": {
+          "kicker": "Smart cockpit",
+          "title": "Connected family cockpit",
+          "summary": "Digital displays, connected controls, and everyday-friendly cabin logic give Courage a practical intelligent-cockpit identity."
+        },
+        "chapter_4": {
+          "kicker": "Intelligent driving",
+          "title": "Assisted travel confidence",
+          "summary": "Driver-assistance features, parking support, and calmer road awareness position Courage as an everyday intelligent SUV rather than a pure launch showcase."
+        },
+        "chapter_5": {
+          "kicker": "Efficiency",
+          "title": "Electric range and calm",
+          "summary": "Battery capacity, high-voltage confidence, and calmer long-route efficiency close the page with a more grounded electric-SUV promise."
+        },
+        "chapter_6": {
+          "kicker": "Safety",
+          "title": "Protective family assurance",
+          "summary": "Body protection, battery security, and family reassurance finish Courage with a balanced, practical premium tone."
+        }
+      }
+    },
+    "new_dreamer_26": {
+      "hero": {
+        "title": "26 Voyah Dreamer",
+        "subtitle": "A new-era flagship MPV",
+        "description": "A new-generation Dreamer with lounge-like comfort, refined long-distance composure, and premium family focus.",
+        "price": "A new-era flagship MPV",
+        "ctaPrimary": "Order now",
+        "ctaSecondary": "Configuration list",
+        "metrics": {
+          "body": {
+            "value": "MPV",
+            "label": "Body type"
+          },
+          "position": {
+            "value": "Flagship",
+            "label": "Positioning"
+          },
+          "seats": {
+            "value": "Six / seven seats",
+            "label": "Seating"
+          }
+        }
+      },
+      "sections": {
+        "chapter_1": {
+          "kicker": "01 Luxury",
+          "title": "Flagship luxury",
+          "summary": "Dreamer 26 opens with a ceremonial MPV presence, a grand family cabin, and second-row luxury that extends a premium hospitality experience."
+        },
+        "chapter_2": {
+          "kicker": "02 Dynamics",
+          "title": "Flagship performance",
+          "summary": "Super charging, long combined range, and a comfort-first intelligent chassis give Dreamer 26 the effortless long-distance confidence of a premium executive MPV."
+        },
+        "chapter_3": {
+          "kicker": "03 Smart Cockpit",
+          "title": "Flagship intelligence",
+          "summary": "Huawei Qiankun intelligent driving, Harmony cockpit integration, and an AI-focused interaction layer give Dreamer 26 a more advanced flagship character."
+        },
+        "chapter_4": {
+          "kicker": "04 Safety",
+          "title": "Flagship safety",
+          "summary": "The body shell, occupant protection logic, and battery safety systems are presented with calm, document-like confidence."
+        }
+      }
+    },
+    "dreamer_champion": {
+      "hero": {
+        "title": "Voyah Dreamer Champion",
+        "subtitle": "Special-edition flagship MPV",
+        "description": "A special Dreamer expression with ceremonial presence, executive lounge comfort, and a more curated premium hospitality tone.",
+        "price": "Champion special edition",
+        "ctaPrimary": "Order now",
+        "ctaSecondary": "Configuration list",
+        "metrics": {
+          "series": {
+            "value": "Special edition",
+            "label": "Series"
+          },
+          "position": {
+            "value": "Executive MPV",
+            "label": "Positioning"
+          },
+          "focus": {
+            "value": "Ceremonial comfort",
+            "label": "Focus"
+          }
+        }
+      },
+      "sections": {
+        "chapter_1": {
+          "kicker": "01 Special edition",
+          "title": "Champion flagship presence",
+          "summary": "Dreamer Champion opens with ceremonial MPV posture, richer flagship detailing, and a distinctly curated special-edition character."
+        },
+        "chapter_2": {
+          "kicker": "02 Hospitality cabin",
+          "title": "Executive lounge hospitality",
+          "summary": "Second-row comfort, ceremonial seating mood, and a quieter hospitality-first layout give Champion a stronger executive-lounge identity."
+        },
+        "chapter_3": {
+          "kicker": "03 Smart cockpit",
+          "title": "Connected executive intelligence",
+          "summary": "Harmony-style interaction, intelligent assistance features, and premium rear-cabin technology establish Champion’s executive-tech chapter with clearer focus."
+        },
+        "chapter_4": {
+          "kicker": "04 Safety and travel",
+          "title": "Long-route flagship assurance",
+          "summary": "Body protection, composed long-route tuning, and MPV-family reassurance close the route with a special-edition interpretation of flagship Dreamer confidence."
+        }
+      }
+    },
+    "new_dreamer": {
+      "hero": {
+        "title": "25 Voyah Dreamer",
+        "subtitle": "Panoramic luxury technology flagship MPV",
+        "description": "A panoramic luxury flagship MPV with premium comfort, intelligent cabin tech, and long-distance composure.",
+        "price": "Starting from RMB 329,900",
+        "ctaPrimary": "Order now",
+        "ctaSecondary": "Configuration list",
+        "metrics": {}
+      },
+      "sections": {
+        "chapter_1": {
+          "kicker": "01 Design",
+          "title": "Luxury flagship presence",
+          "summary": "The 25 Dreamer opens with an imposing presence, featuring a large panoramic grille and elegant body lines."
+        },
+        "chapter_2": {
+          "kicker": "02 Technology",
+          "title": "Harmony tech cabin",
+          "summary": "Intelligent screens and advanced driver assistance systems shape the digital experience of this flagship MPV."
+        },
+        "chapter_3": {
+          "kicker": "03 Comfort",
+          "title": "Executive lounge seating",
+          "summary": "Zero-gravity seats and premium materials transform the rear cabin into an executive luxury lounge."
+        },
+        "chapter_4": {
+          "kicker": "04 Experience",
+          "title": "First-class travel",
+          "summary": "Superior suspension and ultra-quiet cabin technology ensure every journey feels incredibly smooth and relaxing."
+        }
+      }
+    },
+    "dream_river": {
+      "hero": {
+        "title": "Voyah Dreamer Mountain River",
+        "subtitle": "Scenic travel expression",
+        "description": "A special Dreamer expression emphasizing serene scenery, warm hospitality, and elegant multi-person travel.",
+        "price": "Special edition MPV",
+        "ctaPrimary": "Order now",
+        "ctaSecondary": "Configuration list",
+        "metrics": {}
+      },
+      "sections": {
+        "chapter_1": {
+          "kicker": "Exterior",
+          "title": "Scenic edition presence",
+          "summary": "Dreamer Mountain River opens with a scenic, hospitality-first interpretation of the Dreamer MPV shape."
+        },
+        "chapter_2": {
+          "kicker": "Interior",
+          "title": "Warm lounge cabin",
+          "summary": "The interior narrative emphasizes relaxed seating, shared travel comfort, and a calmer family lounge mood."
+        },
+        "chapter_3": {
+          "kicker": "Performance",
+          "title": "Travel calm",
+          "summary": "Long-distance composure and family-oriented calm keep the edition feeling like a scenic companion rather than a standard trim."
+        },
+        "chapter_4": {
+          "kicker": "Safety",
+          "title": "Shared journeys",
+          "summary": "The final chapter closes with safety and shared-travel reassurance, keeping the Mountain River tone elegant and familial."
+        }
+      }
+    },
+    "dreamer": {
+      "hero": {
+        "title": "24 Voyah Dreamer",
+        "subtitle": "Luxury electric MPV",
+        "description": "A spacious electric MPV created for premium family mobility with broad comfort and reassuring calm.",
+        "price": "Electric luxury MPV",
+        "ctaPrimary": "Order now",
+        "ctaSecondary": "Configuration list",
+        "metrics": {}
+      },
+      "sections": {
+        "chapter_1": {
+          "kicker": "01 Luxury MPV",
+          "title": "Luxury MPV presence",
+          "summary": "The 24 Dreamer opens with broad luxury MPV presence, a ceremonial family posture, and a calmer flagship hospitality tone."
+        },
+        "chapter_2": {
+          "kicker": "02 Cabin comfort",
+          "title": "Rear cabin comfort",
+          "summary": "This cabin chapter highlights second and third-row comfort, generous family packaging, and lounge-like long-distance composure."
+        },
+        "chapter_3": {
+          "kicker": "03 Smart cockpit",
+          "title": "Smart family cockpit",
+          "summary": "Connected screens, intelligent assistance, and premium family convenience define Dreamer’s calm and modern smart-cockpit character."
+        },
+        "chapter_4": {
+          "kicker": "04 Family safety",
+          "title": "Family safety",
+          "summary": "Body protection and long-route confidence close the route with a polished flagship MPV family-safety statement."
+        }
+      }
+    }
+  },
+  "global": {
+    "header": {
+      "login": "Login",
+      "config": "All configs",
+      "testDrive": "Test drive",
+      "order": "Order now"
+    },
+    "footer": {
+      "appEyebrow": "Download the Voyah App",
+      "appLabel": "App",
+      "miniLabel": "Mini program",
+      "miniCopy": "Official WeChat mini program",
+      "versionLabel": "Android 5.5.0  iOS 5.5.0  HarmonyOS 1.9.0",
+      "companyLabel": "Voyah Automotive Technology Co., Ltd.",
+      "phoneLabel": "Customer service: 400-888-8488",
+      "emailLabel": "Email: voyah-callcenter@voyah.com.cn",
+      "recordLabel": "Hubei ICP 2021016773-2"
+    }
+  },
+  "domain": {
+    "tech": {
+      "architecture": {
+        "essa_title": "Native Smart Electric Architecture",
+        "essa_body": "The 800V platform empowers intelligent control and extreme safety.",
+        "point1": "Intelligent Power Distribution",
+        "point2": "Integrated Battery Shield",
+        "point3": "Air Suspension Dynamics",
+        "feature_1_title": "Structural Rigidity",
+        "feature_1_desc": "Torsional stiffness exceeding 31,000 Nm/deg.",
+        "feature_2_title": "800V Supercharging",
+        "feature_2_desc": "Replenish 200km of range in just 5 minutes.",
+        "feature_3_title": "Smart Domain Controller",
+        "feature_3_desc": "Centralized computing for instantaneous response."
+      },
+      "safety": {
+        "structure_title": "Fortress Body Structure",
+        "structure_body": "Beyond five-star safety. The Voyah structural body utilizes 2000MPa thermo-formed steel in critical intrusion zones, creating an impregnable survival space for all occupants.",
+        "steel": "Hot-formed steel",
+        "hss": "High-strength steel",
+        "battery_title": "Amber Battery Shield",
+        "battery_body": "Active and passive defense mechanisms intercept thermal runaway. Five layers of physical protection meet aerospace-grade heat resistance.",
+        "temp": "Heat resistance",
+        "water": "Waterproof rating"
+      },
+      "cockpit": {
+        "os_title": "Seamless Intelligence",
+        "os_body": "Powered by top-tier Qualcomm Snapdragon 8155/8295 chipsets and deep software integration, the cabin transforms into a dynamic living space capable of OTA evolution.",
+        "feature_1_title": "Immersive Displays",
+        "feature_1_desc": "Triple-screen arrays spanning the dashboard for uncompromised control.",
+        "feature_2_title": "Voice Interaction",
+        "feature_2_desc": "Four-zone independent voice control with continuous dialogue.",
+        "feature_3_title": "Smart Scenarios",
+        "feature_3_desc": "One-touch settings for resting, camping, or dynamic driving.",
+        "feature_4_title": "OTA Evolution",
+        "feature_4_desc": "The intelligent ecosystem continuously upgrades over time."
+      },
+      "battery": {
+        "parallax_title": "Core Energy System",
+        "parallax_body": "Deconstructing the next-generation battery architecture. High density meets unparalleled thermal stability."
+      }
+    },
+    "corporate": {},
+    "faqpage": {
+      "eyebrow": "Support Center",
+      "title": "Frequently Asked Questions",
+      "summary": "Find quick answers to your questions about Voyah."
+    },
+    "newspage": {
+      "eyebrow": "Latest Updates",
+      "title": "Voyah Newsroom",
+      "summary": "Press releases, technological developments, and expansion news."
+    },
+    "ir": {
+      "eyebrow": "Investor Relations",
+      "title": "Financial Transparency",
+      "summary": "Commitment to long-term value."
+    },
+    "corp": {
+      "eyebrow": "Corporate Culture",
+      "title": "Driven by Innovation",
+      "summary": "Voyah is committed to creating a reliable, zero-anxiety intelligent electric lifestyle."
+    }
+  }
+}

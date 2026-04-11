@@ -108,6 +108,14 @@ onBeforeUnmount(() => {
   color: #101720;
 }
 
+:global(.is-rtl) .model-chapter-nav-inner {
+  direction: rtl;
+}
+
+:global(.is-rtl) .model-chapter-link {
+  text-align: right;
+}
+
 @media (max-width: 768px) {
   .model-chapter-nav {
     top: 72px;

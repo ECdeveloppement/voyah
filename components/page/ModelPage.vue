@@ -7,6 +7,7 @@
       :image="model.heroImage"
       :video="model.heroVideo"
       :logo="model.heroLogo ?? model.logo"
+      :variant="heroVariant"
     >
       <template #actions>
         <BaseButton :to="buildPath('book-drive.html')" variant="primary">
@@ -30,45 +31,7 @@
 
     <ModelChapterNav :sections="chapterLinks" :variant="model.slug.replace('.html', '')" />
 
-    <section id="overview" ref="overviewRef" class="model-overview">
-      <div class="container model-overview-grid">
-        <div class="model-overview-copy" data-reveal>
-          <p class="model-overview-kicker">{{ textFor(model.price) }}</p>
-          <h2 class="model-overview-title">{{ textFor(model.title) }}</h2>
-          <p class="model-overview-summary">{{ textFor(model.description) }}</p>
-          <ul class="model-overview-highlights">
-            <li v-for="feature in model.features" :key="textFor(feature.title)">
-              {{ textFor(feature.title) }}
-            </li>
-          </ul>
-        </div>
-
-        <aside class="model-overview-panel" data-reveal>
-          <img :src="model.heroLogo ?? model.logo" :alt="textFor(model.title)" class="model-overview-logo" />
-          <p class="model-overview-price">{{ textFor(model.price) }}</p>
-          <p class="model-overview-note">{{ overviewPanelCopy }}</p>
-          <div class="model-overview-tags">
-            <span v-for="feature in model.features" :key="`${model.slug}-${textFor(feature.title)}`">
-              {{ textFor(feature.title) }}
-            </span>
-          </div>
-          <div class="button-row model-overview-actions">
-            <BaseButton :to="buildPath('book-drive.html')" variant="primary">
-              {{ textFor(model.ctaPrimary) }}
-            </BaseButton>
-            <BaseButton :to="buildPath(model.secondarySlug)" variant="secondary">
-              {{ textFor(model.ctaSecondary) }}
-            </BaseButton>
-          </div>
-        </aside>
-      </div>
-
-      <div class="container" data-reveal>
-        <MetricGrid :metrics="model.metrics" />
-      </div>
-    </section>
-
-    <div ref="mediaRef">
+    <div>
       <ModelMediaSection
         v-for="(section, index) in renderedSections"
         :key="section.id"
@@ -78,39 +41,16 @@
       />
     </div>
 
-    <section
-      id="book-drive"
-      ref="ctaRef"
-      class="model-cta"
-      :style="{ '--cta-image': `url(${gallery.at(-1) ?? model.heroImage})` }"
-    >
-      <div class="container model-cta-card" data-reveal>
-        <p class="model-cta-kicker">{{ textFor(model.subtitle) }}</p>
-        <h2>{{ textFor(model.title) }}</h2>
-        <p>{{ textFor(model.description) }}</p>
-
-        <div class="button-row">
-          <BaseButton :to="buildPath('book-drive.html')" variant="primary">
-            {{ textFor(model.ctaPrimary) }}
-          </BaseButton>
-          <BaseButton :to="buildPath(model.secondarySlug)" variant="secondary">
-            {{ textFor(model.ctaSecondary) }}
-          </BaseButton>
-        </div>
-      </div>
-    </section>
   </div>
 </template>
 
 <script setup lang="ts">
 import BaseButton from '~/components/common/BaseButton.vue'
-import MetricGrid from '~/components/common/MetricGrid.vue'
 import PageHero from '~/components/common/PageHero.vue'
 import ModelChapterNav from '~/components/page/model/ModelChapterNav.vue'
 import ModelMediaSection from '~/components/page/model/ModelMediaSection.vue'
 import { getExpandedModelGallery, getModelStorySections } from '~/data/modelMedia'
 import type { ModelDefinition } from '~/data/site'
-import { useSectionReveal } from '~/composables/useSectionReveal'
 import { useSiteContent } from '~/composables/useSiteContent'
 
 const props = defineProps<{
@@ -118,9 +58,11 @@ const props = defineProps<{
 }>()
 
 const { buildPath, textFor } = useSiteContent()
-const overviewRef = useSectionReveal({ stagger: 0.12 })
-const mediaRef = useSectionReveal({ stagger: 0.14 })
-const ctaRef = useSectionReveal()
+
+const heroVariant = computed(() => {
+  const base = props.model.slug.replace('.html', '')
+  return base === 'free+' ? 'freeplus' : base
+})
 
 const gallery = computed(() => getExpandedModelGallery(props.model.slug, props.model.gallery))
 const authoredStorySections = computed(() => getModelStorySections(props.model.slug))
@@ -191,12 +133,12 @@ const buildDetails = (sectionTitle: string, sectionSummary: string | undefined, 
   return [...details, ...fallback].slice(0, 3)
 }
 
-const inferKind = (section: { images: string[]; videos?: string[] }, index: number): RenderedSection['kind'] => {
+const inferKind = (section: { images: string[]; videos?: string[] }): RenderedSection['kind'] => {
   if ((section.videos?.length ?? 0) > 0 || section.images.length >= 4) {
     return 'carousel'
   }
 
-  if (index === 3 || section.images.length <= 1) {
+  if (section.images.length <= 1) {
     return 'banner'
   }
 
@@ -206,7 +148,7 @@ const inferKind = (section: { images: string[]; videos?: string[] }, index: numb
 const renderedSections = computed<RenderedSection[]>(() => {
   const sourceSections = authoredStorySections.value?.length
     ? authoredStorySections.value.map((section, index) => {
-        const kind = inferKind(section, index)
+        const kind = inferKind(section)
 
         return {
           id: section.id,
@@ -246,19 +188,7 @@ const renderedSections = computed<RenderedSection[]>(() => {
 
   const output: RenderedSection[] = []
 
-  sourceSections.forEach((section, index) => {
-    if (index === 3) {
-      output.push({
-        id: `${section.id}-divider`,
-        kind: 'banner',
-        title: section.title,
-        summary: section.summary,
-        image: section.image ?? section.images[0] ?? props.model.heroImage,
-        images: section.images,
-        details: section.details.slice(0, 3)
-      })
-    }
-
+  sourceSections.forEach((section) => {
     output.push({
       ...section,
       details: section.details.slice(0, 3),
@@ -278,24 +208,8 @@ const renderedSections = computed<RenderedSection[]>(() => {
 })
 
 const chapterLinks = computed(() => [
-  { id: 'overview', label: textFor(props.model.title) },
-  ...renderedSections.value.map((section) => ({ id: section.id, label: section.title })),
-  { id: 'book-drive', label: textFor(props.model.ctaPrimary) }
+  ...renderedSections.value.map((section) => ({ id: section.id, label: section.title }))
 ])
-
-const overviewPanelCopy = computed(() => {
-  if (authoredStorySections.value?.length) {
-    return textFor(authoredStorySections.value[0].summary)
-  }
-
-  const secondFeature = props.model.features[1]
-
-  if (secondFeature) {
-    return textFor(secondFeature.body)
-  }
-
-  return textFor(props.model.description)
-})
 </script>
 
 <style scoped>
@@ -605,6 +519,7 @@ const overviewPanelCopy = computed(() => {
 .model-page :deep(.metric-label) {
   color: #5f6d7a;
 }
+
 
 @media (max-width: 1024px) {
   .model-page :deep(.page-hero) {

@@ -91,8 +91,9 @@ select {
   margin: 0;
   font-size: clamp(2.2rem, 4.5vw, 4.8rem);
   line-height: 0.98;
-  letter-spacing: -0.028em;
+  letter-spacing: -0.035em;
   text-wrap: balance;
+  font-weight: 300;
 }
 
 .section-copy,
@@ -102,6 +103,7 @@ select {
   color: var(--text-soft);
   font-size: clamp(0.98rem, 1.1vw, 1.05rem);
   line-height: 1.72;
+  font-weight: 300;
 }
 
 .button-row {
