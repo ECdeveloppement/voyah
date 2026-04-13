@@ -152,7 +152,7 @@
         "../node_modules/@nuxtjs/i18n/dist/types"
       ],
       "#nuxt-i18n/logger": [
-        "./nuxt-i18n-logger"
+        "./nuxt-i18n-logger.mjs"
       ],
       "#app-manifest": [
         "../node_modules/mocked-exports/lib/proxy"
@@ -209,6 +209,6 @@
     "../.data",
     "../node_modules/runtime/server",
     "../node_modules/dist/runtime/server",
-    "dev"
+    "../.output"
   ]
 }

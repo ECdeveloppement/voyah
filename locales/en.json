@@ -666,6 +666,14 @@
       "phoneLabel": "Customer service: 400-888-8488",
       "emailLabel": "Email: voyah-callcenter@voyah.com.cn",
       "recordLabel": "Hubei ICP 2021016773-2"
+    },
+    "sidebar": {
+      "testDrive": "Test Drive",
+      "consultation": "Consultation",
+      "app": "APP Download",
+      "feedback": "Feedback",
+      "hotlineTitle": "Customer Hotline",
+      "hotlineHours": "9:00 - 21:00"
     }
   },
   "domain": {

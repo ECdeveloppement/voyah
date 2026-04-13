@@ -1,4 +1,4 @@
-﻿import type { LocalizedText } from '~/data/site'
+import type { LocalizedText } from '~/data/site'
 
 const carGallery = (folder: string, assets: string[]) =>
   assets.map((asset) => `/voyah-resources/images/car/${folder}/${asset}`)
@@ -1048,6 +1048,72 @@ const modelStorySectionMap: Record<string, ModelStorySection[]> = {
         'يختتم الفصل الأخير بطمأنينة السلامة والسفر المشترك مع الحفاظ على نبرة أنيقة وعائلية.'
       ),
       images: carGallery('dreamriver', ['sc_10.png', 'sc_10-2.png', 'sc_11.png', 'sc_11-2.png'])
+    }
+  ],
+  'courage.html': [
+    {
+      id: 'chapter-1',
+      title: t('Original aesthetics', 'Esthétique originale', 'جمالية أصلية'),
+      summary: t(
+        'Courage frames its identity through a cleaner electric-SUV silhouette, welcoming front graphics, and a warmer urban presence.',
+        'Courage affirme son identité par une silhouette de SUV électrique pure, une face avant accueillante et une présence urbaine chaleureuse.',
+        'ترسم Courage هويتها عبر هيئة SUV كهربائية أنقية وواجهة أمامية مرحبة وحضور حضري دافئ.'
+      ),
+      images: carGallery('courage', ['1920/h37_pc01_0001.jpg', '1920/h37_pc02_0001.jpg', '1920/h37_pc03_0001.jpg'])
+    },
+    {
+      id: 'chapter-2',
+      title: t('Pure electric efficiency', 'Efficience électrique pure', 'كفاءة كهربائية كاملة'),
+      summary: t(
+        'The efficiency story combines long range, high power output, and a comfort-first electric chassis into one balanced urban SUV chapter.',
+        'Le récit de l’efficience combine grande autonomie, puissance élevée et un châssis électrique orienté confort dans un chapitre SUV urbain équilibré.',
+        'يجمع سرد الكفاءة بين المدى الطويل والقوة العالية وهيكل كهربائي يركز على الراحة في فصل SUV حضري متوازن.'
+      ),
+      images: carGallery('courage', ['1920/h37_pc04_0001.jpg', '1920/h37_pc06_0001.jpg']),
+      videos: ['/voyah-resources/images/car/h37/video_04.mp4']
+    },
+    {
+      id: 'chapter-3',
+      title: t('Family comfort cockpit', 'Cockpit confort familial', 'مقصورة راحة عائلية'),
+      summary: t(
+        'The cabin focuses on digital interaction, shared family space, and a calmer premium mood built for everyday urban life.',
+        'L’habitacle se concentre sur l’interaction numérique, l’espace familial partagé et une ambiance premium calme pensée pour la ville.',
+        'تركز المقصورة على التفاعل الرقمي والمساحة العائلية المشتركة وأجواء فاخرة هادئة مهيأة للحياة المدنية اليومية.'
+      ),
+      images: carGallery('courage', ['1920/h37_pc10_0001.jpg', '1920/h37_pc14_0001.jpg', '1920/h37_pc17_0001.jpg'])
+    }
+  ],
+  'newDreamer.html': [
+    {
+      id: 'chapter-1',
+      title: t('Panoramic luxury exterior', 'Extérieur luxe panoramique', 'خارجية فاخرة بانورامية'),
+      summary: t(
+        'Dreamer 25 opens with a ceremonial MPV presence, refined front graphics, and an executive-scale body designed for grand travel.',
+        'Dreamer 25 s’ouvre sur une présence MPV cérémonielle, une face avant raffinée et une carrosserie exécutive pensée pour le voyage de prestige.',
+        'تبدأ Dreamer 25 بحضور MPV احتفالي وواجهة أمامية مصقولة وهيكل بحجم تنفيذي مصمم للرحلات الكبيرة.'
+      ),
+      images: carGallery('newDreamer', ['kv_1920.png', 'h56c_pc03_0001.jpg', 'h56c_pc03_0002.jpg'])
+    },
+    {
+      id: 'chapter-2',
+      title: t('Executive lounge cabin', 'Habitacle salon exécutif', 'مقصورة صالون تنفيذي'),
+      summary: t(
+        'The cabin narrative highlights second-row hospitality, seat engineering with cloud-like comfort, and a calmer lounge atmosphere.',
+        'Le récit d’habitacle met en avant l’hospitalité de deuxième rang, une ingénierie des sièges au confort aérien et une ambiance salon apaisée.',
+        'يركز سرد المقصورة على ضيافة الصف الثاني وهندسة مقاعد براحة سحابية وأجواء صالون هادئة.'
+      ),
+      images: carGallery('newDreamer', ['h56c_pc08_banner01.jpg', 'h56c_pc08_banner02.jpg']),
+      videos: ['/voyah-resources/images/car/h56c/video_05.mp4']
+    },
+    {
+      id: 'chapter-3',
+      title: t('Harmony intelligent travel', 'Voyage intelligent Harmony', 'سفر ذكي Harmony'),
+      summary: t(
+        'Connected travel logic, smart cockpit interaction, and premium family convenience keep the route feeling advanced and effortless.',
+        'La logique de voyage connecté, l’interaction intelligente et la praticité familiale premium maintiennent une expérience avancée et sans effort.',
+        'يحافظ منطق السفر المتصل وتفاعل المقصورة الذكي ووسائل الراحة العائلية الفاخرة على تجربة متقدمة وسلسة.'
+      ),
+      images: carGallery('newDreamer', ['h56c_pc20_bg.jpg', 'bg_swiper_3_1_n.jpg', 'bg_4_n.jpg'])
     }
   ],
   'dreamer.html': [

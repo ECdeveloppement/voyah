@@ -1358,66 +1358,73 @@ const sitePageMap = new Map<string, SitePage>(sitePages.map((page) => [page.slug
 export const homePage: HomeData = {
   slides: [
     {
-      image: '/assets/voyah/home-image-47.png',
-      logo: '/assets/voyah/home-image-48.png',
-      title: t('Intelligent Voyah, Creating Happiness', 'Voyah Intelligente, Créer le Bonheur', 'فوييا الذكية، تصنع السعادة'),
-      description: t('A premium intelligent new-energy brand', 'Une marque haut de gamme de véhicules intelligents à énergies nouvelles', 'علامة راقية للمركبات الذكية العاملة بالطاقة الجديدة'),
-      primaryLabel: t('Discover the brand', 'Découvrir la marque', 'اكتشف العلامة'),
-      secondaryLabel: t('', '', ''),
-      primarySlug: 'brand.html'
-    },
-    {
-      image: '/assets/voyah/home-image-49.png',
-      video: '/assets/voyah/home-video-1.mp4',
-      logo: '/assets/voyah/home-image-50.png',
+      image: '/voyah-resources/website/advertisingbanner/image/7d8f79a2-9614-47e0-b336-5f660d63ad171770618641574.jpg',
+      video: '/voyah-resources/website/advertisingbanner/video/7d8f79a2-9614-47e0-b336-5f660d63ad171770618641574.mp4',
+      logo: '/voyah-resources/sitelogo/pc/brand.png',
       title: t('', '', ''),
-      description: t('A new-era flagship six-seat SUV', 'Un SUV phare à six places de nouvelle génération', 'سيارة SUV رائدة بستة مقاعد من الجيل الجديد'),
+      description: t(
+        'A new-era flagship six-seat SUV',
+        'Un SUV phare six places de nouvelle génération',
+        'سيارة SUV رائدة بستة مقاعد من الجيل الجديد'
+      ),
       primaryLabel: t('Learn more', 'En savoir plus', 'اعرف المزيد'),
       secondaryLabel: t('Order now', 'Commander', 'اطلب الآن'),
       primarySlug: 'titan.html',
       secondarySlug: 'store.html'
     },
     {
-      image: '/assets/voyah/home-image-51.png',
-      video: '/assets/voyah/home-video-2.mp4',
-      logo: '/assets/voyah/home-image-52.png',
+      image: '/voyah-resources/website/advertisingbanner/image/f0c4f930-2c5e-4b18-8212-e73cb76c18b11770618136349.jpg',
+      video: '/voyah-resources/website/advertisingbanner/video/f0c4f930-2c5e-4b18-8212-e73cb76c18b11770618136349.mp4',
+      logo: '/voyah-resources/website/navigationbar/image/48068657-2f04-4e9e-a356-fb33e4b689101770619447889.png',
       title: t('', '', ''),
-      description: t('A new-era flagship MPV with panoramic luxury and family-first comfort', 'Un monospace phare de nouvelle génération avec luxe panoramique et confort familial', 'سيارة MPV رائدة من الجيل الجديد مع فخامة بانورامية وراحة عائلية'),
+      description: t(
+        'A new-era flagship MPV',
+        'Un monospace phare de nouvelle génération',
+        'سيارة MPV رائدة من الجيل الجديد'
+      ),
       primaryLabel: t('Learn more', 'En savoir plus', 'اعرف المزيد'),
       secondaryLabel: t('Order now', 'Commander', 'اطلب الآن'),
       primarySlug: 'newDreamer26.html',
       secondarySlug: 'store.html'
     },
     {
-      image: '/assets/voyah/home-image-53.png',
-      video: '/assets/voyah/home-video-3.mp4',
-      logo: '/assets/voyah/home-image-54.png',
+      image: '/voyah-resources/website/advertisingbanner/image/785c4160-8515-46a2-8bc9-a4f7b1907c0c1770618243037.jpg',
+      video: '/voyah-resources/website/advertisingbanner/video/785c4160-8515-46a2-8bc9-a4f7b1907c0c1770618243037.mp4',
+      logo: '/voyah-resources/website/navigationbar/image/09a0e118-e3a0-4cc1-afdc-f135820b2c201770619310485.png',
       title: t('', '', ''),
-      description: t('A new-era flagship sedan with executive luxury and calm long-distance composure', 'Une berline phare de nouvelle génération avec luxe exécutif et sérénité longue distance', 'سيدان رائدة من الجيل الجديد مع فخامة تنفيذية واتزان في الرحلات الطويلة'),
+      description: t(
+        'A new-era flagship sedan',
+        'Berline phare de nouvelle génération',
+        'سيدان رائدة من الجيل الجديد'
+      ),
       primaryLabel: t('Learn more', 'En savoir plus', 'اعرف المزيد'),
       secondaryLabel: t('Order now', 'Commander', 'اطلب الآن'),
       primarySlug: 'passion-L.html',
       secondarySlug: 'store.html'
     },
     {
-      image: '/assets/voyah/home-image-55.png',
-      video: '/assets/voyah/home-video-4.mp4',
-      logo: '/assets/voyah/home-image-56.png',
+      image: '/voyah-resources/website/advertisingbanner/image/1779ce91-787b-4a77-9fec-1deb13fedeb31770618459950.jpg',
+      video: '/voyah-resources/website/advertisingbanner/video/1779ce91-787b-4a77-9fec-1deb13fedeb31770618459950.mp4',
+      logo: '/voyah-resources/website/navigationbar/image/ea0f8412-5208-4822-b42d-bdbbb64741b41770619334518.png',
       title: t('', '', ''),
-      description: t('Premium intelligent SUV with Huawei ADS and Harmony cockpit', 'SUV premium intelligente avec Huawei ADS et cockpit Harmony', 'سيارة SUV ذكية فاخرة مع Huawei ADS ومقصورة Harmony'),
+      description: t(
+        'Premium intelligent SUV with Huawei ADS and Harmony cockpit',
+        'SUV premium intelligente avec Huawei ADS et cockpit Harmony',
+        'سيارة SUV ذكية فاخرة مع Huawei ADS ومقصورة Harmony'
+      ),
       primaryLabel: t('Learn more', 'En savoir plus', 'اعرف المزيد'),
       secondaryLabel: t('Order now', 'Commander', 'اطلب الآن'),
       primarySlug: 'free+.html',
       secondarySlug: 'store.html'
     },
     {
-      image: '/assets/voyah/home-image-57.png',
-      video: '/assets/voyah/home-video-5.mp4',
-      logo: '/assets/voyah/home-image-58.png',
+      image: '/voyah-resources/website/advertisingbanner/image/e33e96dc-3430-4882-946d-62abdf88dc0d1770618522586.jpg',
+      video: '/voyah-resources/website/advertisingbanner/video/e33e96dc-3430-4882-946d-62abdf88dc0d1770618522586.mp4',
+      logo: '/voyah-resources/website/navigationbar/image/d515bc38-574b-44fb-aebc-2f721eccfb461773885854055.png',
       title: t('', '', ''),
       description: t(
         'New luxury pure-electric SUV with long range and family comfort',
-        'Nouveau SUV de luxe 100 % électrique avec grande autonomie et confort familial',
+        'Nouveau SUV de luxe 100 % électrique avec grande autonomية et confort familial',
         'سيارة SUV كهربائية فاخرة جديدة بمدى طويل وراحة عائلية'
       ),
       primaryLabel: t('Learn more', 'En savoir plus', 'اعرف المزيد'),
@@ -1434,14 +1441,14 @@ export const homePage: HomeData = {
       'علامة راقية للمركبات الذكية العاملة بالطاقة الجديدة تنتمي إلى Dongfeng Motor.'
     ),
     cta: t('Discover the brand', 'Découvrir la marque', 'اكتشف العلامة'),
-    image: '/assets/voyah/home-image-1.jpg'
+    image: '/voyah-resources/static/assets/world-fec50d02.jpg'
   },
   modelsTitle: t('Explore Voyah models', 'Explorer les modèles Voyah', 'استكشف طرازات Voyah'),
   modelsBody: t('', '', ''),
   models: [
     {
       slug: 'titan.html',
-      image: '/assets/voyah/home-image-59.jpg',
+      image: '/voyah-resources/website/advertisingseries/image/4a4ba784-9bdc-4842-a3cf-22e2b1e46d761770618807747.jpg',
       title: t('Voyah Titan', 'Voyah Titan', 'Voyah Titan'),
       category: t(
         'A new-era flagship six-seat SUV',
@@ -1456,7 +1463,7 @@ export const homePage: HomeData = {
     },
     {
       slug: 'newDreamer26.html',
-      image: '/assets/voyah/home-image-60.jpg',
+      image: '/voyah-resources/website/advertisingseries/image/7ef23102-331e-418d-9139-72a7c77264011770618843718.jpg',
       title: t('26 Voyah Dreamer', 'Voyah Dreamer 26', 'Voyah Dreamer 26'),
       category: t('A new-era flagship MPV', 'Un monospace phare de nouvelle génération', 'سيارة MPV رائدة من الجيل الجديد'),
       metrics: [
@@ -1467,9 +1474,9 @@ export const homePage: HomeData = {
     },
     {
       slug: 'passion-L.html',
-      image: '/assets/voyah/home-image-61.jpg',
+      image: '/voyah-resources/website/advertisingseries/image/c6a84270-5367-4b46-9bbb-ca363039b20f1770618873239.jpg',
       title: t('Voyah Passion L', 'Voyah Passion L', 'Voyah Passion L'),
-      category: t('A new-era flagship sedan', 'Une berline phare de nouvelle génération', 'سيدان رائدة من الجيل الجديد'),
+      category: t('Berline phare de nouvelle génération', 'Berline phare de nouvelle génération', 'سيدان رائدة من الجيل الجديد'),
       metrics: [
         metric('Sedan', 'Body type', 'Carrosserie', 'نوع الهيكل'),
         metric('Flagship', 'Positioning', 'Positionnement', 'الفئة'),
@@ -1478,7 +1485,7 @@ export const homePage: HomeData = {
     },
     {
       slug: 'free+.html',
-      image: '/assets/voyah/home-image-62.jpg',
+      image: '/voyah-resources/website/advertisingseries/image/e8a95859-ce35-4110-8156-b9f6a9c3365d1770618911247.jpg',
       title: t('Voyah FREE+', 'Voyah FREE+', 'Voyah FREE+'),
       category: t(
         'Premium intelligent SUV',

@@ -8,6 +8,7 @@
       :video="model.heroVideo"
       :logo="model.heroLogo ?? model.logo"
       :variant="heroVariant"
+      id="hero"
     >
       <template #actions>
         <BaseButton :to="buildPath('book-drive.html')" variant="primary">
@@ -45,11 +46,12 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import BaseButton from '~/components/common/BaseButton.vue'
 import PageHero from '~/components/common/PageHero.vue'
 import ModelChapterNav from '~/components/page/model/ModelChapterNav.vue'
 import ModelMediaSection from '~/components/page/model/ModelMediaSection.vue'
-import { getExpandedModelGallery, getModelStorySections } from '~/data/modelMedia'
+import { getExpandedModelGallery, getModelStorySections, type ModelStorySection } from '~/data/modelMedia'
 import type { ModelDefinition } from '~/data/site'
 import { useSiteContent } from '~/composables/useSiteContent'
 
@@ -147,7 +149,7 @@ const inferKind = (section: { images: string[]; videos?: string[] }): RenderedSe
 
 const renderedSections = computed<RenderedSection[]>(() => {
   const sourceSections = authoredStorySections.value?.length
-    ? authoredStorySections.value.map((section, index) => {
+    ? authoredStorySections.value.map((section: ModelStorySection, index: number) => {
         const kind = inferKind(section)
 
         return {
@@ -162,7 +164,7 @@ const renderedSections = computed<RenderedSection[]>(() => {
           kind
         }
       })
-    : gallery.value.map((image, index) => ({
+    : gallery.value.map((image: string, index: number) => ({
         id: `chapter-${index + 1}`,
         kicker: undefined,
         title:
@@ -188,13 +190,13 @@ const renderedSections = computed<RenderedSection[]>(() => {
 
   const output: RenderedSection[] = []
 
-  sourceSections.forEach((section) => {
+  sourceSections.forEach((section: any) => {
     output.push({
       ...section,
       details: section.details.slice(0, 3),
       slides:
         section.kind === 'carousel'
-          ? (section.images.length ? section.images : [section.image ?? props.model.heroImage]).map((image, slideIndex) => ({
+          ? (section.images.length ? section.images : [section.image ?? props.model.heroImage]).map((image: string, slideIndex: number) => ({
               image,
               video: slideIndex === 0 ? section.videos?.[0] : undefined,
               title: section.details[slideIndex % section.details.length]?.title ?? section.title,
@@ -208,13 +210,20 @@ const renderedSections = computed<RenderedSection[]>(() => {
 })
 
 const chapterLinks = computed(() => [
-  ...renderedSections.value.map((section) => ({ id: section.id, label: section.title }))
+  ...renderedSections.value.map((section: RenderedSection) => ({ id: section.id, label: section.title }))
 ])
 </script>
 
 <style scoped>
 .model-page {
   background: #fff;
+  scroll-snap-type: y mandatory;
+}
+
+.model-page :deep(.page-hero),
+.model-page :deep(.model-media-section) {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 .model-page :deep(.page-hero) {
@@ -364,7 +373,7 @@ const chapterLinks = computed(() => [
 .model-overview-kicker,
 .model-cta-kicker {
   margin: 0 0 12px;
-  color: #8d6b43;
+  color: #A68B5B;
   font-size: 0.84rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;

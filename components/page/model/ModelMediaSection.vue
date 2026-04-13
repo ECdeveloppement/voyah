@@ -120,6 +120,7 @@
 </template>
 
 <script setup lang="ts">
+import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 
@@ -184,7 +185,7 @@ const details = computed<StoryDetail[]>(() => {
     return props.section.details
   }
 
-  return carouselSlides.value.slice(0, 3).map((slide) => ({
+  return carouselSlides.value.slice(0, 3).map((slide: CarouselSlide) => ({
     title: slide.title,
     summary: slide.summary
   }))
@@ -229,28 +230,53 @@ onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
 
   const revealTargets = sectionRef.value.querySelectorAll<HTMLElement>('[data-reveal]')
-  revealTargets.forEach((target, index) => {
+  revealTargets.forEach((target: HTMLElement) => {
+    const isImage = target.classList.contains('model-image-block') || target.classList.contains('model-banner')
+    
     gsap.fromTo(
       target,
-      { autoAlpha: 0.01, y: 30 },
+      { 
+        autoAlpha: 0.01, 
+        y: isImage ? 0 : 40,
+        scale: isImage ? 0.96 : 1
+      },
       {
         autoAlpha: 1,
         y: 0,
-        duration: 0.78,
-        delay: index * 0.04,
+        scale: 1,
+        duration: isImage ? 1.2 : 0.9,
         ease: 'power3.out',
-        overwrite: 'auto',
         scrollTrigger: {
           trigger: target,
-          start: 'top 86%',
+          start: 'top 92%',
           toggleActions: 'play none none reverse'
         }
       }
     )
+
+    // Stagger children if it's the head section
+    if (target.classList.contains('model-media-head')) {
+      const children = target.children
+      gsap.fromTo(
+        children,
+        { autoAlpha: 0, y: 20 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.12,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: target,
+            start: 'top 88%'
+          }
+        }
+      )
+    }
   })
 
   const parallaxTargets = sectionRef.value.querySelectorAll<HTMLElement>('[data-parallax]')
-  parallaxTargets.forEach((target) => {
+  parallaxTargets.forEach((target: HTMLElement) => {
     gsap.fromTo(
       target,
       { yPercent: 5 },
@@ -309,7 +335,7 @@ onBeforeUnmount(() => {
 
 .model-media-kicker {
   margin: 0;
-  color: #8d6b43;
+  color: #A68B5B;
   font-size: 0.82rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;

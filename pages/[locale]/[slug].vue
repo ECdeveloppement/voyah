@@ -12,20 +12,7 @@
   />
   <StoreCenterPage v-else-if="storePage" />
   <LegacyDisclosurePage v-else-if="legacyDisclosurePage" :page="legacyDisclosurePage" :text-for="textFor" />
-  <PassionLPage v-if="modelPage?.slug === 'passion-L.html'" :model="modelPage" />
-  <PassionPage v-else-if="modelPage?.slug === 'passion.html'" :model="modelPage" />
-  <TitanPage v-else-if="modelPage?.slug === 'titan.html'" :model="modelPage" />
-  <TitanBlackEditionPage v-else-if="modelPage?.slug === 'titan_blackedition.html'" :model="modelPage" />
-  <TitanX8Page v-else-if="modelPage?.slug === 'titan_X8.html'" :model="modelPage" />
-  <FreePlusPage v-else-if="modelPage?.slug === 'free+.html'" :model="modelPage" />
-  <FreePage v-else-if="modelPage?.slug === 'free.html'" :model="modelPage" />
-  <NewCouragePage v-else-if="modelPage?.slug === 'newCourage.html'" :model="modelPage" />
-  <CouragePage v-else-if="modelPage?.slug === 'courage.html'" :model="modelPage" />
-  <NewDreamer26Page v-else-if="modelPage?.slug === 'newDreamer26.html'" :model="modelPage" />
-  <DreamerChampionPage v-else-if="modelPage?.slug === 'dreamer-champion.html'" :model="modelPage" />
-  <NewDreamerPage v-else-if="modelPage?.slug === 'newDreamer.html'" :model="modelPage" />
-  <DreamRiverPage v-else-if="modelPage?.slug === 'dreamriver.html'" :model="modelPage" />
-  <DreamerPage v-else-if="modelPage?.slug === 'dreamer.html'" :model="modelPage" />
+  <DreamerPage v-if="modelPage?.slug === 'dreamer.html'" :model="modelPage" />
   <ModelPage v-else-if="modelPage" :model="modelPage" />
   <ArchitecturePage v-else-if="infoPage?.slug === 'architecture.html'" :page="infoPage" />
   <SafetyPage v-else-if="infoPage?.slug === 'safety.html'" :page="infoPage" />
@@ -60,6 +47,7 @@ import EnergyCenterPage from '~/components/page/legacy/EnergyCenterPage.vue'
 import ServiceCenterPage from '~/components/page/legacy/ServiceCenterPage.vue'
 import StoreCenterPage from '~/components/page/legacy/StoreCenterPage.vue'
 import ModelPage from '~/components/page/ModelPage.vue'
+import DreamerPage from '~/components/vehicles/dreamer/DreamerPage.vue'
 import ArchitecturePage from '~/components/tech/ArchitecturePage.vue'
 import SafetyPage from '~/components/tech/SafetyPage.vue'
 import SmartCockpitPage from '~/components/tech/SmartCockpitPage.vue'
@@ -77,20 +65,6 @@ import WarrantyPage from '~/components/service/WarrantyPage.vue'
 import AppPage from '~/components/service/AppPage.vue'
 import CommunityPage from '~/components/lifestyle/CommunityPage.vue'
 import LifestyleStorePage from '~/components/lifestyle/LifestyleStorePage.vue'
-import PassionLPage from '~/components/vehicles/passion-L/PassionLPage.vue'
-import PassionPage from '~/components/vehicles/passion/PassionPage.vue'
-import TitanPage from '~/components/vehicles/titan/TitanPage.vue'
-import TitanBlackEditionPage from '~/components/vehicles/titan_blackedition/TitanBlackEditionPage.vue'
-import TitanX8Page from '~/components/vehicles/titan_X8/TitanX8Page.vue'
-import FreePlusPage from '~/components/vehicles/free_plus/FreePlusPage.vue'
-import FreePage from '~/components/vehicles/free/FreePage.vue'
-import NewCouragePage from '~/components/vehicles/newCourage/NewCouragePage.vue'
-import CouragePage from '~/components/vehicles/courage/CouragePage.vue'
-import NewDreamer26Page from '~/components/vehicles/newDreamer26/NewDreamer26Page.vue'
-import DreamerChampionPage from '~/components/vehicles/dreamer-champion/DreamerChampionPage.vue'
-import NewDreamerPage from '~/components/vehicles/newDreamer/NewDreamerPage.vue'
-import DreamRiverPage from '~/components/vehicles/dreamriver/DreamRiverPage.vue'
-import DreamerPage from '~/components/vehicles/dreamer/DreamerPage.vue'
 import { resolvePage, type InfoDefinition } from '~/data/site'
 import { useSiteContent } from '~/composables/useSiteContent'
 

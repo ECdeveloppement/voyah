@@ -28,9 +28,9 @@
       <div class="dreamer-chapter-content">
         <div class="container">
           <div class="dreamer-chapter-text" ref="textRef">
-            <p class="dreamer-kicker">{{ $t(`pages.dreamer.sections.${chapter.id.replace('-', '_')}.kicker`) }}</p>
-            <h2>{{ $t(`pages.dreamer.sections.${chapter.id.replace('-', '_')}.title`) }}</h2>
-            <p>{{ $t(`pages.dreamer.sections.${chapter.id.replace('-', '_')}.summary`) }}</p>
+            <p v-if="chapter.kicker" class="dreamer-kicker">{{ chapter.kicker }}</p>
+            <h2 v-if="chapter.title">{{ chapter.title }}</h2>
+            <p v-if="chapter.summary">{{ chapter.summary }}</p>
           </div>
         </div>
       </div>

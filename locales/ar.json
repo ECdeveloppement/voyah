@@ -666,6 +666,14 @@
       "phoneLabel": "خدمة العملاء: 400-888-8488",
       "emailLabel": "البريد: voyah-callcenter@voyah.com.cn",
       "recordLabel": "رقم Hubei ICP 2021016773-2"
+    },
+    "sidebar": {
+      "testDrive": "تجربة قيادة",
+      "consultation": "الاستشارة",
+      "app": "تحميل التطبيق",
+      "feedback": "الملاحظات",
+      "hotlineTitle": "خدمة العملاء",
+      "hotlineHours": "9:00 - 21:00"
     }
   },
   "domain": {

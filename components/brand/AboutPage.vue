@@ -12,7 +12,7 @@
     <!-- Mission Statement -->
     <section class="about-statement section-shell">
       <div class="container text-center">
-         <h2 ref="statementRef" class="fade-up">{{ $t('domain.about.statement', 'Voyah integrates 54 years of car-building expertise from Dongfeng with extensive global supply chain resources, standing at the forefront of China\\'s new energy vehicle transition.') }}</h2>
+         <h2 ref="statementRef" class="fade-up">{{ $t('domain.about.statement', "Voyah integrates 54 years of car-building expertise from Dongfeng with extensive global supply chain resources, standing at the forefront of China's new energy vehicle transition.") }}</h2>
       </div>
     </section>
 

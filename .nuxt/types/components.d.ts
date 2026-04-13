@@ -21,6 +21,7 @@ interface _GlobalComponents {
   CommonBaseButton: typeof import("../../components/common/BaseButton.vue")['default']
   CommonMetricGrid: typeof import("../../components/common/MetricGrid.vue")['default']
   CommonPageHero: typeof import("../../components/common/PageHero.vue")['default']
+  CommonScrollDots: typeof import("../../components/common/ScrollDots.vue")['default']
   CorporatePage: typeof import("../../components/corporate/CorporatePage.vue")['default']
   CorporateIRPage: typeof import("../../components/corporate/IRPage.vue")['default']
   CorporateJoinUsPage: typeof import("../../components/corporate/JoinUsPage.vue")['default']
@@ -34,6 +35,7 @@ interface _GlobalComponents {
   HomeServiceGrid: typeof import("../../components/home/HomeServiceGrid.vue")['default']
   HomeStatsMedia: typeof import("../../components/home/HomeStatsMedia.vue")['default']
   HomeTechnology: typeof import("../../components/home/HomeTechnology.vue")['default']
+  LayoutAppSidebar: typeof import("../../components/layout/AppSidebar.vue")['default']
   LayoutSiteFooter: typeof import("../../components/layout/SiteFooter.vue")['default']
   LayoutSiteHeader: typeof import("../../components/layout/SiteHeader.vue")['default']
   LifestyleCommunityPage: typeof import("../../components/lifestyle/CommunityPage.vue")['default']
@@ -57,65 +59,13 @@ interface _GlobalComponents {
   TechBatteryPage: typeof import("../../components/tech/BatteryPage.vue")['default']
   TechSafetyPage: typeof import("../../components/tech/SafetyPage.vue")['default']
   TechSmartCockpitPage: typeof import("../../components/tech/SmartCockpitPage.vue")['default']
-  VehiclesCourageChapter: typeof import("../../components/vehicles/courage/CourageChapter.vue")['default']
-  VehiclesCourageChapterNav: typeof import("../../components/vehicles/courage/CourageChapterNav.vue")['default']
-  VehiclesCourageHero: typeof import("../../components/vehicles/courage/CourageHero.vue")['default']
-  VehiclesCouragePage: typeof import("../../components/vehicles/courage/CouragePage.vue")['default']
-  VehiclesDreamerChampionChapter: typeof import("../../components/vehicles/dreamer-champion/DreamerChampionChapter.vue")['default']
-  VehiclesDreamerChampionChapterNav: typeof import("../../components/vehicles/dreamer-champion/DreamerChampionChapterNav.vue")['default']
-  VehiclesDreamerChampionHero: typeof import("../../components/vehicles/dreamer-champion/DreamerChampionHero.vue")['default']
-  VehiclesDreamerChampionPage: typeof import("../../components/vehicles/dreamer-champion/DreamerChampionPage.vue")['default']
   VehiclesDreamerChapter: typeof import("../../components/vehicles/dreamer/DreamerChapter.vue")['default']
   VehiclesDreamerChapterNav: typeof import("../../components/vehicles/dreamer/DreamerChapterNav.vue")['default']
   VehiclesDreamerHero: typeof import("../../components/vehicles/dreamer/DreamerHero.vue")['default']
   VehiclesDreamerPage: typeof import("../../components/vehicles/dreamer/DreamerPage.vue")['default']
-  VehiclesDreamriverDreamRiverChapter: typeof import("../../components/vehicles/dreamriver/DreamRiverChapter.vue")['default']
-  VehiclesDreamriverDreamRiverChapterNav: typeof import("../../components/vehicles/dreamriver/DreamRiverChapterNav.vue")['default']
-  VehiclesDreamriverDreamRiverHero: typeof import("../../components/vehicles/dreamriver/DreamRiverHero.vue")['default']
-  VehiclesDreamriverDreamRiverPage: typeof import("../../components/vehicles/dreamriver/DreamRiverPage.vue")['default']
-  VehiclesFreeChapter: typeof import("../../components/vehicles/free/FreeChapter.vue")['default']
-  VehiclesFreeChapterNav: typeof import("../../components/vehicles/free/FreeChapterNav.vue")['default']
-  VehiclesFreeHero: typeof import("../../components/vehicles/free/FreeHero.vue")['default']
-  VehiclesFreePage: typeof import("../../components/vehicles/free/FreePage.vue")['default']
-  VehiclesFreePlusChapter: typeof import("../../components/vehicles/free_plus/FreePlusChapter.vue")['default']
-  VehiclesFreePlusChapterNav: typeof import("../../components/vehicles/free_plus/FreePlusChapterNav.vue")['default']
-  VehiclesFreePlusHero: typeof import("../../components/vehicles/free_plus/FreePlusHero.vue")['default']
-  VehiclesFreePlusPage: typeof import("../../components/vehicles/free_plus/FreePlusPage.vue")['default']
   VehiclesInteractiveCinematicVideoHero: typeof import("../../components/vehicles/interactive/CinematicVideoHero.vue")['default']
   VehiclesInteractiveFeatureCarousel: typeof import("../../components/vehicles/interactive/FeatureCarousel.vue")['default']
   VehiclesInteractiveVehicleColorPicker: typeof import("../../components/vehicles/interactive/VehicleColorPicker.vue")['default']
-  VehiclesNewCourageChapter: typeof import("../../components/vehicles/newCourage/NewCourageChapter.vue")['default']
-  VehiclesNewCourageChapterNav: typeof import("../../components/vehicles/newCourage/NewCourageChapterNav.vue")['default']
-  VehiclesNewCourageHero: typeof import("../../components/vehicles/newCourage/NewCourageHero.vue")['default']
-  VehiclesNewCouragePage: typeof import("../../components/vehicles/newCourage/NewCouragePage.vue")['default']
-  VehiclesNewDreamerChapter: typeof import("../../components/vehicles/newDreamer/NewDreamerChapter.vue")['default']
-  VehiclesNewDreamerChapterNav: typeof import("../../components/vehicles/newDreamer/NewDreamerChapterNav.vue")['default']
-  VehiclesNewDreamerHero: typeof import("../../components/vehicles/newDreamer/NewDreamerHero.vue")['default']
-  VehiclesNewDreamerPage: typeof import("../../components/vehicles/newDreamer/NewDreamerPage.vue")['default']
-  VehiclesNewDreamer26Chapter: typeof import("../../components/vehicles/newDreamer26/NewDreamer26Chapter.vue")['default']
-  VehiclesNewDreamer26ChapterNav: typeof import("../../components/vehicles/newDreamer26/NewDreamer26ChapterNav.vue")['default']
-  VehiclesNewDreamer26Hero: typeof import("../../components/vehicles/newDreamer26/NewDreamer26Hero.vue")['default']
-  VehiclesNewDreamer26Page: typeof import("../../components/vehicles/newDreamer26/NewDreamer26Page.vue")['default']
-  VehiclesPassionLChapter: typeof import("../../components/vehicles/passion-L/PassionLChapter.vue")['default']
-  VehiclesPassionLChapterNav: typeof import("../../components/vehicles/passion-L/PassionLChapterNav.vue")['default']
-  VehiclesPassionLHero: typeof import("../../components/vehicles/passion-L/PassionLHero.vue")['default']
-  VehiclesPassionLPage: typeof import("../../components/vehicles/passion-L/PassionLPage.vue")['default']
-  VehiclesPassionChapter: typeof import("../../components/vehicles/passion/PassionChapter.vue")['default']
-  VehiclesPassionChapterNav: typeof import("../../components/vehicles/passion/PassionChapterNav.vue")['default']
-  VehiclesPassionHero: typeof import("../../components/vehicles/passion/PassionHero.vue")['default']
-  VehiclesPassionPage: typeof import("../../components/vehicles/passion/PassionPage.vue")['default']
-  VehiclesTitanChapter: typeof import("../../components/vehicles/titan/TitanChapter.vue")['default']
-  VehiclesTitanChapterNav: typeof import("../../components/vehicles/titan/TitanChapterNav.vue")['default']
-  VehiclesTitanHero: typeof import("../../components/vehicles/titan/TitanHero.vue")['default']
-  VehiclesTitanPage: typeof import("../../components/vehicles/titan/TitanPage.vue")['default']
-  VehiclesTitanX8Chapter: typeof import("../../components/vehicles/titan_X8/TitanX8Chapter.vue")['default']
-  VehiclesTitanX8ChapterNav: typeof import("../../components/vehicles/titan_X8/TitanX8ChapterNav.vue")['default']
-  VehiclesTitanX8Hero: typeof import("../../components/vehicles/titan_X8/TitanX8Hero.vue")['default']
-  VehiclesTitanX8Page: typeof import("../../components/vehicles/titan_X8/TitanX8Page.vue")['default']
-  VehiclesTitanBlackeditionTitanBlackEditionChapter: typeof import("../../components/vehicles/titan_blackedition/TitanBlackEditionChapter.vue")['default']
-  VehiclesTitanBlackeditionTitanBlackEditionChapterNav: typeof import("../../components/vehicles/titan_blackedition/TitanBlackEditionChapterNav.vue")['default']
-  VehiclesTitanBlackeditionTitanBlackEditionHero: typeof import("../../components/vehicles/titan_blackedition/TitanBlackEditionHero.vue")['default']
-  VehiclesTitanBlackeditionTitanBlackEditionPage: typeof import("../../components/vehicles/titan_blackedition/TitanBlackEditionPage.vue")['default']
   NuxtWelcome: typeof import("../../node_modules/nuxt/dist/app/components/welcome.vue")['default']
   NuxtLayout: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
   NuxtErrorBoundary: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']
@@ -148,6 +98,7 @@ interface _GlobalComponents {
   LazyCommonBaseButton: LazyComponent<typeof import("../../components/common/BaseButton.vue")['default']>
   LazyCommonMetricGrid: LazyComponent<typeof import("../../components/common/MetricGrid.vue")['default']>
   LazyCommonPageHero: LazyComponent<typeof import("../../components/common/PageHero.vue")['default']>
+  LazyCommonScrollDots: LazyComponent<typeof import("../../components/common/ScrollDots.vue")['default']>
   LazyCorporatePage: LazyComponent<typeof import("../../components/corporate/CorporatePage.vue")['default']>
   LazyCorporateIRPage: LazyComponent<typeof import("../../components/corporate/IRPage.vue")['default']>
   LazyCorporateJoinUsPage: LazyComponent<typeof import("../../components/corporate/JoinUsPage.vue")['default']>
@@ -161,6 +112,7 @@ interface _GlobalComponents {
   LazyHomeServiceGrid: LazyComponent<typeof import("../../components/home/HomeServiceGrid.vue")['default']>
   LazyHomeStatsMedia: LazyComponent<typeof import("../../components/home/HomeStatsMedia.vue")['default']>
   LazyHomeTechnology: LazyComponent<typeof import("../../components/home/HomeTechnology.vue")['default']>
+  LazyLayoutAppSidebar: LazyComponent<typeof import("../../components/layout/AppSidebar.vue")['default']>
   LazyLayoutSiteFooter: LazyComponent<typeof import("../../components/layout/SiteFooter.vue")['default']>
   LazyLayoutSiteHeader: LazyComponent<typeof import("../../components/layout/SiteHeader.vue")['default']>
   LazyLifestyleCommunityPage: LazyComponent<typeof import("../../components/lifestyle/CommunityPage.vue")['default']>
@@ -184,65 +136,13 @@ interface _GlobalComponents {
   LazyTechBatteryPage: LazyComponent<typeof import("../../components/tech/BatteryPage.vue")['default']>
   LazyTechSafetyPage: LazyComponent<typeof import("../../components/tech/SafetyPage.vue")['default']>
   LazyTechSmartCockpitPage: LazyComponent<typeof import("../../components/tech/SmartCockpitPage.vue")['default']>
-  LazyVehiclesCourageChapter: LazyComponent<typeof import("../../components/vehicles/courage/CourageChapter.vue")['default']>
-  LazyVehiclesCourageChapterNav: LazyComponent<typeof import("../../components/vehicles/courage/CourageChapterNav.vue")['default']>
-  LazyVehiclesCourageHero: LazyComponent<typeof import("../../components/vehicles/courage/CourageHero.vue")['default']>
-  LazyVehiclesCouragePage: LazyComponent<typeof import("../../components/vehicles/courage/CouragePage.vue")['default']>
-  LazyVehiclesDreamerChampionChapter: LazyComponent<typeof import("../../components/vehicles/dreamer-champion/DreamerChampionChapter.vue")['default']>
-  LazyVehiclesDreamerChampionChapterNav: LazyComponent<typeof import("../../components/vehicles/dreamer-champion/DreamerChampionChapterNav.vue")['default']>
-  LazyVehiclesDreamerChampionHero: LazyComponent<typeof import("../../components/vehicles/dreamer-champion/DreamerChampionHero.vue")['default']>
-  LazyVehiclesDreamerChampionPage: LazyComponent<typeof import("../../components/vehicles/dreamer-champion/DreamerChampionPage.vue")['default']>
   LazyVehiclesDreamerChapter: LazyComponent<typeof import("../../components/vehicles/dreamer/DreamerChapter.vue")['default']>
   LazyVehiclesDreamerChapterNav: LazyComponent<typeof import("../../components/vehicles/dreamer/DreamerChapterNav.vue")['default']>
   LazyVehiclesDreamerHero: LazyComponent<typeof import("../../components/vehicles/dreamer/DreamerHero.vue")['default']>
   LazyVehiclesDreamerPage: LazyComponent<typeof import("../../components/vehicles/dreamer/DreamerPage.vue")['default']>
-  LazyVehiclesDreamriverDreamRiverChapter: LazyComponent<typeof import("../../components/vehicles/dreamriver/DreamRiverChapter.vue")['default']>
-  LazyVehiclesDreamriverDreamRiverChapterNav: LazyComponent<typeof import("../../components/vehicles/dreamriver/DreamRiverChapterNav.vue")['default']>
-  LazyVehiclesDreamriverDreamRiverHero: LazyComponent<typeof import("../../components/vehicles/dreamriver/DreamRiverHero.vue")['default']>
-  LazyVehiclesDreamriverDreamRiverPage: LazyComponent<typeof import("../../components/vehicles/dreamriver/DreamRiverPage.vue")['default']>
-  LazyVehiclesFreeChapter: LazyComponent<typeof import("../../components/vehicles/free/FreeChapter.vue")['default']>
-  LazyVehiclesFreeChapterNav: LazyComponent<typeof import("../../components/vehicles/free/FreeChapterNav.vue")['default']>
-  LazyVehiclesFreeHero: LazyComponent<typeof import("../../components/vehicles/free/FreeHero.vue")['default']>
-  LazyVehiclesFreePage: LazyComponent<typeof import("../../components/vehicles/free/FreePage.vue")['default']>
-  LazyVehiclesFreePlusChapter: LazyComponent<typeof import("../../components/vehicles/free_plus/FreePlusChapter.vue")['default']>
-  LazyVehiclesFreePlusChapterNav: LazyComponent<typeof import("../../components/vehicles/free_plus/FreePlusChapterNav.vue")['default']>
-  LazyVehiclesFreePlusHero: LazyComponent<typeof import("../../components/vehicles/free_plus/FreePlusHero.vue")['default']>
-  LazyVehiclesFreePlusPage: LazyComponent<typeof import("../../components/vehicles/free_plus/FreePlusPage.vue")['default']>
   LazyVehiclesInteractiveCinematicVideoHero: LazyComponent<typeof import("../../components/vehicles/interactive/CinematicVideoHero.vue")['default']>
   LazyVehiclesInteractiveFeatureCarousel: LazyComponent<typeof import("../../components/vehicles/interactive/FeatureCarousel.vue")['default']>
   LazyVehiclesInteractiveVehicleColorPicker: LazyComponent<typeof import("../../components/vehicles/interactive/VehicleColorPicker.vue")['default']>
-  LazyVehiclesNewCourageChapter: LazyComponent<typeof import("../../components/vehicles/newCourage/NewCourageChapter.vue")['default']>
-  LazyVehiclesNewCourageChapterNav: LazyComponent<typeof import("../../components/vehicles/newCourage/NewCourageChapterNav.vue")['default']>
-  LazyVehiclesNewCourageHero: LazyComponent<typeof import("../../components/vehicles/newCourage/NewCourageHero.vue")['default']>
-  LazyVehiclesNewCouragePage: LazyComponent<typeof import("../../components/vehicles/newCourage/NewCouragePage.vue")['default']>
-  LazyVehiclesNewDreamerChapter: LazyComponent<typeof import("../../components/vehicles/newDreamer/NewDreamerChapter.vue")['default']>
-  LazyVehiclesNewDreamerChapterNav: LazyComponent<typeof import("../../components/vehicles/newDreamer/NewDreamerChapterNav.vue")['default']>
-  LazyVehiclesNewDreamerHero: LazyComponent<typeof import("../../components/vehicles/newDreamer/NewDreamerHero.vue")['default']>
-  LazyVehiclesNewDreamerPage: LazyComponent<typeof import("../../components/vehicles/newDreamer/NewDreamerPage.vue")['default']>
-  LazyVehiclesNewDreamer26Chapter: LazyComponent<typeof import("../../components/vehicles/newDreamer26/NewDreamer26Chapter.vue")['default']>
-  LazyVehiclesNewDreamer26ChapterNav: LazyComponent<typeof import("../../components/vehicles/newDreamer26/NewDreamer26ChapterNav.vue")['default']>
-  LazyVehiclesNewDreamer26Hero: LazyComponent<typeof import("../../components/vehicles/newDreamer26/NewDreamer26Hero.vue")['default']>
-  LazyVehiclesNewDreamer26Page: LazyComponent<typeof import("../../components/vehicles/newDreamer26/NewDreamer26Page.vue")['default']>
-  LazyVehiclesPassionLChapter: LazyComponent<typeof import("../../components/vehicles/passion-L/PassionLChapter.vue")['default']>
-  LazyVehiclesPassionLChapterNav: LazyComponent<typeof import("../../components/vehicles/passion-L/PassionLChapterNav.vue")['default']>
-  LazyVehiclesPassionLHero: LazyComponent<typeof import("../../components/vehicles/passion-L/PassionLHero.vue")['default']>
-  LazyVehiclesPassionLPage: LazyComponent<typeof import("../../components/vehicles/passion-L/PassionLPage.vue")['default']>
-  LazyVehiclesPassionChapter: LazyComponent<typeof import("../../components/vehicles/passion/PassionChapter.vue")['default']>
-  LazyVehiclesPassionChapterNav: LazyComponent<typeof import("../../components/vehicles/passion/PassionChapterNav.vue")['default']>
-  LazyVehiclesPassionHero: LazyComponent<typeof import("../../components/vehicles/passion/PassionHero.vue")['default']>
-  LazyVehiclesPassionPage: LazyComponent<typeof import("../../components/vehicles/passion/PassionPage.vue")['default']>
-  LazyVehiclesTitanChapter: LazyComponent<typeof import("../../components/vehicles/titan/TitanChapter.vue")['default']>
-  LazyVehiclesTitanChapterNav: LazyComponent<typeof import("../../components/vehicles/titan/TitanChapterNav.vue")['default']>
-  LazyVehiclesTitanHero: LazyComponent<typeof import("../../components/vehicles/titan/TitanHero.vue")['default']>
-  LazyVehiclesTitanPage: LazyComponent<typeof import("../../components/vehicles/titan/TitanPage.vue")['default']>
-  LazyVehiclesTitanX8Chapter: LazyComponent<typeof import("../../components/vehicles/titan_X8/TitanX8Chapter.vue")['default']>
-  LazyVehiclesTitanX8ChapterNav: LazyComponent<typeof import("../../components/vehicles/titan_X8/TitanX8ChapterNav.vue")['default']>
-  LazyVehiclesTitanX8Hero: LazyComponent<typeof import("../../components/vehicles/titan_X8/TitanX8Hero.vue")['default']>
-  LazyVehiclesTitanX8Page: LazyComponent<typeof import("../../components/vehicles/titan_X8/TitanX8Page.vue")['default']>
-  LazyVehiclesTitanBlackeditionTitanBlackEditionChapter: LazyComponent<typeof import("../../components/vehicles/titan_blackedition/TitanBlackEditionChapter.vue")['default']>
-  LazyVehiclesTitanBlackeditionTitanBlackEditionChapterNav: LazyComponent<typeof import("../../components/vehicles/titan_blackedition/TitanBlackEditionChapterNav.vue")['default']>
-  LazyVehiclesTitanBlackeditionTitanBlackEditionHero: LazyComponent<typeof import("../../components/vehicles/titan_blackedition/TitanBlackEditionHero.vue")['default']>
-  LazyVehiclesTitanBlackeditionTitanBlackEditionPage: LazyComponent<typeof import("../../components/vehicles/titan_blackedition/TitanBlackEditionPage.vue")['default']>
   LazyNuxtWelcome: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
   LazyNuxtLayout: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/nuxt-layout")['default']>
   LazyNuxtErrorBoundary: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']>

@@ -58,115 +58,117 @@
               ]"
               @mouseleave="closeGroup"
             >
-              <div v-if="item.label.en === 'Models'" class="models-dropdown">
-                <div class="models-dropdown__main">
-                  <div
-                    v-for="section in modelMenuSections"
-                    :key="section.key"
-                    class="models-section"
-                  >
-                    <h5 class="models-section__title">{{ textFor(section.title) }}</h5>
+              <div class="nav-dropdown-container">
+                <div v-if="item.label.en === 'Models'" class="models-dropdown">
+                  <div class="models-dropdown__main">
+                    <div
+                      v-for="section in modelMenuSections"
+                      :key="section.key"
+                      class="models-section"
+                    >
+                      <h5 class="models-section__title">{{ textFor(section.title) }}</h5>
 
-                    <div class="models-grid">
-                      <NuxtLink
-                        v-for="(entry, entryIdx) in section.items"
-                        :key="entry.slug"
-                        :to="buildPath(entry.slug)"
-                        class="models-card"
-                        :style="{ '--stagger-idx': entryIdx }"
-                      >
-                        <div class="models-card__media">
-                          <img
-                            :src="entry.image"
-                            :alt="textFor(entry.label)"
-                            class="models-card__image"
-                          />
-                        </div>
-                        <p class="models-card__name">{{ textFor(entry.label) }}</p>
-                      </NuxtLink>
+                      <div class="models-grid">
+                        <NuxtLink
+                          v-for="(entry, entryIdx) in section.items"
+                          :key="entry.slug"
+                          :to="buildPath(entry.slug)"
+                          class="models-card"
+                          :style="{ '--stagger-idx': entryIdx }"
+                        >
+                          <div class="models-card__media">
+                            <img
+                              :src="entry.image"
+                              :alt="textFor(entry.label)"
+                              class="models-card__image"
+                            />
+                          </div>
+                          <p class="models-card__name">{{ textFor(entry.label) }}</p>
+                        </NuxtLink>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <aside class="models-dropdown__tools">
-                  <div class="models-tools">
-                    <div class="models-tools__title">{{ textFor(toolMenu.title) }}</div>
+                  <aside class="models-dropdown__tools">
+                    <div class="models-tools">
+                      <div class="models-tools__title">{{ textFor(toolMenu.title) }}</div>
 
-                    <div class="models-tools__list">
-                      <NuxtLink
-                        v-for="tool in toolMenu.items"
-                        :key="tool.slug"
-                        :to="buildPath(tool.slug)"
-                        class="models-tools__item"
-                      >
-                        {{ textFor(tool.label) }}
-                      </NuxtLink>
+                      <div class="models-tools__list">
+                        <NuxtLink
+                          v-for="tool in toolMenu.items"
+                          :key="tool.slug"
+                          :to="buildPath(tool.slug)"
+                          class="models-tools__item"
+                        >
+                          {{ textFor(tool.label) }}
+                        </NuxtLink>
+                      </div>
                     </div>
-                  </div>
-                </aside>
-              </div>
-
-              <div
-                v-else-if="item.label.en === 'Voyah Service' || item.label.en === 'About Voyah'"
-                class="grouped-dropdown"
-              >
-                <div class="grouped-dropdown__main">
-                  <h5 class="grouped-dropdown__title">
-                    {{ textFor(item.label.en === 'Voyah Service' ? serviceMenu.primaryTitle : aboutMenu.primaryTitle) }}
-                  </h5>
-
-                  <div class="grouped-dropdown__feature-list">
-                    <NuxtLink
-                      v-for="child in item.label.en === 'Voyah Service' ? serviceMenu.primaryItems : aboutMenu.primaryItems"
-                      :key="child.slug"
-                      :to="buildPath(child.slug)"
-                      class="grouped-dropdown__feature"
-                    >
-                      <img
-                        v-if="child.thumb"
-                        :src="child.thumb"
-                        :alt="textFor(child.label)"
-                        class="grouped-dropdown__feature-image"
-                      />
-                      <span class="grouped-dropdown__feature-label">{{ textFor(child.label) }}</span>
-                    </NuxtLink>
-                  </div>
+                  </aside>
                 </div>
 
-                <aside class="grouped-dropdown__aside">
-                  <div class="grouped-dropdown__aside-title">
-                    {{ textFor(item.label.en === 'Voyah Service' ? serviceMenu.secondaryTitle : aboutMenu.secondaryTitle) }}
-                  </div>
-
-                  <div class="grouped-dropdown__aside-list">
-                    <NuxtLink
-                      v-for="child in item.label.en === 'Voyah Service' ? serviceMenu.secondaryItems : aboutMenu.secondaryItems"
-                      :key="child.slug"
-                      :to="buildPath(child.slug)"
-                      class="grouped-dropdown__aside-item"
-                    >
-                      {{ textFor(child.label) }}
-                    </NuxtLink>
-                  </div>
-                </aside>
-              </div>
-
-              <div v-else class="dropdown-inner">
-                <NuxtLink
-                  v-for="(child, childIdx) in item.children"
-                  :key="child.slug ?? item.label.en"
-                  :to="buildPath(child.slug)"
-                  class="dropdown-card"
-                  :style="{ '--stagger-idx': childIdx }"
+                <div
+                  v-else-if="item.label.en === 'Voyah Service' || item.label.en === 'About Voyah'"
+                  class="grouped-dropdown"
                 >
-                  <img
-                    v-if="child.thumb"
-                    :src="child.thumb"
-                    :alt="textFor(child.label)"
-                    class="dropdown-thumb"
-                  />
-                  <span class="dropdown-card__label">{{ textFor(child.label) }}</span>
-                </NuxtLink>
+                  <div class="grouped-dropdown__main">
+                    <h5 class="grouped-dropdown__title">
+                      {{ textFor(item.label.en === 'Voyah Service' ? serviceMenu.primaryTitle : aboutMenu.primaryTitle) }}
+                    </h5>
+
+                    <div class="grouped-dropdown__feature-list">
+                      <NuxtLink
+                        v-for="child in item.label.en === 'Voyah Service' ? serviceMenu.primaryItems : aboutMenu.primaryItems"
+                        :key="child.slug"
+                        :to="buildPath(child.slug)"
+                        class="grouped-dropdown__feature"
+                      >
+                        <img
+                          v-if="child.thumb"
+                          :src="child.thumb"
+                          :alt="textFor(child.label)"
+                          class="grouped-dropdown__feature-image"
+                        />
+                        <span class="grouped-dropdown__feature-label">{{ textFor(child.label) }}</span>
+                      </NuxtLink>
+                    </div>
+                  </div>
+
+                  <aside class="grouped-dropdown__aside">
+                    <div class="grouped-dropdown__aside-title">
+                      {{ textFor(item.label.en === 'Voyah Service' ? serviceMenu.secondaryTitle : aboutMenu.secondaryTitle) }}
+                    </div>
+
+                    <div class="grouped-dropdown__aside-list">
+                      <NuxtLink
+                        v-for="child in item.label.en === 'Voyah Service' ? serviceMenu.secondaryItems : aboutMenu.secondaryItems"
+                        :key="child.slug"
+                        :to="buildPath(child.slug)"
+                        class="grouped-dropdown__aside-item"
+                      >
+                        {{ textFor(child.label) }}
+                      </NuxtLink>
+                    </div>
+                  </aside>
+                </div>
+
+                <div v-else class="dropdown-inner">
+                  <NuxtLink
+                    v-for="(child, childIdx) in item.children"
+                    :key="child.slug ?? item.label.en"
+                    :to="buildPath(child.slug)"
+                    class="dropdown-card"
+                    :style="{ '--stagger-idx': childIdx }"
+                  >
+                    <img
+                      v-if="child.thumb"
+                      :src="child.thumb"
+                      :alt="textFor(child.label)"
+                      class="dropdown-thumb"
+                    />
+                    <span class="dropdown-card__label">{{ textFor(child.label) }}</span>
+                  </NuxtLink>
+                </div>
               </div>
             </div>
           </div>
@@ -369,10 +371,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
-import { useRoute } from '#imports'
+import { ref, watch, computed, onMounted, onBeforeUnmount } from 'vue'
+import { useRoute, useNuxtApp } from '#app'
 import { useSiteContent } from '~/composables/useSiteContent'
-import type { LocalizedText } from '~/data/site'
+import type { LocalizedText, NavItem } from '~/data/site'
 
 const { locale, locales, navigation, buildPath, switchLocalePath, textFor, resolveCurrentPage } = useSiteContent()
 
@@ -383,9 +385,20 @@ const localeOpen = ref(false)
 const currentPage = computed(() => resolveCurrentPage())
 const currentModel = computed(() => (currentPage.value?.kind === 'model' ? currentPage.value : null))
 const scrollY = ref(0)
-const isHomeRoute = computed(() => !currentPage.value)
-const isTransparent = computed(() => isHomeRoute.value && scrollY.value < 44 && !mobileOpen.value)
-const isScrolled = computed(() => scrollY.value > 28 || !isHomeRoute.value)
+const isHomeRoute = computed(() => !currentPage.value || route.path === `/${locale.value.code}` || route.path === `/${locale.value.code}/`)
+
+const headerOpacity = computed(() => {
+  if (!isHomeRoute.value) return 0.96
+  return Math.min(0.96, scrollY.value / 50)
+})
+
+const headerHeight = computed(() => {
+  if (!isHomeRoute.value) return 64
+  return Math.max(64, 80 - (scrollY.value / 50) * 16)
+})
+
+const isTransparent = computed(() => isHomeRoute.value && scrollY.value < 4 && !mobileOpen.value)
+const isScrolled = computed(() => scrollY.value > 20 || !isHomeRoute.value)
 
 const copy = (en: string, fr: string, ar: string): LocalizedText => ({ en, fr, ar })
 
@@ -494,17 +507,17 @@ const toolMenu = {
 }
 
 const serviceChildren = computed(() => {
-  const items = Array.isArray(navigation.value) ? navigation.value : []
-  return items.find((item) => item.label.en === 'Voyah Service')?.children ?? []
+  const items = (Array.isArray(navigation.value) ? navigation.value : []) as NavItem[]
+  return items.find((item: NavItem) => item.label.en === 'Voyah Service')?.children ?? []
 })
 
 const aboutChildren = computed(() => {
-  const items = Array.isArray(navigation.value) ? navigation.value : []
-  return items.find((item) => item.label.en === 'About Voyah')?.children ?? []
+  const items = (Array.isArray(navigation.value) ? navigation.value : []) as NavItem[]
+  return items.find((item: NavItem) => item.label.en === 'About Voyah')?.children ?? []
 })
 const serviceMenu = computed(() => ({
   primaryTitle: copy('Service', 'Service', 'الخدمة'),
-  primaryItems: serviceChildren.value.slice(0, 2).map((child, index) => ({
+  primaryItems: (serviceChildren.value as NavItem[]).slice(0, 2).map((child: NavItem, index: number) => ({
     ...child,
     thumb: [
       '/website/navigationbar/image/984a8ea8-534a-46fb-b57c-b87ebd915faf1770618777959.png',
@@ -517,7 +530,7 @@ const serviceMenu = computed(() => ({
 
 const aboutMenu = computed(() => ({
   primaryTitle: copy('Communication', 'Communication', 'التواصل'),
-  primaryItems: aboutChildren.value.slice(0, 1).map((child) => ({
+  primaryItems: (aboutChildren.value as NavItem[]).slice(0, 1).map((child: NavItem) => ({
     ...child,
     thumb: '/website/navigationbar/image/a0423ec8-30e1-431b-a9fa-d9bea9d0c5701770622210658.png'
   })),
@@ -576,19 +589,19 @@ onBeforeUnmount(() => {
 .site-header {
   position: fixed;
   inset: 0 0 auto;
-  z-index: 100;
-  background: rgba(7, 10, 14, 0.9);
+  z-index: 1000;
+  background: rgba(7, 10, 14, v-bind(headerOpacity));
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(12px) saturate(180%);
   transition:
-    background-color 0.24s cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 0.24s cubic-bezier(0.22, 1, 0.36, 1),
-    backdrop-filter 0.24s cubic-bezier(0.22, 1, 0.36, 1);
+    background-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    backdrop-filter 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .site-header--transparent {
-  background: linear-gradient(180deg, rgba(7, 10, 14, 0.82), rgba(7, 10, 14, 0));
-  border-bottom-color: rgba(255, 255, 255, 0.02);
+  background: transparent;
+  border-bottom-color: transparent;
   backdrop-filter: blur(0);
 }
 
@@ -598,8 +611,8 @@ onBeforeUnmount(() => {
 }
 
 .site-header--scrolled {
-  background: rgba(6, 10, 14, 0.96);
-  border-bottom-color: rgba(255, 255, 255, 0.1);
+  background: rgba(6, 10, 14, v-bind(headerOpacity));
+  border-bottom-color: rgba(255, 255, 255, 0.08);
 }
 
 .header-bar {
@@ -609,8 +622,8 @@ onBeforeUnmount(() => {
   align-items: center;
   justify-content: space-between;
   gap: 32px;
-  min-height: 64px;
-  transition: min-height 0.24s cubic-bezier(0.22, 1, 0.36, 1);
+  min-height: v-bind("headerHeight + 'px'");
+  transition: min-height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .header-left {
@@ -678,7 +691,7 @@ onBeforeUnmount(() => {
   position: relative;
   display: inline-flex;
   align-items: center;
-  min-height: 64px;
+  min-height: v-bind("headerHeight + 'px'");
   padding: 0 16px;
   background: transparent;
   border: 0;
@@ -689,16 +702,16 @@ onBeforeUnmount(() => {
   line-height: 1;
   cursor: pointer;
   white-space: nowrap;
-  transition: color 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: color 0.3s cubic-bezier(0.22, 1, 0.36, 1), min-height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .site-header--scrolled .header-bar {
-  min-height: 56px;
+  min-height: v-bind("headerHeight + 'px'");
 }
 
 .site-header--scrolled .nav-link,
 .site-header--scrolled .nav-button {
-  min-height: 56px;
+  min-height: v-bind("headerHeight + 'px'");
 }
 
 .nav-link::after,
@@ -754,14 +767,19 @@ onBeforeUnmount(() => {
 }
 
 .nav-dropdown--models {
-  left: 50%;
-  width: min(1320px, calc(100vw - 24px));
-  min-width: 1180px;
-  transform: translate(-50%, 14px);
+  left: 0;
+  right: 0;
+  width: 100vw;
+  transform: translateY(14px);
 }
 
 .nav-dropdown--models.open {
-  transform: translate(-50%, 0);
+  transform: translateY(0);
+}
+
+.nav-dropdown-container {
+  max-width: 1320px;
+  margin: 0 auto;
 }
 
 .models-dropdown {
@@ -770,7 +788,7 @@ onBeforeUnmount(() => {
   background: #fff;
   color: #262626;
   border-radius: 0;
-  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.16);
 }
 
 .models-dropdown__main {

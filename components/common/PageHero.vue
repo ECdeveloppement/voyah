@@ -44,7 +44,9 @@
 </template>
 
 <script setup lang="ts">
-withDefaults(
+import gsap from 'gsap'
+
+const props = withDefaults(
   defineProps<{
     eyebrow: string
     title: string
@@ -62,6 +64,34 @@ withDefaults(
     variant: undefined
   }
 )
+
+const heroRef = ref<HTMLElement | null>(null)
+
+onMounted(() => {
+  if (!heroRef.value) return
+
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out', duration: 1.1 } })
+
+  tl.fromTo(
+    '.page-hero-media',
+    { scale: 1.12, autoAlpha: 0 },
+    { scale: 1, autoAlpha: 1, duration: 1.8 }
+  )
+
+  tl.fromTo(
+    ['.page-logo', '.eyebrow', '.page-title', '.page-summary', '.page-hero-actions'],
+    { y: 30, autoAlpha: 0 },
+    { y: 0, autoAlpha: 1, stagger: 0.12, duration: 0.95 },
+    '-=1.2'
+  )
+
+  tl.fromTo(
+    '.page-hero-meta',
+    { x: 20, autoAlpha: 0 },
+    { x: 0, autoAlpha: 1, duration: 1 },
+    '-=0.6'
+  )
+})
 </script>
 
 <style scoped>

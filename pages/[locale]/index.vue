@@ -1,18 +1,19 @@
 <template>
   <div class="voyah-homepage">
-    <HomeHero :slides="homePage.slides" />
-    <HomeBrandIntro :data="homePage.brandIntro" />
-    <HomeModels :title="homePage.modelsTitle" :body="homePage.modelsBody" :models="homePage.models" />
-    <HomeStatsMedia :data="homePage.energy" />
-    <HomeTechnology :data="homePage.technology" />
-    <HomeServiceGrid :data="homePage.service" />
-    <HomeCommunity :data="homePage.community" />
-    <HomeGlobalMap :data="homePage.footprint" />
+    <HomeHero id="hero" :slides="homePage.slides" />
+    <HomeBrandIntro id="brand" :data="homePage.brandIntro" />
+    <HomeModels id="models" :title="homePage.modelsTitle" :body="homePage.modelsBody" :models="homePage.models" />
+    <HomeStatsMedia id="energy" :data="homePage.energy" />
+    <HomeTechnology id="tech" :data="homePage.technology" />
+    <HomeServiceGrid id="service" :data="homePage.service" />
+    <HomeCommunity id="community" :data="homePage.community" />
+    <HomeGlobalMap id="map" :data="homePage.footprint" />
     <HomeQuickActions />
   </div>
 </template>
 
 <script setup lang="ts">
+import { useSeoMeta } from '#app'
 import { homePage } from '~/data/site'
 import { useSiteContent } from '~/composables/useSiteContent'
 
@@ -23,3 +24,10 @@ useSeoMeta({
   description: () => textFor(homePage.brandIntro.body)
 })
 </script>
+
+<style scoped>
+.voyah-homepage > * {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+</style>
