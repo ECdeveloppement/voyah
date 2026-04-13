@@ -59,7 +59,7 @@
           <div v-if="showApp" class="sidebar-panel sidebar-panel--qr">
             <div class="panel-inner">
               <div class="panel-qr-box">
-                <img src="/voyah-resources/images/lifestyle/app_qr.png" alt="QR Code" class="panel-qr" @error="handleImgError" />
+                <img src="/static/assets/qr-code-a2fb7ce9.png" alt="QR Code" class="panel-qr" @error="handleImgError" />
               </div>
               <p class="panel-copy">{{ $t('global.footer.appEyebrow') }}</p>
             </div>

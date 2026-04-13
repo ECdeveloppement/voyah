@@ -13,9 +13,9 @@
   --text: #edf2f7;
   --text-soft: rgba(237, 242, 247, 0.74);
   --line: rgba(255, 255, 255, 0.12);
-  --accent: #c59c62;
-  --accent-strong: #f0c07f;
-  --max-width: 1320px;
+  --accent: #A68B5B;
+  --accent-strong: #A68B5B;
+  --max-width: 1440px;
   --radius: 28px;
   --shadow: 0 24px 80px rgba(0, 0, 0, 0.3);
 }
@@ -91,7 +91,8 @@ select {
   margin: 0;
   font-size: clamp(2.2rem, 4.5vw, 4.8rem);
   line-height: 0.98;
-  letter-spacing: -0.035em;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
   text-wrap: balance;
   font-weight: 300;
 }
@@ -140,7 +141,7 @@ select {
 }
 
 .base-button.primary:hover {
-  background: #d3a86b;
+  background: #A68B5B;
 }
 
 .base-button.secondary {

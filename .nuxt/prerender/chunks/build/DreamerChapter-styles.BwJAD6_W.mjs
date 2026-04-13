@@ -1,0 +1,8 @@
+const DreamerChapter_vue_vue_type_style_index_0_scoped_92e0167f_lang = ".dreamer-chapter[data-v-92e0167f]{background:#000;height:150vh;position:relative}.dreamer-chapter-sticky[data-v-92e0167f]{height:100vh;overflow:hidden;position:sticky;top:0}.dreamer-chapter-media[data-v-92e0167f]{height:100%;inset:0;position:absolute;width:100%}.dreamer-media-item[data-v-92e0167f]{height:100%;-o-object-fit:cover;object-fit:cover;width:100%}.dreamer-chapter-overlay[data-v-92e0167f]{background:linear-gradient(0deg,#000c,#0003 60%,#0000001a);inset:0;pointer-events:none;position:absolute}.dreamer-chapter-content[data-v-92e0167f]{align-items:flex-end;color:#fff;display:flex;inset:0;padding-bottom:12vh;position:absolute;z-index:2}.dreamer-chapter-text[data-v-92e0167f]{max-width:600px}.dreamer-kicker[data-v-92e0167f]{color:#ffffffb3;font-size:.85rem;letter-spacing:.15em;margin-bottom:1rem;text-transform:uppercase}h2[data-v-92e0167f]{font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:0 0 1rem}p[data-v-92e0167f]:not(.dreamer-kicker){color:#ffffffd9;font-size:1.05rem;line-height:1.7;margin:0}";
+
+const DreamerChapterStyles_BwJAD6_W = [
+  DreamerChapter_vue_vue_type_style_index_0_scoped_92e0167f_lang
+];
+
+export { DreamerChapterStyles_BwJAD6_W as default };
+//# sourceMappingURL=DreamerChapter-styles.BwJAD6_W.mjs.map

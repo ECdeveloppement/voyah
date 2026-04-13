@@ -388,13 +388,11 @@ const scrollY = ref(0)
 const isHomeRoute = computed(() => !currentPage.value || route.path === `/${locale.value.code}` || route.path === `/${locale.value.code}/`)
 
 const headerOpacity = computed(() => {
-  if (!isHomeRoute.value) return 0.96
-  return Math.min(0.96, scrollY.value / 50)
+  return 0.6
 })
 
 const headerHeight = computed(() => {
-  if (!isHomeRoute.value) return 64
-  return Math.max(64, 80 - (scrollY.value / 50) * 16)
+  return 80
 })
 
 const isTransparent = computed(() => isHomeRoute.value && scrollY.value < 4 && !mobileOpen.value)
@@ -507,12 +505,12 @@ const toolMenu = {
 }
 
 const serviceChildren = computed(() => {
-  const items = (Array.isArray(navigation.value) ? navigation.value : []) as NavItem[]
+  const items = (Array.isArray(navigation) ? navigation : []) as NavItem[]
   return items.find((item: NavItem) => item.label.en === 'Voyah Service')?.children ?? []
 })
 
 const aboutChildren = computed(() => {
-  const items = (Array.isArray(navigation.value) ? navigation.value : []) as NavItem[]
+  const items = (Array.isArray(navigation) ? navigation : []) as NavItem[]
   return items.find((item: NavItem) => item.label.en === 'About Voyah')?.children ?? []
 })
 const serviceMenu = computed(() => ({
@@ -590,9 +588,9 @@ onBeforeUnmount(() => {
   position: fixed;
   inset: 0 0 auto;
   z-index: 1000;
-  background: rgba(7, 10, 14, v-bind(headerOpacity));
+  background: rgba(0, 0, 0, 0.6);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(12px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
   transition:
     background-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
     border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
@@ -611,7 +609,7 @@ onBeforeUnmount(() => {
 }
 
 .site-header--scrolled {
-  background: rgba(6, 10, 14, v-bind(headerOpacity));
+  background: rgba(0, 0, 0, 0.6);
   border-bottom-color: rgba(255, 255, 255, 0.08);
 }
 
@@ -698,7 +696,8 @@ onBeforeUnmount(() => {
   color: rgba(255, 255, 255, 0.84);
   font-size: 0.9rem;
   font-weight: 400;
-  letter-spacing: 0.015em;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
   line-height: 1;
   cursor: pointer;
   white-space: nowrap;
@@ -816,7 +815,7 @@ onBeforeUnmount(() => {
 .models-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(164px, 1fr));
-  gap: 12px;
+  gap: 24px;
 }
 
 .models-card {
@@ -1393,6 +1392,19 @@ onBeforeUnmount(() => {
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   background: rgba(17, 24, 33, 0.85);
+}
+
+.is-rtl .header-bar {
+  flex-direction: row-reverse;
+}
+
+.is-rtl .header-left,
+.is-rtl .header-actions {
+  flex-direction: row-reverse;
+}
+
+.is-rtl .header-nav {
+  justify-content: flex-end;
 }
 </style>
 

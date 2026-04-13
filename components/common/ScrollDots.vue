@@ -132,9 +132,8 @@ onBeforeUnmount(() => {
 
 .dot-item.active .dot-inner {
   background: #A68B5B;
-  transform: scale(2.2);
-  box-shadow: 0 0 10px rgba(166, 139, 91, 0.6);
-  animation: dot-pulse 2s infinite;
+  transform: scale(1.5);
+  box-shadow: 0 0 0 3px rgba(6, 10, 14, 0.98), 0 0 0 4.5px #A68B5B;
 }
 
 .dot-label {

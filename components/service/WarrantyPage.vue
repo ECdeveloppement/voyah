@@ -3,7 +3,7 @@
     <PageHero
       :eyebrow="$t('domain.warranty.eyebrow', 'Voyah Care')"
       :title="$t('domain.warranty.title', 'Warranty & Assurance')"
-      :summary="$t('domain.warranty.summary', 'Drive with total peace of mind under Voyah\\'s comprehensive protection plans.')"
+      :summary="$t('domain.warranty.summary', 'Drive with total peace of mind under Voyah’s comprehensive protection plans.')"
       image="/voyah-resources/service/warranty_hero.jpg"
       align="center"
       :compact="true"

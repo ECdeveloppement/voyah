@@ -42,7 +42,7 @@
             <div class="pillar-card">
                <div class="pillar-number">02</div>
                <h3>{{ $t('domain.philosophy.p2_title', 'Quiet Luxury') }}</h3>
-               <p>{{ $t('domain.philosophy.p2_desc', 'True luxury doesn't shout. Our cabins are engineered to NVH standards that isolate the chaos of the outside world, creating a sanctuary of calm.') }}</p>
+               <p>{{ $t('domain.philosophy.p2_desc', 'True luxury doesn\'t shout. Our cabins are engineered to NVH standards that isolate the chaos of the outside world, creating a sanctuary of calm.') }}</p>
             </div>
             
             <div class="pillar-card">

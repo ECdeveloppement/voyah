@@ -5,7 +5,7 @@
       <slot />
     </main>
     <AppSidebar v-if="!isLegacyParityPage" />
-    <ScrollDots v-if="isSnappingPage" />
+    <ScrollDots v-if="!isLegacyParityPage" />
     <SiteFooter v-if="!isLegacyParityPage" />
   </div>
 </template>
@@ -47,11 +47,6 @@ useHead(() => ({
 <style scoped>
 .site-main--legacy {
   padding-top: 0;
-}
-
-.site-main--snapping {
-  /* Nuxt 3 sometimes needs this on the scroll container if we want global snapping */
-  /* But often it is better applied at the page level. We will set the stage here. */
 }
 
 /* Global scroll snap can be aggressive, so we apply it carefully */
