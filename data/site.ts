@@ -1758,7 +1758,7 @@ export const footerLegalLinks = [
 ]
 
 export const footerContact: FooterContact = {
-  title: t('Download the Voyah App and explore a new world of Voyah', 'Téléchargez l’application Voyah et explorez un nouvel univers Voyah', 'حمّل تطبيق Voyah واستكشف عالماً جديداً من Voyah'),
+  title: t('Download the Voyah App and explore a new world of Voyah', 'Téléchargez l’application Voyah \n et explorez un nouvel univers Voyah', 'حمّل تطبيق Voyah واستكشف عالماً جديداً من Voyah'),
   body: t('Stay up to date with the latest Voyah news and discover community activities with distinctive taste.', 'Restez au plus près des dernières actualités Voyah et découvrez des activités communautaires au caractère affirmé.', 'اطلع على أحدث أخبار Voyah واكتشف أنشطة المجتمع التي تحمل طابعاً مميزاً.'),
   appCode: '/assets/voyah/home-image-41.png',
   miniProgramCode: '/assets/voyah/home-image-70.png'

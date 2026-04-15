@@ -1,1 +1,0 @@
-import{S as o}from"./D8kZAwbJ.js";import{d as a,r,a as s,o as n}from"./qXE8RmPE.js";import{u as m,a as c}from"./DdtWZLHh.js";const d=a({__name:"store",setup(p){const e=r("store.html"),{textFor:t}=m();return c({title:e?`Voyah | ${t(e.title)}`:"Voyah | Store",meta:[{name:"description",content:e?t(e.summary):"Voyah store center"}]}),(i,u)=>(n(),s(o))}});export{d as default};

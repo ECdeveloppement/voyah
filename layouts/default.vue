@@ -24,7 +24,7 @@ const { resolveCurrentPage } = useSiteContent()
 const currentLocale = currentLocaleInfo()
 const route = useRoute()
 const isLegacyParityPage = computed(() =>
-  ['store.html', 'service.html', 'energy.html'].some((slug) => route.path.endsWith(`/${slug}`) || route.path === `/${slug}`)
+  ['store.html', 'energy.html'].some((slug) => route.path.endsWith(`/${slug}`) || route.path === `/${slug}`)
 )
 
 const currentPage = computed(() => resolveCurrentPage())

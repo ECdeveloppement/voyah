@@ -1,1 +1,0 @@
-import{d as a,w as o,o as n,c as r,n as s}from"./qXE8RmPE.js";const c={class:"root-redirect-page"},l=a({__name:"index",async setup(_){let e,t;return[e,t]=o(()=>s("/fr",{replace:!0})),await e,t(),(i,p)=>(n(),r("div",c))}});export{l as default};

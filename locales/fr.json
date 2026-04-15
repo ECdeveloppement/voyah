@@ -658,10 +658,10 @@
     },
     "footer": {
       "appEyebrow": "Télécharger l application Voyah",
-      "appLabel": "App",
+      "appLabel": "Télécharger l'application",
       "miniLabel": "Mini-programme",
       "miniCopy": "Programme officiel WeChat",
-      "versionLabel": "Android 5.5.0  iOS 5.5.0  HarmonyOS 1.9.0",
+      "versionLabel": "Android 5.5.0 \n iOS 5.5.0 \n HarmonyOS 1.9.0",
       "companyLabel": "Voyah Automotive Technology Co., Ltd.",
       "phoneLabel": "Service client: 400-888-8488",
       "emailLabel": "E-mail: voyah-callcenter@voyah.com.cn",

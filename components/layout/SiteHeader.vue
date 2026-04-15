@@ -10,7 +10,7 @@
     <div class="container header-bar">
       <div class="header-left">
         <NuxtLink :to="buildPath()" class="brand-mark" aria-label="Voyah home">
-          <img src="/sitelogo/pc/brand.png" alt="Voyah" />
+          <img src="/sitelogo/logo.png" alt="Voyah" />
         </NuxtLink>
 
         <div v-if="currentModel" class="header-model desktop-only">
@@ -27,7 +27,6 @@
             :key="item.slug ?? item.label.en"
             class="nav-group"
             @mouseenter="openGroup(item.label.en)"
-            @mouseleave="closeGroup"
           >
             <NuxtLink
               v-if="item.slug"
@@ -56,7 +55,7 @@
                   'nav-dropdown--models': item.label.en === 'Models'
                 }
               ]"
-              @mouseleave="closeGroup"
+              @scroll.stop
             >
               <div class="nav-dropdown-container">
                 <div v-if="item.label.en === 'Models'" class="models-dropdown">
@@ -176,94 +175,52 @@
       </div>
 
       <div class="header-actions desktop-only">
-        <template v-if="isHomeRoute">
-          <div
-            class="locale-menu"
-            @mouseenter="localeOpen = true"
-            @mouseleave="localeOpen = false"
-          >
-            <button type="button" class="header-utility header-utility--icon" aria-label="Language switcher">
-              <span class="header-utility__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <circle cx="12" cy="12" r="8.25" stroke="currentColor" stroke-width="1.5" />
-                  <path d="M3.75 12H20.25" stroke="currentColor" stroke-width="1.5" />
-                  <path d="M12 3.75C14.49 5.91 15.9 8.9 15.9 12C15.9 15.1 14.49 18.09 12 20.25C9.51 18.09 8.1 15.1 8.1 12C8.1 8.9 9.51 5.91 12 3.75Z" stroke="currentColor" stroke-width="1.5" />
-                </svg>
-              </span>
-            </button>
-
-            <div v-if="localeOpen" class="locale-menu__panel">
-              <NuxtLink
-                v-for="localeItem in locales"
-                :key="localeItem.code"
-                :to="switchLocalePath(localeItem.code)"
-                :class="['locale-menu__item', { active: locale.code === localeItem.code }]"
-              >
-                {{ localeItem.name }}
-              </NuxtLink>
-            </div>
-          </div>
-
-          <button type="button" class="header-utility">
-            <span class="header-utility__icon" aria-hidden="true">
+        <div
+          class="locale-menu"
+          @mouseenter="localeOpen = true"
+          @mouseleave="localeOpen = false"
+        >
+          <button type="button" class="voyah-language-switcher" aria-label="Language switcher">
+            <span class="voyah-language-switcher__code">{{ locale.code.toUpperCase() }}</span>
+            <span class="voyah-language-switcher__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none">
-                <path d="M12 12C14.0711 12 15.75 10.3211 15.75 8.25C15.75 6.17893 14.0711 4.5 12 4.5C9.92893 4.5 8.25 6.17893 8.25 8.25C8.25 10.3211 9.92893 12 12 12Z" stroke="currentColor" stroke-width="1.5" />
-                <path d="M5.25 19.5C6.35381 16.8787 8.95354 15 12 15C15.0465 15 17.6462 16.8787 18.75 19.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                <circle cx="12" cy="12" r="8.25" stroke="currentColor" stroke-width="1.5" />
+                <path d="M3.75 12H20.25" stroke="currentColor" stroke-width="1.5" />
+                <path d="M12 3.75C14.49 5.91 15.9 8.9 15.9 12C15.9 15.1 14.49 18.09 12 20.25C9.51 18.09 8.1 15.1 8.1 12C8.1 8.9 9.51 5.91 12 3.75Z" stroke="currentColor" stroke-width="1.5" />
               </svg>
             </span>
-            {{ loginLabel }}
           </button>
 
-          <NuxtLink
-            :to="buildPath(currentModel?.slug ?? 'titan.html')"
-            class="header-cta header-cta--ghost"
-          >
-            {{ configLabel }}
-          </NuxtLink>
-
-          <NuxtLink
-            :to="buildPath('book-drive.html')"
-            class="header-cta header-cta--ghost"
-          >
-            {{ testDriveLabel }}
-          </NuxtLink>
-
-          <NuxtLink :to="buildPath(currentModel?.slug ?? 'titan.html')" class="header-cta header-cta--primary">
-            {{ orderLabel }}
-          </NuxtLink>
-        </template>
-
-        <template v-else>
-          <div class="locale-picker" aria-label="Language switcher">
+          <div v-if="localeOpen" class="voyah-language-dropdown">
             <NuxtLink
               v-for="localeItem in locales"
               :key="localeItem.code"
               :to="switchLocalePath(localeItem.code)"
-              :class="['locale-chip', { active: locale.code === localeItem.code }]"
+              :class="['voyah-language-dropdown__item', { active: locale.code === localeItem.code }]"
             >
-              {{ localeItem.code.toUpperCase() }}
+              <span class="voyah-language-dropdown__code">{{ localeItem.code.toUpperCase() }}</span>
+              <span class="voyah-language-dropdown__name">{{ localeItem.name }}</span>
             </NuxtLink>
           </div>
+        </div>
 
-          <button type="button" class="header-utility">
-            {{ loginLabel }}
-          </button>
+        <NuxtLink
+          :to="buildPath(currentModel?.slug ?? 'titan.html')"
+          class="header-cta header-cta--ghost"
+        >
+          {{ configLabel }}
+        </NuxtLink>
 
-          <NuxtLink v-if="currentModel" :to="buildPath(currentModel.slug)" class="header-cta header-cta--ghost">
-            {{ configLabel }}
-          </NuxtLink>
+        <NuxtLink
+          :to="buildPath('book-drive.html')"
+          class="header-cta header-cta--ghost"
+        >
+          {{ testDriveLabel }}
+        </NuxtLink>
 
-          <NuxtLink
-            :to="buildPath('book-drive.html')"
-            class="header-cta header-cta--ghost"
-          >
-            {{ testDriveLabel }}
-          </NuxtLink>
-
-          <NuxtLink :to="buildPath(currentModel?.slug ?? 'titan.html')" class="header-cta header-cta--primary">
-            {{ orderLabel }}
-          </NuxtLink>
-        </template>
+        <NuxtLink :to="buildPath(currentModel?.slug ?? 'titan.html')" class="header-cta header-cta--primary">
+          {{ orderLabel }}
+        </NuxtLink>
       </div>
 
       <button
@@ -400,7 +357,6 @@ const isScrolled = computed(() => scrollY.value > 20 || !isHomeRoute.value)
 
 const copy = (en: string, fr: string, ar: string): LocalizedText => ({ en, fr, ar })
 
-const loginLabel = computed(() => useNuxtApp().$i18n.t('global.header.login'))
 const configLabel = computed(() => useNuxtApp().$i18n.t('global.header.config'))
 const testDriveLabel = computed(() => useNuxtApp().$i18n.t('global.header.testDrive'))
 const orderLabel = computed(() => useNuxtApp().$i18n.t('global.header.order'))
@@ -429,17 +385,20 @@ const modelMenuSections = [
       {
         slug: 'titan.html',
         label: copy('Voyah Titan', 'Voyah Titan', 'Voyah Titan'),
-        image: '/website/navigationbar/image/482a7b36-c15e-4508-83e5-c9b79227dbfa1770619361896.png'
+        image: '/website/navigationbar/image/482a7b36-c15e-4508-83e5-c9b79227dbfa1770619361896.png',
+        idx: 0
       },
       {
         slug: 'titan_blackedition.html',
         label: copy('Voyah Titan Black Edition', 'Voyah Titan Black Edition', 'Voyah Titan Black Edition'),
-        image: '/website/navigationbar/image/2d3ebdb7-6f35-4bfd-b929-d858d5cb3a351773729769599.png'
+        image: '/website/navigationbar/image/2d3ebdb7-6f35-4bfd-b929-d858d5cb3a351773729769599.png',
+        idx: 1
       },
       {
         slug: 'titan_X8.html',
         label: copy('Voyah Titan X8', 'Voyah Titan X8', 'Voyah Titan X8'),
-        image: '/website/navigationbar/image/d515bc38-574b-44fb-aebc-2f721eccfb461773885854055.png'
+        image: '/website/navigationbar/image/d515bc38-574b-44fb-aebc-2f721eccfb461773885854055.png',
+        idx: 2
       },
       {
         slug: 'free+.html',
@@ -545,6 +504,14 @@ const openGroup = (label: string) => {
   activeGroup.value = label
 }
 
+// Click outside handler to close dropdown
+const handleClickOutside = (event: MouseEvent) => {
+  const header = document.querySelector('.site-header')
+  if (header && !header.contains(event.target as Node)) {
+    activeGroup.value = null
+  }
+}
+
 const closeGroup = () => {
   activeGroup.value = null
 }
@@ -574,11 +541,13 @@ watch(mobileOpen, (isOpen) => {
 onMounted(() => {
   updateScroll()
   window.addEventListener('scroll', updateScroll, { passive: true })
+  document.addEventListener('click', handleClickOutside)
 })
 
 onBeforeUnmount(() => {
   if (scrollRaf) window.cancelAnimationFrame(scrollRaf)
   window.removeEventListener('scroll', updateScroll)
+  document.removeEventListener('click', handleClickOutside)
   document.body.style.overflow = ''
 })
 </script>
@@ -592,9 +561,10 @@ onBeforeUnmount(() => {
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(20px) saturate(180%);
   transition:
-    background-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-    backdrop-filter 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    background-color 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    backdrop-filter 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .site-header--transparent {
@@ -690,18 +660,22 @@ onBeforeUnmount(() => {
   display: inline-flex;
   align-items: center;
   min-height: v-bind("headerHeight + 'px'");
-  padding: 0 16px;
+  padding: 0 12px;
   background: transparent;
   border: 0;
   color: rgba(255, 255, 255, 0.84);
-  font-size: 0.9rem;
+  font-family: 'DDIN', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-size: 0.82rem;
   font-weight: 400;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  line-height: 1;
+  line-height: 1.2;
   cursor: pointer;
   white-space: nowrap;
-  transition: color 0.3s cubic-bezier(0.22, 1, 0.36, 1), min-height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    min-height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .site-header--scrolled .header-bar {
@@ -717,9 +691,9 @@ onBeforeUnmount(() => {
 .nav-button::after {
   content: '';
   position: absolute;
-  left: 15px;
-  right: 15px;
-  bottom: 16px;
+  left: 12px;
+  right: 12px;
+  bottom: 14px;
   height: 2px;
   background: #b31d22;
   transform: scaleX(0);
@@ -736,7 +710,25 @@ onBeforeUnmount(() => {
 
 .nav-link:hover,
 .nav-button:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+}
+
+.nav-link::before,
+.nav-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  transition: left 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.nav-link:hover::before,
+.nav-button:hover::before {
+  left: 100%;
 }
 
 .nav-link:hover::after,
@@ -753,23 +745,36 @@ onBeforeUnmount(() => {
   z-index: 3;
   opacity: 0;
   pointer-events: none;
-  transform: translateY(14px);
+  transform: translateY(20px) scale(0.95);
+  filter: blur(2px);
   transition:
-    opacity 0.36s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.36s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-group:hover .nav-dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
 }
 
 .nav-dropdown.open {
   opacity: 1;
   pointer-events: auto;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
+  filter: blur(0);
 }
 
 .nav-dropdown--models {
+  position: fixed;
   left: 0;
   right: 0;
   width: 100vw;
   transform: translateY(14px);
+  margin: 0;
+  padding: 0;
 }
 
 .nav-dropdown--models.open {
@@ -777,24 +782,27 @@ onBeforeUnmount(() => {
 }
 
 .nav-dropdown-container {
-  max-width: 1320px;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 80px;
   margin: 0 auto;
 }
 
 .models-dropdown {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 256px;
+  grid-template-columns: minmax(0, 1fr) 300px;
   background: #fff;
   color: #262626;
   border-radius: 0;
   box-shadow: 0 32px 64px rgba(0, 0, 0, 0.16);
+  max-width: 100%;
 }
 
 .models-dropdown__main {
-  padding: 22px 24px 24px;
+  padding: 30px 40px;
   display: grid;
-  gap: 18px;
-  max-height: min(600px, calc(100vh - 120px));
+  gap: 24px;
+  max-height: min(700px, calc(100vh - 120px));
   overflow: auto;
 }
 
@@ -814,16 +822,16 @@ onBeforeUnmount(() => {
 
 .models-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(164px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
 }
 
 .models-card {
-  min-height: 162px;
+  min-height: 220px;
   display: grid;
-  gap: 8px;
+  gap: 16px;
   align-content: start;
-  padding: 12px 12px 11px;
+  padding: 20px;
   background: #fff;
   border: 1px solid #ececec;
   transition:
@@ -841,7 +849,7 @@ onBeforeUnmount(() => {
 }
 
 .models-card__media {
-  height: 92px;
+  height: 160px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -849,7 +857,7 @@ onBeforeUnmount(() => {
 
 .models-card__image {
   width: 100%;
-  height: 92px;
+  height: 160px;
   object-fit: contain;
   transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -861,8 +869,14 @@ onBeforeUnmount(() => {
 .models-card__name {
   margin: 0;
   color: #262626;
-  font-size: 0.76rem;
-  line-height: 1.22;
+  font-size: 1rem;
+  line-height: 1.4;
+  min-height: 2.8em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 500;
 }
 
 .models-dropdown__tools {
@@ -892,12 +906,12 @@ onBeforeUnmount(() => {
 .models-tools__item {
   display: inline-flex;
   align-items: center;
-  min-height: 42px;
-  padding: 0 14px;
+  min-height: 52px;
+  padding: 0 20px;
   background: #fff;
   border: 1px solid #ececec;
   color: #262626;
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   transition:
     border-color 0.22s cubic-bezier(0.4, 0, 0.2, 1),
     background 0.22s cubic-bezier(0.4, 0, 0.2, 1),
@@ -1058,41 +1072,140 @@ onBeforeUnmount(() => {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .locale-menu {
   position: relative;
 }
 
-.locale-menu__panel {
+.voyah-language-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 0 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: 'DDIN', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: pointer;
+}
+
+.voyah-language-switcher:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.voyah-language-switcher__code {
+  font-weight: 600;
+  color: #fff;
+}
+
+.voyah-language-switcher__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.voyah-language-switcher:hover .voyah-language-switcher__icon {
+  opacity: 1;
+}
+
+.voyah-language-switcher__icon svg {
+  width: 100%;
+  height: 100%;
+  stroke-width: 1.5;
+}
+
+.voyah-language-dropdown {
   position: absolute;
-  top: calc(100% + 10px);
+  top: calc(100% + 8px);
   right: 0;
-  min-width: 144px;
+  min-width: 160px;
   display: grid;
   gap: 2px;
-  padding: 8px;
+  padding: 6px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-  background: rgba(10, 14, 18, 0.96);
-  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
-}
-
-.locale-menu__item {
-  padding: 9px 10px;
   border-radius: 8px;
-  color: rgba(255, 255, 255, 0.76);
-  font-size: 0.76rem;
-  transition:
-    background-color 0.22s cubic-bezier(0.4, 0, 0.2, 1),
-    color 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(10, 14, 18, 0.96);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.32);
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
 }
 
-.locale-menu__item:hover,
-.locale-menu__item.active {
+.locale-menu:hover .voyah-language-dropdown {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.voyah-language-dropdown__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.74rem;
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
+
+.voyah-language-dropdown__item:hover,
+.voyah-language-dropdown__item.active {
   background: rgba(255, 255, 255, 0.08);
   color: #fff;
+  transform: translateX(2px);
+}
+
+.voyah-language-dropdown__code {
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.voyah-language-dropdown__name {
+  font-size: 0.74rem;
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.voyah-language-dropdown__item:hover .voyah-language-dropdown__name,
+.voyah-language-dropdown__item.active .voyah-language-dropdown__name {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* RTL Support */
+[dir="rtl"] .voyah-language-switcher {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .voyah-language-dropdown {
+  right: auto;
+  left: 0;
+}
+
+[dir="rtl"] .voyah-language-dropdown__item:hover,
+[dir="rtl"] .voyah-language-dropdown__item.active {
+  transform: translateX(-2px);
 }
 
 .locale-picker {
@@ -1164,12 +1277,13 @@ onBeforeUnmount(() => {
   align-items: center;
   justify-content: center;
   min-height: 36px;
-  padding: 0 16px;
+  padding: 8px 14px;
   border: 1px solid rgba(255, 255, 255, 0.34);
   border-radius: 4px;
-  font-size: 0.76rem;
-  letter-spacing: 0.03em;
-  white-space: nowrap;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+  text-align: center;
   transition:
     background-color 0.22s cubic-bezier(0.4, 0, 0.2, 1),
     border-color 0.22s cubic-bezier(0.4, 0, 0.2, 1),
@@ -1407,4 +1521,3 @@ onBeforeUnmount(() => {
   justify-content: flex-end;
 }
 </style>
-

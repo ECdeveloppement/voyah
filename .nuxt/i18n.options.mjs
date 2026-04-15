@@ -15,7 +15,7 @@ export const localeLoaders = {
 }
 
 export const vueI18nConfigs = [
-  () => import("#nuxt-i18n/77bb3196" /* webpackChunkName: "config_i18n_46config_46ts_77bb3196" */)
+  () => import("#nuxt-i18n/53a6ee8e" /* webpackChunkName: "config_i18n_46config_46ts_53a6ee8e" */)
 ]
 
 export const nuxtI18nOptions = {

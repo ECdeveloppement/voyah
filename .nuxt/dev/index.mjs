@@ -3,38 +3,38 @@ import { Server } from 'node:http';
 import { resolve, dirname, join } from 'node:path';
 import nodeCrypto from 'node:crypto';
 import { parentPort, threadId } from 'node:worker_threads';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, createError, getQuery as getQuery$1, readBody, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, getRouterParam, getResponseStatusText } from 'file://E:/voyah/node_modules/h3/dist/index.mjs';
-import { escapeHtml } from 'file://E:/voyah/node_modules/@vue/shared/dist/shared.cjs.js';
-import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file://E:/voyah/node_modules/vue-bundle-renderer/dist/runtime.mjs';
-import { renderToString } from 'file://E:/voyah/node_modules/vue/server-renderer/index.mjs';
-import { klona } from 'file://E:/voyah/node_modules/klona/dist/index.mjs';
-import defu, { defuFn } from 'file://E:/voyah/node_modules/defu/dist/defu.mjs';
-import destr, { destr as destr$1 } from 'file://E:/voyah/node_modules/destr/dist/index.mjs';
-import { snakeCase } from 'file://E:/voyah/node_modules/scule/dist/index.mjs';
-import { createHead as createHead$1, propsToString, renderSSRHead } from 'file://E:/voyah/node_modules/unhead/dist/server.mjs';
-import { stringify, uneval } from 'file://E:/voyah/node_modules/devalue/index.js';
-import { isVNode, isRef, toValue } from 'file://E:/voyah/node_modules/vue/index.mjs';
-import { DeprecationsPlugin, PromisesPlugin, TemplateParamsPlugin, AliasSortingPlugin } from 'file://E:/voyah/node_modules/unhead/dist/plugins.mjs';
-import { createHooks } from 'file://E:/voyah/node_modules/hookable/dist/index.mjs';
-import { createFetch, Headers as Headers$1 } from 'file://E:/voyah/node_modules/ofetch/dist/node.mjs';
-import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file://E:/voyah/node_modules/node-mock-http/dist/index.mjs';
-import { createStorage, prefixStorage } from 'file://E:/voyah/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file://E:/voyah/node_modules/unstorage/drivers/fs.mjs';
-import { digest } from 'file://E:/voyah/node_modules/ohash/dist/index.mjs';
-import { toRouteMatcher, createRouter } from 'file://E:/voyah/node_modules/radix3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, createError, getQuery as getQuery$1, readBody, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, getRouterParam, getResponseStatusText } from 'file://C:/Users/sirine/source/repos/ahmed1343/voyah/node_modules/h3/dist/index.mjs';
+import { escapeHtml } from 'file://C:/Users/sirine/source/repos/ahmed1343/voyah/node_modules/@vue/shared/dist/shared.cjs.js';
+import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file://C:/Users/sirine/source/repos/ahmed1343/voyah/node_modules/vue-bundle-renderer/dist/runtime.mjs';
+import { renderToString } from 'file://C:/Users/sirine/source/repos/ahmed1343/voyah/node_modules/vue/server-renderer/index.mjs';
+import { klona } from 'file://C:/Users/sirine/source/repos/ahmed1343/voyah/node_modules/klona/dist/index.mjs';
+import defu, { defuFn } from 'file://C:/Users/sirine/source/repos/ahmed1343/voyah/node_modules/defu/dist/defu.mjs';
+import destr, { destr as destr$1 } from 'file://C:/Users/sirine/source/repos/ahmed1343/voyah/node_modules/destr/dist/index.mjs';
+import { snakeCase } from 'file://C:/Users/sirine/source/repos/ahmed1343/voyah/node_modules/scule/dist/index.mjs';
+import { createHead as createHead$1, propsToString, renderSSRHead } from 'file://C:/Users/sirine/source/repos/ahmed1343/voyah/node_modules/unhead/dist/server.mjs';
+import { stringify, uneval } from 'file://C:/Users/sirine/source/repos/ahmed1343/voyah/node_modules/devalue/index.js';
+import { isVNode, isRef, toValue } from 'file://C:/Users/sirine/source/repos/ahmed1343/voyah/node_modules/vue/index.mjs';
+import { DeprecationsPlugin, PromisesPlugin, TemplateParamsPlugin, AliasSortingPlugin } from 'file://C:/Users/sirine/source/repos/ahmed1343/voyah/node_modules/unhead/dist/plugins.mjs';
+import { createHooks } from 'file://C:/Users/sirine/source/repos/ahmed1343/voyah/node_modules/hookable/dist/index.mjs';
+import { createFetch, Headers as Headers$1 } from 'file://C:/Users/sirine/source/repos/ahmed1343/voyah/node_modules/ofetch/dist/node.mjs';
+import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file://C:/Users/sirine/source/repos/ahmed1343/voyah/node_modules/node-mock-http/dist/index.mjs';
+import { createStorage, prefixStorage } from 'file://C:/Users/sirine/source/repos/ahmed1343/voyah/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file://C:/Users/sirine/source/repos/ahmed1343/voyah/node_modules/unstorage/drivers/fs.mjs';
+import { digest } from 'file://C:/Users/sirine/source/repos/ahmed1343/voyah/node_modules/ohash/dist/index.mjs';
+import { toRouteMatcher, createRouter } from 'file://C:/Users/sirine/source/repos/ahmed1343/voyah/node_modules/radix3/dist/index.mjs';
 import { readFile } from 'node:fs/promises';
-import consola, { consola as consola$1 } from 'file://E:/voyah/node_modules/consola/dist/index.mjs';
-import { ErrorParser } from 'file://E:/voyah/node_modules/youch-core/build/index.js';
-import { Youch } from 'file://E:/voyah/node_modules/youch/build/index.js';
-import { SourceMapConsumer } from 'file://E:/voyah/node_modules/nitropack/node_modules/source-map/source-map.js';
+import consola, { consola as consola$1 } from 'file://C:/Users/sirine/source/repos/ahmed1343/voyah/node_modules/consola/dist/index.mjs';
+import { ErrorParser } from 'file://C:/Users/sirine/source/repos/ahmed1343/voyah/node_modules/youch-core/build/index.js';
+import { Youch } from 'file://C:/Users/sirine/source/repos/ahmed1343/voyah/node_modules/youch/build/index.js';
+import { SourceMapConsumer } from 'file://C:/Users/sirine/source/repos/ahmed1343/voyah/node_modules/nitropack/node_modules/source-map/source-map.js';
 import { AsyncLocalStorage } from 'node:async_hooks';
-import { getContext } from 'file://E:/voyah/node_modules/unctx/dist/index.mjs';
-import { captureRawStackTrace, parseRawStackTrace } from 'file://E:/voyah/node_modules/errx/dist/index.js';
-import _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw from 'file://E:/voyah/node_modules/@nuxt/vite-builder/dist/fix-stacktrace.mjs';
+import { getContext } from 'file://C:/Users/sirine/source/repos/ahmed1343/voyah/node_modules/unctx/dist/index.mjs';
+import { captureRawStackTrace, parseRawStackTrace } from 'file://C:/Users/sirine/source/repos/ahmed1343/voyah/node_modules/errx/dist/index.js';
+import _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw from 'file://C:/Users/sirine/source/repos/ahmed1343/voyah/node_modules/@nuxt/vite-builder/dist/fix-stacktrace.mjs';
 import { promises } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { dirname as dirname$1, resolve as resolve$1 } from 'file://E:/voyah/node_modules/pathe/dist/index.mjs';
-import { walkResolver } from 'file://E:/voyah/node_modules/unhead/dist/utils.mjs';
+import { dirname as dirname$1, resolve as resolve$1 } from 'file://C:/Users/sirine/source/repos/ahmed1343/voyah/node_modules/pathe/dist/index.mjs';
+import { walkResolver } from 'file://C:/Users/sirine/source/repos/ahmed1343/voyah/node_modules/unhead/dist/utils.mjs';
 
 const HASH_RE = /#/g;
 const AMPERSAND_RE = /&/g;
@@ -290,7 +290,7 @@ function stringifyParsedURL(parsed) {
   return proto + auth + host + pathname + search + hash;
 }
 
-const serverAssets = [{"baseName":"server","dir":"E:/voyah/server/assets"}];
+const serverAssets = [{"baseName":"server","dir":"C:/Users/sirine/source/repos/ahmed1343/voyah/server/assets"}];
 
 const assets$1 = createStorage();
 
@@ -302,11 +302,11 @@ const storage = createStorage({});
 
 storage.mount('/assets', assets$1);
 
-storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"E:/voyah","watchOptions":{"ignored":[null]}}));
-storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"E:/voyah/server","watchOptions":{"ignored":[null]}}));
-storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"E:/voyah/.nuxt"}));
-storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"E:/voyah/.nuxt/cache"}));
-storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"E:/voyah/.data/kv"}));
+storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"C:/Users/sirine/source/repos/ahmed1343/voyah","watchOptions":{"ignored":[null]}}));
+storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"C:/Users/sirine/source/repos/ahmed1343/voyah/server","watchOptions":{"ignored":[null]}}));
+storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"C:/Users/sirine/source/repos/ahmed1343/voyah/.nuxt"}));
+storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"C:/Users/sirine/source/repos/ahmed1343/voyah/.nuxt/cache"}));
+storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"C:/Users/sirine/source/repos/ahmed1343/voyah/.data/kv"}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -2310,7 +2310,7 @@ async function errorHandler(error, event) {
   // H3 will handle fallback
 }
 
-const rootDir = "E:/voyah";
+const rootDir = "C:/Users/sirine/source/repos/ahmed1343/voyah";
 
 const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[],"style":[],"script":[],"noscript":[]};
 
@@ -2335,7 +2335,7 @@ const asyncContext = getContext("nuxt-dev", {
 	asyncContext: true,
 	AsyncLocalStorage
 });
-const _5yU4QkBnxRyIUNlLfI9UVXYoTtSa3gjEhYSwOyZwcM = (nitroApp) => {
+const _T9NV4pWu6FMZEHeSOZXlLhpWjmrQfrXZStumSxhLNR8 = (nitroApp) => {
 	const handler = nitroApp.h3App.handler;
 	nitroApp.h3App.handler = (event) => {
 		return asyncContext.callAsync({
@@ -2409,26 +2409,11 @@ function onConsoleLog(callback) {
 }
 
 const plugins = [
-  _5yU4QkBnxRyIUNlLfI9UVXYoTtSa3gjEhYSwOyZwcM,
+  _T9NV4pWu6FMZEHeSOZXlLhpWjmrQfrXZStumSxhLNR8,
 _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw
 ];
 
-const assets = {
-  "/index.mjs": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"1c6a3-/oH+IHh1vpWi59ojp7ErlTAQYx4\"",
-    "mtime": "2026-04-13T09:26:17.575Z",
-    "size": 116387,
-    "path": "index.mjs"
-  },
-  "/index.mjs.map": {
-    "type": "application/json",
-    "etag": "\"7777e-//c5sryiS7xZKSPp+3tEGpr2OhE\"",
-    "mtime": "2026-04-13T09:26:17.575Z",
-    "size": 489342,
-    "path": "index.mjs.map"
-  }
-};
+const assets = {};
 
 function readAsset (id) {
   const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));
@@ -2453,7 +2438,7 @@ function getAsset (id) {
 
 const METHODS = /* @__PURE__ */ new Set(["HEAD", "GET"]);
 const EncodingMap = { gzip: ".gz", br: ".br" };
-const _TfeNqx = eventHandler((event) => {
+const _KvOola = eventHandler((event) => {
   if (event.method && !METHODS.has(event.method)) {
     return;
   }
@@ -2595,9 +2580,9 @@ function publicAssetsURL(...path) {
 const APP_ROOT_OPEN_TAG = `<${appRootTag}${propsToString(appRootAttrs)}>`;
 const APP_ROOT_CLOSE_TAG = `</${appRootTag}>`;
 // @ts-expect-error file will be produced after app build
-const getServerEntry = () => import('file://E:/voyah/.nuxt//dist/server/server.mjs').then((r) => r.default || r);
+const getServerEntry = () => import('file://C:/Users/sirine/source/repos/ahmed1343/voyah/.nuxt//dist/server/server.mjs').then((r) => r.default || r);
 // @ts-expect-error file will be produced after app build
-const getClientManifest = () => import('file://E:/voyah/.nuxt//dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
+const getClientManifest = () => import('file://C:/Users/sirine/source/repos/ahmed1343/voyah/.nuxt//dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
 // -- SSR Renderer --
 const getSSRRenderer = lazyCachedFunction(async () => {
 	// Load server bundle
@@ -2888,13 +2873,13 @@ async function getIslandContext(event) {
 	};
 }
 
-const _lazy_uJSAQu = () => Promise.resolve().then(function () { return renderer; });
+const _lazy_rUrywy = () => Promise.resolve().then(function () { return renderer; });
 
 const handlers = [
-  { route: '', handler: _TfeNqx, lazy: false, middleware: true, method: undefined },
-  { route: '/__nuxt_error', handler: _lazy_uJSAQu, lazy: true, middleware: false, method: undefined },
+  { route: '', handler: _KvOola, lazy: false, middleware: true, method: undefined },
+  { route: '/__nuxt_error', handler: _lazy_rUrywy, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_island/**', handler: handler$1, lazy: false, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_uJSAQu, lazy: true, middleware: false, method: undefined }
+  { route: '/**', handler: _lazy_rUrywy, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {
