@@ -45,7 +45,7 @@
         </div>
       </Teleport>
 
-      <!-- ===== Auto Hall Company Info Banner - CLEAN VERSION ===== -->
+      <!-- ===== Auto Hall Company Info Banner ===== -->
       <section class="autohall-info" v-bind="scopeBind">
         <div class="autohall-info-inner" v-bind="scopeBind">
           <div class="autohall-logo-wrap" v-bind="scopeBind">
@@ -89,7 +89,6 @@
           </div>
         </div>
       </section>
-      <!-- ===== END Auto Hall Company Info Banner ===== -->
 
       <section class="section_1" v-bind="scopeBind">
         <div class="section_1_1" v-bind="scopeBind">
@@ -141,20 +140,17 @@
         <div class="swiper-voyah inview-child" v-bind="swiperBind" style="--inview-delay: 0.5s;">
           <div class="swiper-group-container" v-bind="swiperBind">
             <div class="custom-slider-track infinite-track" ref="sliderTrack" v-bind="swiperBind">
-              <!-- Duplicated slides for infinite loop -->
               <div v-for="(img, index) in duplicatedSlides" :key="index" class="slide-item" v-bind="swiperBind">
                 <img :src="img" alt="" class="slide-img" loading="lazy" v-bind="swiperBind" />
               </div>
             </div>
           </div>
 
-          <!-- Navigation -->
           <div class="slide_content" v-bind="swiperBind">
             <div class="prev slide" @click="prevSlide" v-bind="swiperBind" />
             <div class="next slide" @click="nextSlide" v-bind="swiperBind" />
           </div>
 
-          <!-- Indicators -->
           <div class="indicators" v-bind="swiperBind">
             <div
               v-for="(_, index) in spaceSlides"
@@ -212,7 +208,10 @@
               <div class="sub_title" v-bind="scopeBind">{{ story.title }}</div>
               <div class="sub_desc" v-bind="scopeBind">{{ story.desc }}</div>
               <div class="more" v-bind="scopeBind">
-                <span class="view" v-bind="scopeBind">{{ t.viewDetail }}</span>
+                <span class="view" v-bind="scopeBind">
+                  {{ t.viewDetail }}
+                  <span class="arrow-icon">→</span>
+                </span>
               </div>
             </div>
           </article>
@@ -241,7 +240,6 @@
         </div>
       </section>
 
-      <!-- ===== Auto Hall Contact Footer Section ===== -->
       <section class="autohall-contact-section" v-bind="scopeBind">
         <div class="autohall-contact-inner" v-bind="scopeBind">
           <div class="autohall-contact-heading" v-bind="scopeBind">{{ t.contactTitle }}</div>
@@ -274,8 +272,6 @@
           </div>
         </div>
       </section>
-      <!-- ===== END Auto Hall Contact Footer Section ===== -->
-
     </div>
   </div>
 </template>
@@ -291,6 +287,7 @@ const swiperBind = computed(() => ({ 'data-v-8116d67d': '' }))
 const accordionBind = computed(() => ({ 'data-v-d1806854': '' }))
 
 const lang = computed(() => locale.value.code as 'en' | 'fr' | 'ar')
+const isRTL = computed(() => lang.value === 'ar')
 
 // Refs
 const sliderTrack = ref<HTMLElement | null>(null)
@@ -306,7 +303,18 @@ let isTransitioning = ref(false)
 watch(lang, async () => {
   await nextTick()
   tryPlayBg()
+  // Reset carousel position when language changes
+  resetCarouselPosition()
 })
+
+// Reset carousel position for RTL/LTR
+const resetCarouselPosition = () => {
+  if (!sliderTrack.value) return
+  currentIndex.value = 0
+  nextTick(() => {
+    updateSlider(false, true)
+  })
+}
 
 // Background video
 const tryPlayBg = async () => {
@@ -338,35 +346,52 @@ const closeVideoModal = () => {
   videoModalOpen.value = false
 }
 
-// ==================== INFINITE CAROUSEL LOGIC ====================
+// ==================== INFINITE CAROUSEL LOGIC WITH RTL SUPPORT ====================
 
-// Duplicate slides for seamless infinite loop (3 sets recommended)
+const spaceSlides = [
+  '/static/assets/kongjian1-c362d45d.jpg',
+  '/static/assets/kongjian2-4222892b.jpg',
+  '/static/assets/kongjian3-8b228f55.jpg'
+]
+
 const duplicatedSlides = computed(() => [...spaceSlides, ...spaceSlides, ...spaceSlides])
+
+const getSlideWidth = () => {
+  if (!sliderTrack.value?.children[0]) return 0
+  return sliderTrack.value.children[0].clientWidth
+}
+
+const getGap = () => 16
+
+const getCurrentTransform = () => {
+  const slideWidth = getSlideWidth()
+  const gap = getGap()
+  const baseMove = currentIndex.value * (slideWidth + gap)
+  // For RTL, we move positive X (right), for LTR we move negative X (left)
+  return isRTL.value ? baseMove : -baseMove
+}
 
 const updateSlider = (smooth = true, instant = false) => {
   if (!sliderTrack.value) return
 
-  const slideWidth = sliderTrack.value.children[0]?.clientWidth || 0
-  // Small gap of 16px between slides
-  const gap = 16
-  const moveX = -currentIndex.value * (slideWidth + gap)
+  const targetX = getCurrentTransform()
 
   if (instant) {
-    gsap.set(sliderTrack.value, { x: moveX })
+    gsap.set(sliderTrack.value, { x: targetX })
   } else {
     gsap.to(sliderTrack.value, {
-      x: moveX,
+      x: targetX,
       duration: smooth ? 0.85 : 0,
       ease: 'power3.inOut',
       onComplete: () => {
-        // Seamless reset when reaching the duplicated section
         const realSlideCount = spaceSlides.length
+        // Handle seamless loop
         if (currentIndex.value >= realSlideCount * 2) {
           currentIndex.value = currentIndex.value % realSlideCount
-          const newSlideWidth = sliderTrack.value?.children[0]?.clientWidth || 0
-          gsap.set(sliderTrack.value, { 
-            x: -currentIndex.value * (newSlideWidth + gap) 
-          })
+          gsap.set(sliderTrack.value, { x: getCurrentTransform() })
+        } else if (currentIndex.value < 0) {
+          currentIndex.value = realSlideCount * 2 - 1
+          gsap.set(sliderTrack.value, { x: getCurrentTransform() })
         }
       }
     })
@@ -376,8 +401,13 @@ const updateSlider = (smooth = true, instant = false) => {
 const nextSlide = () => {
   if (isTransitioning.value) return
   isTransitioning.value = true
-
-  currentIndex.value++
+  
+  // In RTL, visual "next" means decreasing index (moving left in DOM but right visually)
+  if (isRTL.value) {
+    currentIndex.value--
+  } else {
+    currentIndex.value++
+  }
   updateSlider(true)
 
   setTimeout(() => {
@@ -388,8 +418,13 @@ const nextSlide = () => {
 const prevSlide = () => {
   if (isTransitioning.value) return
   isTransitioning.value = true
-
-  currentIndex.value--
+  
+  // In RTL, visual "prev" means increasing index
+  if (isRTL.value) {
+    currentIndex.value++
+  } else {
+    currentIndex.value--
+  }
   updateSlider(true)
 
   setTimeout(() => {
@@ -415,8 +450,13 @@ const stopAutoPlay = () => {
 }
 
 const handleResize = () => {
-  updateSlider(false, true) // instant reposition on resize
+  updateSlider(false, true)
 }
+
+// Watch for RTL changes to reset carousel
+watch(isRTL, () => {
+  resetCarouselPosition()
+})
 
 // Lifecycle
 onMounted(() => {
@@ -428,7 +468,6 @@ onMounted(() => {
 
   tryPlayBg()
 
-  // Initial slider position
   nextTick(() => {
     updateSlider(false, true)
   })
@@ -538,12 +577,6 @@ const copy = {
 } as const
 
 const t = computed(() => copy[lang.value])
-
-const spaceSlides = [
-  '/static/assets/kongjian1-c362d45d.jpg',
-  '/static/assets/kongjian2-4222892b.jpg',
-  '/static/assets/kongjian3-8b228f55.jpg'
-]
 
 const purchaseCards = computed(() => {
   if (lang.value === 'ar') {
@@ -678,6 +711,12 @@ const stories = computed(() => {
   z-index: 2;
 }
 
+.video-btn-arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+  margin-left: 8px;
+}
+
 /* Autohall logo */
 .section_1_1 .img_1 .img_pc {
   width: auto !important;
@@ -690,7 +729,7 @@ const stories = computed(() => {
 }
 
 /* =====================
-   Auto Hall Info Banner - CLEAN VERSION
+   Auto Hall Info Banner
    ===================== */
 .autohall-info {
   background: #ffffff;
@@ -787,23 +826,8 @@ const stories = computed(() => {
   border-color: #4a4a4a;
 }
 
-@media screen and (max-width: 900px) {
-  .autohall-info-inner {
-    padding: 0 24px;
-    gap: 24px;
-  }
-  .autohall-divider { display: none; }
-}
-
-@media screen and (max-width: 600px) {
-  .autohall-info { padding: 24px 0; }
-  .autohall-info-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .autohall-cta { width: 100%; }
-  .autohall-cta-btn { width: 100%; text-align: center; display: block; }
-}
-
 /* =====================
-   Section 2: Voyah Space - MINIMIZED HEIGHT, FULL IMAGE VISIBLE
+   Section 2: Voyah Space
    ===================== */
 .section_2 {
   display: flex !important;
@@ -878,7 +902,7 @@ const stories = computed(() => {
   transition: transform 0.3s ease;
 }
 
-/* For very large screens (desktop) */
+/* Responsive */
 @media screen and (min-width: 1600px) {
   .slide-item {
     width: calc(100vw - 32px);
@@ -889,7 +913,6 @@ const stories = computed(() => {
   }
 }
 
-/* For standard large screens */
 @media screen and (min-width: 1200px) and (max-width: 1599px) {
   .slide-item {
     width: calc(100vw - 32px);
@@ -900,7 +923,6 @@ const stories = computed(() => {
   }
 }
 
-/* For medium screens */
 @media screen and (max-width: 1199px) {
   .slide-item {
     width: calc(100vw - 32px);
@@ -910,7 +932,6 @@ const stories = computed(() => {
   }
 }
 
-/* For tablets */
 @media screen and (max-width: 768px) {
   .slide-item {
     width: calc(100vw - 24px);
@@ -934,7 +955,6 @@ const stories = computed(() => {
   }
 }
 
-/* For mobile */
 @media screen and (max-width: 480px) {
   .slide-item {
     width: calc(100vw - 16px);
@@ -1002,13 +1022,22 @@ const stories = computed(() => {
   height: 8px;
   border-radius: 50%;
   background: #e6e6e6;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 .indicators_item.active { background: #262626; }
+.indicators_item:hover { background: #999; }
 
-/* Optional: Pause autoplay on hover */
-.swiper-voyah:hover {
-  --autoplay-paused: true;
+/* Arrow icon styling */
+.arrow-icon {
+  display: inline-block;
+  margin-left: 6px;
+  transition: transform 0.2s ease;
+}
+
+.more .view:hover .arrow-icon {
+  transform: translateX(4px);
 }
 
 /* =====================
@@ -1099,26 +1128,12 @@ const stories = computed(() => {
   .autohall-contact-heading { font-size: 24px; }
 }
 
-/* =====================
-   RTL Layout Mirroring
-   ===================== */
-:global(.is-rtl) .service-content {
-  direction: rtl;
-  text-align: right;
+@media screen and (max-width: 600px) {
+  .autohall-info { padding: 24px 0; }
+  .autohall-info-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .autohall-cta { width: 100%; }
+  .autohall-cta-btn { width: 100%; text-align: center; display: block; }
 }
-
-:global(.is-rtl) .section_1,
-:global(.is-rtl) .section_1_1,
-:global(.is-rtl) .section_1_2,
-:global(.is-rtl) .section_1_3 {
-  flex-direction: row-reverse;
-}
-
-:global(.is-rtl) .prev.slide { transform: rotate(180deg); }
-:global(.is-rtl) .next.slide { transform: rotate(180deg); }
-
-:global(.is-rtl) .autohall-info-inner { direction: rtl; }
-:global(.is-rtl) .autohall-contact-section { direction: rtl; }
 
 /* =====================
    Full Video Modal
@@ -1188,11 +1203,53 @@ const stories = computed(() => {
 }
 
 /* =====================
-   RTL Support
+   RTL LAYOUT - COMPLETE FIX
    ===================== */
-:global(.is-rtl) .autohall-info-inner {
+:global(.is-rtl) {
+  direction: rtl;
+}
+
+:global(.is-rtl) .service-content {
   direction: rtl;
   text-align: right;
+}
+
+/* Keep section_1 as column - DO NOT reverse it */
+:global(.is-rtl) .section_1 {
+  flex-direction: column !important;
+}
+
+/* Reverse the horizontal inner sections */
+:global(.is-rtl) .section_1_1,
+:global(.is-rtl) .section_1_2,
+:global(.is-rtl) .section_1_3 {
+  flex-direction: row-reverse !important;
+}
+
+/* Fix navigation buttons in RTL - swap icons */
+:global(.is-rtl) .prev.slide::after {
+  content: '→' !important;
+}
+
+:global(.is-rtl) .next.slide::after {
+  content: '←' !important;
+}
+
+/* Fix indicators in RTL */
+:global(.is-rtl) .indicators {
+  flex-direction: row;
+}
+
+/* Fix Auto Hall info banner RTL */
+:global(.is-rtl) .autohall-info-inner {
+  direction: rtl;
+  flex-direction: row-reverse;
+}
+
+@media screen and (max-width: 600px) {
+  :global(.is-rtl) .autohall-info-inner {
+    flex-direction: column-reverse;
+  }
 }
 
 :global(.is-rtl) .autohall-detail-item {
@@ -1203,4 +1260,72 @@ const stories = computed(() => {
   letter-spacing: 0;
 }
 
+/* Fix contact section RTL */
+:global(.is-rtl) .autohall-contact-section {
+  direction: rtl;
+}
+
+/* Fix video button arrow in RTL */
+:global(.is-rtl) .video-btn-arrow {
+  display: inline-block;
+  transform: rotate(180deg);
+  margin-left: 0;
+  margin-right: 8px;
+}
+
+/* Fix arrow icon in RTL */
+:global(.is-rtl) .arrow-icon {
+  display: inline-block;
+  transform: rotate(180deg);
+  margin-left: 0;
+  margin-right: 6px;
+}
+
+:global(.is-rtl) .more .view:hover .arrow-icon {
+  transform: translateX(-4px) rotate(180deg);
+}
+
+/* Fix video modal close button in RTL */
+:global(.is-rtl) .video-modal-close {
+  right: auto;
+  left: 16px;
+}
+
+/* Fix slide content buttons alignment in RTL */
+:global(.is-rtl) .slide_content {
+  justify-content: flex-start;
+}
+
+/* Fix section content text alignment */
+:global(.is-rtl) .section_3_content_item {
+  text-align: right;
+}
+
+/* Fix accordion RTL */
+:global(.is-rtl) .accordion-contain .item .item-wrapper {
+  text-align: right;
+}
+
+/* Fix hero section text alignment */
+:global(.is-rtl) .bg .title,
+:global(.is-rtl) .bg .call,
+:global(.is-rtl) .bg .video-btn {
+  text-align: right;
+  direction: rtl;
+}
+
+/* Fix images - don't flip them */
+:global(.is-rtl) img {
+  transform: scaleX(1);
+}
+
+/* Fix card content alignment */
+:global(.is-rtl) .bottom {
+  text-align: right;
+}
+
+/* Fix autohall contact card alignment in RTL */
+:global(.is-rtl) .autohall-contact-card {
+  text-align: center;
+}
 </style>
