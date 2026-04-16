@@ -73,7 +73,7 @@
         <div class="title"><span class="large">Abondante</span>Un vaste réseau de recharge accessible en un clic</div>
         <div class="desc">Déploiement de recharge ultra-rapide : Réseau de stations ultra-rapides déployé dans les grandes villes tunisiennes (Tunis, Sousse, Sfax). Voyah Tunisie s'engage à installer des bornes là où sont nos clients, pour une tranquillité d'esprit totale.</div>
         <div class="desc desc1">Réseau de recharge public : Couverture dans plus de 10 gouvernorats tunisiens, partenariat avec les principaux opérateurs énergétiques tunisiens pour faciliter vos déplacements sur tout le territoire.</div>
-        
+
         <div class="energy_content_wrapper">
           <div class="charge_card_white">
             <div class="charge_title_white">Carte de recharge Voyah Tunisie</div>
@@ -107,75 +107,117 @@
         </div>
       </section>
 
-      <section class="section2 section3">
+      <section class="section2 section3" style="margin-top: 80px;">
         <div class="title"><span class="large">Rapide</span>Technologie de recharge ultra-rapide</div>
         <div class="desc">Bornes de recharge haute puissance : jusqu'à 1000 kW de puissance. Une autonomie de 250 km en seulement 10 minutes de recharge. L'expérience de recharge la plus rapide disponible en Tunisie.</div>
         <div class="section3_1">
           <img class="charge_mb" src="https://www.voyah.com.cn/static/assets/charge_mb-0e5441f2.png" />
           <img class="charge_pc" src="https://www.voyah.com.cn/static/assets/charge_pc-1c0a2e91.png" />
+          <div class="blur_overlay"></div>
           <div class="electric_list">
-            <div class="electric_item"><div class="num">120<span class="unit">kW</span></div><div class="tips">Puissance de pointe</div></div>
-            <div class="electric_item"><div class="num">250<span class="unit">A</span></div><div class="tips">Courant de pointe</div></div>
-            <div class="electric_item"><div class="num">250<span class="unit">km</span></div><div class="tips">en 10 min de recharge</div></div>
+            <div class="electric_item electric_item_left"><div class="num">120<span class="unit">kW</span></div><div class="tips">Puissance de pointe</div></div>
+            <div class="electric_item electric_item_center"><div class="num">250<span class="unit">A</span></div><div class="tips">Courant de pointe</div></div>
+            <div class="electric_item electric_item_right"><div class="num">250<span class="unit">km</span></div><div class="tips">en 10 min de recharge</div></div>
           </div>
         </div>
       </section>
 
-      <section class="section2 section4">
-        <div class="title"><span class="large">Intelligente</span>De la recharge rapide à la recharge simplifiée</div>
-        <div class="desc">Solution de recharge intelligente : application mobile dédiée, pilotage à distance, programmation des charges. Une expérience utilisateur fluide et connectée.</div>
-        <div class="video_btn"><div class="btn">Regarder la démonstration</div></div>
+      <section class="section2 section4" style="margin-top: 80px;">
+        <div class="title">
+          <span class="large">Intelligente</span>
+          De la recharge rapide à la recharge simplifiée
+        </div>
+
+        <div class="desc">
+          Voyah propose deux services : un robot de recharge automatique et un robot de recharge mobile...
+        </div>
+
         <div class="section4_1">
           <div class="section4_1_content">
             <div class="video">
-              <video autoplay muted loop playsinline src="https://video.dsmp.voyah.com.cn/website/energy/sc_5.mp4" style="width:100%; border-radius:24px;"></video>
-              <div class="video-btn">Regarder la vidéo <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAARzQklUCAgICHwIZIgAAAEhSURBVHic7dphTQNBFEXhOwQBlVAJ4KASkAAOsIAC6gCcgAMktBJwcPnThglptluanTcvcz4DM7k5adrdSgAAAAAAAAAAYEy2V7ZX0feY6ybgzDtJX7Y3AWf3z/bGv14z1dTEn4Fse0dNlRMDUVNtYqAua4r4kJ6ylvQxdE1nCuqutt4Kqo1Z0wUFdVFTzwXVwmrKMtDRc+tv4dkGUuuaMg501KSmzAOpRU3ZB1rcbfQFrrSX9FJKeV/qgMwDbQ/jfC95SMaB9pKeSimfLQ7L9hm0lXTfapwQV/zUeIy+exP/GOjN9jr63s1c+LhjjGpqMwcaq5rajEeu41VTmxho3GpqvPY5gxeHZxwG2tl+iL5Ll7L9eQEAAAAAAAAAAHTiB2v1UfW46pnfAAAAAElFTkSuQmCC" alt=""></div>
+              <video
+                muted
+                playsinline
+                style="width:100%; border-radius:24px;"
+              >
+                <source
+                  src="https://video.dsmp.voyah.com.cn/website/energy/sc_5.mp4"
+                  type="video/mp4"
+                />
+              </video>
+
+              <div class="video-btn" @click="openVideo">
+                Regarder la vidéo
+                <img
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAARzQklUCAgICHwIZIgAAAEhSURBVHic7dphTQNBFEXhOwQBlVAJ4KASkAAOsIAC6gCcgAMktBJwcPnThglptluanTcvcz4DM7k5adrdSgAAAAAAAAAAYEy2V7ZX0feY6ybgzDtJX7Y3AWf3z/bGv14z1dTEn4Fse0dNlRMDUVNtYqAua4r4kJ6ylvQxdE1nCuqutt4Kqo1Z0wUFdVFTzwXVwmrKMtDRc+tv4dkGUuuaMg501KSmzAOpRU3ZB1rcbfQFrrSX9FJKeV/qgMwDbQ/jfC95SMaB9pKeSimfLQ7L9hm0lXTfapwQV/zUeIy+exP/GOjN9jr63s1c+LhjjGpqMwcaq5rajEeu41VTmxho3GpqvPY5gxeHZxwG2tl+iL5Ll7L9eQEAAAAAAAAAAHTiB2v1UfW46pnfAAAAAElFTkSuQmCC"
+                  alt=""
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section2 section5">
+      <div v-if="showVideo" class="video-modal" @click="closeVideo">
+        <div class="video-modal-content" @click.stop>
+          <video controls autoplay>
+            <source
+              src="https://video.dsmp.voyah.com.cn/website/energy/sc_5.mp4"
+              type="video/mp4"
+            />
+          </video>
+          <button class="close-btn" @click="closeVideo">✕</button>
+        </div>
+      </div>
+
+      <!-- Section 5 avec défilement automatique plus rapide et responsive -->
+      <section class="section2 section5" style="margin-top: 80px;">
         <div class="title"><span class="large">Économique et écologique</span>Une énergie maîtrisée pour un avenir durable</div>
-        <div class="horizontal-tab commonTab">
+        <div class="horizontal-tab commonTab auto-slide-tab">
           <div class="tab">
             <div class="tab-nav">
-              <div class="tab-item" data-tab="0">Technologie V2G</div>
+              <div class="tab-item active" data-tab="0">Technologie V2G</div>
               <div class="tab-item" data-tab="1">Partage de bornes</div>
-              <div class="tab-item active" data-tab="2">Recyclage des batteries</div>
+              <div class="tab-item" data-tab="2">Recyclage des batteries</div>
               <div class="slide-content"></div>
             </div>
           </div>
           <div class="tab_mb">
-            <div class="tab-item_mb" data-tab="0">V2G</div>
+            <div class="tab-item_mb active" data-tab="0">V2G</div>
             <div class="tab-item_mb" data-tab="1">Partage de bornes</div>
-            <div class="tab-item_mb active" data-tab="2">Recyclage</div>
+            <div class="tab-item_mb" data-tab="2">Recyclage</div>
           </div>
           <div class="tab-content">
-            <div class="tab-content-item" data-tab="0">
+            <div class="tab-content-item active" data-tab="0">
               <div class="tab_content_demo">
-                <img src="https://www.voyah.com.cn/static/assets/V2G-cba13343.jpg" />
-                <div class="tab_desc">Le véhicule contribue à la stabilité du réseau électrique tunisien</div>
+                <div class="img-wrapper">
+                  <img src="https://www.voyah.com.cn/static/assets/V2G-cba13343.jpg" alt="Technologie V2G" />
+                  <div class="tab_desc">Le véhicule contribue à la stabilité du réseau électrique tunisien</div>
+                </div>
               </div>
             </div>
             <div class="tab-content-item" data-tab="1">
               <div class="tab_content_demo">
-                <img src="https://www.voyah.com.cn/static/assets/kongxiang-f3e4984f.jpg" />
-                <div class="tab_desc">Valorisez votre borne à domicile pendant les heures creuses</div>
+                <div class="img-wrapper">
+                  <img src="https://www.voyah.com.cn/static/assets/kongxiang-f3e4984f.jpg" alt="Partage de bornes" />
+                  <div class="tab_desc">Valorisez votre borne à domicile pendant les heures creuses</div>
+                </div>
               </div>
             </div>
-            <div class="tab-content-item active" data-tab="2">
+            <div class="tab-content-item" data-tab="2">
               <div class="tab_content_demo">
-                <img src="https://www.voyah.com.cn/static/assets/tici-b570e40a.jpg" />
-                <div class="tab_desc">Seconde vie des batteries : engagement écologique responsable</div>
+                <div class="img-wrapper">
+                  <img src="https://www.voyah.com.cn/static/assets/tici-b570e40a.jpg" alt="Recyclage des batteries" />
+                  <div class="tab_desc">Seconde vie des batteries : engagement écologique responsable</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section2 section6">
-        <div class="title">Guide pratique de la recharge Voyah Tunisie</div>
+     <section class="section2 section6">
+        <div class="title">Encyclopédie de la recharge Voyah</div>
         <div class="desc">Tout ce que vous devez savoir sur la recharge de votre Voyah</div>
         <div class="horizontal-tab commonTab">
           <div class="tab">
@@ -268,13 +310,14 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> 
 
+      <!-- Section 7 corrigée - image non coupée -->
       <section class="section7">
         <img class="headImg bg_pc" src="https://www.voyah.com.cn/static/assets/partner_pc-b12d249b.png" />
         <div class="content">
-          <div class="title">Devenez partenaire Voyah Tunisie</div>
-          <div class="more"><button type="button" class="voyah-button">Nous contacter</button></div>
+          <div class="title">Recrutement de partenaires de supercharge Voyah</div>
+          <div class="more"><button type="button" class="voyah-button">Apprendre encore plus</button></div>
         </div>
       </section>
     </div>
@@ -282,11 +325,75 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, ref, onBeforeUnmount } from 'vue'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 
-// Fix pour les icônes Leaflet
+const showVideo = ref(false)
+
+const openVideo = () => {
+  showVideo.value = true
+}
+
+const closeVideo = () => {
+  showVideo.value = false
+}
+
+// Variables pour le défilement automatique
+let autoSlideInterval = null
+let currentSlideIndex = 0
+let isUserInteracting = false
+let resetTimer = null
+
+const startAutoSlide = (container) => {
+  if (autoSlideInterval) clearInterval(autoSlideInterval)
+  
+  autoSlideInterval = setInterval(() => {
+    if (!isUserInteracting) {
+      const tabItems = container.querySelectorAll('.tab-item, .tab-item_mb')
+      const totalSlides = tabItems.length
+      
+      if (totalSlides > 0) {
+        currentSlideIndex = (currentSlideIndex + 1) % totalSlides
+        const nextTab = tabItems[currentSlideIndex]
+        if (nextTab) {
+          nextTab.click()
+        }
+      }
+    }
+  }, 3000) // Changement toutes les 3 secondes (plus rapide)
+}
+
+const resetAutoSlideTimer = (container) => {
+  if (resetTimer) clearTimeout(resetTimer)
+  isUserInteracting = true
+  
+  resetTimer = setTimeout(() => {
+    isUserInteracting = false
+  }, 8000) // Réactive l'auto-défilement après 8 secondes d'inactivité
+}
+
+const initAutoSlideTab = () => {
+  const autoSlideContainer = document.querySelector('.auto-slide-tab')
+  if (!autoSlideContainer) return
+  
+  // Démarrer le défilement automatique
+  startAutoSlide(autoSlideContainer)
+  
+  // Ajouter des écouteurs pour les interactions utilisateur
+  const tabItems = autoSlideContainer.querySelectorAll('.tab-item, .tab-item_mb')
+  tabItems.forEach(item => {
+    item.addEventListener('click', () => {
+      resetAutoSlideTimer(autoSlideContainer)
+      // Mettre à jour l'index actuel
+      const clickedIndex = Array.from(tabItems).indexOf(item)
+      if (clickedIndex !== -1) {
+        currentSlideIndex = clickedIndex
+      }
+    })
+  })
+}
+
 delete L.Icon.Default.prototype._getIconUrl
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
@@ -295,13 +402,10 @@ L.Icon.Default.mergeOptions({
 })
 
 onMounted(() => {
-  // Coordonnées de la Tunisie
+  // Carte Leaflet
   const tunisiaCenter = [34.0, 9.5]
-  
-  // Initialiser la carte
   const map = L.map('tunisia-map').setView(tunisiaCenter, 7)
 
-  // Ajouter le fond de carte (tuiles claires)
   L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
     subdomains: 'abcd',
@@ -309,7 +413,6 @@ onMounted(() => {
     minZoom: 6
   }).addTo(map)
 
-  // Définir les stations de recharge
   const stations = [
     { name: 'Tunis', coords: [36.8065, 10.1815], type: 'active', power: '350 kW', status: 'Opérationnel', connectors: 4 },
     { name: 'Sousse', coords: [35.8256, 10.6369], type: 'active', power: '350 kW', status: 'Opérationnel', connectors: 4 },
@@ -322,10 +425,9 @@ onMounted(() => {
     { name: 'Gafsa', coords: [34.4250, 8.7842], type: 'planned', power: '150 kW', status: 'Prévu 2026', connectors: 2 },
     { name: 'Nabeul', coords: [36.4550, 10.7363], type: 'planned', power: '150 kW', status: 'Prévu 2025', connectors: 2 },
     { name: 'Monastir', coords: [35.7645, 10.8115], type: 'planned', power: '150 kW', status: 'Prévu 2025', connectors: 2 },
-    { name: 'Mahdia', coords: [35.5043, 11.0622], type: 'planned', power: '150 kW', status: 'Prévu 2026', connectors: 2 }
+    { name: 'Mahdia', coords: [35.5043, 11.0622], type: 'planned', power: '150 kW', status: 'Prévu 2026', connectors: 2 },
   ]
 
-  // Icônes personnalisées
   const activeIcon = L.divIcon({
     className: 'custom-marker-active',
     html: '<div class="marker-active"></div>',
@@ -340,12 +442,10 @@ onMounted(() => {
     popupAnchor: [0, -10]
   })
 
-  // Ajouter les marqueurs
   stations.forEach(station => {
     const icon = station.type === 'active' ? activeIcon : plannedIcon
     const marker = L.marker(station.coords, { icon }).addTo(map)
-    
-    const popupContent = `
+    marker.bindPopup(`
       <div class="station-popup">
         <h3>⚡ ${station.name}</h3>
         <p><strong>Puissance:</strong> ${station.power}</p>
@@ -353,21 +453,55 @@ onMounted(() => {
         <p><strong>Bornes:</strong> ${station.connectors} connecteurs</p>
         <p><strong>Type:</strong> ${station.type === 'active' ? '✅ Station active' : '📅 Station à venir'}</p>
       </div>
-    `
-    marker.bindPopup(popupContent)
+    `)
   })
 
-  // Ajouter un contrôle de zoom
-  L.control.zoom({
-    position: 'bottomright'
-  }).addTo(map)
+  L.control.zoom({ position: 'bottomright' }).addTo(map)
 
-  // Redimensionner la carte quand la fenêtre change
   window.addEventListener('resize', () => {
-    setTimeout(() => {
-      map.invalidateSize()
-    }, 100)
+    setTimeout(() => map.invalidateSize(), 100)
   })
+
+  // Gestion des onglets (version améliorée avec auto-slide)
+  function initTabs(container) {
+    const tabItems = container.querySelectorAll('.tab-item, .tab-item_mb')
+    const contents = container.querySelectorAll('.tab-content-item')
+
+    tabItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const tabId = item.getAttribute('data-tab')
+
+        container.querySelectorAll('.tab-item, .tab-item_mb').forEach(ti => {
+          ti.classList.remove('active')
+        })
+
+        container.querySelectorAll(`[data-tab="${tabId}"]`).forEach(ti => {
+          if (ti.classList.contains('tab-item') || ti.classList.contains('tab-item_mb')) {
+            ti.classList.add('active')
+          }
+        })
+
+        contents.forEach(content => {
+          content.classList.toggle('active', content.getAttribute('data-tab') === tabId)
+        })
+      })
+    })
+  }
+
+  document.querySelectorAll('.commonTab').forEach(initTabs)
+  
+  // Initialiser l'auto-slide pour la section 5 uniquement
+  initAutoSlideTab()
+})
+
+// Nettoyer l'intervalle lors du démontage du composant
+onBeforeUnmount(() => {
+  if (autoSlideInterval) {
+    clearInterval(autoSlideInterval)
+  }
+  if (resetTimer) {
+    clearTimeout(resetTimer)
+  }
 })
 </script>
 
@@ -385,11 +519,9 @@ onMounted(() => {
   color: #333333;
 }
 
-.energy-content {
-  width: 100%;
-}
+.energy-content { width: 100%; }
 
-/* Section Hero */
+/* Hero */
 .bg {
   position: relative;
   min-height: 100vh;
@@ -403,23 +535,17 @@ onMounted(() => {
 
 .headImg {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   object-fit: cover;
   z-index: 0;
-  opacity: 0.4;
 }
 
 .bg_pc { display: block; }
 .bg_mb { display: none; }
 
 .bg .title,
-.bg .desc {
-  position: relative;
-  z-index: 2;
-}
+.bg .desc { position: relative; z-index: 2; }
 
 .bg .title {
   font-size: 3.5rem;
@@ -440,7 +566,7 @@ onMounted(() => {
   color: #ffffff;
 }
 
-/* Section 168 Solution */
+/* Section 168 */
 .section_1 {
   background: #ffffff;
   padding: 60px 5%;
@@ -454,9 +580,8 @@ onMounted(() => {
 .main_card {
   background: #0d0d0d;
   border-radius: 15px;
-  padding: 30px 60px 30px;
+  padding: 30px 60px;
   text-align: center;
-  max-width: 100%;
 }
 
 .main_title {
@@ -507,12 +632,12 @@ onMounted(() => {
 
 .info_card {
   background: linear-gradient(135deg,
-      rgba(40,40,45,0.95) 0%,
-      rgba(70,70,80,0.85) 30%,
-      rgba(110,110,120,0.6) 60%,
-      rgba(150,150,160,0.3) 85%,
-      rgba(200,200,210,0.1) 100%
-    );
+    rgba(40,40,45,0.95) 0%,
+    rgba(70,70,80,0.85) 30%,
+    rgba(110,110,120,0.6) 60%,
+    rgba(150,150,160,0.3) 85%,
+    rgba(200,200,210,0.1) 100%
+  );
   border-radius: 20px;
   padding: 20px 24px 40px;
   flex: 1;
@@ -524,7 +649,7 @@ onMounted(() => {
 
 .info_card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
 }
 
 .card_full {
@@ -536,12 +661,10 @@ onMounted(() => {
 
 .card_bg_image {
   position: absolute;
-  bottom: -30px;
-  right: -30px;
-  width: 200px;
-  height: 200px;
+  bottom: -30px; right: -30px;
+  width: 200px; height: 200px;
   border-radius: 50%;
-  border: 1.5px solid rgba(200, 148, 74, 0.18);
+  border: 1.5px solid rgba(200,148,74,0.18);
   z-index: 1;
   pointer-events: none;
 }
@@ -549,48 +672,14 @@ onMounted(() => {
 .card_bg_image::before {
   content: '';
   position: absolute;
-  top: 22px;
-  left: 22px;
-  right: 22px;
-  bottom: 22px;
+  top: 22px; left: 22px; right: 22px; bottom: 22px;
   border-radius: 50%;
-  border: 1px solid rgba(200, 148, 74, 0.10);
+  border: 1px solid rgba(200,148,74,0.10);
 }
 
-.cards_top_row .info_card:first-child .card_bg_image {
-  background-image: url('/static/assets/power_bg1-7048cd30.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: bottom right;
-  transform: scale(1.2);
-}
+.card_content { position: relative; z-index: 2; }
 
-.cards_top_row .info_card:last-child .card_bg_image {
-  background-image: url('/static/assets/power_bg2-a6639f1e.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: bottom right;
-  transform: scale(1.2);
-}
-
-.card_full .card_bg_image {
-  background-image: url('/static/assets/power_bg3-d6d323e0.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: bottom right;
-  transform: scale(1.2);
-}
-
-.card_content {
-  position: relative;
-  z-index: 2;
-}
-
-.card_text {
-  text-align: left;
-  margin-top: 0;
-  padding-top: 0;
-}
+.card_text { text-align: left; }
 
 .card_full .two_columns {
   display: flex !important;
@@ -606,8 +695,7 @@ onMounted(() => {
 
 .card_number {
   position: absolute;
-  bottom: 10px;
-  right: 20px;
+  bottom: 10px; right: 20px;
   font-size: 5rem;
   font-weight: 800;
   background: linear-gradient(180deg, #c8944a 0%, #7a4f28 100%);
@@ -619,12 +707,10 @@ onMounted(() => {
   line-height: 1;
 }
 
-/* Section Energy */
-/* Section Energy */
+/* Section Energy / Carte */
 .section-energy {
-  background: #f5f9fc;
-  padding: 80px 5%;
-  border-bottom: none;
+  background: #e8f6f9;
+  padding: 60px 5%;
 }
 
 .energy_content_wrapper {
@@ -637,55 +723,42 @@ onMounted(() => {
   margin: 50px auto 0;
 }
 
-/* MAP */
 .tunisia_map_wrapper {
   flex: 1;
   min-width: 280px;
-  background: transparent;
-  position: relative;
 }
 
 .tunisia-map {
   width: 100%;
   height: 500px;
   border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
   z-index: 1;
 }
 
-/* CARD QUI CHEVAUCHE LA MAP */
 .charge_card_white {
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 20px; left: 20px;
   z-index: 10;
-
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255,255,255,0.88);
   backdrop-filter: blur(12px);
-
   padding: 12px 14px;
   border-radius: 14px;
-
   min-width: 400px;
   max-width: 420px;
-
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-/* TITLE */
 .charge_title_white {
   font-size: 20px;
   font-weight: 600;
-  text-align: left;
   color: #000;
   margin-bottom: 8px;
 }
 
-/* CONTENT */
 .charge_content_white {
   display: flex;
   flex-direction: column;
@@ -704,63 +777,25 @@ onMounted(() => {
   padding: 6px;
 }
 
-/* NUMBERS */
 .charge_number_white {
-  font-size:20px;
+  font-size: 20px;
   font-weight: 700;
   color: #000;
   margin-bottom: 4px;
 }
 
-/* LABEL */
 .charge_label_white {
   font-size: 15px;
   color: #555;
   line-height: 1.2;
 }
 
-/* RESPONSIVE */
-@media (max-width: 968px) {
-  .energy_content_wrapper {
-    flex-direction: column;
-  }
-
-  .tunisia-map {
-    height: 400px;
-  }
-
-  .charge_card_white {
-    position: relative;
-    top: auto;
-    left: auto;
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .tunisia-map {
-    height: 300px;
-  }
-
-  .charge_card_white {
-    padding: 12px;
-  }
-
-  .charge_number_white {
-    font-size: 1rem;
-  }
-}
-
-/* Styles pour les marqueurs Leaflet */
-:deep(.custom-marker-active) {
-  background: transparent;
-}
+/* Marqueurs Leaflet */
+:deep(.custom-marker-active),
+:deep(.custom-marker-planned) { background: transparent; }
 
 :deep(.marker-active) {
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
   background-color: #e74c3c;
   border: 2px solid white;
   border-radius: 50%;
@@ -768,13 +803,8 @@ onMounted(() => {
   animation: pulse-active 2s infinite;
 }
 
-:deep(.custom-marker-planned) {
-  background: transparent;
-}
-
 :deep(.marker-planned) {
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
   background-color: #95a5a6;
   border: 2px solid white;
   border-radius: 50%;
@@ -782,39 +812,17 @@ onMounted(() => {
 }
 
 @keyframes pulse-active {
-  0% {
-    box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(231, 76, 60, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(231, 76, 60, 0);
-  }
+  0%   { box-shadow: 0 0 0 0   rgba(231,76,60,0.7); }
+  70%  { box-shadow: 0 0 0 10px rgba(231,76,60,0);   }
+  100% { box-shadow: 0 0 0 0   rgba(231,76,60,0);    }
 }
 
-:deep(.station-popup) {
-  font-family: inherit;
-  min-width: 180px;
-}
+:deep(.station-popup) { font-family: inherit; min-width: 180px; }
+:deep(.station-popup h3) { margin: 0 0 8px; color: #1a5d7a; font-size: 14px; }
+:deep(.station-popup p)  { margin: 4px 0; font-size: 12px; color: #555; }
+:deep(.station-popup strong) { color: #2c7da0; }
 
-:deep(.station-popup h3) {
-  margin: 0 0 8px 0;
-  color: #1a5d7a;
-  font-size: 14px;
-}
-
-:deep(.station-popup p) {
-  margin: 4px 0;
-  font-size: 12px;
-  color: #555;
-}
-
-:deep(.station-popup strong) {
-  color: #2c7da0;
-}
-
-/* Section commune */
+/* Titres communs */
 .title {
   font-size: 2.5rem;
   font-weight: 500;
@@ -822,16 +830,17 @@ onMounted(() => {
   text-align: center;
   color: #222;
 }
-
 .large {
   font-size: 4rem;
   font-weight: 700;
-  color: #2c7da0;
+  background: linear-gradient(135deg, #000000 0%, #555555 50%, #ffffff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   margin-right: 12px;
   display: inline-block;
   vertical-align: middle;
 }
-
 .desc {
   text-align: center;
   color: #666;
@@ -841,7 +850,7 @@ onMounted(() => {
   font-size: 1rem;
 }
 
-/* Section recharge rapide */
+/* Section 3 - Recharge rapide */
 .section3_1 {
   position: relative;
   max-width: 1000px;
@@ -851,69 +860,58 @@ onMounted(() => {
 .charge_pc,
 .charge_mb {
   width: 100%;
-  border-radius: 28px;
+  border-radius: 15px;
+  display: block;
 }
 
 .charge_mb { display: none; }
 
-.electric_list {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin-top: -80px;
-  position: relative;
-  z-index: 3;
-  gap: 20px;
+.blur_overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 90px;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(8px);
+  border-radius: 0 0 15px 15px;
+  z-index: 2;
 }
 
-.electric_item {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
-  padding: 20px 30px;
-  border-radius: 40px;
-  text-align: center;
-  border: 1px solid #2c7da0;
-  min-width: 160px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.electric_list {
+  position: absolute;
+  bottom: 20px; left: 0; right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 3;
+  padding: 0 30px;
 }
+
+.electric_item { text-align: center; }
+.electric_item_left  { text-align: left;  margin-left: 20px; }
+.electric_item_center { text-align: center; }
+.electric_item_right { text-align: right; margin-right: 20px; }
 
 .num {
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 700;
-  color: #1a5d7a;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 .unit {
   font-size: 1rem;
   margin-left: 4px;
+  color: white;
 }
 
 .tips {
   font-size: 0.85rem;
-  color: #555;
-}
-
-/* Section vidéo */
-.section4 { background: #fafafa; }
-
-.video_btn {
-  text-align: center;
-  margin: 30px 0;
-}
-
-.btn {
-  display: inline-block;
-  padding: 12px 32px;
-  border-radius: 40px;
-  background: #2c7da0;
   color: white;
-  cursor: pointer;
-  transition: 0.3s;
-  border: none;
-  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 
-.btn:hover { background: #1a5d7a; }
+/* Section 4 - Vidéo */
+.section4 { background: #fafafa; }
 
 .section4_1 {
   max-width: 900px;
@@ -923,28 +921,176 @@ onMounted(() => {
   position: relative;
 }
 
-.video {
-  width: 100%;
-  position: relative;
-}
+.video { width: 100%; position: relative; }
 
 .video-btn {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
-  background: rgba(0, 0, 0, 0.7);
-  padding: 8px 16px;
-  border-radius: 40px;
-  font-size: 14px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 24px;
+  border-radius: 50px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
   cursor: pointer;
-  backdrop-filter: blur(4px);
-  color: white;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+  z-index: 10;
 }
 
-/* Tabs */
+.video-btn:hover {
+  background: rgba(44, 125, 160, 0.85);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translate(-50%, -50%) scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.video-btn:active {
+  transform: translate(-50%, -50%) scale(0.98);
+}
+
+.video-btn img {
+  width: 16px;
+  height: 16px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s ease;
+}
+
+.video-btn:hover img {
+  transform: scale(1.1);
+}
+
+/* Modal Vidéo */
+.video-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(6px);
+}
+
+.video-modal-content {
+  width: 85%;
+  max-width: 900px;
+  position: relative;
+  animation: fadeIn 0.25s ease;
+}
+
+.video-modal-content video {
+  width: 100%;
+  border-radius: 18px;
+}
+
+.close-btn {
+  position: absolute;
+  top: -45px;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: white;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Section 5 - Onglets image avec animation fluide et responsive */
+.tab_content_demo {
+  display: flex;
+  justify-content: center;
+}
+
+.img-wrapper {
+  position: relative;
+  display: inline-block;
+  border-radius: 15px;
+  overflow: hidden;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.img-wrapper img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.tab-content-item {
+  display: none;
+  animation: fadeInSlide 0.3s ease;
+}
+
+.tab-content-item.active {
+  display: block;
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.tab_desc {
+  position: absolute;
+  bottom: 0; 
+  left: 0; 
+  right: 0;
+  height: 90px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(8px);
+  border-radius: 0 0 15px 15px;
+  z-index: 2;
+  color: #fff;
+  font-size: 1rem;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Onglets communs */
 .horizontal-tab { margin: 40px 0; }
 
 .tab-nav {
@@ -961,14 +1107,34 @@ onMounted(() => {
   font-size: 1.1rem;
   cursor: pointer;
   padding: 8px 0;
-  transition: 0.2s;
   color: #666;
+  transition: 0.2s;
+  position: relative;
 }
 
 .tab-item.active {
-  color: #2c7da0;
+  color: #000;
   font-weight: 600;
-  border-bottom: 2px solid #2c7da0;
+}
+
+.tab-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: -13px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #000;
+  animation: underlineSlide 0.2s ease;
+}
+
+@keyframes underlineSlide {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 .tab_mb {
@@ -979,23 +1145,26 @@ onMounted(() => {
   margin-bottom: 20px;
 }
 
-.tab-content-item { display: none; }
-.tab-content-item.active { display: block; }
-
-.tab_content_demo img {
-  width: 100%;
-  border-radius: 24px;
-  max-height: 400px;
-  object-fit: cover;
+.tab-item_mb {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #666;
+  transition: 0.2s;
 }
 
-.tab_desc {
-  text-align: center;
-  margin-top: 16px;
-  color: #555;
+.tab-item_mb.active {
+  background: #000;
+  color: white;
+  border-color: #000;
 }
 
-/* Livres et guides */
+/* Section 6 - Guides */
+.section6 {
+  display:none;
+}
 .book-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1021,151 +1190,228 @@ onMounted(() => {
   border-radius: 12px;
 }
 
-.book-card h4 {
-  margin: 12px 0 8px;
-  font-size: 1.1rem;
-  color: #222;
-}
-
-.book-card p {
-  color: #666;
-  font-size: 0.85rem;
-}
+.book-card h4 { margin: 12px 0 8px; font-size: 1.1rem; color: #222; }
+.book-card p  { color: #666; font-size: 0.85rem; }
 
 .more {
   margin-top: 16px;
-  color: #2c7da0;
+  color: #000;
   cursor: pointer;
   font-size: 0.85rem;
   font-weight: 500;
 }
 
-/* Section partenaire */
+/* Section 7 - Partenaire corrigée - image non coupée */
 .section7 {
   position: relative;
-  min-height: 300px;
+  min-height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: #f5f5f5;
+  overflow: hidden;
+  background: #000;
+}
+
+.section7::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.2)
+  );
+}
+
+.section7 .headImg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
 }
 
 .section7 .content {
   position: relative;
   z-index: 2;
+  padding: 60px 20px;
+  max-width: 800px;
+  width: 90%;
 }
 
 .section7 .title {
   font-size: 2rem;
-  margin-bottom: 20px;
-  color: #1a5d7a;
+  margin-bottom: 30px;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 .voyah-button {
   background: transparent;
-  border: 2px solid #2c7da0;
-  color: #2c7da0;
-  padding: 10px 32px;
+  border: 2px solid white;
+  color: white;
+  padding: 12px 36px;
   border-radius: 40px;
   font-size: 1rem;
   cursor: pointer;
   transition: 0.3s;
   font-weight: 500;
+  backdrop-filter: blur(4px);
 }
 
 .voyah-button:hover {
-  background: #2c7da0;
+  background: rgba(44, 125, 160, 0.8);
+  border-color: #2c7da0;
   color: white;
+  transform: scale(1.05);
 }
 
 /* Responsive */
 @media (max-width: 968px) {
-  .energy_content_wrapper {
-    flex-direction: column;
-    gap: 30px;
+  .energy_content_wrapper { flex-direction: column; gap: 30px; }
+  .tunisia_map_wrapper { width: 100%; }
+  .tunisia-map { height: 400px; }
+  .charge_card_white {
+    position: relative;
+    top: auto; left: auto;
+    margin-bottom: 20px;
+    width: 100%; max-width: 100%;
   }
-   
   
-  .tunisia_map_wrapper {
-    width: 100%;
+  /* Section 5 responsive */
+  .title {
+    font-size: 1.8rem;
+  }
+  .large {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 10px;
   }
   
-  .tunisia-map {
-    height: 400px;
+  /* Section 7 responsive */
+  .section7 {
+    min-height: 400px;
+  }
+  .section7 .title {
+    font-size: 1.5rem;
   }
 }
 
 @media (max-width: 768px) {
   .bg .title { font-size: 2.2rem; }
-  .bg .desc { font-size: 0.9rem; }
-  .title { font-size: 1.8rem; }
-  .large { font-size: 2.5rem; }
-  .bg_pc { display: none; }
-  .bg_mb { display: block; }
+  .bg .desc  { font-size: 0.9rem; }
+  .title     { font-size: 1.5rem; }
+  .large     { font-size: 2rem; display: block; margin-bottom: 8px; margin-right: 0; }
+  .bg_pc     { display: none; }
+  .bg_mb     { display: block; }
   .charge_pc { display: none; }
   .charge_mb { display: block; }
-  .electric_list { margin-top: -40px; }
-  .tab-nav { display: none; }
-  .tab_mb { display: flex; }
+  .tab-nav   { display: none; }
+  .tab_mb    { display: flex; }
   .section-energy { padding: 50px 5%; }
-  
-  .cards_top_row {
-    flex-direction: column;
-    gap: 16px;
+  .cards_top_row  { flex-direction: column; gap: 16px; }
+  .main_title     { font-size: 1.5rem; }
+  .subtitle_voyah,
+  .subtitle_power { font-size: 1rem; }
+  .main_subtitle  { margin-bottom: 28px; }
+  .info_card      { min-height: 160px; padding: 16px 20px 32px; }
+  .card_full      { min-height: 160px; }
+  .card_number    { font-size: 3.5rem; }
+  .charge_title_white { font-size: 1rem; margin-bottom: 16px; }
+  .charge_row_white   { flex-direction: column; gap: 12px; }
+  .charge_number_white { font-size: 1.1rem; }
+  .charge_label_white  { font-size: 0.7rem; }
+  .tunisia-map    { height: 350px; }
+  .electric_list  { padding: 0 15px; bottom: 12px; }
+  .num  { font-size: 1rem; }
+  .unit { font-size: 0.6rem; }
+  .tips { font-size: 0.5rem; }
+  .blur_overlay { height: 60px; }
+  .video-btn {
+    padding: 8px 18px;
+    font-size: 12px;
+    gap: 8px;
+  }
+  .video-btn img {
+    width: 14px;
+    height: 14px;
+  }
+  .tab_desc {
+    height: 70px;
+    font-size: 0.85rem;
+    padding: 0 16px;
   }
   
-  .main_title { font-size: 1.8rem; }
-  .subtitle_voyah, .subtitle_power { font-size: 1.2rem; }
-  .main_subtitle { margin-bottom: 28px; }
-  .info_card { min-height: 160px; padding: 16px 20px 32px; }
-  .card_full { min-height: 160px; }
-  .card_number { font-size: 3.5rem; }
-  
-  .charge_title_white { font-size: 1rem; margin-bottom: 16px; }
-  .charge_row_white { flex-direction: column; gap: 12px; }
-  .charge_item_white { padding: 8px; }
-  .charge_number_white { font-size: 1.1rem; }
-  .charge_label_white { font-size: 0.7rem; }
-  .tunisia-map { height: 350px; }
+  /* Section 7 responsive tablette */
+  .section7 {
+    min-height: 350px;
+  }
+  .section7 .title {
+    font-size: 1.3rem;
+  }
+  .voyah-button {
+    padding: 10px 28px;
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 480px) {
-  .main_card { padding: 20px 16px 20px; }
-  .main_title { font-size: 1.4rem; }
-  .subtitle_voyah, .subtitle_power { font-size: 1rem; }
-  .card_line { font-size: 0.82rem; }
+  .main_card { padding: 20px 16px; }
+  .main_title { font-size: 1.2rem; }
+  .subtitle_voyah,
+  .subtitle_power { font-size: 0.9rem; letter-spacing: 4px; }
+  .card_line { font-size: 0.75rem; }
+  .card_full .two_columns {
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
   .charge_card_white { padding: 16px 12px; }
   .charge_number_white { font-size: 1rem; }
-  .tunisia-map { height: 300px; }
+  .tunisia-map { height: 250px; }
+  .img-wrapper { max-width: 100%; }
+  .video-btn {
+    padding: 6px 14px;
+    font-size: 11px;
+    gap: 6px;
+  }
+  .video-btn img {
+    width: 12px;
+    height: 12px;
+  }
+  .tab_desc {
+    height: 60px;
+    font-size: 0.7rem;
+    padding: 0 12px;
+  }
+  
+  /* Section 5 responsive mobile */
+  .title {
+    font-size: 1.2rem;
+  }
+  .large {
+    font-size: 1.5rem;
+  }
+  .desc {
+    font-size: 0.85rem;
+    padding: 0 15px;
+  }
+  
+  /* Section 7 responsive mobile */
+  .section7 {
+    min-height: 300px;
+  }
+  .section7 .title {
+    font-size: 1.1rem;
+  }
+  .voyah-button {
+    padding: 8px 20px;
+    font-size: 0.85rem;
+  }
 }
 </style>
-
-<script>
-if (typeof window !== 'undefined') {
-  document.addEventListener('DOMContentLoaded', function () {
-    function initTabs(container) {
-      const tabItems = container.querySelectorAll('.tab-item, .tab-item_mb');
-      const contents = container.querySelectorAll('.tab-content-item');
-
-      tabItems.forEach(item => {
-        item.addEventListener('click', () => {
-          const tabId = item.getAttribute('data-tab');
-          tabItems.forEach(ti => ti.classList.remove('active'));
-          item.classList.add('active');
-          contents.forEach(content => {
-            if (content.getAttribute('data-tab') === tabId) {
-              content.classList.add('active');
-            } else {
-              content.classList.remove('active');
-            }
-          });
-        });
-      });
-    }
-
-    const tabContainers = document.querySelectorAll('.commonTab');
-    tabContainers.forEach(initTabs);
-  });
-}
-</script>

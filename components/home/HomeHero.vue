@@ -42,7 +42,7 @@
             }
           ]"
         >
-          <img v-if="slide.logo" :src="slide.logo" :alt="textFor(slide.title) || 'Voyah'" class="hero-logo" />
+          <img src="/sitelogo/logo.png" alt="Voyah" class="hero-logo" />
           <h1 v-if="heroTitle(slide)">{{ heroTitle(slide) }}</h1>
           <p v-if="heroDescription(slide)">{{ heroDescription(slide) }}</p>
 
@@ -246,7 +246,8 @@ onBeforeUnmount(() => {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
-  background: #04070b;
+  background: #000000;
+  margin-top: 80px;
 }
 
 .hero-slide {
@@ -254,7 +255,7 @@ onBeforeUnmount(() => {
   inset: 0;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.72s cubic-bezier(0.33, 1, 0.68, 1);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .hero-slide.active {
@@ -280,10 +281,10 @@ onBeforeUnmount(() => {
   position: absolute;
   inset: 0;
   object-fit: cover;
-  transform: translate3d(calc(var(--hero-pointer-x, 0px) * -0.4), calc(var(--hero-parallax-y, 0px) - (var(--hero-pointer-y, 0px) * 0.25)), 0) scale(1.03);
+  transform: translate3d(calc(var(--hero-pointer-x, 0px) * -0.4), calc(var(--hero-parallax-y, 0px) - (var(--hero-pointer-y, 0px) * 0.25)), 0) scale(1.02);
   transition:
     transform 1.05s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.56s cubic-bezier(0.33, 1, 0.68, 1) 0.18s;
+    opacity 0.56s cubic-bezier(0.22, 1, 0.36, 1) 0.18s;
   will-change: transform;
 }
 
@@ -294,7 +295,7 @@ onBeforeUnmount(() => {
 .hero-video {
   z-index: 1;
   opacity: 0;
-  transition: opacity 0.56s cubic-bezier(0.33, 1, 0.68, 1) 0.18s;
+  transition: opacity 0.56s cubic-bezier(0.22, 1, 0.36, 1) 0.18s;
 }
 
 .hero-slide.active .hero-video {
@@ -303,7 +304,7 @@ onBeforeUnmount(() => {
 
 .hero-slide.active .hero-poster,
 .hero-slide.active .hero-video {
-  transform: translate3d(calc(var(--hero-pointer-x, 0px) * -0.55), calc(var(--hero-parallax-y, 0px) - (var(--hero-pointer-y, 0px) * 0.3)), 0) scale(1.06);
+  transform: translate3d(calc(var(--hero-pointer-x, 0px) * -0.55), calc(var(--hero-parallax-y, 0px) - (var(--hero-pointer-y, 0px) * 0.3)), 0) scale(1.04);
 }
 
 .hero-overlay {
@@ -311,14 +312,13 @@ onBeforeUnmount(() => {
   inset: 0;
   z-index: 2;
   background:
-    linear-gradient(180deg, rgba(3, 6, 10, 0.48) 0%, rgba(3, 6, 10, 0.08) 18%, rgba(3, 6, 10, 0.14) 50%, rgba(3, 6, 10, 0.8) 100%),
-    linear-gradient(90deg, rgba(3, 6, 10, 0.4) 0%, rgba(3, 6, 10, 0.14) 30%, rgba(3, 6, 10, 0.06) 56%, rgba(3, 6, 10, 0.34) 100%);
+    linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.4) 100%);
 }
 
 .hero-content {
   position: relative;
   z-index: 3;
-  min-height: 100vh;
+  min-height: calc(100vh - 80px);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -335,7 +335,7 @@ onBeforeUnmount(() => {
 /* Stagger initial state handled directly by GSAP */
 .hero-slide .hero-copy > * {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(20px);
 }
 
 .hero-slide.active .hero-copy {
@@ -351,23 +351,24 @@ onBeforeUnmount(() => {
 }
 
 .hero-logo {
-  width: min(240px, 16vw);
-  margin-bottom: 10px;
+  width: min(280px, 22vw);
+  margin-bottom: 16px;
   object-fit: contain;
   object-position: center bottom;
   margin-inline: auto;
+  filter: brightness(0) invert(1);
 }
 
 .hero-copy--logo-only .hero-logo {
-  width: min(190px, 14vw);
+  width: min(220px, 18vw);
 }
 
 .hero-content h1 {
   margin: 0;
   color: #fff;
-  font-size: clamp(2.6rem, 4.4vw, 4rem);
-  line-height: 1.02;
-  letter-spacing: -0.025em;
+  font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+  line-height: 1.2;
+  letter-spacing: 0.05em;
   text-wrap: balance;
 }
 
@@ -376,44 +377,47 @@ onBeforeUnmount(() => {
   max-width: 620px;
   color: rgba(255, 255, 255, 0.9);
   font-size: 1rem;
-  line-height: 1.45;
+  line-height: 1.5;
   margin-inline: auto;
 }
 
 .button-row {
-  margin-top: 20px;
+  margin-top: 24px;
   justify-content: center;
+  gap: 16px;
 }
 
 .button-row :deep(.base-button) {
   min-height: 40px;
-  min-width: 154px;
-  padding: 0 24px;
+  min-width: 140px;
+  padding: 0 28px;
   border-radius: 0;
-  font-size: 0.76rem;
+  font-size: 0.8rem;
   letter-spacing: 0.02em;
   text-transform: none;
+  font-weight: 400;
 }
 
 .button-row :deep(.base-button.secondary) {
   background: transparent;
   color: #fff;
-  border-color: rgba(255, 255, 255, 0.74);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 .button-row :deep(.base-button.secondary:hover) {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.8);
 }
 
 .button-row :deep(.base-button.primary) {
   background: #fff;
-  color: #0c0f13;
+  color: #000;
   border-color: #fff;
 }
 
 .button-row :deep(.base-button.primary:hover) {
-  background: #f0f0f0;
-  border-color: #f0f0f0;
+  background: #f5f5f5;
+  border-color: #f5f5f5;
 }
 
 .hero-controls {
@@ -424,8 +428,8 @@ onBeforeUnmount(() => {
   opacity: 0;
   transform: translateY(20px);
   transition:
-    opacity 0.62s cubic-bezier(0.33, 1, 0.68, 1) 0.28s,
-    transform 0.62s cubic-bezier(0.33, 1, 0.68, 1) 0.28s;
+    opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.3s,
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.3s;
 }
 
 .hero-slide.active .hero-controls {
@@ -436,13 +440,13 @@ onBeforeUnmount(() => {
 .hero-dots {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .hero-progress {
-  width: 92px;
+  width: 80px;
   height: 2px;
-  background: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.3);
   overflow: hidden;
 }
 
@@ -459,44 +463,44 @@ html[dir="rtl"] .hero-progress__bar {
 }
 
 .hero-arrow {
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
   color: #fff;
+  cursor: pointer;
   transition:
-    background-color 0.3s cubic-bezier(0, 0, 0.58, 1),
-    border-color 0.3s cubic-bezier(0, 0, 0.58, 1),
-    opacity 0.3s cubic-bezier(0, 0, 0.58, 1);
+    background-color 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .hero-arrow:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .hero-arrow svg {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
 }
 
 .hero-dot {
-  width: 32px;
+  width: 28px;
   height: 2px;
   border: 0;
-  background: rgba(255, 255, 255, 0.26);
+  background: rgba(255, 255, 255, 0.3);
   cursor: pointer;
   transition:
-    background-color 0.3s cubic-bezier(0, 0, 0.58, 1),
-    transform 0.3s cubic-bezier(0, 0, 0.58, 1);
+    background-color 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .hero-dot.active {
   background: #fff;
-  transform: scaleX(1.12);
+  transform: scaleX(1.1);
 }
 
 @media (max-width: 1024px) {
