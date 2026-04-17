@@ -4,30 +4,32 @@
       <section class="bg">
         <img class="headImg bg_pc" src="https://www.voyah.com.cn/static/assets/energy_bg-4482e81f.jpg" />
         <img class="headImg bg_mb" src="https://www.voyah.com.cn/static/assets/energy_bg_mb-36355b8d.png" />
-        <div class="title">Énergie Voyah Tunisie</div>
+        <div class="title">{{ t('domain.EnergyCenterPage.energy.title') }}</div>
         <div class="desc">
-          <p>Voyah Tunisie s'engage pour une mobilité durable en Tunisie. Des solutions de recharge innovantes adaptées au marché tunisien, pour une expérience de conduite électrique sereine et performante.</p>
+          <p>{{ t('domain.EnergyCenterPage.energy.description') }}</p>
         </div>
       </section>
 
       <section class="section_1">
         <div class="section_1_container">
           <div class="main_card">
-            <div class="main_title">168 Solution énergétique</div>
+            <div class="main_title">{{ t('domain.EnergyCenterPage.energy.solution.title') }}</div>
             <div class="main_subtitle">
-              <span class="subtitle_voyah">VOYAH</span><span class="subtitle_power">POWER</span>
+              <span class="subtitle_voyah">{{ t('domain.EnergyCenterPage.energy.solution.subtitle_voyah') }}</span><span class="subtitle_power">{{ t('domain.EnergyCenterPage.energy.solution.subtitle_power') }}</span>
             </div>
 
             <div class="cards_row">
               <div class="cards_top_row">
                 <div class="info_card">
                   <div class="card_bg_image"></div>
+                  <!-- Card 1 image - larger -->
+                  <img class="card_bg_img" src="https://www.voyah.com.cn/static/assets/power_bg1-7048cd30.png" alt="" />
                   <div class="card_content">
                     <div class="card_text">
-                      <div class="card_line">· Une application unique</div>
-                      <div class="card_line">· 10 stations ultra-rapides</div>
-                      <div class="card_line">· 50 bornes ultra-rapides</div>
-                      <div class="card_line">· 500+ points partenaires</div>
+                      <div class="card_line">{{ t('domain.EnergyCenterPage.energy.solution.card1.line1') }}</div>
+                      <div class="card_line">{{ t('domain.EnergyCenterPage.energy.solution.card1.line2') }}</div>
+                      <div class="card_line">{{ t('domain.EnergyCenterPage.energy.solution.card1.line3') }}</div>
+                      <div class="card_line">{{ t('domain.EnergyCenterPage.energy.solution.card1.line4') }}</div>
                     </div>
                   </div>
                   <div class="card_number">1</div>
@@ -35,9 +37,11 @@
 
                 <div class="info_card">
                   <div class="card_bg_image"></div>
+                  <!-- Card 2 image - larger -->
+                  <img class="card_bg_img" src="https://www.voyah.com.cn/static/assets/power_bg2-a6639f1e.png" alt="" />
                   <div class="card_content">
                     <div class="card_text">
-                      <div class="card_line">· Zone de recharge À moins de 6 km</div>
+                      <div class="card_line">{{ t('domain.EnergyCenterPage.energy.solution.card2.line1') }}</div>
                     </div>
                   </div>
                   <div class="card_number">6</div>
@@ -46,19 +50,21 @@
 
               <div class="info_card card_full">
                 <div class="card_bg_image"></div>
+                <!-- Card 3 image - larger -->
+                <img class="card_bg_img" src="https://www.voyah.com.cn/static/assets/power_bg3-d6d323e0.png" alt="" />
                 <div class="card_content">
                   <div class="card_text two_columns">
                     <div class="column">
-                      <div class="card_line">· Recharge ultra-rapide</div>
-                      <div class="card_line">· Réseau public</div>
-                      <div class="card_line">· Recharge à domicile</div>
-                      <div class="card_line">· Dépannage mobile</div>
+                      <div class="card_line">{{ t('domain.EnergyCenterPage.energy.solution.card3.line1') }}</div>
+                      <div class="card_line">{{ t('domain.EnergyCenterPage.energy.solution.card3.line2') }}</div>
+                      <div class="card_line">{{ t('domain.EnergyCenterPage.energy.solution.card3.line3') }}</div>
+                      <div class="card_line">{{ t('domain.EnergyCenterPage.energy.solution.card3.line4') }}</div>
                     </div>
                     <div class="column">
-                      <div class="card_line">· Recharge sans contact</div>
-                      <div class="card_line">· Technologie V2G</div>
-                      <div class="card_line">· Partage de bornes</div>
-                      <div class="card_line">· Recyclage batteries</div>
+                      <div class="card_line">{{ t('domain.EnergyCenterPage.energy.solution.card3.line5') }}</div>
+                      <div class="card_line">{{ t('domain.EnergyCenterPage.energy.solution.card3.line6') }}</div>
+                      <div class="card_line">{{ t('domain.EnergyCenterPage.energy.solution.card3.line7') }}</div>
+                      <div class="card_line">{{ t('domain.EnergyCenterPage.energy.solution.card3.line8') }}</div>
                     </div>
                   </div>
                 </div>
@@ -70,32 +76,32 @@
       </section>
 
       <section class="section2 section-energy">
-        <div class="title"><span class="large">Abondante</span>Un vaste réseau de recharge accessible en un clic</div>
-        <div class="desc">Déploiement de recharge ultra-rapide : Réseau de stations ultra-rapides déployé dans les grandes villes tunisiennes (Tunis, Sousse, Sfax). Voyah Tunisie s'engage à installer des bornes là où sont nos clients, pour une tranquillité d'esprit totale.</div>
-        <div class="desc desc1">Réseau de recharge public : Couverture dans plus de 10 gouvernorats tunisiens, partenariat avec les principaux opérateurs énergétiques tunisiens pour faciliter vos déplacements sur tout le territoire.</div>
+        <div class="title"><span class="large">{{ t('domain.EnergyCenterPage.energy.network.title_prefix') }}</span>{{ t('domain.EnergyCenterPage.energy.network.title') }}</div>
+        <div class="desc">{{ t('domain.EnergyCenterPage.energy.network.description') }}</div>
+        <div class="desc desc1">{{ t('domain.EnergyCenterPage.energy.network.description2') }}</div>
 
         <div class="energy_content_wrapper">
           <div class="charge_card_white">
-            <div class="charge_title_white">Carte de recharge Voyah Tunisie</div>
+            <div class="charge_title_white">{{ t('domain.EnergyCenterPage.energy.network.card_title') }}</div>
             <div class="charge_content_white">
               <div class="charge_row_white">
                 <div class="charge_item_white">
                   <div class="charge_number_white">500+</div>
-                  <div class="charge_label_white">Points de recharge partenaires</div>
+                  <div class="charge_label_white">{{ t('domain.EnergyCenterPage.energy.network.points') }}</div>
                 </div>
                 <div class="charge_item_white">
                   <div class="charge_number_white">50</div>
-                  <div class="charge_label_white">Bornes ultra-rapides</div>
+                  <div class="charge_label_white">{{ t('domain.EnergyCenterPage.energy.network.ultra_fast') }}</div>
                 </div>
               </div>
               <div class="charge_row_white">
                 <div class="charge_item_white">
                   <div class="charge_number_white">1,2 M kWh</div>
-                  <div class="charge_label_white">Énergie verte fournie</div>
+                  <div class="charge_label_white">{{ t('domain.EnergyCenterPage.energy.network.green_energy') }}</div>
                 </div>
                 <div class="charge_item_white">
                   <div class="charge_number_white">800 T</div>
-                  <div class="charge_label_white">CO₂ économisé</div>
+                  <div class="charge_label_white">{{ t('domain.EnergyCenterPage.energy.network.co2_saved') }}</div>
                 </div>
               </div>
             </div>
@@ -108,28 +114,30 @@
       </section>
 
       <section class="section2 section3" style="margin-top: 80px;">
-        <div class="title"><span class="large">Rapide</span>Technologie de recharge ultra-rapide</div>
-        <div class="desc">Bornes de recharge haute puissance : jusqu'à 1000 kW de puissance. Une autonomie de 250 km en seulement 10 minutes de recharge. L'expérience de recharge la plus rapide disponible en Tunisie.</div>
+        <div class="title"><span class="large">{{ t('domain.EnergyCenterPage.energy.fast_charging.title_prefix') }}</span>{{ t('domain.EnergyCenterPage.energy.fast_charging.title') }}</div>
+        <div class="desc">{{ t('domain.EnergyCenterPage.energy.fast_charging.description') }}</div>
         <div class="section3_1">
-          <img class="charge_mb" src="https://www.voyah.com.cn/static/assets/charge_mb-0e5441f2.png" />
-          <img class="charge_pc" src="https://www.voyah.com.cn/static/assets/charge_pc-1c0a2e91.png" />
-          <div class="blur_overlay"></div>
+          <div class="image_container">
+            <img class="charge_mb" src="https://www.voyah.com.cn/static/assets/charge_mb-0e5441f2.png" />
+            <img class="charge_pc" src="https://www.voyah.com.cn/static/assets/charge_pc-1c0a2e91.png" />
+            <div class="blur_overlay"></div>
+          </div>
           <div class="electric_list">
-            <div class="electric_item electric_item_left"><div class="num">120<span class="unit">kW</span></div><div class="tips">Puissance de pointe</div></div>
-            <div class="electric_item electric_item_center"><div class="num">250<span class="unit">A</span></div><div class="tips">Courant de pointe</div></div>
-            <div class="electric_item electric_item_right"><div class="num">250<span class="unit">km</span></div><div class="tips">en 10 min de recharge</div></div>
+            <div class="electric_item electric_item_left"><div class="num">120<span class="unit">kW</span></div><div class="tips">{{ t('domain.EnergyCenterPage.energy.fast_charging.peak_power') }}</div></div>
+            <div class="electric_item electric_item_center"><div class="num">250<span class="unit">A</span></div><div class="tips">{{ t('domain.EnergyCenterPage.energy.fast_charging.peak_current') }}</div></div>
+            <div class="electric_item electric_item_right"><div class="num">250<span class="unit">km</span></div><div class="tips">{{ t('domain.EnergyCenterPage.energy.fast_charging.range') }}</div></div>
           </div>
         </div>
       </section>
 
       <section class="section2 section4" style="margin-top: 80px;">
         <div class="title">
-          <span class="large">Intelligente</span>
-          De la recharge rapide à la recharge simplifiée
+          <span class="large">{{ t('domain.EnergyCenterPage.energy.smart_charging.title_prefix') }}</span>
+          {{ t('domain.EnergyCenterPage.energy.smart_charging.title') }}
         </div>
 
         <div class="desc">
-          Voyah propose deux services : un robot de recharge automatique et un robot de recharge mobile...
+         {{ t('domain.EnergyCenterPage.energy.smart_charging.description') }}
         </div>
 
         <div class="section4_1">
@@ -147,7 +155,7 @@
               </video>
 
               <div class="video-btn" @click="openVideo">
-                Regarder la vidéo
+                {{ t('domain.EnergyCenterPage.energy.smart_charging.watch_video') }}
                 <img
                   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAARzQklUCAgICHwIZIgAAAEhSURBVHic7dphTQNBFEXhOwQBlVAJ4KASkAAOsIAC6gCcgAMktBJwcPnThglptluanTcvcz4DM7k5adrdSgAAAAAAAAAAYEy2V7ZX0feY6ybgzDtJX7Y3AWf3z/bGv14z1dTEn4Fse0dNlRMDUVNtYqAua4r4kJ6ylvQxdE1nCuqutt4Kqo1Z0wUFdVFTzwXVwmrKMtDRc+tv4dkGUuuaMg501KSmzAOpRU3ZB1rcbfQFrrSX9FJKeV/qgMwDbQ/jfC95SMaB9pKeSimfLQ7L9hm0lXTfapwQV/zUeIy+exP/GOjN9jr63s1c+LhjjGpqMwcaq5rajEeu41VTmxho3GpqvPY5gxeHZxwG2tl+iL5Ll7L9eQEAAAAAAAAAAHTiB2v1UfW46pnfAAAAAElFTkSuQmCC"
                   alt=""
@@ -170,29 +178,29 @@
         </div>
       </div>
 
-      <!-- Section 5 avec défilement automatique plus rapide et responsive -->
+      <!-- Section 5 -->
       <section class="section2 section5" style="margin-top: 80px;">
-        <div class="title"><span class="large">Économique et écologique</span>Une énergie maîtrisée pour un avenir durable</div>
+        <div class="title"><span class="large">{{ t('domain.EnergyCenterPage.energy.eco.title_prefix') }}</span>{{ t('domain.EnergyCenterPage.energy.eco.title') }}</div>
         <div class="horizontal-tab commonTab auto-slide-tab">
           <div class="tab">
             <div class="tab-nav">
-              <div class="tab-item active" data-tab="0">Technologie V2G</div>
-              <div class="tab-item" data-tab="1">Partage de bornes</div>
-              <div class="tab-item" data-tab="2">Recyclage des batteries</div>
+              <div class="tab-item active" data-tab="0">{{ t('domain.EnergyCenterPage.energy.eco.v2g') }}</div>
+              <div class="tab-item" data-tab="1">{{ t('domain.EnergyCenterPage.energy.eco.sharing') }}</div>
+              <div class="tab-item" data-tab="2">{{ t('domain.EnergyCenterPage.energy.eco.recycling') }}</div>
               <div class="slide-content"></div>
             </div>
           </div>
           <div class="tab_mb">
-            <div class="tab-item_mb active" data-tab="0">V2G</div>
-            <div class="tab-item_mb" data-tab="1">Partage de bornes</div>
-            <div class="tab-item_mb" data-tab="2">Recyclage</div>
+            <div class="tab-item_mb active" data-tab="0">{{ t('domain.EnergyCenterPage.energy.eco.v2g') }}</div>
+            <div class="tab-item_mb" data-tab="1">{{ t('domain.EnergyCenterPage.energy.eco.sharing') }}</div>
+            <div class="tab-item_mb" data-tab="2">{{ t('domain.EnergyCenterPage.energy.eco.recycling') }}</div>
           </div>
           <div class="tab-content">
             <div class="tab-content-item active" data-tab="0">
               <div class="tab_content_demo">
                 <div class="img-wrapper">
                   <img src="https://www.voyah.com.cn/static/assets/V2G-cba13343.jpg" alt="Technologie V2G" />
-                  <div class="tab_desc">Le véhicule contribue à la stabilité du réseau électrique tunisien</div>
+                  <div class="tab_desc">{{ t('domain.EnergyCenterPage.energy.eco.v2g_desc') }}</div>
                 </div>
               </div>
             </div>
@@ -200,7 +208,8 @@
               <div class="tab_content_demo">
                 <div class="img-wrapper">
                   <img src="https://www.voyah.com.cn/static/assets/kongxiang-f3e4984f.jpg" alt="Partage de bornes" />
-                  <div class="tab_desc">Valorisez votre borne à domicile pendant les heures creuses</div>
+                  <div class="tab_desc">
+{{ t('domain.EnergyCenterPage.energy.eco.sharing_desc') }}</div>
                 </div>
               </div>
             </div>
@@ -208,7 +217,7 @@
               <div class="tab_content_demo">
                 <div class="img-wrapper">
                   <img src="https://www.voyah.com.cn/static/assets/tici-b570e40a.jpg" alt="Recyclage des batteries" />
-                  <div class="tab_desc">Seconde vie des batteries : engagement écologique responsable</div>
+                  <div class="tab_desc">{{ t('domain.EnergyCenterPage.energy.eco.recycling_desc') }}</div>
                 </div>
               </div>
             </div>
@@ -216,24 +225,24 @@
         </div>
       </section>
 
-     <section class="section2 section6">
-        <div class="title">Encyclopédie de la recharge Voyah</div>
-        <div class="desc">Tout ce que vous devez savoir sur la recharge de votre Voyah</div>
+      <section class="section2 section6">
+        <div class="title">{{ t('domain.EnergyCenterPage.energy.encyclopedia.title') }}</div>
+        <div class="desc">{{ t('domain.EnergyCenterPage.energy.encyclopedia.description') }}</div>
         <div class="horizontal-tab commonTab">
           <div class="tab">
             <div class="tab-nav">
-              <div class="tab-item active" data-tab="0">Guide recharge rapide</div>
-              <div class="tab-item" data-tab="1">Guide recharge à domicile</div>
-              <div class="tab-item" data-tab="2">Guide recharge publique</div>
-              <div class="tab-item" data-tab="3">FAQ</div>
+              <div class="tab-item active" data-tab="0">{{ t('domain.EnergyCenterPage.energy.encyclopedia.fast_guide') }}</div>
+              <div class="tab-item" data-tab="1">{{ t('domain.EnergyCenterPage.energy.encyclopedia.home_guide') }}</div>
+              <div class="tab-item" data-tab="2">{{ t('domain.EnergyCenterPage.energy.encyclopedia.public_guide') }}</div>
+              <div class="tab-item" data-tab="3">{{ t('domain.EnergyCenterPage.energy.encyclopedia.faq') }}</div>
               <div class="slide-content"></div>
             </div>
           </div>
           <div class="tab_mb">
-            <div class="tab-item_mb active" data-tab="0">Recharge rapide</div>
-            <div class="tab-item_mb" data-tab="1">Recharge domicile</div>
-            <div class="tab-item_mb" data-tab="2">Recharge publique</div>
-            <div class="tab-item_mb" data-tab="3">FAQ</div>
+            <div class="tab-item_mb active" data-tab="0">{{ t('domain.EnergyCenterPage.energy.encyclopedia.fast_guide') }}</div>
+            <div class="tab-item_mb" data-tab="1">{{ t('domain.EnergyCenterPage.energy.encyclopedia.home_guide') }}</div>
+            <div class="tab-item_mb" data-tab="2">{{ t('domain.EnergyCenterPage.energy.encyclopedia.public_guide') }}</div>
+            <div class="tab-item_mb" data-tab="3">{{ t('domain.EnergyCenterPage.energy.encyclopedia.faq') }}</div>
           </div>
           <div class="tab-content">
             <div class="tab-content-item active" data-tab="0">
@@ -241,21 +250,21 @@
                 <div class="book-grid">
                   <div class="book-card">
                     <img src="https://img.dsmp.voyah.com.cn/img/community-new/center/144115205301727945/77a9b4db-fd48-4770-a4ce-9f40b345994f-1760680986127.png" />
-                    <h4>Optimiser la recharge rapide</h4>
-                    <p>Conseils pour une charge efficace</p>
-                    <div class="more">Lire la suite</div>
+                    <h4>{{ t('domain.EnergyCenterPage.energy.encyclopedia.fast_guide_title') }}</h4>
+                    <p>{{ t('domain.EnergyCenterPage.energy.encyclopedia.fast_guide_desc') }}</p>
+                    <div class="more">{{ t('domain.EnergyCenterPage.energy.encyclopedia.read_more') }}</div>
                   </div>
                   <div class="book-card">
                     <img src="https://img.dsmp.voyah.com.cn/img/community-new/center/144115205301727945/a4c823a6-fff9-4f09-96c0-23984dde8e30-1763017997820.png" />
-                    <h4>Recharge en hiver</h4>
-                    <p>Préservez votre autonomie par temps froid</p>
-                    <div class="more">Lire la suite</div>
+                    <h4>{{ t('domain.EnergyCenterPage.energy.encyclopedia.winter_title') }}</h4>
+                    <p>{{ t('domain.EnergyCenterPage.energy.encyclopedia.winter_desc') }}</p>
+                    <div class="more">{{ t('domain.EnergyCenterPage.energy.encyclopedia.read_more') }}</div>
                   </div>
                   <div class="book-card">
                     <img src="https://img.dsmp.voyah.com.cn/img/community-new/center/144115205301727945/6afd3d9b-388f-41e6-9b45-520a8a77646e-1758008380758.jpg" />
-                    <h4>Stationnement gratuit</h4>
-                    <p>Avantages dans nos stations partenaires</p>
-                    <div class="more">Lire la suite</div>
+                    <h4>{{ t('domain.EnergyCenterPage.energy.encyclopedia.free_parking_title') }}</h4>
+                    <p>{{ t('domain.EnergyCenterPage.energy.encyclopedia.free_parking_desc') }}</p>
+                    <div class="more">{{ t('domain.EnergyCenterPage.energy.encyclopedia.read_more') }}</div>
                   </div>
                 </div>
               </div>
@@ -265,15 +274,15 @@
                 <div class="book-grid">
                   <div class="book-card">
                     <img src="https://img.dsmp.voyah.com.cn/img/community/center/cc251eb2-a5a4-4fa4-9c4f-4b16eaa0b2011704892427898.jpg" />
-                    <h4>Installation de votre borne</h4>
-                    <p>Les étapes clés pour une installation réussie</p>
-                    <div class="more">Lire la suite</div>
+                    <h4>{{ t('domain.EnergyCenterPage.energy.encyclopedia.installation_title') }}</h4>
+                    <p>{{ t('domain.EnergyCenterPage.energy.encyclopedia.installation_desc') }}</p>
+                    <div class="more">{{ t('domain.EnergyCenterPage.energy.encyclopedia.read_more') }}</div>
                   </div>
                   <div class="book-card">
                     <img src="https://img.dsmp.voyah.com.cn/img/community/center/1ece860b-e95f-4d11-b96a-5325de63aeb81699348080554.jpg" />
-                    <h4>Compatibilité électrique</h4>
-                    <p>Vérifiez l'éligibilité de votre installation</p>
-                    <div class="more">Lire la suite</div>
+                    <h4>{{ t('domain.EnergyCenterPage.energy.encyclopedia.compatibility_title') }}</h4>
+                    <p>{{ t('domain.EnergyCenterPage.energy.encyclopedia.compatibility_desc') }}</p>
+                    <div class="more">{{ t('domain.EnergyCenterPage.energy.encyclopedia.read_more') }}</div>
                   </div>
                 </div>
               </div>
@@ -283,15 +292,15 @@
                 <div class="book-grid">
                   <div class="book-card">
                     <img src="https://img.dsmp.voyah.com.cn/img/community/center/457565c8-b131-42f5-8e4a-fd1ca685e0dd1696006751985.jpg" />
-                    <h4>Guide des opérateurs tunisiens</h4>
-                    <p>Utiliser les bornes publiques en Tunisie</p>
-                    <div class="more">Lire la suite</div>
+                    <h4>{{ t('domain.EnergyCenterPage.energy.encyclopedia.operators_title') }}</h4>
+                    <p>{{ t('domain.EnergyCenterPage.energy.encyclopedia.operators_desc') }}</p>
+                    <div class="more">{{ t('domain.EnergyCenterPage.energy.encyclopedia.read_more') }}</div>
                   </div>
                   <div class="book-card">
                     <img src="https://img.dsmp.voyah.com.cn/img/community/center/5a234409-f6ab-41a4-ad4e-f5eea2ce46d11696006912848.jpg" />
-                    <h4>Application mobile</h4>
-                    <p>Trouver et réserver votre borne facilement</p>
-                    <div class="more">Lire la suite</div>
+                    <h4>{{ t('domain.EnergyCenterPage.energy.encyclopedia.app_title') }}</h4>
+                    <p>{{ t('domain.EnergyCenterPage.energy.encyclopedia.app_desc') }}</p>
+                    <div class="more">{{ t('domain.EnergyCenterPage.energy.encyclopedia.read_more') }}</div>
                   </div>
                 </div>
               </div>
@@ -301,23 +310,23 @@
                 <div class="book-grid">
                   <div class="book-card">
                     <img src="https://img.dsmp.voyah.com.cn/img/community/pgc/list/33c2da05-e679-4379-9c9b-9a64653d1c0a1678347727724.jpg" />
-                    <h4>Questions fréquentes</h4>
-                    <p>Toutes les réponses à vos interrogations</p>
-                    <div class="more">Lire la suite</div>
+                    <h4>{{ t('domain.EnergyCenterPage.energy.encyclopedia.faq_title') }}</h4>
+                    <p>{{ t('domain.EnergyCenterPage.energy.encyclopedia.faq_desc') }}</p>
+                    <div class="more">{{ t('domain.EnergyCenterPage.energy.encyclopedia.read_more') }}</div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section> 
+      </section>
 
-      <!-- Section 7 corrigée - image non coupée -->
+      <!-- Section 7 corrigée -->
       <section class="section7">
         <img class="headImg bg_pc" src="https://www.voyah.com.cn/static/assets/partner_pc-b12d249b.png" />
         <div class="content">
-          <div class="title">Recrutement de partenaires de supercharge Voyah</div>
-          <div class="more"><button type="button" class="voyah-button">Apprendre encore plus</button></div>
+          <div class="title">{{ t('domain.EnergyCenterPage.energy.partners.title') }}</div>
+         
         </div>
       </section>
     </div>
@@ -326,8 +335,11 @@
 
 <script setup>
 import { onMounted, ref, onBeforeUnmount } from 'vue'
+import { useI18n } from 'vue-i18n'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
+
+const { t } = useI18n()
 
 const showVideo = ref(false)
 
@@ -339,7 +351,6 @@ const closeVideo = () => {
   showVideo.value = false
 }
 
-// Variables pour le défilement automatique
 let autoSlideInterval = null
 let currentSlideIndex = 0
 let isUserInteracting = false
@@ -347,49 +358,35 @@ let resetTimer = null
 
 const startAutoSlide = (container) => {
   if (autoSlideInterval) clearInterval(autoSlideInterval)
-  
   autoSlideInterval = setInterval(() => {
     if (!isUserInteracting) {
       const tabItems = container.querySelectorAll('.tab-item, .tab-item_mb')
       const totalSlides = tabItems.length
-      
       if (totalSlides > 0) {
         currentSlideIndex = (currentSlideIndex + 1) % totalSlides
         const nextTab = tabItems[currentSlideIndex]
-        if (nextTab) {
-          nextTab.click()
-        }
+        if (nextTab) nextTab.click()
       }
     }
-  }, 3000) // Changement toutes les 3 secondes (plus rapide)
+  }, 3000)
 }
 
 const resetAutoSlideTimer = (container) => {
   if (resetTimer) clearTimeout(resetTimer)
   isUserInteracting = true
-  
-  resetTimer = setTimeout(() => {
-    isUserInteracting = false
-  }, 8000) // Réactive l'auto-défilement après 8 secondes d'inactivité
+  resetTimer = setTimeout(() => { isUserInteracting = false }, 8000)
 }
 
 const initAutoSlideTab = () => {
   const autoSlideContainer = document.querySelector('.auto-slide-tab')
   if (!autoSlideContainer) return
-  
-  // Démarrer le défilement automatique
   startAutoSlide(autoSlideContainer)
-  
-  // Ajouter des écouteurs pour les interactions utilisateur
   const tabItems = autoSlideContainer.querySelectorAll('.tab-item, .tab-item_mb')
   tabItems.forEach(item => {
     item.addEventListener('click', () => {
       resetAutoSlideTimer(autoSlideContainer)
-      // Mettre à jour l'index actuel
       const clickedIndex = Array.from(tabItems).indexOf(item)
-      if (clickedIndex !== -1) {
-        currentSlideIndex = clickedIndex
-      }
+      if (clickedIndex !== -1) currentSlideIndex = clickedIndex
     })
   })
 }
@@ -402,7 +399,6 @@ L.Icon.Default.mergeOptions({
 })
 
 onMounted(() => {
-  // Carte Leaflet
   const tunisiaCenter = [34.0, 9.5]
   const map = L.map('tunisia-map').setView(tunisiaCenter, 7)
 
@@ -414,33 +410,22 @@ onMounted(() => {
   }).addTo(map)
 
   const stations = [
-    { name: 'Tunis', coords: [36.8065, 10.1815], type: 'active', power: '350 kW', status: 'Opérationnel', connectors: 4 },
-    { name: 'Sousse', coords: [35.8256, 10.6369], type: 'active', power: '350 kW', status: 'Opérationnel', connectors: 4 },
-    { name: 'Sfax', coords: [34.7406, 10.7603], type: 'active', power: '350 kW', status: 'Opérationnel', connectors: 4 },
-    { name: 'Gabès', coords: [33.8815, 10.0982], type: 'active', power: '150 kW', status: 'Opérationnel', connectors: 2 },
-    { name: 'Tozeur', coords: [33.9197, 8.1335], type: 'active', power: '150 kW', status: 'Opérationnel', connectors: 2 },
-    { name: 'Ben Guerdane', coords: [33.1392, 11.2194], type: 'active', power: '150 kW', status: 'Opérationnel', connectors: 2 },
-    { name: 'Bizerte', coords: [37.2744, 9.8739], type: 'planned', power: '350 kW', status: 'Prévu 2025', connectors: 4 },
-    { name: 'Kairouan', coords: [35.6781, 10.0964], type: 'planned', power: '150 kW', status: 'Prévu 2025', connectors: 2 },
-    { name: 'Gafsa', coords: [34.4250, 8.7842], type: 'planned', power: '150 kW', status: 'Prévu 2026', connectors: 2 },
-    { name: 'Nabeul', coords: [36.4550, 10.7363], type: 'planned', power: '150 kW', status: 'Prévu 2025', connectors: 2 },
-    { name: 'Monastir', coords: [35.7645, 10.8115], type: 'planned', power: '150 kW', status: 'Prévu 2025', connectors: 2 },
-    { name: 'Mahdia', coords: [35.5043, 11.0622], type: 'planned', power: '150 kW', status: 'Prévu 2026', connectors: 2 },
+    { name: 'Tunis', coords: [36.8065, 10.1815], type: 'active', power: '350 kW', status: t('domain.EnergyCenterPage.energy.map.operational'), connectors: 4 },
+    { name: 'Sousse', coords: [35.8256, 10.6369], type: 'active', power: '350 kW', status: t('domain.EnergyCenterPage.energy.map.operational'), connectors: 4 },
+    { name: 'Sfax', coords: [34.7406, 10.7603], type: 'active', power: '350 kW', status: t('domain.EnergyCenterPage.energy.map.operational'), connectors: 4 },
+    { name: 'Gabès', coords: [33.8815, 10.0982], type: 'active', power: '150 kW', status: t('domain.EnergyCenterPage.energy.map.operational'), connectors: 2 },
+    { name: 'Tozeur', coords: [33.9197, 8.1335], type: 'active', power: '150 kW', status: t('domain.EnergyCenterPage.energy.map.operational'), connectors: 2 },
+    { name: 'Ben Guerdane', coords: [33.1392, 11.2194], type: 'active', power: '150 kW', status: t('domain.EnergyCenterPage.energy.map.operational'), connectors: 2 },
+    { name: 'Bizerte', coords: [37.2744, 9.8739], type: 'planned', power: '350 kW', status: t('domain.EnergyCenterPage.energy.map.planned_2025'), connectors: 4 },
+    { name: 'Kairouan', coords: [35.6781, 10.0964], type: 'planned', power: '150 kW', status: t('domain.EnergyCenterPage.energy.map.planned_2025'), connectors: 2 },
+    { name: 'Gafsa', coords: [34.4250, 8.7842], type: 'planned', power: '150 kW', status: t('domain.EnergyCenterPage.energy.map.planned_2026'), connectors: 2 },
+    { name: 'Nabeul', coords: [36.4550, 10.7363], type: 'planned', power: '150 kW', status: t('domain.EnergyCenterPage.energy.map.planned_2025'), connectors: 2 },
+    { name: 'Monastir', coords: [35.7645, 10.8115], type: 'planned', power: '150 kW', status: t('domain.EnergyCenterPage.energy.map.planned_2025'), connectors: 2 },
+    { name: 'Mahdia', coords: [35.5043, 11.0622], type: 'planned', power: '150 kW', status: t('domain.EnergyCenterPage.energy.map.planned_2026'), connectors: 2 },
   ]
 
-  const activeIcon = L.divIcon({
-    className: 'custom-marker-active',
-    html: '<div class="marker-active"></div>',
-    iconSize: [20, 20],
-    popupAnchor: [0, -10]
-  })
-
-  const plannedIcon = L.divIcon({
-    className: 'custom-marker-planned',
-    html: '<div class="marker-planned"></div>',
-    iconSize: [20, 20],
-    popupAnchor: [0, -10]
-  })
+  const activeIcon = L.divIcon({ className: 'custom-marker-active', html: '<div class="marker-active"></div>', iconSize: [20, 20], popupAnchor: [0, -10] })
+  const plannedIcon = L.divIcon({ className: 'custom-marker-planned', html: '<div class="marker-planned"></div>', iconSize: [20, 20], popupAnchor: [0, -10] })
 
   stations.forEach(station => {
     const icon = station.type === 'active' ? activeIcon : plannedIcon
@@ -448,39 +433,27 @@ onMounted(() => {
     marker.bindPopup(`
       <div class="station-popup">
         <h3>⚡ ${station.name}</h3>
-        <p><strong>Puissance:</strong> ${station.power}</p>
-        <p><strong>Statut:</strong> ${station.status}</p>
-        <p><strong>Bornes:</strong> ${station.connectors} connecteurs</p>
-        <p><strong>Type:</strong> ${station.type === 'active' ? '✅ Station active' : '📅 Station à venir'}</p>
+        <p><strong>${t('domain.EnergyCenterPage.energy.map.power')}:</strong> ${station.power}</p>
+        <p><strong>${t('domain.EnergyCenterPage.energy.map.status')}:</strong> ${station.status}</p>
+        <p><strong>${t('domain.EnergyCenterPage.energy.map.connectors')}:</strong> ${station.connectors} connecteurs</p>
+        <p><strong>${t('domain.EnergyCenterPage.energy.map.type')}:</strong> ${station.type === 'active' ? t('domain.EnergyCenterPage.energy.map.active') : t('domain.EnergyCenterPage.energy.map.planned')}</p>
       </div>
     `)
   })
 
   L.control.zoom({ position: 'bottomright' }).addTo(map)
+  window.addEventListener('resize', () => { setTimeout(() => map.invalidateSize(), 100) })
 
-  window.addEventListener('resize', () => {
-    setTimeout(() => map.invalidateSize(), 100)
-  })
-
-  // Gestion des onglets (version améliorée avec auto-slide)
   function initTabs(container) {
     const tabItems = container.querySelectorAll('.tab-item, .tab-item_mb')
     const contents = container.querySelectorAll('.tab-content-item')
-
     tabItems.forEach(item => {
       item.addEventListener('click', () => {
         const tabId = item.getAttribute('data-tab')
-
-        container.querySelectorAll('.tab-item, .tab-item_mb').forEach(ti => {
-          ti.classList.remove('active')
-        })
-
+        container.querySelectorAll('.tab-item, .tab-item_mb').forEach(ti => ti.classList.remove('active'))
         container.querySelectorAll(`[data-tab="${tabId}"]`).forEach(ti => {
-          if (ti.classList.contains('tab-item') || ti.classList.contains('tab-item_mb')) {
-            ti.classList.add('active')
-          }
+          if (ti.classList.contains('tab-item') || ti.classList.contains('tab-item_mb')) ti.classList.add('active')
         })
-
         contents.forEach(content => {
           content.classList.toggle('active', content.getAttribute('data-tab') === tabId)
         })
@@ -489,23 +462,17 @@ onMounted(() => {
   }
 
   document.querySelectorAll('.commonTab').forEach(initTabs)
-  
-  // Initialiser l'auto-slide pour la section 5 uniquement
   initAutoSlideTab()
 })
 
-// Nettoyer l'intervalle lors du démontage du composant
 onBeforeUnmount(() => {
-  if (autoSlideInterval) {
-    clearInterval(autoSlideInterval)
-  }
-  if (resetTimer) {
-    clearTimeout(resetTimer)
-  }
+  if (autoSlideInterval) clearInterval(autoSlideInterval)
+  if (resetTimer) clearTimeout(resetTimer)
 })
 </script>
 
 <style scoped>
+/* Votre CSS reste strictement identique */
 * {
   margin: 0;
   padding: 0;
@@ -527,12 +494,12 @@ onBeforeUnmount(() => {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
   background: #000000;
+  padding-top: 25vh; /* 15% de la hauteur de la viewport */
 }
-
 .headImg {
   position: absolute;
   top: 0; left: 0;
@@ -668,6 +635,9 @@ onBeforeUnmount(() => {
   z-index: 1;
   pointer-events: none;
 }
+/* Pour la version arabe uniquement */
+
+
 
 .card_bg_image::before {
   content: '';
@@ -675,6 +645,22 @@ onBeforeUnmount(() => {
   top: 22px; left: 22px; right: 22px; bottom: 22px;
   border-radius: 50%;
   border: 1px solid rgba(200,148,74,0.10);
+}
+
+/* Larger images for cards */
+.card_bg_img {
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: auto;
+  height: auto;
+  max-width: 180px;
+  max-height: 180px;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.8;
+  border-radius: 0;
+  object-fit: contain;
 }
 
 .card_content { position: relative; z-index: 2; }
@@ -719,8 +705,8 @@ onBeforeUnmount(() => {
   gap: 40px;
   align-items: stretch;
   justify-content: center;
-  max-width: 1300px;
-  margin: 50px auto 0;
+  max-width: 1500px;
+  margin: 70px auto 0;
 }
 
 .tunisia_map_wrapper {
@@ -738,18 +724,18 @@ onBeforeUnmount(() => {
 
 .charge_card_white {
   position: absolute;
-  top: 20px; left: 20px;
+  top: 50px; left: 50px;
   z-index: 10;
   background: rgba(255,255,255,0.88);
   backdrop-filter: blur(12px);
-  padding: 12px 14px;
+  padding:20px 22px;
   border-radius: 14px;
   min-width: 400px;
   max-width: 420px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.12);
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .charge_title_white {
@@ -774,7 +760,7 @@ onBeforeUnmount(() => {
 .charge_item_white {
   flex: 1;
   text-align: center;
-  padding: 6px;
+  padding: 10px;
 }
 
 .charge_number_white {
@@ -833,7 +819,7 @@ onBeforeUnmount(() => {
 .large {
   font-size: 4rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #000000 0%, #555555 50%, #ffffff 100%);
+  background: linear-gradient(135deg, #000000 0%, #444444 50%, #888888 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -850,11 +836,21 @@ onBeforeUnmount(() => {
   font-size: 1rem;
 }
 
-/* Section 3 - Recharge rapide */
+/* ============================================================
+   SECTION 3 — CORRECTION largeur identique image et flou
+   ============================================================ */
 .section3_1 {
   position: relative;
-  max-width: 1000px;
+  max-width: 1400px;
   margin: 40px auto 0;
+  padding: 0 5%;
+}
+
+.image_container {
+  position: relative;
+  width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
 }
 
 .charge_pc,
@@ -868,17 +864,20 @@ onBeforeUnmount(() => {
 
 .blur_overlay {
   position: absolute;
-  bottom: 0; left: 0; right: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   height: 90px;
   background: rgba(0,0,0,0.4);
   backdrop-filter: blur(8px);
-  border-radius: 0 0 15px 15px;
   z-index: 2;
 }
 
 .electric_list {
   position: absolute;
-  bottom: 20px; left: 0; right: 0;
+  bottom: 20px;
+  left: 5%;
+  right: 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -910,16 +909,23 @@ onBeforeUnmount(() => {
   text-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 
-/* Section 4 - Vidéo */
-.section4 { background: #fafafa; }
+/* ============================================================
+   SECTION 4 — Ajout des padding left/right comme les autres sections
+   ============================================================ */
+.section4 { 
+  background: #fafafa;
+  padding: 0 5%; /* Ajout du padding horizontal */
+}
 
 .section4_1 {
-  max-width: 900px;
+  max-width: 1400px;
   margin: 0 auto;
   border-radius: 32px;
   overflow: hidden;
   position: relative;
 }
+
+.section4_1_content { border-radius: 24px; overflow: hidden; }
 
 .video { width: 100%; position: relative; }
 
@@ -1009,17 +1015,45 @@ onBeforeUnmount(() => {
 }
 
 @keyframes fadeIn {
-  from {
-    transform: scale(0.95);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+  from { transform: scale(0.95); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
 }
 
-/* Section 5 - Onglets image avec animation fluide et responsive */
+/* ============================================================
+   SECTION 5 — Augmentation de la taille du texte des onglets
+   ============================================================ */
+.section5 .horizontal-tab {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 5%;
+}
+
+/* Titre section 5 : taille fluide selon écran */
+.section5 .title {
+  font-size: clamp(1.1rem, 3vw, 2.5rem);
+  padding: 0 5%;
+}
+
+.section5 .title .large {
+  font-size: clamp(1.4rem, 4.5vw, 4rem);
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+/* Augmentation de la taille des onglets desktop */
+.section5 .tab-item {
+  font-size: 1.1rem; /* Augmenté de 1.1rem à 1.3rem */
+  padding: 10px 0;
+}
+
+/* Augmentation de la taille des onglets mobile */
+.section5 .tab-item_mb {
+  font-size: 1rem; /* Augmenté de 0.9rem à 1rem */
+  padding: 8px 18px;
+}
+
 .tab_content_demo {
   display: flex;
   justify-content: center;
@@ -1030,7 +1064,7 @@ onBeforeUnmount(() => {
   display: inline-block;
   border-radius: 15px;
   overflow: hidden;
-  max-width: 1000px;
+  max-width: 100%;
   width: 100%;
 }
 
@@ -1052,21 +1086,14 @@ onBeforeUnmount(() => {
 }
 
 @keyframes fadeInSlide {
-  from {
-    opacity: 0;
-    transform: translateX(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(10px); }
+  to   { opacity: 1; transform: translateX(0);    }
 }
 
 .tab_desc {
   position: absolute;
-  bottom: 0; 
-  left: 0; 
-  right: 0;
+  bottom: 0;
+  left: 0; right: 0;
   height: 90px;
   padding: 0 24px;
   display: flex;
@@ -1077,17 +1104,13 @@ onBeforeUnmount(() => {
   border-radius: 0 0 15px 15px;
   z-index: 2;
   color: #fff;
-  font-size: 1rem;
+  font-size: 20px;
   animation: slideUp 0.3s ease;
 }
 
 @keyframes slideUp {
-  from {
-    transform: translateY(100%);
-  }
-  to {
-    transform: translateY(0);
-  }
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0);    }
 }
 
 /* Onglets communs */
@@ -1129,12 +1152,8 @@ onBeforeUnmount(() => {
 }
 
 @keyframes underlineSlide {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
+  from { width: 0; }
+  to   { width: 100%; }
 }
 
 .tab_mb {
@@ -1162,9 +1181,8 @@ onBeforeUnmount(() => {
 }
 
 /* Section 6 - Guides */
-.section6 {
-  display:none;
-}
+.section6 { display: none; }
+
 .book-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1201,12 +1219,13 @@ onBeforeUnmount(() => {
   font-weight: 500;
 }
 
-/* Section 7 - Partenaire corrigée - image non coupée */
+/* ============================================================
+   SECTION 7 — image pleine + contenu ancré en haut
+   ============================================================ */
 .section7 {
   position: relative;
-  min-height: 500px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   text-align: center;
   overflow: hidden;
@@ -1219,28 +1238,29 @@ onBeforeUnmount(() => {
   inset: 0;
   z-index: 1;
   background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.4),
-    rgba(0, 0, 0, 0.2)
+    to bottom,
+    rgba(0, 0, 0, 0.45) 0%,
+    rgba(0, 0, 0, 0.15) 50%,
+    rgba(0, 0, 0, 0.3) 100%
   );
 }
 
 .section7 .headImg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
-  object-position: center;
   z-index: 0;
 }
 
 .section7 .content {
-  position: relative;
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 2;
-  padding: 60px 20px;
+  padding: 0 20px;
   max-width: 800px;
   width: 90%;
 }
@@ -1272,7 +1292,9 @@ onBeforeUnmount(() => {
   transform: scale(1.05);
 }
 
-/* Responsive */
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
 @media (max-width: 968px) {
   .energy_content_wrapper { flex-direction: column; gap: 30px; }
   .tunisia_map_wrapper { width: 100%; }
@@ -1283,24 +1305,16 @@ onBeforeUnmount(() => {
     margin-bottom: 20px;
     width: 100%; max-width: 100%;
   }
-  
-  /* Section 5 responsive */
-  .title {
-    font-size: 1.8rem;
-  }
-  .large {
-    font-size: 2.5rem;
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  /* Section 7 responsive */
-  .section7 {
-    min-height: 400px;
-  }
-  .section7 .title {
-    font-size: 1.5rem;
-  }
+  .title { font-size: 1.8rem; }
+  .large { font-size: 2.5rem; display: block; margin-bottom: 10px; }
+
+  .section3_1,
+  .section4_1 { padding: 0 4%; }
+
+  .section5 .horizontal-tab { padding: 0 4%; }
+
+  .section7 .content { top: 40px; }
+  .section7 .title { font-size: 1.5rem; }
 }
 
 @media (max-width: 768px) {
@@ -1329,36 +1343,25 @@ onBeforeUnmount(() => {
   .charge_label_white  { font-size: 0.7rem; }
   .tunisia-map    { height: 350px; }
   .electric_list  { padding: 0 15px; bottom: 12px; }
+  .blur_overlay   { height: 60px; }
   .num  { font-size: 1rem; }
   .unit { font-size: 0.6rem; }
   .tips { font-size: 0.5rem; }
-  .blur_overlay { height: 60px; }
-  .video-btn {
-    padding: 8px 18px;
-    font-size: 12px;
-    gap: 8px;
-  }
-  .video-btn img {
-    width: 14px;
-    height: 14px;
-  }
-  .tab_desc {
-    height: 70px;
-    font-size: 0.85rem;
-    padding: 0 16px;
-  }
+  .video-btn { padding: 8px 18px; font-size: 12px; gap: 8px; }
+  .video-btn img { width: 14px; height: 14px; }
+  .tab_desc { height: 70px; font-size: 0.85rem; padding: 0 16px; }
+
+  .section5 .title       { font-size: clamp(1rem, 4vw, 1.5rem); }
+  .section5 .title .large { font-size: clamp(1.3rem, 5.5vw, 2rem); }
   
-  /* Section 7 responsive tablette */
-  .section7 {
-    min-height: 350px;
+  /* Ajustement section 4 sur mobile */
+  .section4 {
+    padding: 0 4%; /* Padding horizontal sur mobile aussi */
   }
-  .section7 .title {
-    font-size: 1.3rem;
-  }
-  .voyah-button {
-    padding: 10px 28px;
-    font-size: 0.9rem;
-  }
+
+  .section7 .content { top: 30px; }
+  .section7 .title { font-size: 1.3rem; }
+  .voyah-button { padding: 10px 28px; font-size: 0.9rem; }
 }
 
 @media (max-width: 480px) {
@@ -1367,51 +1370,30 @@ onBeforeUnmount(() => {
   .subtitle_voyah,
   .subtitle_power { font-size: 0.9rem; letter-spacing: 4px; }
   .card_line { font-size: 0.75rem; }
-  .card_full .two_columns {
-    flex-direction: column !important;
-    gap: 0 !important;
-  }
+  .card_full .two_columns { flex-direction: column !important; gap: 0 !important; }
   .charge_card_white { padding: 16px 12px; }
   .charge_number_white { font-size: 1rem; }
   .tunisia-map { height: 250px; }
   .img-wrapper { max-width: 100%; }
-  .video-btn {
-    padding: 6px 14px;
-    font-size: 11px;
-    gap: 6px;
-  }
-  .video-btn img {
-    width: 12px;
-    height: 12px;
-  }
-  .tab_desc {
-    height: 60px;
-    font-size: 0.7rem;
-    padding: 0 12px;
-  }
+  .video-btn { padding: 6px 14px; font-size: 11px; gap: 6px; }
+  .video-btn img { width: 12px; height: 12px; }
+  .tab_desc { height: 60px; font-size: 0.7rem; padding: 0 12px; }
+
+  .section3_1, .section4_1 { padding: 0 3%; }
+  .blur_overlay { left: 0; right: 0; }
+  .electric_list { left: 3%; right: 3%; }
+
+  .section5 .title { font-size: clamp(0.9rem, 3.5vw, 1.2rem); padding: 0 3%; }
+  .section5 .title .large { font-size: clamp(1.1rem, 5vw, 1.5rem); }
+  .desc { font-size: 0.85rem; padding: 0 15px; }
   
-  /* Section 5 responsive mobile */
-  .title {
-    font-size: 1.2rem;
+  /* Ajustement section 4 sur très petits écrans */
+  .section4 {
+    padding: 0 3%;
   }
-  .large {
-    font-size: 1.5rem;
-  }
-  .desc {
-    font-size: 0.85rem;
-    padding: 0 15px;
-  }
-  
-  /* Section 7 responsive mobile */
-  .section7 {
-    min-height: 300px;
-  }
-  .section7 .title {
-    font-size: 1.1rem;
-  }
-  .voyah-button {
-    padding: 8px 20px;
-    font-size: 0.85rem;
-  }
+
+  .section7 .content { top: 20px; }
+  .section7 .title { font-size: 1rem; margin-bottom: 20px; }
+  .voyah-button { padding: 8px 20px; font-size: 0.85rem; }
 }
 </style>

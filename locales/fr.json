@@ -767,6 +767,119 @@
       "post3_desc": "J'ai pris quelques photos de l'éclairage d'ambiance réagissant aux modes de conduite.",
       "event_title": "Rencontre des Propriétaires Voyah : Genève",
       "load_more": "Charger Plus de Voyages"
+    },
+    "EnergyCenterPage": {
+  "energy": {
+    "title": "Énergie Voyah",
+    "description": "Avec Voyah, entrez dans une nouvelle ère de la recharge : une expérience fluide, rapide et intelligente, conçue pour une mobilité électrique d’exception.",
+    
+    "solution": {
+      "title": "168 Solution énergétique",
+      "subtitle_voyah": "VOYAH",
+      "subtitle_power": "POWER",
+      "card1": {
+        "line1": "· Une application unique",
+        "line2": "· 10 stations ultra-rapides",
+        "line3": "· 50 bornes ultra-rapides",
+        "line4": "· 500+ points partenaires"
+      },
+      "card2": {
+        "line1": "· Zone de recharge À moins de 6 km"
+      },
+      "card3": {
+        "line1": "· Recharge ultra-rapide",
+        "line2": "· Réseau public",
+        "line3": "· Recharge à domicile",
+        "line4": "· Dépannage mobile",
+        "line5": "· Recharge sans contact",
+        "line6": "· Technologie V2G",
+        "line7": "· Partage de bornes",
+        "line8": "· Recyclage batteries"
+      }
+    },
+
+    "network": {
+      "title_prefix": "Abondante",
+      "title": "Un vaste réseau de recharge accessible en un clic",
+      "description": "Déploiement de recharge ultra-rapide : Réseau de stations ultra-rapides déployé dans les grandes villes tunisiennes (Tunis, Sousse, Sfax). Voyah Tunisie s'engage à installer des bornes là où sont nos clients, pour une tranquillité d'esprit totale.",
+      "description2": "Réseau de recharge public : Couverture dans plus de 10 gouvernorats tunisiens, partenariat avec les principaux opérateurs énergétiques tunisiens pour faciliter vos déplacements sur tout le territoire.",
+      "card_title": "Carte de recharge Voyah Tunisie",
+      "points": "Points de recharge partenaires",
+      "ultra_fast": "Bornes ultra-rapides",
+      "green_energy": "Énergie verte fournie",
+      "co2_saved": "CO₂ économisé"
+    },
+
+    "fast_charging": {
+      "title_prefix": "Rapide",
+      "title": "La première pile de superchargeurs de marque au monde d'une puissance de plusieurs mégawatts",
+      "description": "La borne de recharge Voyah VP1000 se distingue par 6 atouts majeurs : vitesse, légèreté, silence, compatibilité, sécurité et intelligence. Grâce à une recharge ultra-rapide, seulement 15 minutes suffisent pour récupérer 515 km d’autonomie, offrant une expérience de recharge sans stress et adaptée à votre rythme de vie.",
+      "peak_power": "Puissance de pointe",
+      "peak_current": "Courant de pointe",
+      "range": "en 10 min de recharge"
+    },
+
+    "smart_charging": {
+      "title_prefix": "Intelligente",
+      "title": "De la « charge complète instantanée » à la « charge complète sans effort »",
+      "description": "Voyah propose deux services : un robot de recharge automatique et un robot de recharge mobile, permettant aux utilisateurs de recharger leurs appareils en toute simplicité, sans quitter leur véhicule ni lever le petit doigt.",
+      "watch_video": "Regarder la vidéo"
+    },
+
+    "eco": {
+      "title_prefix": "Économique et écologique",
+      "title": "Rendre la consommation d'énergie plus ordonnée, plus économe en énergie et plus respectueuse de l'environnement.",
+      "v2g": "Technologie V2G",
+      "sharing": "Partage de bornes",
+      "recycling": "Recyclage des batteries",
+      "v2g_desc": "Le véhicule contribue à la stabilité du réseau électrique tunisien",
+      "sharing_desc": "Les utilisateurs peuvent monétiser leur temps d'inactivité.",
+      "recycling_desc": "Seconde vie des batteries : engagement écologique responsable"
+    },
+
+    "encyclopedia": {
+      "title": "Encyclopédie de la recharge Voyah",
+      "description": "Tout ce que vous devez savoir sur la recharge de votre Voyah",
+      "fast_guide": "Guide recharge rapide",
+      "home_guide": "Guide recharge à domicile",
+      "public_guide": "Guide recharge publique",
+      "faq": "FAQ",
+      "fast_guide_title": "Optimiser la recharge rapide",
+      "fast_guide_desc": "Conseils pour une charge efficace",
+      "winter_title": "Recharge en hiver",
+      "winter_desc": "Préservez votre autonomie par temps froid",
+      "free_parking_title": "Stationnement gratuit",
+      "free_parking_desc": "Avantages dans nos stations partenaires",
+      "installation_title": "Installation de votre borne",
+      "installation_desc": "Les étapes clés pour une installation réussie",
+      "compatibility_title": "Compatibilité électrique",
+      "compatibility_desc": "Vérifiez l'éligibilité de votre installation",
+      "operators_title": "Guide des opérateurs tunisiens",
+      "operators_desc": "Utiliser les bornes publiques en Tunisie",
+      "app_title": "Application mobile",
+      "app_desc": "Trouver et réserver votre borne facilement",
+      "faq_title": "Questions fréquentes",
+      "faq_desc": "Toutes les réponses à vos interrogations",
+      "read_more": "Lire la suite"
+    },
+
+    "partners": {
+      "title": "Voyah : la puissance qui ne s’arrête jamais",
+      "button": "Apprendre encore plus"
+    },
+
+    "map": {
+      "power": "Puissance",
+      "status": "Statut",
+      "connectors": "Bornes",
+      "type": "Type",
+      "active": "✅ Station active",
+      "planned": "📅 Station à venir",
+      "operational": "Opérationnel",
+      "planned_2025": "Prévu 2025",
+      "planned_2026": "Prévu 2026"
+    }
+  }
     }
   }
 }
