@@ -767,6 +767,119 @@
       "post3_desc": "Took some shots of the ambient lighting reacting to the driving modes.",
       "event_title": "Voyah Owners Meetup: Geneva",
       "load_more": "Load More Journeys"
+    },
+     "EnergyCenterPage":{
+  "energy": {
+    "title": "Voyah Energy",
+    "description": "With Voyah, enter a new era of charging: a smooth, fast and intelligent experience, designed for exceptional electric mobility.",
+    
+    "solution": {
+      "title": "168 Energy Solution",
+      "subtitle_voyah": "VOYAH",
+      "subtitle_power": "POWER",
+      "card1": {
+        "line1": "· Single application",
+        "line2": "· 10 ultra-fast stations",
+        "line3": "· 50 ultra-fast charging points",
+        "line4": "· 500+ partner points"
+      },
+      "card2": {
+        "line1": "· Charging zone within 6 km"
+      },
+      "card3": {
+        "line1": "· Ultra-fast charging",
+        "line2": "· Public network",
+        "line3": "· Home charging",
+        "line4": "· Mobile assistance",
+        "line5": "· Contactless charging",
+        "line6": "· V2G technology",
+        "line7": "· Station sharing",
+        "line8": "· Battery recycling"
+      }
+    },
+
+    "network": {
+      "title_prefix": "Abundant",
+      "title": "A vast charging network accessible with one click",
+      "description": "Ultra-fast charging deployment: Ultra-fast station network deployed in major Tunisian cities (Tunis, Sousse, Sfax). Voyah Tunisia is committed to installing charging stations where our customers are, for complete peace of mind.",
+      "description2": "Public charging network: Coverage in more than 10 Tunisian governorates, partnership with major Tunisian energy operators to facilitate your travels across the country.",
+      "card_title": "Voyah Tunisia Charging Card",
+      "points": "Partner charging points",
+      "ultra_fast": "Ultra-fast charging points",
+      "green_energy": "Green energy supplied",
+      "co2_saved": "CO₂ saved"
+    },
+
+    "fast_charging": {
+      "title_prefix": "Fast",
+      "title": "The world's first branded supercharger stack with a power output of several megawatts",
+      "description": "The Voyah VP1000 stands out thanks to six key advantages: speed, lightness, silence, compatibility, safety, and intelligence. With ultra-fast charging, just 15 minutes is enough to regain 515 km of range, offering a stress-free charging experience tailored to your lifestyle.",
+      "peak_power": "Peak power",
+      "peak_current": "Peak current",
+      "range": "in 10 min of charging"
+    },
+
+    "smart_charging": {
+      "title_prefix": "Smart",
+      "title": "From fast charging to simplified charging",
+      "description": "Voyah offers two services: an automatic charging robot and a mobile charging robot, allowing users to charge their devices with ease, without leaving their vehicle or lifting a finger.",
+      "watch_video": "Watch video"
+    },
+
+    "eco": {
+      "title_prefix": "Economic & Eco-friendly",
+      "title": "To make energy consumption more orderly, more energy-efficient and more environmentally friendly.",
+      "v2g": "V2G Technology",
+      "sharing": "Station Sharing",
+      "recycling": "Battery Recycling",
+      "v2g_desc": "The vehicle contributes to the stability of the Tunisian electrical grid",
+      "sharing_desc": "Users can monetize their idle time.",
+      "recycling_desc": "Second life for batteries: responsible environmental commitment"
+    },
+
+    "encyclopedia": {
+      "title": "Voyah Charging Encyclopedia",
+      "description": "Everything you need to know about charging your Voyah",
+      "fast_guide": "Fast Charging Guide",
+      "home_guide": "Home Charging Guide",
+      "public_guide": "Public Charging Guide",
+      "faq": "FAQ",
+      "fast_guide_title": "Optimize fast charging",
+      "fast_guide_desc": "Tips for efficient charging",
+      "winter_title": "Winter charging",
+      "winter_desc": "Preserve your range in cold weather",
+      "free_parking_title": "Free parking",
+      "free_parking_desc": "Benefits at our partner stations",
+      "installation_title": "Installing your charging station",
+      "installation_desc": "Key steps for a successful installation",
+      "compatibility_title": "Electrical compatibility",
+      "compatibility_desc": "Check your installation eligibility",
+      "operators_title": "Tunisian operators guide",
+      "operators_desc": "Using public charging stations in Tunisia",
+      "app_title": "Mobile app",
+      "app_desc": "Find and book your charging station easily",
+      "faq_title": "Frequently asked questions",
+      "faq_desc": "All answers to your questions",
+      "read_more": "Read more"
+    },
+
+    "partners": {
+      "title": "Voyah: the power that never stops",
+      "button": "Learn more"
+    },
+
+    "map": {
+      "power": "Power",
+      "status": "Status",
+      "connectors": "Connectors",
+      "type": "Type",
+      "active": "✅ Active station",
+      "planned": "📅 Coming soon",
+      "operational": "Operational",
+      "planned_2025": "Planned 2025",
+      "planned_2026": "Planned 2026"
     }
+  }
+} 
   }
 }
