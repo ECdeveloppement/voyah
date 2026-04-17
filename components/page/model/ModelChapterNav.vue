@@ -6,6 +6,7 @@
         :key="section.id"
         :href="`#${section.id}`"
         :class="['model-chapter-link', { active: activeSection === section.id }]"
+        @click.prevent="scrollToSection(section.id)"
       >
         {{ section.label }}
       </a>
@@ -53,6 +54,14 @@ onMounted(() => {
 onBeforeUnmount(() => {
   observer?.disconnect()
 })
+
+const scrollToSection = (id: string) => {
+  const element = document.getElementById(id)
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    activeSection.value = id
+  }
+}
 </script>
 
 <style scoped>

@@ -1,4 +1,5 @@
 <template>
+  <div :key="locale.code">
   <ServiceCenterPage v-if="servicePage" />
   <EnergyCenterPage v-else-if="energyPage" />
   <LegacyBusinessPage
@@ -12,7 +13,18 @@
   />
   <StoreCenterPage v-else-if="storePage" />
   <LegacyDisclosurePage v-else-if="legacyDisclosurePage" :page="legacyDisclosurePage" :text-for="textFor" />
-  <DreamerPage v-if="modelPage?.slug === 'dreamer.html'" :model="modelPage" />
+  <PassionLPage v-else-if="modelPage?.slug === 'passion-L.html'" :model="modelPage" />
+  <TitanPage v-else-if="modelPage?.slug === 'titan.html'" />
+  <TitanBlackEditionPage v-else-if="modelPage?.slug === 'titan_blackedition.html'" />
+  <TitanX8Page v-else-if="modelPage?.slug === 'titan_X8.html'" />
+  <FreePlusPage v-else-if="modelPage?.slug === 'free+.html'" />
+  <Free318Page v-else-if="modelPage?.slug === 'free.html'" />
+  <CouragePage v-else-if="modelPage?.slug === 'courage.html'" />
+  <NewCouragePage v-else-if="modelPage?.slug === 'newCourage.html'" />
+  <NewDreamer26Page v-else-if="modelPage?.slug === 'newDreamer26.html'" />
+  <DreamerChampionPage v-else-if="modelPage?.slug === 'dreamer-champion.html'" />
+  <NewDreamerPage v-else-if="modelPage?.slug === 'newDreamer.html'" />
+  <DreamerRiverPage v-else-if="modelPage?.slug === 'dreamriver.html'" />
   <ModelPage v-else-if="modelPage" :model="modelPage" />
   <ArchitecturePage v-else-if="infoPage?.slug === 'architecture.html'" :page="infoPage" />
   <SafetyPage v-else-if="infoPage?.slug === 'safety.html'" :page="infoPage" />
@@ -36,6 +48,7 @@
     :page="infoPage"
   />
   <LegalPage v-else-if="legalPage" :page="legalPage" />
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -47,7 +60,18 @@ import EnergyCenterPage from '~/components/page/legacy/EnergyCenterPage.vue'
 import ServiceCenterPage from '~/components/page/legacy/ServiceCenterPage.vue'
 import StoreCenterPage from '~/components/page/legacy/StoreCenterPage.vue'
 import ModelPage from '~/components/page/ModelPage.vue'
-import DreamerPage from '~/components/vehicles/dreamer/DreamerPage.vue'
+import PassionLPage from '~/components/vehicles/passion/PassionLPage.vue'
+import TitanPage from '~/components/vehicles/titan/TitanPage.vue'
+import TitanBlackEditionPage from '~/components/vehicles/titan/TitanBlackEditionPage.vue'
+import TitanX8Page from '~/components/vehicles/titan/TitanX8Page.vue'
+import FreePlusPage from '~/components/vehicles/free/FreePlusPage.vue'
+import Free318Page from '~/components/vehicles/free/Free318Page.vue'
+import CouragePage from '~/components/vehicles/courage/CouragePage.vue'
+import NewCouragePage from '~/components/vehicles/newcourage/NewCouragePage.vue'
+import NewDreamer26Page from '~/components/vehicles/dreamer/NewDreamer26Page.vue'
+import DreamerChampionPage from '~/components/vehicles/dreamer/DreamerChampionPage.vue'
+import NewDreamerPage from '~/components/vehicles/dreamer/NewDreamerPage.vue'
+import DreamerRiverPage from '~/components/vehicles/dreamer/DreamerRiverPage.vue'
 import ArchitecturePage from '~/components/tech/ArchitecturePage.vue'
 import SafetyPage from '~/components/tech/SafetyPage.vue'
 import SmartCockpitPage from '~/components/tech/SmartCockpitPage.vue'
@@ -83,7 +107,7 @@ const modelPage = computed(() => (page.value?.kind === 'model' ? page.value : nu
 const infoPage = computed(() => (page.value?.kind === 'info' ? page.value : null))
 const legalPage = computed(() => (page.value?.kind === 'legal' ? page.value : null))
 
-const { textFor } = useSiteContent()
+const { textFor, locale } = useSiteContent()
 const storePage = computed(() => infoPage.value?.slug === 'store.html')
 const servicePage = computed(() => infoPage.value?.slug === 'service.html')
 const energyPage = computed(() => infoPage.value?.slug === 'energy.html')

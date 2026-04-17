@@ -1050,39 +1050,6 @@ const modelStorySectionMap: Record<string, ModelStorySection[]> = {
       images: carGallery('dreamriver', ['sc_10.png', 'sc_10-2.png', 'sc_11.png', 'sc_11-2.png'])
     }
   ],
-  'courage.html': [
-    {
-      id: 'chapter-1',
-      title: t('Original aesthetics', 'Esthétique originale', 'جمالية أصلية'),
-      summary: t(
-        'Courage frames its identity through a cleaner electric-SUV silhouette, welcoming front graphics, and a warmer urban presence.',
-        'Courage affirme son identité par une silhouette de SUV électrique pure, une face avant accueillante et une présence urbaine chaleureuse.',
-        'ترسم Courage هويتها عبر هيئة SUV كهربائية أنقية وواجهة أمامية مرحبة وحضور حضري دافئ.'
-      ),
-      images: carGallery('courage', ['1920/h37_pc01_0001.jpg', '1920/h37_pc02_0001.jpg', '1920/h37_pc03_0001.jpg'])
-    },
-    {
-      id: 'chapter-2',
-      title: t('Pure electric efficiency', 'Efficience électrique pure', 'كفاءة كهربائية كاملة'),
-      summary: t(
-        'The efficiency story combines long range, high power output, and a comfort-first electric chassis into one balanced urban SUV chapter.',
-        'Le récit de l’efficience combine grande autonomie, puissance élevée et un châssis électrique orienté confort dans un chapitre SUV urbain équilibré.',
-        'يجمع سرد الكفاءة بين المدى الطويل والقوة العالية وهيكل كهربائي يركز على الراحة في فصل SUV حضري متوازن.'
-      ),
-      images: carGallery('courage', ['1920/h37_pc04_0001.jpg', '1920/h37_pc06_0001.jpg']),
-      videos: ['/voyah-resources/images/car/h37/video_04.mp4']
-    },
-    {
-      id: 'chapter-3',
-      title: t('Family comfort cockpit', 'Cockpit confort familial', 'مقصورة راحة عائلية'),
-      summary: t(
-        'The cabin focuses on digital interaction, shared family space, and a calmer premium mood built for everyday urban life.',
-        'L’habitacle se concentre sur l’interaction numérique, l’espace familial partagé et une ambiance premium calme pensée pour la ville.',
-        'تركز المقصورة على التفاعل الرقمي والمساحة العائلية المشتركة وأجواء فاخرة هادئة مهيأة للحياة المدنية اليومية.'
-      ),
-      images: carGallery('courage', ['1920/h37_pc10_0001.jpg', '1920/h37_pc14_0001.jpg', '1920/h37_pc17_0001.jpg'])
-    }
-  ],
   'newDreamer.html': [
     {
       id: 'chapter-1',
