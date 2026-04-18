@@ -7,6 +7,9 @@
           src="/assets/OFFICIALVOYAH/titan/images/sc_1.jpg" 
           alt="Voyah Titan"
           class="titan-hero-image"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
         />
         <div class="titan-hero-overlay"></div>
       </div>
@@ -16,6 +19,9 @@
             src="/assets/OFFICIALVOYAH/titan/images/482a7b36-c15e-4508-83e5-c9b79227dbfa1770619361896.png" 
             alt="Voyah Titan"
             class="titan-hero-logo inview-animated"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
           />
           <p class="titan-hero-slogan inview-animated" style="--inview-delay: 0.1s;">
             {{ textFor(t('New-era flagship six-seat SUV', 'SUV phare a six places de nouvelle generation', 'سيارة SUV رائدة بستة مقاعد من الجيل الجديد')) }}

@@ -1,9 +1,9 @@
 <template>
   <div class="new-dreamer-26-page">
     <section class="kv-section">
-      <img src="/assets/OFFICIALVOYAH/newDreamer26/images/kv_1920.jpg" class="kv-bg-img" />
+      <img src="/assets/OFFICIALVOYAH/newDreamer26/images/kv_1920.jpg" class="kv-bg-img" loading="eager" fetchpriority="high" decoding="async" />
       <div class="kv-content">
-        <img src="/assets/OFFICIALVOYAH/newDreamer26/images/newDreamer26.png" class="kv-logo" />
+        <img src="/assets/OFFICIALVOYAH/newDreamer26/images/newDreamer26.png" class="kv-logo" loading="eager" fetchpriority="high" decoding="async" />
         <p class="kv-slogan">{{ textFor({ en: 'Flagship MPV of the New Era', fr: 'MPV Phare de la Nouvelle Ère', ar: 'MPV الرائد للعصر الجديد' }) }}</p>
         <div class="kv-btns">
           <button class="voyah-button voyah-button--plain">{{ textFor({ en: 'Book Test Drive', fr: 'Réserver Essai', ar: 'حجز تجربة قيادة' }) }}</button>
@@ -34,7 +34,7 @@
       <div class="swiper-container">
         <div class="swiper-wrapper" :style="{ transform: `translate3d(-${currentSlide.kunpeng * 100}%, 0, 0)` }">
           <div class="swiper-slide" v-for="(slide, idx) in kunpengSlides" :key="idx">
-            <img :src="slide.image" class="slide-img" />
+            <img :src="slide.image" class="slide-img" loading="lazy" decoding="async" />
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
               <p class="desc-content">{{ slide.desc }}</p>
@@ -51,12 +51,12 @@
       <h3 class="title">{{ textFor({ en: 'Color Vast Realm', fr: 'Couleurs Vaste', ar: 'ألوان المملكة' }) }}</h3>
       <div class="car-swiper-wap">
         <div v-for="(color, idx) in exteriorColors" :key="idx" class="swiper-slide" :style="{ left: currentExteriorColor === idx ? '0%' : '100%' }">
-          <img :src="color.carImage" class="swiper-slide-img" />
+          <img :src="color.carImage" class="swiper-slide-img" loading="lazy" decoding="async" />
         </div>
       </div>
       <div class="car-color-list">
         <div v-for="(color, idx) in exteriorColors" :key="idx" class="car-color-item" :class="{ active: currentExteriorColor === idx }" @click="currentExteriorColor = idx">
-          <img :src="color.icon" class="img-icon" />
+          <img :src="color.icon" class="img-icon" loading="lazy" decoding="async" />
           <p class="color-name">{{ color.name }}</p>
         </div>
       </div>
@@ -68,7 +68,7 @@
 
     <section class="common">
       <h3 class="title">{{ textFor({ en: 'Super Range', fr: 'Autonomie', ar: 'مدى فائق' }) }}</h3>
-      <img src="/assets/OFFICIALVOYAH/newDreamer26/images/sc_12.jpg" class="single-img" />
+      <img src="/assets/OFFICIALVOYAH/newDreamer26/images/sc_12.jpg" class="single-img" loading="lazy" decoding="async" />
       <div class="single-description column3">
         <div class="description-item">
           <p class="description-title">350km EV Range</p>
@@ -113,7 +113,7 @@
 
     <section class="common">
       <h3 class="title">{{ textFor({ en: 'Body Protection', fr: 'Protection', ar: 'حماية الهيكل' }) }}</h3>
-      <img src="/assets/OFFICIALVOYAH/newDreamer26/images/sc_23.jpg" class="single-img" />
+      <img src="/assets/OFFICIALVOYAH/newDreamer26/images/sc_23.jpg" class="single-img" loading="lazy" decoding="async" />
       <div class="single-description">
         <div class="description-item">
           <p class="description-title">2000MPa Cage Body</p>

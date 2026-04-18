@@ -6,13 +6,18 @@
         src="/assets/OFFICIALVOYAH/passion-L/images/sc_1.jpg" 
         alt="Passion L" 
         class="kv-bg-img"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
       />
       <div class="kv-content">
         <img 
           src="/assets/OFFICIALVOYAH/passion-L/images/f4f5a6a1-71c8-4531-8a05-4e6e0cf7f70f1770619343790.png" 
           alt="Passion L Logo" 
           class="kv-logo inview-child inview-animated"
-          style="--inview-delay: 0.3s;"
+          loading="lazy"
+          fetchpriority="low"
+          decoding="async"
         />
         <p class="kv-slogan inview-child inview-animated" style="--inview-delay: 0.4s;">
           {{ textFor({ en: 'New-Era Flagship Sedan', fr: 'Berline Phare Nouvelle Ère', ar: 'سيدان رائدة من جيل جديد' }) }}
@@ -85,7 +90,7 @@
         <div class="swiper-wrapper" :style="{ transform: `translateX(-${currentSlide.section2 * 100}%)` }">
           <div class="swiper-slide" v-for="(slide, idx) in zhanyiSlides" :key="idx">
             <div class="img-container">
-              <img :src="slide.image" :alt="slide.title" class="slide-img" />
+              <img :src="slide.image" :alt="slide.title" class="slide-img" loading="lazy" decoding="async" />
             </div>
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
@@ -126,7 +131,7 @@
         <div class="swiper-wrapper" :style="{ transform: `translateX(-${currentSlide.section3 * 100}%)` }">
           <div class="swiper-slide" v-for="(slide, idx) in qingkongSlides" :key="idx">
             <div class="img-container">
-              <img :src="slide.image" :alt="slide.title" class="slide-img" />
+              <img :src="slide.image" :alt="slide.title" class="slide-img" loading="lazy" decoding="async" />
             </div>
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
@@ -167,7 +172,7 @@
         <div class="swiper-wrapper" :style="{ transform: `translateX(-${currentSlide.section4 * 100}%)` }">
           <div class="swiper-slide" v-for="(slide, idx) in xiaoyaoSlides" :key="idx">
             <div class="img-container">
-              <img :src="slide.image" :alt="slide.title" class="slide-img" />
+              <img :src="slide.image" :alt="slide.title" class="slide-img" loading="lazy" decoding="async" />
             </div>
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
@@ -216,7 +221,7 @@
           }"
         >
           <div class="swiper-slide-item">
-            <img :src="color.image" :alt="color.name" class="swiper-slide-img" />
+            <img :src="color.image" :alt="color.name" class="swiper-slide-img" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>
@@ -229,7 +234,7 @@
           @click="currentColor = idx"
         >
           <div class="color-icon">
-            <img :src="color.icon" :alt="color.name" class="img-icon" />
+            <img :src="color.icon" :alt="color.name" class="img-icon" loading="lazy" decoding="async" />
           </div>
           <p class="color-name">{{ color.name }}</p>
         </div>
@@ -252,7 +257,7 @@
         <div class="swiper-wrapper" :style="{ transform: `translateX(-${currentSlide.interior * 100}%)` }">
           <div class="swiper-slide" v-for="(slide, idx) in interiorSlides" :key="idx">
             <div class="img-container">
-              <img :src="slide.image" :alt="slide.title" class="slide-img" />
+              <img :src="slide.image" :alt="slide.title" class="slide-img" loading="lazy" decoding="async" />
             </div>
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
@@ -316,7 +321,7 @@
         <div class="swiper-wrapper" :style="{ transform: `translateX(-${currentSlide.ads * 100}%)` }">
           <div class="swiper-slide" v-for="(slide, idx) in adsSlides" :key="idx">
             <div class="img-container">
-              <img :src="slide.image" :alt="slide.title" class="slide-img" />
+              <img :src="slide.image" :alt="slide.title" class="slide-img" loading="lazy" decoding="async" />
             </div>
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
@@ -406,7 +411,7 @@
         <div class="swiper-wrapper" :style="{ transform: `translateX(-${currentSlide.power * 100}%)` }">
           <div class="swiper-slide" v-for="(slide, idx) in powerSlides" :key="idx">
             <div class="img-container">
-              <img :src="slide.image" :alt="slide.title" class="slide-img" />
+              <img :src="slide.image" :alt="slide.title" class="slide-img" loading="lazy" decoding="async" />
             </div>
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
@@ -481,7 +486,7 @@
         <div class="swiper-wrapper" :style="{ transform: `translateX(-${currentSlide.chassis * 100}%)` }">
           <div class="swiper-slide" v-for="(slide, idx) in chassisSlides" :key="idx">
             <div class="img-container">
-              <img :src="slide.image" :alt="slide.title" class="slide-img" />
+              <img :src="slide.image" :alt="slide.title" class="slide-img" loading="lazy" decoding="async" />
             </div>
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>

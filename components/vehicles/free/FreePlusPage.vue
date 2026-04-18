@@ -1,21 +1,9 @@
 <template>
   <div class="free-plus-page">
-    <!-- Hero Section with Video -->
+    <!-- Hero Section -->
     <section class="kv-section" id="hero">
-      <div class="kv-video-container">
-        <video
-          ref="heroVideo"
-          class="kv-video"
-          autoplay
-          muted
-          loop
-          playsinline
-          webkit-playsinline
-          x5-video-player-type="h5"
-          poster="/assets/OFFICIALVOYAH/freeplus/images/kv_1920.png"
-        >
-          <source src="/assets/OFFICIALVOYAH/freeplus/videos/video_01.mp4" type="video/mp4">
-        </video>
+      <div class="kv-bg">
+        <img src="/assets/OFFICIALVOYAH/freeplus/images/kv_1920.png" alt="Voyah Free+" class="kv-bg-img" loading="eager" fetchpriority="high" decoding="async" />
         <div class="kv-overlay"></div>
       </div>
       <div class="kv-content">
@@ -24,6 +12,9 @@
           alt="Voyah Free+"
           class="kv-logo inview-child inview-animated"
           style="--inview-delay: 0.3s;"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
         />
         <p class="kv-slogan inview-child inview-animated" style="--inview-delay: 0.4s;">
           {{ textFor({ en: 'Redefine Your Journey', fr: 'Redéfinissez Votre Voyage', ar: 'أعد تعريف رحلتك' }) }}
@@ -297,7 +288,7 @@
     <!-- Performance Features -->
     <section id="performance-features" class="common" targetindex="0" ref="sectionRefs[9]">
       <div class="single-img-container inview-child">
-        <img src="/assets/OFFICIALVOYAH/freeplus/images/img_20_01.png" alt="Performance" class="single-img" />
+        <img src="/assets/OFFICIALVOYAH/freeplus/images/img_08_01.png" alt="Premium Comfort" class="single-img inview-child" loading="lazy" decoding="async" />
       </div>
       <div class="single-description inview-child features-grid">
         <div class="description-item">
@@ -313,7 +304,7 @@
 
     <!-- Section 6: Range & Charging -->
     <section id="section6" class="level-one" targetindex="0" ref="sectionRefs[10]">
-      <div class="section-bg" :style="{ backgroundImage: `url('/assets/OFFICIALVOYAH/freeplus/images/img_23_01.png')` }"></div>
+      <div class="section-bg" :style="{ backgroundImage: `url('/assets/OFFICIALVOYAH/freeplus/images/img_23_01.png')` }" loading="lazy" decoding="async"></div>
       <div class="section-content">
         <h2 class="title inview-child inview-animated" style="--inview-delay: 0.3s;">
           {{ textFor({ en: 'Endless Range', fr: 'Autonomie Illimitée', ar: 'مدى لا نهائي' }) }}
@@ -330,7 +321,7 @@
         <div class="swiper-wrapper" :style="{ transform: `translateX(-${currentSlide.range * 100}%)` }">
           <div class="swiper-slide" v-for="(slide, idx) in rangeSlides" :key="idx">
             <div class="img-container">
-              <img :src="slide.image" :alt="slide.title" class="slide-img" />
+              <img :src="slide.image" :alt="slide.title" class="slide-img" loading="lazy" decoding="async" />
             </div>
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
@@ -366,7 +357,7 @@
 
     <!-- Section 7: Chassis -->
     <section id="section7" class="level-one" targetindex="0" ref="sectionRefs[12]">
-      <div class="section-bg" :style="{ backgroundImage: `url('/assets/OFFICIALVOYAH/freeplus/images/img_25_1920.png')` }"></div>
+      <div class="section-bg" :style="{ backgroundImage: `url('/assets/OFFICIALVOYAH/freeplus/images/img_25_1920.png')` }" loading="lazy" decoding="async"></div>
       <div class="section-content">
         <h2 class="title inview-child inview-animated" style="--inview-delay: 0.3s;">
           {{ textFor({ en: 'Magic Carpet Chassis', fr: 'Châssis Tapis Magique', ar: 'هيكل السجادة السحرية' }) }}
@@ -380,7 +371,7 @@
     <!-- Chassis Features -->
     <section id="chassis-features" class="common" targetindex="0" ref="sectionRefs[13]">
       <div class="single-img-container inview-child">
-        <img src="/assets/OFFICIALVOYAH/freeplus/images/img_28_1920.png" alt="Chassis" class="single-img" />
+        <img src="/assets/OFFICIALVOYAH/freeplus/images/img_28_1920.png" alt="Chassis" class="single-img" loading="lazy" decoding="async" />
       </div>
       <div class="single-description inview-child features-grid">
         <div class="description-item">
@@ -396,7 +387,7 @@
 
     <!-- Section 8: Safety -->
     <section id="section8" class="level-one" targetindex="0" ref="sectionRefs[14]">
-      <div class="section-bg" :style="{ backgroundImage: `url('/assets/OFFICIALVOYAH/freeplus/images/img_28_1920.png')` }"></div>
+      <div class="section-bg" :style="{ backgroundImage: `url('/assets/OFFICIALVOYAH/freeplus/images/img_28_1920.png')` }" loading="lazy" decoding="async"></div>
       <div class="section-content">
         <h2 class="title inview-child inview-animated" style="--inview-delay: 0.3s;">
           {{ textFor({ en: 'All-Round Safety', fr: 'Sécurité Totale', ar: 'سلامة شاملة' }) }}
@@ -410,7 +401,7 @@
     <!-- Safety Features -->
     <section id="safety-features" class="common" targetindex="0" ref="sectionRefs[15]">
       <div class="single-img-container inview-child">
-        <img src="/assets/OFFICIALVOYAH/freeplus/images/img_32_01.png" alt="Safety" class="single-img" />
+        <img src="/assets/OFFICIALVOYAH/freeplus/images/img_32_01.png" alt="Safety" class="single-img" loading="lazy" decoding="async" />
       </div>
       <div class="single-description inview-child features-grid">
         <div class="description-item">

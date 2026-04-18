@@ -217,7 +217,7 @@
       <h3 class="title inview-child">{{ textFor({ en: '901km Super Long Range', fr: 'Autonomie Super Longue 901km', ar: 'مدى فائق الطول 901 كم' }) }}</h3>
       <p class="subTitle inview-child">{{ textFor({ en: 'Full-level 3-electric system, go wherever you want', fr: 'Système 3-électrique complet, allez où vous voulez', ar: 'نظام ثلاثي كهربائي كامل، اذهب حيثما تريد' }) }}</p>
       <div class="single-img-container inview-child">
-        <img src="/assets/OFFICIALVOYAH/courage/images/h37_pc07_0001.jpg" alt="901km Range" class="single-img" />
+        <img src="/assets/OFFICIALVOYAH/courage/images/h37_pc07_0001.jpg" alt="901km Range" class="single-img" loading="lazy" decoding="async" />
       </div>
       <div class="single-description inview-child features-grid">
         <div class="description-item">
@@ -236,7 +236,7 @@
       <h3 class="title inview-child">{{ textFor({ en: '5C Super Fast Charging', fr: 'Charge Super Rapide 5C', ar: 'شحن فائق السرعة 5C' }) }}</h3>
       <p class="subTitle inview-child">{{ textFor({ en: 'Charging as fast as refueling, full power in a moment', fr: 'Charge aussi rapide que le ravitaillement, pleine puissance en un instant', ar: 'شحن سريع كالتزود بالوقود، قوة كاملة في لحظة' }) }}</p>
       <div class="single-img-container inview-child">
-        <img src="/assets/OFFICIALVOYAH/courage/images/h37_pc07_0001.jpg" alt="5C Charging" class="single-img" />
+        <img src="/assets/OFFICIALVOYAH/courage/images/h37_pc07_0001.jpg" alt="5C Charging" class="single-img" loading="lazy" decoding="async" />
       </div>
       <div class="single-description inview-child column3">
         <div class="description-item">
@@ -259,7 +259,7 @@
       <h3 class="title inview-child">{{ textFor({ en: 'Hard-Core Battery Safety', fr: 'Sécurité Batterie Hard-Core', ar: 'أمان البطارية القوي' }) }}</h3>
       <p class="subTitle inview-child">{{ textFor({ en: 'TOP-level technical safety, guarding with full strength', fr: 'Sécurité technique TOP, protection avec force totale', ar: 'أمان تقني من المستوى الأعلى، حماية بقوة كاملة' }) }}</p>
       <div class="single-img-container inview-child">
-        <img src="/assets/OFFICIALVOYAH/courage/images/h37_pc10_0001.jpg" alt="Battery Safety" class="single-img" />
+        <img src="/assets/OFFICIALVOYAH/courage/images/h37_pc10_0001.jpg" alt="Battery Safety" class="single-img" loading="lazy" decoding="async" />
       </div>
       <div class="single-description inview-child column3">
         <div class="description-item">
@@ -288,7 +288,7 @@
       <h3 class="title inview-child">{{ textFor({ en: 'Xiaoyao Intelligent Cockpit', fr: 'Cockpit Intelligent Xiaoyao', ar: 'مقصورة شياوياو الذكية' }) }}</h3>
       <p class="subTitle inview-child">{{ textFor({ en: 'Ultimate intelligent experience, technology at your command', fr: 'Expérience intelligente ultime, technologie à votre disposition', ar: 'تجربة ذكية فائقة، التكنولوجيا تحت تصرفك' }) }}</p>
       <div class="single-img-container inview-child">
-        <img src="/assets/OFFICIALVOYAH/courage/images/h37_pc11_0001.jpg" alt="Xiaoyao Cockpit" class="single-img" />
+        <img src="/assets/OFFICIALVOYAH/courage/images/h37_pc11_0001.jpg" alt="Xiaoyao Cockpit" class="single-img" loading="lazy" decoding="async" />
       </div>
       <div class="single-description inview-child features-grid">
         <div class="description-item">
@@ -348,24 +348,13 @@
       <p class="subTitle inview-child inview-animated">{{ textFor({ en: 'Smart driving assistance, easy and worry-free', fr: 'Assistance conduite intelligente, facile et sans souci', ar: 'مساعدة قيادة ذكية، سهلة وخالية من القلق' }) }}</p>
     </section>
 
-    <!-- L2 Driving Assist Videos -->
+    <!-- L2 Driving Assist Images -->
     <section class="common commonMax" id="driving-assist">
       <div class="swiper-container">
         <div class="swiper-wrapper" :style="{ transform: `translate3d(-${currentSlide.driving * 100}%, 0, 0)` }">
           <div class="swiper-slide" v-for="(slide, idx) in drivingSlides" :key="idx">
-            <div class="video-container">
-              <video
-                :ref="el => { if (el) drivingVideos[idx] = el }"
-                class="video-player"
-                playsinline
-                webkit-playsinline
-                x5-video-player-type="h5"
-                muted
-                loop
-                autoplay
-              >
-                <source :src="slide.video" type="video/mp4" />
-              </video>
+            <div class="img-container">
+              <img :src="slide.image" :alt="slide.title" class="single-img" />
             </div>
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
@@ -471,25 +460,14 @@
     </section>
 
     <!-- Driving Comfort -->
-    <section class="common commonMax" id="driving-comfort">
+    <section class="common commonMax" id="comfort">
       <h3 class="title inview-child">{{ textFor({ en: 'Smooth Driving, Silky Control', fr: 'Conduite Douce, Contrôle Soyeux', ar: 'قيادة سلسة، تحكم حريري' }) }}</h3>
       <p class="subTitle inview-child">{{ textFor({ en: 'Self-driving trips made easy', fr: 'Voyages en autonomie facilités', ar: 'رحلات القيادة الذاتية سهلة' }) }}</p>
       <div class="swiper-container">
         <div class="swiper-wrapper" :style="{ transform: `translate3d(-${currentSlide.comfort * 100}%, 0, 0)` }">
           <div class="swiper-slide" v-for="(slide, idx) in comfortSlides" :key="idx">
-            <div class="video-container">
-              <video
-                :ref="el => { if (el) comfortVideos[idx] = el }"
-                class="video-player"
-                playsinline
-                webkit-playsinline
-                x5-video-player-type="h5"
-                muted
-                loop
-                autoplay
-              >
-                <source :src="slide.video" type="video/mp4" />
-              </video>
+            <div class="img-container">
+              <img :src="slide.image" :alt="slide.title" class="single-img" />
             </div>
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
@@ -705,11 +683,6 @@ const currentSlide = ref({
 
 const currentNebulaColor = ref(0)
 
-// Video refs
-const drivingVideos = ref<(HTMLVideoElement | null)[]>([])
-const comfortVideos = ref<(HTMLVideoElement | null)[]>([])
-const parkingVideo = ref<HTMLVideoElement | null>(null)
-
 // Chapter sections data
 const chapterSections = computed(() => [
   { id: 'section1', title: textFor({ en: 'Design', fr: 'Design', ar: 'التصميم' }) },
@@ -785,20 +758,20 @@ const aiSlides = computed(() => [
   }
 ])
 
-// Driving assist slides with videos
+// Driving assist slides with images
 const drivingSlides = computed(() => [
   {
-    video: '/assets/OFFICIALVOYAH/courage/videos/highway.mp4',
+    image: '/assets/OFFICIALVOYAH/courage/images/h37_pc18_0001.jpg',
     title: textFor({ en: 'Highway Navigation Assist', fr: 'Assistance Navigation Autoroute', ar: 'مساعدة ملاحة الطريق السريع' }),
     desc: textFor({ en: 'Highway driving made easy, safe and worry-free', fr: 'Conduite autoroute facilitée, sûre et sans souci', ar: 'قيادة الطريق السريع سهلة، آمنة وخالية من القلق' })
   },
   {
-    video: '/assets/OFFICIALVOYAH/courage/videos/lane_change.mp4',
+    image: '/assets/OFFICIALVOYAH/courage/images/h37_pc19_0001.jpg',
     title: textFor({ en: 'Smart Lane Change', fr: 'Changement Voie Intelligent', ar: 'تغيير المسار الذكي' }),
     desc: textFor({ en: 'Automatic lane change, smooth and confident', fr: 'Changement voie automatique, fluide et confiant', ar: 'تغيير المسار التلقائي، سلس وواثق' })
   },
   {
-    video: '/assets/OFFICIALVOYAH/courage/videos/avoidance.mp4',
+    image: '/assets/OFFICIALVOYAH/courage/images/h37_pc20_0001.jpg',
     title: textFor({ en: 'Emergency Avoidance', fr: 'Évitement Urgence', ar: 'تجنب الطوارئ' }),
     desc: textFor({ en: 'Active safety protection, guarding every moment', fr: 'Protection sécurité active, gardien à chaque instant', ar: 'حماية أمان نشطة، حارس في كل لحظة' })
   }
@@ -828,25 +801,25 @@ const storageSlides = computed(() => [
   }
 ])
 
-// Comfort slides with videos
+// Comfort slides with images
 const comfortSlides = computed(() => [
   {
-    video: '/assets/OFFICIALVOYAH/courage/videos/cdc.mp4',
+    image: '/assets/OFFICIALVOYAH/courage/images/h37_pc21_0001.jpg',
     title: textFor({ en: 'CDC Adjustable Damping', fr: 'Amortissement Réglable CDC', ar: 'تخميد قابل للتعديل CDC' }),
     desc: textFor({ en: 'Smooth over bumps and corners, travel without jolts', fr: 'Doux sur bosses et virages, voyage sans secousses', ar: 'سلاسة فوق المطبات والمنعطفات، سفر بدون اهتزازات' })
   },
   {
-    video: '/assets/OFFICIALVOYAH/courage/videos/onebox.mp4',
+    image: '/assets/OFFICIALVOYAH/courage/images/h37_pc22_0001.jpg',
     title: textFor({ en: 'Onebox Intelligent Braking', fr: 'Freinage Intelligent Onebox', ar: 'فرامل ذكية Onebox' }),
     desc: textFor({ en: 'No more brake jerks or nods, smooth and stable', fr: 'Plus de à-coups freinage, stable et fluide', ar: 'لا مزيد من اهتزازات الفرامل، مستقر وسلس' })
   },
   {
-    video: '/assets/OFFICIALVOYAH/courage/videos/lfc.mp4',
+    image: '/assets/OFFICIALVOYAH/courage/images/h37_pc23_0001.jpg',
     title: textFor({ en: 'LFC Smart Brake Control', fr: 'Contrôle Freinage Intelligent LFC', ar: 'تحكم فرامل ذكي LFC' }),
     desc: textFor({ en: 'Handle all road surfaces, corner with ease', fr: 'Maîtriser toutes surfaces, virages avec aisance', ar: 'التعامل مع جميع الأسطح، منعطفات بسهولة' })
   },
   {
-    video: '/assets/OFFICIALVOYAH/courage/videos/l2.mp4',
+    image: '/assets/OFFICIALVOYAH/courage/images/h37_pc24_0001.jpg',
     title: textFor({ en: 'L2 Integrated Driving Assist', fr: 'Assistance Conduite Intégrée L2', ar: 'مساعدة قيادة متكاملة L2' }),
     desc: textFor({ en: 'Travel with divine assistance, no fatigue in traffic', fr: 'Voyager avec assistance divine, pas fatigue embouteillage', ar: 'السفر بمساعدة إلهية، بدون تعب في الازدحام' })
   }

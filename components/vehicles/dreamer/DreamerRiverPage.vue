@@ -2,9 +2,9 @@
   <div class="dreamer-river-page">
     <!-- Hero Section -->
     <section class="kv-section">
-      <img src="/assets/OFFICIALVOYAH/dreamriver/images/kv_1920.png" class="kv-bg-img" />
+      <img src="/assets/OFFICIALVOYAH/dreamriver/images/kv_1920.png" class="kv-bg-img" loading="eager" fetchpriority="high" decoding="async" />
       <div class="kv-content">
-        <img src="/assets/OFFICIALVOYAH/dreamriver/images/dreamriver.png" class="kv-logo" />
+        <img src="/assets/OFFICIALVOYAH/dreamriver/images/dreamriver.png" class="kv-logo" loading="eager" fetchpriority="high" decoding="async" />
         <p class="kv-slogan">{{ textFor({ en: 'New Era Flagship Four-Seat MPV', fr: 'MPV Phare Quatre Places Nouvelle Ère', ar: 'MPV رائد بأربعة مقاعد في عصر جديد' }) }}</p>
         <div class="kv-btns">
           <button class="voyah-button voyah-button--dark">{{ textFor({ en: 'Order Now', fr: 'Commander', ar: 'اطلب الآن' }) }}</button>
@@ -18,7 +18,7 @@
       <div class="swiper-container">
         <div class="swiper-wrapper" :style="{ transform: `translate3d(-${currentSlide.luxury * 100}%, 0, 0)` }">
           <div class="swiper-slide" v-for="(slide, idx) in luxurySlides" :key="idx">
-            <img :src="slide.image" class="slide-img" />
+            <img :src="slide.image" class="slide-img" loading="lazy" decoding="async" />
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
               <p class="desc-content">{{ slide.desc }}</p>
@@ -36,12 +36,12 @@
       <h3 class="title">{{ textFor({ en: 'Eastern Cultural Heritage', fr: 'Héritage Culturel Oriental', ar: 'تراث ثقافي شرقي' }) }}</h3>
       <div class="car-swiper-wap">
         <div class="swiper-slide" v-for="(color, idx) in exteriorColors" :key="idx" :style="{ left: idx === currentColor ? '0' : '100%' }">
-          <img :src="`/assets/OFFICIALVOYAH/dreamriver/images/car/car${idx + 1}.png`" class="swiper-slide-img" />
+          <img :src="`/assets/OFFICIALVOYAH/dreamriver/images/car/car${idx + 1}.png`" class="swiper-slide-img" loading="lazy" decoding="async" />
         </div>
       </div>
       <div class="car-color-list">
         <div v-for="(color, idx) in exteriorColors" :key="idx" class="car-color-item" :class="{ active: currentColor === idx }" @click="currentColor = idx">
-          <img :src="`/assets/OFFICIALVOYAH/dreamriver/images/car/icon${idx + 1}.png`" class="img-icon" />
+          <img :src="`/assets/OFFICIALVOYAH/dreamriver/images/car/icon${idx + 1}.png`" class="img-icon" loading="lazy" decoding="async" />
           <p class="color-name">{{ color }}</p>
         </div>
       </div>
@@ -53,7 +53,7 @@
       <div class="swiper-container">
         <div class="swiper-wrapper" :style="{ transform: `translate3d(-${currentSlide.interior * 100}%, 0, 0)` }">
           <div class="swiper-slide" v-for="(slide, idx) in interiorSlides" :key="idx">
-            <img :src="slide.image" class="slide-img" />
+            <img :src="slide.image" class="slide-img" loading="lazy" decoding="async" />
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.name }}</p>
             </div>
@@ -71,7 +71,7 @@
       <div class="swiper-container">
         <div class="swiper-wrapper" :style="{ transform: `translate3d(-${currentSlide.comfort * 100}%, 0, 0)` }">
           <div class="swiper-slide" v-for="(slide, idx) in comfortSlides" :key="idx">
-            <img :src="slide.image" class="slide-img" />
+            <img :src="slide.image" class="slide-img" loading="lazy" decoding="async" />
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
               <p class="desc-content">{{ slide.desc }}</p>
@@ -90,7 +90,7 @@
       <div class="swiper-container">
         <div class="swiper-wrapper" :style="{ transform: `translate3d(-${currentSlide.elegance * 100}%, 0, 0)` }">
           <div class="swiper-slide" v-for="(slide, idx) in eleganceSlides" :key="idx">
-            <img :src="slide.image" class="slide-img" />
+            <img :src="slide.image" class="slide-img" loading="lazy" decoding="async" />
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
               <p class="desc-content">{{ slide.desc }}</p>
@@ -109,7 +109,7 @@
       <div class="swiper-container">
         <div class="swiper-wrapper" :style="{ transform: `translate3d(-${currentSlide.interaction * 100}%, 0, 0)` }">
           <div class="swiper-slide" v-for="(slide, idx) in interactionSlides" :key="idx">
-            <img :src="slide.image" class="slide-img" />
+            <img :src="slide.image" class="slide-img" loading="lazy" decoding="async" />
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
               <p class="desc-content">{{ slide.desc }}</p>
@@ -128,7 +128,7 @@
       <div class="swiper-container">
         <div class="swiper-wrapper" :style="{ transform: `translate3d(-${currentSlide.privacy * 100}%, 0, 0)` }">
           <div class="swiper-slide" v-for="(slide, idx) in privacySlides" :key="idx">
-            <img :src="slide.image" class="slide-img" />
+            <img :src="slide.image" class="slide-img" loading="lazy" decoding="async" />
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
               <p class="desc-content">{{ slide.desc }}</p>
@@ -147,7 +147,7 @@
       <div class="swiper-container">
         <div class="swiper-wrapper" :style="{ transform: `translate3d(-${currentSlide.senses * 100}%, 0, 0)` }">
           <div class="swiper-slide" v-for="(slide, idx) in sensesSlides" :key="idx">
-            <img :src="slide.image" class="slide-img" />
+            <img :src="slide.image" class="slide-img" loading="lazy" decoding="async" />
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
               <p class="desc-content">{{ slide.desc }}</p>
@@ -166,7 +166,7 @@
       <div class="swiper-container">
         <div class="swiper-wrapper" :style="{ transform: `translate3d(-${currentSlide.safety * 100}%, 0, 0)` }">
           <div class="swiper-slide" v-for="(slide, idx) in safetySlides" :key="idx">
-            <img :src="slide.image" class="slide-img" />
+            <img :src="slide.image" class="slide-img" loading="lazy" decoding="async" />
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
               <p class="desc-content">{{ slide.desc }}</p>
@@ -185,7 +185,7 @@
       <div class="swiper-container">
         <div class="swiper-wrapper" :style="{ transform: `translate3d(-${currentSlide.performance * 100}%, 0, 0)` }">
           <div class="swiper-slide" v-for="(slide, idx) in performanceSlides" :key="idx">
-            <img :src="slide.image" class="slide-img" />
+            <img :src="slide.image" class="slide-img" loading="lazy" decoding="async" />
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
               <p class="desc-content">{{ slide.desc }}</p>

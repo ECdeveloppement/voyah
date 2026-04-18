@@ -7,6 +7,9 @@
           src="/assets/OFFICIALVOYAH/titanX8/images/sc_1.jpg" 
           alt="Voyah Titan X8"
           class="titan-x8-hero-image"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
         />
         <div class="titan-x8-hero-overlay"></div>
       </div>
@@ -16,6 +19,9 @@
             src="/assets/OFFICIALVOYAH/titanX8/images/titan_X8.png" 
             alt="Voyah Titan X8"
             class="titan-x8-hero-logo inview-animated"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
           />
           <p class="titan-x8-hero-slogan inview-animated" style="--inview-delay: 0.1s;">
             {{ textFor(heroSlogan) }}
@@ -68,7 +74,7 @@
     <section class="titan-x8-features-section" id="space-features">
       <div class="titan-x8-features-grid">
         <div v-for="(feature, idx) in spaceFeatures" :key="idx" class="titan-x8-feature-card">
-          <img :src="feature.image" :alt="textFor(feature.title)" />
+          <img :src="feature.image" :alt="textFor(feature.title)" loading="lazy" decoding="async" />
           <h4>{{ textFor(feature.title) }}</h4>
           <p>{{ textFor(feature.desc) }}</p>
         </div>
@@ -88,7 +94,7 @@
       <h3 class="titan-x8-section-heading inview-animated">{{ textFor(seatsTitle) }}</h3>
       <div class="titan-x8-seats-grid">
         <div v-for="(seat, idx) in seatFeatures" :key="idx" class="titan-x8-seat-card">
-          <img :src="seat.image" :alt="textFor(seat.title)" />
+          <img :src="seat.image" :alt="textFor(seat.title)" loading="lazy" decoding="async" />
           <div class="titan-x8-seat-info">
             <h4>{{ textFor(seat.title) }}</h4>
             <p>{{ textFor(seat.desc) }}</p>
@@ -112,7 +118,7 @@
         <div class="titan-x8-adas-grid">
           <div v-for="(item, idx) in adasFeatures" :key="idx" class="titan-x8-adas-card">
             <div class="titan-x8-adas-icon">
-              <img :src="item.icon" :alt="textFor(item.title)" v-if="item.icon" />
+              <img :src="item.icon" :alt="textFor(item.title)" v-if="item.icon" loading="lazy" decoding="async" />
             </div>
             <h4>{{ textFor(item.title) }}</h4>
             <p>{{ textFor(item.desc) }}</p>
@@ -163,7 +169,7 @@
       <h3 class="titan-x8-section-heading inview-animated">{{ textFor(chassisTitle) }}</h3>
       <div class="titan-x8-chassis-grid">
         <div v-for="(item, idx) in chassisFeatures" :key="idx" class="titan-x8-chassis-card">
-          <img :src="item.image" :alt="textFor(item.title)" />
+          <img :src="item.image" :alt="textFor(item.title)" loading="lazy" decoding="async" />
           <h4>{{ textFor(item.title) }}</h4>
           <p>{{ textFor(item.desc) }}</p>
         </div>
@@ -175,7 +181,7 @@
       <h3 class="titan-x8-gallery-title inview-animated">{{ textFor(galleryTitle) }}</h3>
       <div class="titan-x8-gallery-grid">
         <div v-for="(img, idx) in galleryImages" :key="idx" class="titan-x8-gallery-item">
-          <img :src="img" :alt="`Titan X8 ${idx + 1}`" />
+          <img :src="img" :alt="`Titan X8 ${idx + 1}`" loading="lazy" decoding="async" />
         </div>
       </div>
     </section>

@@ -195,8 +195,7 @@
       <div class="swiper-container">
         <div class="swiper-wrapper" :style="{ transform: `translate3d(-${currentSlide.ads * 100}%, 0, 0)` }">
           <div class="swiper-slide" v-for="(slide, idx) in adsSlides" :key="idx">
-            <video v-if="slide.video" class="slide-video" autoplay muted loop playsinline :src="slide.video"></video>
-            <img v-else :src="slide.image" class="slide-img" />
+            <img :src="slide.image" class="slide-img" loading="lazy" decoding="async" />
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
               <p class="desc-content">{{ slide.desc }}</p>
@@ -430,9 +429,9 @@ const pilotSlides = computed(() => [
 ])
 
 const adsSlides = computed(() => [
-  { video: '/assets/OFFICIALVOYAH/newDreamer/videos/ads_parking.mp4', image: '', title: textFor({ en: 'End-to-End Full Scenario', fr: 'Bout-en-Bout Tout Scénario', ar: 'من البداية إلى النهاية كل السيناريوهات' }), desc: textFor({ en: 'Full scenario贯通 one-click arrival', fr: 'Tout scénario贯通 arrivée un clic', ar: 'كل السيناريوهات贯通 وصول بنقرة واحدة' }) },
-  { video: '/assets/OFFICIALVOYAH/newDreamer/videos/ads_cas.mp4', image: '', title: textFor({ en: 'CAS 3.0 Anti-collision', fr: 'Anti-collision CAS 3.0', ar: 'مضاد للتصادم CAS 3.0' }), desc: textFor({ en: 'Timely emergency response, active safety', fr: 'Réponse urgente à temps, sécurité active', ar: 'استجابة طارئة في الوقت المناسب، أمان نشط' }) },
-  { video: '/assets/OFFICIALVOYAH/newDreamer/videos/ads_vpd.mp4', image: '', title: textFor({ en: 'VPD Valet Parking', fr: 'Stationnement Voiturier VPD', ar: 'ركن السيارات VPD' }), desc: textFor({ en: 'Saves time finding parking and locating car', fr: 'Économise temps recherche parking et voiture', ar: 'يوفر وقت البحث عن موقف والسيارة' }) }
+  { image: '/assets/OFFICIALVOYAH/newDreamer/images/h56c_pc16_img1.jpg', title: textFor({ en: 'End-to-End Full Scenario', fr: 'Bout-en-Bout Tout Scénario', ar: 'من البداية إلى النهاية كل السيناريوهات' }), desc: textFor({ en: 'Full scenario贯通 one-click arrival', fr: 'Tout scénario贯通 arrivée un clic', ar: 'كل السيناريوهات贯通 وصول بنقرة واحدة' }) },
+  { image: '/assets/OFFICIALVOYAH/newDreamer/images/h56c_pc17_img1.jpg', title: textFor({ en: 'CAS 3.0 Anti-collision', fr: 'Anti-collision CAS 3.0', ar: 'مضاد للتصادم CAS 3.0' }), desc: textFor({ en: 'Timely emergency response, active safety', fr: 'Réponse urgente à temps, sécurité active', ar: 'استجابة طارئة في الوقت المناسب، أمان نشط' }) },
+  { image: '/assets/OFFICIALVOYAH/newDreamer/images/h56c_pc17_img2.jpg', title: textFor({ en: 'VPD Valet Parking', fr: 'Stationnement Voiturier VPD', ar: 'ركن السيارات VPD' }), desc: textFor({ en: 'Saves time finding parking and locating car', fr: 'Économise temps recherche parking et voiture', ar: 'يوفر وقت البحث عن موقف والسيارة' }) }
 ])
 
 const scrollToSection = (id: string) => {

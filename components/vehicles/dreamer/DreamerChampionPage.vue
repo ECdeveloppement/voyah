@@ -2,9 +2,9 @@
   <div class="dreamerChampion-page">
     <!-- Hero Section -->
     <section class="kv-section">
-      <img src="/assets/OFFICIALVOYAH/dreamerChampion/images/kv_0408_1920.jpg" class="kv-bg-img" />
+      <img src="/assets/OFFICIALVOYAH/dreamerChampion/images/kv_0408_1920.jpg" class="kv-bg-img" loading="eager" fetchpriority="high" decoding="async" />
       <div class="kv-content">
-        <img src="/assets/OFFICIALVOYAH/dreamerChampion/images/dreamerChampion.png" class="kv-logo" />
+        <img src="/assets/OFFICIALVOYAH/dreamerChampion/images/dreamerChampion.png" class="kv-logo" loading="eager" fetchpriority="high" decoding="async" />
         <p class="kv-slogan">{{ textFor({ en: 'First Chinese MPV for Young Families', fr: 'Premier MPV Chinois pour Jeunes Familles', ar: 'MPV الصيني الأول للعائلات الشابة' }) }}</p>
         <div class="kv-btns">
           <button class="voyah-button voyah-button--plain">{{ textFor({ en: 'Book Test Drive', fr: 'Réserver Essai', ar: 'حجز تجربة قيادة' }) }}</button>
@@ -37,7 +37,7 @@
       <div class="swiper-container">
         <div class="swiper-wrapper" :style="{ transform: `translate3d(-${currentSlide.design * 100}%, 0, 0)` }">
           <div class="swiper-slide" v-for="(slide, idx) in designSlides" :key="idx">
-            <img :src="slide.image" class="slide-img" />
+            <img :src="slide.image" class="slide-img" loading="lazy" decoding="async" />
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
               <p class="desc-content">{{ slide.desc }}</p>
@@ -56,12 +56,12 @@
       <h3 class="subTitle">{{ textFor({ en: 'Heaven and Earth Open, All into Dream', fr: 'Ciel et Terre Ouverts, Tout dans le Rêve', ar: 'السماء والأرض مفتوحتان، كل شيء في الحلم' }) }}</h3>
       <div class="car-swiper-wap">
         <div class="swiper-slide" style="left: 0;">
-          <img src="/assets/OFFICIALVOYAH/dreamerChampion/images/car_0408_1.png" class="swiper-slide-img" />
+          <img src="/assets/OFFICIALVOYAH/dreamerChampion/images/car_0408_1.png" class="swiper-slide-img" loading="lazy" decoding="async" />
         </div>
       </div>
       <div class="car-color-list">
         <div class="car-color-item active">
-          <img src="/assets/OFFICIALVOYAH/dreamerChampion/images/icon1.png" class="img-icon" />
+          <img src="/assets/OFFICIALVOYAH/dreamerChampion/images/icon1.png" class="img-icon" loading="lazy" decoding="async" />
           <p class="color-name">{{ textFor({ en: 'Xuanying Black', fr: 'Noir Xuanying', ar: 'أسود Xuanying' }) }}</p>
         </div>
       </div>
@@ -74,7 +74,7 @@
       <div class="swiper-container">
         <div class="swiper-wrapper" :style="{ transform: `translate3d(-${currentSlide.interior * 100}%, 0, 0)` }">
           <div class="swiper-slide" v-for="(slide, idx) in interiorSlides" :key="idx">
-            <img :src="slide.image" class="slide-img" />
+            <img :src="slide.image" class="slide-img" loading="lazy" decoding="async" />
             <p class="img-text">*{{ textFor({ en: 'Images for reference only', fr: 'Images référence uniquement', ar: 'الصور للمرجعية فقط' }) }}</p>
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.name }}</p>
@@ -99,7 +99,7 @@
       <div class="swiper-container">
         <div class="swiper-wrapper" :style="{ transform: `translate3d(-${currentSlide.cabin * 100}%, 0, 0)` }">
           <div class="swiper-slide" v-for="(slide, idx) in cabinSlides" :key="idx">
-            <img :src="slide.image" class="slide-img" />
+            <img :src="slide.image" class="slide-img" loading="lazy" decoding="async" />
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
               <p class="desc-content">{{ slide.desc }}</p>
@@ -118,7 +118,7 @@
       <div class="swiper-container">
         <div class="swiper-wrapper" :style="{ transform: `translate3d(-${currentSlide.userFriendly * 100}%, 0, 0)` }">
           <div class="swiper-slide" v-for="(slide, idx) in userFriendlySlides" :key="idx">
-            <img :src="slide.image" class="slide-img" />
+            <img :src="slide.image" class="slide-img" loading="lazy" decoding="async" />
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
               <p class="desc-content">{{ slide.desc }}</p>
@@ -134,7 +134,7 @@
     <!-- Front Row -->
     <section class="common">
       <h3 class="title">{{ textFor({ en: 'Advanced Front Row Pilot Cabin', fr: 'Cabine Pilote Rangée Avant Avancée', ar: 'مقصورة الطيار الصف الأمامي المتقدمة' }) }}</h3>
-      <img src="/assets/OFFICIALVOYAH/dreamerChampion/images/bg_8_1_n_banner01.jpg" class="single-img" />
+      <img src="/assets/OFFICIALVOYAH/dreamerChampion/images/bg_8_1_n_banner01.jpg" class="single-img" loading="lazy" decoding="async" />
       <div class="single-description column3">
         <div class="description-item">
           <p class="description-title">{{ textFor({ en: 'Front Electric Soft-Close Doors', fr: 'Portes Électriques Douces Avant', ar: 'أبواب كهربائية ناعمة أمامية' }) }}</p>
@@ -157,7 +157,7 @@
       <div class="swiper-container">
         <div class="swiper-wrapper" :style="{ transform: `translate3d(-${currentSlide.secondRow * 100}%, 0, 0)` }">
           <div class="swiper-slide" v-for="(slide, idx) in secondRowSlides" :key="idx">
-            <img :src="slide.image" class="slide-img" />
+            <img :src="slide.image" class="slide-img" loading="lazy" decoding="async" />
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
               <p class="desc-content">{{ slide.desc }}</p>

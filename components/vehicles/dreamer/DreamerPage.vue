@@ -2,9 +2,9 @@
   <div class="dreamer-page">
     <!-- Hero Section -->
     <section class="kv-section">
-      <img src="/assets/OFFICIALVOYAH/dreamer/images/kv_1920.jpg" class="kv-bg-img" />
+      <img src="/assets/OFFICIALVOYAH/dreamer/images/kv_1920.jpg" class="kv-bg-img" loading="eager" fetchpriority="high" decoding="async" />
       <div class="kv-content">
-        <img src="/assets/OFFICIALVOYAH/dreamer/images/dreamer.png" class="kv-logo" />
+        <img src="/assets/OFFICIALVOYAH/dreamer/images/dreamer.png" class="kv-logo" loading="eager" fetchpriority="high" decoding="async" />
         <p class="kv-slogan">{{ textFor({ en: 'Dream\'s Mobile Castle', fr: 'Château Mobile du Rêve', ar: 'القلعة المتنقلة للأحلام' }) }}</p>
         <div class="kv-btns">
           <button class="voyah-button voyah-button--dark">{{ textFor({ en: 'Order Now', fr: 'Commander', ar: 'اطلب الآن' }) }}</button>
@@ -34,7 +34,7 @@
     <!-- Power Section -->
     <section class="common">
       <h3 class="title">{{ textFor({ en: 'All-Road Super Power', fr: 'Super Puissance Tous Terrains', ar: 'قوة فائقة كل الطرق' }) }}</h3>
-      <img src="/assets/OFFICIALVOYAH/dreamer/images/bg_swiper_3_1_n.jpg" class="single-img" />
+      <img src="/assets/OFFICIALVOYAH/dreamer/images/bg_swiper_3_1_n.jpg" class="single-img" loading="lazy" decoding="async" />
       <div class="single-description">
         <div class="description-item">
           <p class="description-title">{{ textFor({ en: '420kW System Power, 840N·m Torque', fr: 'Puissance Système 420kW, Couple 840N·m', ar: 'قوة النظام 420 كيلوواط، عزم 840 نيوتن متر' }) }}</p>
@@ -53,7 +53,7 @@
       <div class="swiper-container">
         <div class="swiper-wrapper" :style="{ transform: `translate3d(-${currentSlide.range * 100}%, 0, 0)` }">
           <div class="swiper-slide" v-for="(slide, idx) in rangeSlides" :key="idx">
-            <img :src="slide.image" class="slide-img" />
+            <img :src="slide.image" class="slide-img" loading="lazy" decoding="async" />
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
               <p class="desc-content">{{ slide.desc }}</p>
@@ -72,7 +72,7 @@
       <div class="swiper-container">
         <div class="swiper-wrapper" :style="{ transform: `translate3d(-${currentSlide.efficiency * 100}%, 0, 0)` }">
           <div class="swiper-slide" v-for="(slide, idx) in efficiencySlides" :key="idx">
-            <img :src="slide.image" class="slide-img" />
+            <img :src="slide.image" class="slide-img" loading="lazy" decoding="async" />
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
               <p class="desc-content">{{ slide.desc }}</p>
@@ -88,7 +88,7 @@
     <!-- ESSA Architecture -->
     <section class="common">
       <h3 class="title">{{ textFor({ en: 'All-Native Smart Electric Architecture', fr: 'Architecture Électrique Intelligente Entièrement Native', ar: 'هندسة كهربائية ذكية أصلية بالكامل' }) }}</h3>
-      <img src="/assets/OFFICIALVOYAH/dreamer/images/bg_swiper_5_1.jpg" class="single-img" />
+      <img src="/assets/OFFICIALVOYAH/dreamer/images/bg_swiper_5_1.jpg" class="single-img" loading="lazy" decoding="async" />
       <div class="single-description column1">
         <div class="description-item">
           <p class="description-title">{{ textFor({ en: 'ESSA Native Smart Electric Architecture, BEV/PHEV Dual Power', fr: 'ESSA Architecture Électrique Intelligente Native, Double Puissance BEV/PHEV', ar: 'ESSA هندسة كهربائية ذكية أصلية، قوة مزدوجة BEV/PHEV' }) }}</p>
@@ -109,7 +109,7 @@
       <div class="swiper-container">
         <div class="swiper-wrapper" :style="{ transform: `translate3d(-${currentSlide.driving * 100}%, 0, 0)` }">
           <div class="swiper-slide" v-for="(slide, idx) in drivingSlides" :key="idx">
-            <img :src="slide.image" class="slide-img" />
+            <img :src="slide.image" class="slide-img" loading="lazy" decoding="async" />
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
               <p class="desc-content">{{ slide.desc }}</p>
@@ -124,7 +124,7 @@
 
     <!-- Interior Features -->
     <section class="common">
-      <img src="/assets/OFFICIALVOYAH/dreamer/images/bg_swiper_8_1.jpg" class="single-img margin-top-0" />
+      <img src="/assets/OFFICIALVOYAH/dreamer/images/bg_swiper_8_1.jpg" class="single-img margin-top-0" loading="lazy" decoding="async" />
       <div class="single-description column3">
         <div class="description-item">
           <p class="description-title">{{ textFor({ en: 'OEKO-TEX® Pilot Seats', fr: 'Sièges Pilotes OEKO-TEX®', ar: 'مقاعد الطيار OEKO-TEX®' }) }}</p>
@@ -144,7 +144,7 @@
     <!-- Magic Carpet -->
     <section class="common">
       <h3 class="title">{{ textFor({ en: 'Cloud Castle Comfort', fr: 'Confort Château Nuage', ar: 'راحة قلعة السحاب' }) }}</h3>
-      <img src="/assets/OFFICIALVOYAH/dreamer/images/bg_swiper_9_1.jpg" class="single-img" />
+      <img src="/assets/OFFICIALVOYAH/dreamer/images/bg_swiper_9_1.jpg" class="single-img" loading="lazy" decoding="async" />
       <div class="single-description column3">
         <div class="description-item">
           <p class="description-title">{{ textFor({ en: 'Magic Carpet Air Suspension + CDC', fr: 'Suspension Pneumatique Tapis Magique + CDC', ar: 'تعليق هوائي سحري + CDC' }) }}</p>

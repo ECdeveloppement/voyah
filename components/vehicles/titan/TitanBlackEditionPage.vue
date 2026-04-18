@@ -7,6 +7,9 @@
           src="/assets/OFFICIALVOYAH/titanblackediditon/images/sc_1.jpg" 
           alt="Voyah Titan Black Edition"
           class="titan-be-hero-image"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
         />
         <div class="titan-be-hero-overlay"></div>
       </div>
@@ -16,6 +19,9 @@
             src="/assets/OFFICIALVOYAH/titanblackediditon/images/2d3ebdb7-6f35-4bfd-b929-d858d5cb3a351773729769599.png" 
             alt="Voyah Titan Black Edition"
             class="titan-be-hero-logo inview-animated"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
           />
           <p class="titan-be-hero-slogan inview-animated" style="--inview-delay: 0.1s;">
             {{ textFor(heroSlogan) }}
@@ -57,7 +63,7 @@
       <p class="titan-be-gallery-subtitle inview-animated">{{ textFor(carbonFiberSubtitle) }}</p>
       <div class="titan-be-gallery-grid">
         <div v-for="(img, idx) in carbonFiberImages" :key="idx" class="titan-be-gallery-item">
-          <img :src="img" :alt="`Carbon Fiber ${idx + 1}`" />
+          <img :src="img" :alt="`Carbon Fiber ${idx + 1}`" loading="lazy" decoding="async" />
         </div>
       </div>
     </section>
@@ -87,7 +93,7 @@
     <section class="titan-be-harmony-section" id="harmony">
       <h3 class="titan-be-harmony-title inview-animated">{{ textFor(harmonyTitle) }}</h3>
       <div class="titan-be-harmony-image">
-        <img src="/assets/OFFICIALVOYAH/titanblackediditon/images/sc_16_1.jpg" alt="Harmony Space 5" class="inview-animated" />
+        <img src="/assets/OFFICIALVOYAH/titanblackediditon/images/sc_16_1.jpg" alt="Harmony Space 5" class="inview-animated" loading="lazy" decoding="async" />
       </div>
       <div class="titan-be-harmony-features">
         <div v-for="(feature, idx) in harmonyFeatures" :key="idx" class="titan-be-harmony-feature">
@@ -127,7 +133,7 @@
     <section class="titan-be-harmony-section" id="driving">
       <h3 class="titan-be-harmony-title inview-animated">{{ textFor(drivingTitle) }}</h3>
       <div class="titan-be-harmony-image">
-        <img src="/assets/OFFICIALVOYAH/titanblackediditon/images/sc_22_1.jpg" alt="Million-Class Driving" class="inview-animated" />
+        <img src="/assets/OFFICIALVOYAH/titanblackediditon/images/sc_22_1.jpg" alt="Million-Class Driving" class="inview-animated" loading="lazy" decoding="async" />
       </div>
       <div class="titan-be-harmony-features">
         <div v-for="(feature, idx) in drivingFeatures" :key="idx" class="titan-be-harmony-feature">

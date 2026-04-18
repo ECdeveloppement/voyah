@@ -6,7 +6,7 @@
       <!-- Interactive Graphic Frame -->
       <div class="vehicle-frame">
         <transition name="fade" mode="out-in">
-          <img :key="activeColor.id" :src="activeColor.image" :alt="activeColor.name" class="vehicle-image" />
+          <img :key="activeColor.id" :src="activeColor.image" :alt="activeColor.name" class="vehicle-image" loading="eager" decoding="async" />
         </transition>
       </div>
 

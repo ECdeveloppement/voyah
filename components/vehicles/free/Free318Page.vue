@@ -3,7 +3,7 @@
     <!-- Hero Section -->
     <section class="kv-section" id="hero">
       <div class="kv-bg">
-        <img src="/assets/OFFICIALVOYAH/free/images/kv_1920.png" alt="Voyah Free 318" class="kv-bg-img" />
+        <img src="/assets/OFFICIALVOYAH/free/images/kv_1920.png" alt="Voyah Free 318" class="kv-bg-img" loading="eager" fetchpriority="high" decoding="async" />
       </div>
       <div class="kv-content">
         <img
@@ -11,6 +11,9 @@
           alt="Voyah Free 318"
           class="kv-logo inview-child inview-animated"
           style="--inview-delay: 0.3s;"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
         />
         <p class="kv-slogan inview-child inview-animated" style="--inview-delay: 0.4s;">
           {{ textFor({ en: 'New Energy Driving Control SUV', fr: 'SUV Contrôle Conduite Énergie Nouvelle', ar: 'سيارة SUV كهربائية جديدة' }) }}
@@ -59,7 +62,7 @@
         <div class="swiper-wrapper" :style="{ transform: `translate3d(-${currentSlide.mecha * 100}%, 0, 0)` }">
           <div class="swiper-slide" v-for="(slide, idx) in mechaSlides" :key="idx">
             <div class="img-container">
-              <img :src="slide.image" :alt="slide.title" class="slide-img" />
+              <img :src="slide.image" :alt="slide.title" class="slide-img" loading="lazy" decoding="async" />
             </div>
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
@@ -99,7 +102,7 @@
         <div class="swiper-wrapper" :style="{ transform: `translate3d(-${currentSlide.interior * 100}%, 0, 0)` }">
           <div class="swiper-slide" v-for="(slide, idx) in interiorSlides" :key="idx">
             <div class="img-container">
-              <img :src="slide.image" :alt="slide.title" class="slide-img" />
+              <img :src="slide.image" :alt="slide.title" class="slide-img" loading="lazy" decoding="async" />
             </div>
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
@@ -145,7 +148,7 @@
           :style="{ left: currentColor === idx ? '0%' : '100%', transition: 'none' }"
         >
           <div class="swiper-slide-item">
-            <img :src="color.carImage" :alt="color.name" class="swiper-slide-img" />
+            <img :src="color.carImage" :alt="color.name" class="swiper-slide-img" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>
@@ -158,7 +161,7 @@
           @click="currentColor = idx"
         >
           <div class="color-icon">
-            <img :src="color.icon" :alt="color.name" class="img-icon" />
+            <img :src="color.icon" :alt="color.name" class="img-icon" loading="lazy" decoding="async" />
           </div>
           <p class="color-name">{{ color.name }}</p>
         </div>
@@ -171,7 +174,7 @@
         <div class="swiper-wrapper" :style="{ transform: `translate3d(-${currentSlide.intColor * 100}%, 0, 0)` }">
           <div class="swiper-slide" v-for="(slide, idx) in interiorColors" :key="idx">
             <div class="img-container">
-              <img :src="slide.image" :alt="slide.name" class="slide-img" />
+              <img :src="slide.image" :alt="slide.name" class="slide-img" loading="lazy" decoding="async" />
             </div>
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.name }}</p>
@@ -330,19 +333,8 @@
     <section class="common" id="body-safety">
       <h3 class="title inview-child">{{ textFor({ en: 'Body Safety', fr: 'Sécurité de la Carrosserie', ar: 'سلامة الهيكل' }) }}</h3>
       <p class="subTitle inview-child">{{ textFor({ en: '5-star safety standard, guarding journey safety, this solid', fr: 'Standard de sécurité 5 étoiles, gardien de la sécurité du voyage, aussi solide', ar: 'معيار سلامة 5 نجوم، حارس أمان الرحلة، قوي جداً' }) }}</p>
-      <div class="single-img inview-child">
-        <video
-          ref="safetyVideo"
-          class="video-player"
-          playsinline
-          webkit-playsinline
-          x5-video-player-type="h5"
-          muted
-          loop
-          autoplay
-        >
-          <source src="/assets/OFFICIALVOYAH/free/videos/safety.mp4" type="video/mp4" />
-        </video>
+      <div class="img-container inview-child">
+        <img src="/assets/OFFICIALVOYAH/free/images/bg_free_pc38_0001.jpg" alt="Body Safety" class="single-img" />
       </div>
       <div class="single-description inview-child column4">
         <div class="description-item">
@@ -381,7 +373,7 @@
         <div class="swiper-wrapper" :style="{ transform: `translate3d(-${currentSlide.evSafety * 100}%, 0, 0)` }">
           <div class="swiper-slide" v-for="(slide, idx) in evSafetySlides" :key="idx">
             <div class="img-container">
-              <img :src="slide.image" :alt="slide.title" class="slide-img" />
+              <img :src="slide.image" :alt="slide.title" class="slide-img" loading="lazy" decoding="async" />
             </div>
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
@@ -428,19 +420,8 @@
     <section class="common" id="active-safety">
       <h3 class="title inview-child">{{ textFor({ en: 'All-New Active Safety Standard', fr: 'Nouveau Standard de Sécurité Active', ar: 'معيار جديد للأمان النشط' }) }}</h3>
       <p class="subTitle inview-child">{{ textFor({ en: 'Full-dimension active safety, always online protection', fr: 'Sécurité active pleine dimension, protection toujours en ligne', ar: 'سلامة نشطة بأبعاد كاملة، حماية دائمة على الإنترنت' }) }}</p>
-      <div class="single-img inview-child">
-        <video
-          ref="activeSafetyVideo"
-          class="video-player"
-          playsinline
-          webkit-playsinline
-          x5-video-player-type="h5"
-          muted
-          loop
-          autoplay
-        >
-          <source src="/assets/OFFICIALVOYAH/free/videos/active_safety.mp4" type="video/mp4" />
-        </video>
+      <div class="img-container inview-child">
+        <img src="/assets/OFFICIALVOYAH/free/images/bg_free_pc42_0001.jpg" alt="Active Safety" class="single-img" />
       </div>
     </section>
 

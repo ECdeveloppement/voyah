@@ -54,7 +54,7 @@
         <div class="swiper-wrapper" :style="{ transform: `translate3d(-${currentSlide.gallery * 100}%, 0, 0)` }">
           <div class="swiper-slide" v-for="(slide, idx) in gallerySlides" :key="idx">
             <div class="car-gallery__img-text">{{ slide.text }}</div>
-            <img :src="slide.image" :alt="slide.text" class="car-gallery__img" />
+            <img :src="slide.image" :alt="slide.text" class="car-gallery__img" loading="eager" fetchpriority="high" decoding="async" />
             <div class="car-gallery__img-description">
               <div class="car-gallery__img-description--item" v-for="(spec, sIdx) in slide.specs" :key="sIdx">
                 <p class="car-gallery__img-description--title">{{ spec.value }}</p>
@@ -90,7 +90,7 @@
         <p class="subTitle">{{ textFor({ en: 'Toward the stars, gentle journey home', fr: 'Vers les étoiles, doux retour à la maison', ar: 'نحو النجوم، عودة لطيفة للمنزل' }) }}</p>
       </div>
       <div class="img-wrap">
-        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_4.jpg" alt="Starlight Aesthetics" class="img" />
+        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_4.jpg" alt="Starlight Aesthetics" class="img" loading="lazy" decoding="async" />
       </div>
     </section>
 
@@ -98,7 +98,7 @@
     <section class="common" id="led-curtain">
       <h3 class="title inview-child">{{ textFor({ en: 'Twinkling Starlight LED Light Curtain', fr: 'Rideau Lumineux LED Étoiles Scintillantes', ar: 'ستارة LED النجوم الوميضة' }) }}</h3>
       <div class="single-img inview-child margin-top-0">
-        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_6.jpg" alt="LED Light Curtain" class="img" />
+        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_6.jpg" alt="LED Light Curtain" class="img" loading="lazy" decoding="async" />
       </div>
       <div class="single-description inview-child column1">
         <div class="description-item">
@@ -114,7 +114,7 @@
         <div class="swiper-wrapper" :style="{ transform: `translate3d(-${currentSlide.exterior * 100}%, 0, 0)` }">
           <div class="swiper-slide" v-for="(slide, idx) in exteriorSlides" :key="idx">
             <div class="img-container">
-              <img :src="slide.image" :alt="slide.title" class="slide-img" />
+              <img :src="slide.image" :alt="slide.title" class="slide-img" loading="lazy" decoding="async" />
             </div>
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
@@ -159,7 +159,7 @@
           :style="{ left: currentColor === idx ? '0%' : '100%', transition: 'none' }"
         >
           <div class="swiper-slide-item">
-            <img :src="color.carImage" :alt="color.name" class="swiper-slide-img" />
+            <img :src="color.carImage" :alt="color.name" class="swiper-slide-img" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>
@@ -172,7 +172,7 @@
           @click="currentColor = idx"
         >
           <div class="color-icon">
-            <img :src="color.icon" :alt="color.name" class="img-icon" />
+            <img :src="color.icon" :alt="color.name" class="img-icon" loading="lazy" decoding="async" />
           </div>
           <p class="color-name">{{ color.name }}</p>
         </div>
@@ -205,7 +205,7 @@
         <div class="swiper-wrapper" :style="{ transform: `translate3d(-${currentSlide.interior * 100}%, 0, 0)` }">
           <div class="swiper-slide" v-for="(slide, idx) in interiorSlides" :key="idx">
             <div class="img-container">
-              <img :src="slide.image" :alt="slide.title" class="slide-img" />
+              <img :src="slide.image" :alt="slide.title" class="slide-img" loading="lazy" decoding="async" />
             </div>
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
@@ -248,7 +248,7 @@
     <!-- Space Features -->
     <section class="common" id="space-features">
       <div class="single-img-container inview-child">
-        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_13.jpg" alt="Space Features" class="single-img" />
+        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_13.jpg" alt="Space Features" class="single-img" loading="lazy" decoding="async" />
       </div>
       <div class="single-description inview-child features-grid">
         <div class="description-item">
@@ -273,7 +273,7 @@
       <h3 class="title inview-child">{{ textFor({ en: 'HarmonyOS Cockpit', fr: 'Cockpit HarmonyOS', ar: 'مقصورة هارموني أو إس' }) }}</h3>
       <p class="subTitle inview-child">{{ textFor({ en: 'Seamless intelligent connectivity', fr: 'Connectivité intelligente fluide', ar: 'اتصال ذكي سلس' }) }}</p>
       <div class="img-container">
-        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_19.jpg" alt="HarmonyOS" class="single-img inview-child" />
+        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_19.jpg" alt="HarmonyOS" class="single-img inview-child" loading="lazy" decoding="async" />
       </div>
       <div class="single-description inview-child features-grid">
         <div class="description-item">
@@ -292,7 +292,7 @@
       <h3 class="title inview-child">{{ textFor({ en: 'Huawei ADS 3.0', fr: 'Huawei ADS 3.0', ar: 'نظام هواوي ADS 3.0' }) }}</h3>
       <p class="subTitle inview-child">{{ textFor({ en: 'Safer, smarter autonomous driving', fr: 'Conduite autonome plus sûre et intelligente', ar: 'قيادة ذاتية أكثر أماناً وذكاءً' }) }}</p>
       <div class="img-container">
-        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_21.jpg" alt="Huawei ADS" class="single-img inview-child" />
+        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_21.jpg" alt="Huawei ADS" class="single-img inview-child" loading="lazy" decoding="async" />
       </div>
       <div class="single-description inview-child features-grid">
         <div class="description-item">
@@ -312,7 +312,7 @@
         <div class="swiper-wrapper" :style="{ transform: `translate3d(-${currentSlide.parking * 100}%, 0, 0)` }">
           <div class="swiper-slide" v-for="(slide, idx) in parkingSlides" :key="idx">
             <div class="slide-img">
-              <img :src="'/assets/OFFICIALVOYAH/newcourage/images/sc_' + (20 + idx) + '.jpg'" :alt="slide.title" class="img" />
+              <img :src="'/assets/OFFICIALVOYAH/newcourage/images/sc_' + (20 + idx) + '.jpg'" :alt="slide.title" class="img" loading="lazy" decoding="async" />
             </div>
             <div class="desc-wrap">
               <p class="desc-title">{{ slide.title }}</p>
@@ -357,7 +357,7 @@
       <h3 class="title inview-child">{{ textFor({ en: 'Full-domain 800V Silicon Carbide Platform', fr: 'Plateforme 800V Carbure de Silicium', ar: 'منصة كربيد السيليكون 800V' }) }}</h3>
       <p class="subTitle inview-child">{{ textFor({ en: 'Low energy consumption, long range, farewell to range anxiety', fr: 'Faible consommation, longue autonomie, adieu à l\'anxiété', ar: 'استهلاك منخفض، مدى طويل، وداعاً للقلق' }) }}</p>
       <div class="img-container">
-        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_35.jpg" alt="800V Platform" class="single-img inview-child" />
+        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_35.jpg" alt="800V Platform" class="single-img inview-child" loading="lazy" decoding="async" />
       </div>
       <div class="single-description inview-child features-grid">
         <div class="description-item">
@@ -376,7 +376,7 @@
       <h3 class="title inview-child">{{ textFor({ en: '5C Super Fast Charging', fr: 'Recharge Ultra-Rapide 5C', ar: 'شحن سريع فائق 5C' }) }}</h3>
       <p class="subTitle inview-child">{{ textFor({ en: 'A cup of coffee time, vacation starts now', fr: 'Le temps d\'un café, les vacances commencent', ar: 'وقت كوب قهوة، تبدأ العطلة الآن' }) }}</p>
       <div class="single-img inview-child">
-        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_36.jpg" alt="5C Charging" class="img" />
+        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_36.jpg" alt="5C Charging" class="img" loading="lazy" decoding="async" />
       </div>
       <div class="swiper-container inview-child">
         <div class="swiper-wrapper" :style="{ transform: `translate3d(-${currentSlide.charging * 100}%, 0, 0)` }">
@@ -422,7 +422,7 @@
       <h3 class="title inview-child">{{ textFor({ en: 'Body Safety', fr: 'Sécurité de la Carrosserie', ar: 'سلامة الهيكل' }) }}</h3>
       <p class="subTitle inview-child">{{ textFor({ en: 'Solid as rock, guarding the lifeline', fr: 'Solide comme le roc, gardien de la ligne de vie', ar: 'صلب كالصخر، حارس خط الحياة' }) }}</p>
       <div class="img-container">
-        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_40.jpg" alt="Body Safety" class="single-img inview-child" />
+        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_40.jpg" alt="Body Safety" class="single-img inview-child" loading="lazy" decoding="async" />
       </div>
       <div class="single-description inview-child column3">
         <div class="description-item">
@@ -443,7 +443,7 @@
     <!-- Seven-layer Front Collision Protection -->
     <section class="common" id="collision">
       <div class="img-container">
-        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_41.jpg" alt="Collision Protection" class="single-img inview-child margin-top-0" />
+        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_41.jpg" alt="Collision Protection" class="single-img inview-child margin-top-0" loading="lazy" decoding="async" />
       </div>
       <div class="single-description inview-child column1">
         <div class="description-item">
@@ -458,7 +458,7 @@
       <h3 class="title inview-child">{{ textFor({ en: 'Battery Safety', fr: 'Sécurité de la Batterie', ar: 'سلامة البطارية' }) }}</h3>
       <p class="subTitle inview-child">{{ textFor({ en: 'Hardcore protection, TOP-level technical safety', fr: 'Protection inébranlable, sécurité technique de premier ordre', ar: 'حماية لا تتزعزع، أمان تقني من الطراز الأول' }) }}</p>
       <div class="img-container">
-        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_42.jpg" alt="Battery Safety" class="single-img inview-child" />
+        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_42.jpg" alt="Battery Safety" class="single-img inview-child" loading="lazy" decoding="async" />
       </div>
       <div class="single-description inview-child column3">
         <div class="description-item">
