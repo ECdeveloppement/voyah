@@ -288,7 +288,7 @@
     <!-- Performance Features -->
     <section id="performance-features" class="common" targetindex="0" ref="sectionRefs[9]">
       <div class="single-img-container inview-child">
-        <img src="/assets/OFFICIALVOYAH/freeplus/images/img_08_01.png" alt="Premium Comfort" class="single-img inview-child" loading="lazy" decoding="async" />
+        <img src="/assets/OFFICIALVOYAH/freeplus/images/img_08.png" alt="Premium Comfort" class="single-img inview-child" loading="lazy" decoding="async" />
       </div>
       <div class="single-description inview-child features-grid">
         <div class="description-item">

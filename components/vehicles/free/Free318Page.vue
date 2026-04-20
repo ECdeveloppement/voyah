@@ -355,7 +355,7 @@
     <!-- 7-Layer Collision Protection -->
     <section class="common" id="collision">
       <div class="img-container">
-        <img src="/assets/OFFICIALVOYAH/free/images/bg_free_pc40_0001.jpg" alt="Collision" class="single-img inview-child margin-top-0" />
+        <img src="/assets/OFFICIALVOYAH/free/images/bg_free_pc38_0001.jpg" alt="Collision" class="single-img inview-child margin-top-0" loading="lazy" decoding="async" />
       </div>
       <div class="single-description inview-child column1">
         <div class="description-item">
@@ -421,7 +421,7 @@
       <h3 class="title inview-child">{{ textFor({ en: 'All-New Active Safety Standard', fr: 'Nouveau Standard de Sécurité Active', ar: 'معيار جديد للأمان النشط' }) }}</h3>
       <p class="subTitle inview-child">{{ textFor({ en: 'Full-dimension active safety, always online protection', fr: 'Sécurité active pleine dimension, protection toujours en ligne', ar: 'سلامة نشطة بأبعاد كاملة، حماية دائمة على الإنترنت' }) }}</p>
       <div class="img-container inview-child">
-        <img src="/assets/OFFICIALVOYAH/free/images/bg_free_pc42_0001.jpg" alt="Active Safety" class="single-img" />
+        <img src="/assets/OFFICIALVOYAH/free/images/bg_free_pc38_0002.jpg" alt="Active Safety" class="single-img" loading="lazy" decoding="async" />
       </div>
     </section>
 
@@ -445,35 +445,35 @@
       <div class="grid-list">
         <div class="grid-row">
           <div class="grid-item">
-            <img src="/assets/OFFICIALVOYAH/free/images/bg-free-h97D-1.jpg" alt="Air Suspension" class="grid-item-img" />
+            <img src="/assets/OFFICIALVOYAH/free/images/bg-free-h97D-1.jpg" alt="Air Suspension" class="grid-item-img" loading="lazy" decoding="async" />
             <div class="grid-item-description">{{ textFor({ en: '100mm Adjustable Air Suspension', fr: 'Suspension Pneumatique 100mm', ar: 'تعليق هوائي 100 مم' }) }}</div>
           </div>
           <div class="grid-item">
-            <img src="/assets/OFFICIALVOYAH/free/images/bg-free-h97D-2.jpg" alt="4WD" class="grid-item-img" />
+            <img src="/assets/OFFICIALVOYAH/free/images/bg-free-h97D-2.jpg" alt="4WD" class="grid-item-img" loading="lazy" decoding="async" />
             <div class="grid-item-description">{{ textFor({ en: 'Dynamic Intelligent 4WD, 4.5s 0-100km/h', fr: '4WD Intelligent Dynamique, 0-100km/h en 4.5s', ar: 'دفع رباعي ذكي ديناميكي، 0-100 كم/س في 4.5 ثانية' }) }}</div>
           </div>
           <div class="grid-item wide">
-            <img src="/assets/OFFICIALVOYAH/free/images/bg-free-h97D-3.jpg" alt="Chassis" class="grid-item-img" />
+            <img src="/assets/OFFICIALVOYAH/free/images/bg-free-h97D-3.jpg" alt="Chassis" class="grid-item-img" loading="lazy" decoding="async" />
             <div class="grid-item-description">{{ textFor({ en: 'All-Aluminum Lightweight Chassis, Front Double Wishbone + Rear H-Arm Multi-Link', fr: 'Châssis Léger Tout-Aluminium, Double Triangle Avant + Multi-Bras Arrière H', ar: 'هيكل خفيف من الألمنيوم، مثلث مزدوج أمامي + متعدد الأذرع الخلفي H' }) }}</div>
           </div>
         </div>
         <div class="grid-row">
           <div class="grid-item">
-            <img src="/assets/OFFICIALVOYAH/free/images/bg-free-h97D-4.jpg" alt="Blade Design" class="grid-item-img" />
+            <img src="/assets/OFFICIALVOYAH/free/images/bg-free-h97D-4.jpg" alt="Blade Design" class="grid-item-img" loading="lazy" decoding="async" />
             <div class="grid-item-description">{{ textFor({ en: 'Blade Mecha Pioneer Design', fr: 'Design Pionnier Méca-Lame', ar: 'تصميم رائد بليد ميكا' }) }}</div>
           </div>
           <div class="grid-item">
-            <img src="/assets/OFFICIALVOYAH/free/images/bg-free-h97D-5.jpg" alt="Red Calipers" class="grid-item-img" />
+            <img src="/assets/OFFICIALVOYAH/free/images/bg-free-h97D-5.jpg" alt="Red Calipers" class="grid-item-img" loading="lazy" decoding="async" />
             <div class="grid-item-description">{{ textFor({ en: 'Flame Red Sport Calipers', fr: 'Étriers de Sport Rouge Flamme', ar: 'فرامل رياضية حمراء اللهب' }) }}</div>
           </div>
           <div class="grid-item wide">
-            <img src="/assets/OFFICIALVOYAH/free/images/bg-free-h97D-6.jpg" alt="Highway Assist" class="grid-item-img" />
+            <img src="/assets/OFFICIALVOYAH/free/images/bg-free-h97D-6.jpg" alt="Highway Assist" class="grid-item-img" loading="lazy" decoding="async" />
             <div class="grid-item-description">{{ textFor({ en: 'Highway Navigation Assist, <1 takeover per 100km', fr: 'Assistance Navigation Autoroute, <1 reprise par 100km', ar: 'مساعدة ملاحة الطريق السريع، <1 تدخل لكل 100 كم' }) }}</div>
           </div>
         </div>
         <div class="grid-row">
           <div class="grid-item full">
-            <img src="/assets/OFFICIALVOYAH/free/images/bg-free-h97D-7.jpg" alt="Range" class="grid-item-img" />
+            <img src="/assets/OFFICIALVOYAH/free/images/bg-free-h97D-7.jpg" alt="Range" class="grid-item-img" loading="lazy" decoding="async" />
             <div class="grid-item-description">{{ textFor({ en: '318km Pure Electric Range (CLTC), 1458km Combined Range (CLTC)', fr: '318km Autonomie Électrique Pure (CLTC), 1458km Autonomie Combinée (CLTC)', ar: '318 كم مدى كهربائي نقي (CLTC)، 1458 كم مدى إجمالي (CLTC)' }) }}</div>
           </div>
         </div>

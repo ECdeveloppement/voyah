@@ -194,7 +194,7 @@
     <section class="common" id="ambient-light">
       <h3 class="title inview-child">{{ textFor({ en: 'Firefly Ambient Lighting', fr: 'Éclairage d\'Ambiance Lucioles', ar: 'إضاءة محيطة اليراعات' }) }}</h3>
       <div class="single-img inview-child">
-        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_9.jpg" alt="Ambient Lighting" class="img" />
+        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_8.jpg" alt="Ambient Lighting" class="img" loading="lazy" decoding="async" />
       </div>
     </section>
 
@@ -376,7 +376,7 @@
       <h3 class="title inview-child">{{ textFor({ en: '5C Super Fast Charging', fr: 'Recharge Ultra-Rapide 5C', ar: 'شحن سريع فائق 5C' }) }}</h3>
       <p class="subTitle inview-child">{{ textFor({ en: 'A cup of coffee time, vacation starts now', fr: 'Le temps d\'un café, les vacances commencent', ar: 'وقت كوب قهوة، تبدأ العطلة الآن' }) }}</p>
       <div class="single-img inview-child">
-        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_36.jpg" alt="5C Charging" class="img" loading="lazy" decoding="async" />
+        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_35.jpg" alt="5C Charging" class="img" loading="lazy" decoding="async" />
       </div>
       <div class="swiper-container inview-child">
         <div class="swiper-wrapper" :style="{ transform: `translate3d(-${currentSlide.charging * 100}%, 0, 0)` }">

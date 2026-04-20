@@ -504,7 +504,7 @@
     <!-- Smart Parking -->
     <section class="common" id="parking">
       <div class="img-container margin-top-0 inview-child">
-        <img src="/assets/OFFICIALVOYAH/courage/images/h37_pc20_0001.jpg" alt="Smart Parking" class="single-img" />
+        <img src="/assets/OFFICIALVOYAH/courage/images/h37_pc19_0001.jpg" alt="Smart Parking" class="single-img" loading="lazy" decoding="async" />
       </div>
       <div class="single-description inview-child column1">
         <div class="description-item">
@@ -771,7 +771,7 @@ const drivingSlides = computed(() => [
     desc: textFor({ en: 'Automatic lane change, smooth and confident', fr: 'Changement voie automatique, fluide et confiant', ar: 'تغيير المسار التلقائي، سلس وواثق' })
   },
   {
-    image: '/assets/OFFICIALVOYAH/courage/images/h37_pc20_0001.jpg',
+    image: '/assets/OFFICIALVOYAH/courage/images/h37_pc19_0001.jpg',
     title: textFor({ en: 'Emergency Avoidance', fr: 'Évitement Urgence', ar: 'تجنب الطوارئ' }),
     desc: textFor({ en: 'Active safety protection, guarding every moment', fr: 'Protection sécurité active, gardien à chaque instant', ar: 'حماية أمان نشطة، حارس في كل لحظة' })
   }
