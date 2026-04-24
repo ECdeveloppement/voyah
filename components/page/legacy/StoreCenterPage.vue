@@ -3,6 +3,16 @@
     <SiteHeader />
 
     <div class="page-container miniPage">
+      <!-- Autohall Finder Section -->
+      <div class="autohall-finder-section">
+        <AutohallFinder 
+          :featured-autohall-id="'autohall-casablanca'"
+          @directions="onDirections"
+          @call="onCall"
+          @website="onWebsite"
+        />
+      </div>
+
       <div id="mapView" ref="mapRef" class="map-container" />
 
       <!-- Wrapper pour les cartes flottantes -->
@@ -127,6 +137,9 @@
 import { ref, computed, watch, onMounted, onBeforeUnmount, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
 import SiteHeader from '~/components/layout/SiteHeader.vue'
+import AutohallFinder from '~/components/common/AutohallFinder.vue'
+import AutohallMap from '~/components/common/AutohallMap.vue'
+import { autohallsData } from '~/data/autohalls'
 
 const route = useRoute()
 const lang = computed(() => {
@@ -310,6 +323,26 @@ onBeforeUnmount(() => {
   document.removeEventListener('click', onDocClick)
   map?.remove()
 })
+
+// Autohall event handlers
+const onDirections = (autohall: any) => {
+  const url = `https://www.google.com/maps/dir/?api=1&destination=${autohall.coordinates.lat},${autohall.coordinates.lng}`
+  window.open(url, '_blank')
+}
+
+const onCall = (autohall: any) => {
+  window.open(`tel:${autohall.phone.replace(/\s/g, '')}`, '_self')
+}
+
+const onWebsite = (autohall: any) => {
+  if (autohall.website) {
+    window.open(autohall.website, '_blank')
+  }
+}
+
+const onAutohallSelected = (autohall: any) => {
+  console.log('Autohall selected:', autohall.name)
+}
 
 watch(filteredStores, renderMarkers)
 </script>

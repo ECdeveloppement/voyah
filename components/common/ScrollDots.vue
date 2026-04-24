@@ -2,15 +2,15 @@
   <nav class="scroll-dots" :class="{ 'scroll-dots--rtl': currentLocale.dir === 'rtl' }">
     <div class="dots-container">
       <button
-        v-for="dot in dots"
-        :key="dot.id"
+        v-for="(dot, index) in dots"
+        :key="`${dot.id}-${index}`"
         type="button"
         :class="['dot-item', { active: activeId === dot.id }]"
         @click="scrollTo(dot.id)"
-        :title="dot.label"
+        :title="dot.label"      
       >
         <span class="dot-inner" />
-        <span v-if="activeId === dot.id" class="dot-label">{{ dot.label }}</span>
+        <span class="dot-label">{{ dot.label }}</span>
       </button>
     </div>
   </nav>
@@ -27,13 +27,42 @@ let observer: IntersectionObserver | null = null
 
 const updateDots = () => {
   const sections = document.querySelectorAll('section[id], .page-hero[id]')
-  dots.value = Array.from(sections).map((el) => {
-    const title = el.querySelector('h1, h2')?.textContent?.trim() || el.id
-    return {
-      id: el.id,
-      label: title.length > 20 ? title.slice(0, 20) + '...' : title
-    }
-  })
+  dots.value = Array.from(sections)
+    .filter((el) => {
+      // Exclure le footer et autres éléments non désirés
+      const excludeIds = ['footer', 'site-footer', 'contact', 'legal', 'privacy', 'terms']
+      const excludeClasses = ['footer', 'site-footer', 'contact-section', 'legal-section', 'passion-page']
+      
+      // Vérifier si c'est la page Passion
+      if (el.closest('.passion-page')) {
+        return false
+      }
+      
+      // Vérifier l'ID
+      if (excludeIds.some(id => el.id.toLowerCase().includes(id))) {
+        return false
+      }
+      
+      // Vérifier les classes
+      if (excludeClasses.some(cls => el.classList.contains(cls))) {
+        return false
+      }
+      
+      // Exclure les sections sans contenu significatif
+      const hasContent = el.querySelector('h1, h2, h3, .title, .kv-content')
+      if (!hasContent) {
+        return false
+      }
+      
+      return true
+    })
+    .map((el) => {
+      const title = el.querySelector('h1, h2, h3, .title')?.textContent?.trim() || el.id
+      return {
+        id: el.id,
+        label: title.length > 20 ? title.slice(0, 20) + '...' : title
+      }
+    })
 }
 
 const scrollTo = (id: string) => {
@@ -60,7 +89,34 @@ const setupObserver = () => {
     }
   )
 
-  document.querySelectorAll('section[id], .page-hero[id]').forEach((el) => {
+  // Appliquer le même filtrage que dans updateDots
+  const sections = document.querySelectorAll('section[id], .page-hero[id]')
+  const filteredSections = Array.from(sections).filter((el) => {
+    const excludeIds = ['footer', 'site-footer', 'contact', 'legal', 'privacy', 'terms']
+    const excludeClasses = ['footer', 'site-footer', 'contact-section', 'legal-section']
+    
+    // Vérifier si c'est la page Passion
+    if (el.closest('.passion-page')) {
+      return false
+    }
+    
+    if (excludeIds.some(id => el.id.toLowerCase().includes(id))) {
+      return false
+    }
+    
+    if (excludeClasses.some(cls => el.classList.contains(cls))) {
+      return false
+    }
+    
+    const hasContent = el.querySelector('h1, h2, h3, .title, .kv-content')
+    if (!hasContent) {
+      return false
+    }
+    
+    return true
+  })
+
+  filteredSections.forEach((el) => {
     observer?.observe(el)
   })
 }
@@ -86,15 +142,15 @@ onBeforeUnmount(() => {
 .scroll-dots {
   position: fixed;
   top: 50%;
-  right: 48px;
+  left: 48px;
   transform: translateY(-50%);
   z-index: 150;
   pointer-events: none;
 }
 
 .scroll-dots--rtl {
-  right: auto;
-  left: 48px;
+  left: auto;
+  right: 48px;
 }
 
 .dots-container {
@@ -106,7 +162,7 @@ onBeforeUnmount(() => {
 
 .dot-item {
   position: relative;
-  width: 12px;
+  width: auto;
   height: 12px;
   padding: 0;
   background: transparent;
@@ -114,7 +170,7 @@ onBeforeUnmount(() => {
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 12px;
 }
 
 .dot-inner {
@@ -123,6 +179,7 @@ onBeforeUnmount(() => {
   background: rgba(255, 255, 255, 0.4);
   border-radius: 50%;
   transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  flex-shrink: 0;
 }
 
 .dot-item:hover .dot-inner {
@@ -137,40 +194,31 @@ onBeforeUnmount(() => {
 }
 
 .dot-label {
-  position: absolute;
-  right: 24px;
   color: #A68B5B;
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.05em;
   white-space: nowrap;
-  opacity: 0;
-  transform: translateX(10px);
-  animation: label-fade-in 0.4s forwards;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
 }
 
-.scroll-dots--rtl .dot-label {
-  right: auto;
-  left: 24px;
-  transform: translateX(-10px);
+.dot-item:hover .dot-label {
+  opacity: 1;
 }
 
-@keyframes dot-pulse {
-  0% { box-shadow: 0 0 0 0 rgba(166, 139, 91, 0.7); }
-  70% { box-shadow: 0 0 0 10px rgba(166, 139, 91, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(166, 139, 91, 0); }
+.dot-item.active .dot-label {
+  opacity: 1;
+  font-weight: 700;
 }
 
-@keyframes label-fade-in {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+.scroll-dots--rtl .dot-item {
+  flex-direction: row-reverse;
 }
 
 @media (max-width: 1024px) {
   .scroll-dots {
-    display: none; /* Hide on mobile to avoid clutter */
+    display: none;
   }
 }
 </style>

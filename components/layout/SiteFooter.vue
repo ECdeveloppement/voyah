@@ -45,7 +45,7 @@
       <div class="footer-company">
         <span>{{ companyLabel }}</span>
         <span>{{ phoneLabel }}</span>
-        <span>{{ emailLabel }}</span>
+        <span>{{ emailLabel }} {{ emailValue }}</span>
       </div>
 
       <div class="footer-bottom">
@@ -78,6 +78,7 @@ const versionLabel = computed(() => t('global.footer.versionLabel'))
 const companyLabel = computed(() => t('global.footer.companyLabel'))
 const phoneLabel   = computed(() => t('global.footer.phoneLabel'))
 const emailLabel   = computed(() => t('global.footer.emailLabel'))
+const emailValue   = computed(() => t('global.footer.emailValue'))
 const recordLabel  = computed(() => t('global.footer.recordLabel'))
 
 const currentYear = new Date().getFullYear()

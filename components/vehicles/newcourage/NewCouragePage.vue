@@ -3,19 +3,26 @@
     <!-- Hero Section -->
     <section class="kv-section" id="hero">
       <div class="kv-bg">
-        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_1.jpg" alt="Voyah New Courage" class="kv-bg-img" />
+        <img src="https://www.voyah.com.cn/voyah-resources/images/car/newCourage/375/sc_1.jpg" alt="Voyah New Courage" class="kv-bg-img" />
       </div>
       <div class="kv-content">
         <img
-          src="/assets/OFFICIALVOYAH/newcourage/images/newCourage.png"
+          src="https://www.voyah.com.cn/voyah-resources/images/car/car_logo/newCourage.png"
           alt="Voyah New Courage"
           class="kv-logo inview-child inview-animated"
           style="--inview-delay: 0.3s;"
         />
+        <div class="kv-model-info inview-child inview-animated" style="--inview-delay: 0.35s;">
+          <h1 class="kv-model-name">New Voyah Courage</h1>
+          <p class="kv-model-price">À partir de 259 900 RMB</p>
+        </div>
         <p class="kv-slogan inview-child inview-animated" style="--inview-delay: 0.4s;">
           {{ textFor({ en: 'Huawei ADS & HarmonyOS Cockpit Pure Electric SUV', fr: 'SUV Électrique Huawei ADS & Cockpit HarmonyOS', ar: 'سيارة SUV كهربائية Huawei ADS و HarmonyOS' }) }}
         </p>
         <div class="kv-btns inview-child inview-animated" style="--inview-delay: 0.5s;">
+          <NuxtLink :to="buildPath('configuration-detail') + '?carModel=zhiyin-new'" class="voyah-button voyah-button--more voyah-button--dark voyah-button--plain">
+            <span class="voyah-button__text">{{ textFor({ en: 'Configuration', fr: 'Configuration', ar: 'التكوين' }) }}</span>
+          </NuxtLink>
           <button class="voyah-button voyah-button--more voyah-button--dark voyah-button--plain">
             <span class="voyah-button__text">{{ textFor({ en: 'Book Test Drive', fr: 'Réserver un Essai', ar: 'احجز تجربة قيادة' }) }}</span>
           </button>
@@ -78,7 +85,7 @@
     </section>
 
     <!-- Section 1: Warm Home - Exterior -->
-    <section id="section1" class="level-one" :style="{ backgroundImage: `url('/assets/OFFICIALVOYAH/newcourage/images/sc_3.jpg')` }">
+    <section id="section1" class="level-one" :style="{ backgroundImage: `url('https://www.voyah.com.cn/voyah-resources/images/car/newCourage/375/sc_3.jpg')` }">
       <h2 class="title inview-child inview-animated">{{ textFor({ en: 'Warm Home', fr: 'Maison Chaleureuse', ar: 'المنزل الدافئ' }) }}</h2>
       <p class="subTitle inview-child inview-animated">{{ textFor({ en: 'More exquisite, more agile design', fr: 'Design plus exquis et plus agile', ar: 'تصميم أكثر رقة ورشاقة' }) }}</p>
     </section>
@@ -90,7 +97,24 @@
         <p class="subTitle">{{ textFor({ en: 'Toward the stars, gentle journey home', fr: 'Vers les étoiles, doux retour à la maison', ar: 'نحو النجوم، عودة لطيفة للمنزل' }) }}</p>
       </div>
       <div class="img-wrap">
-        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_4.jpg" alt="Starlight Aesthetics" class="img" loading="lazy" decoding="async" />
+        <img src="https://www.voyah.com.cn/voyah-resources/images/car/newCourage/1920/sc_4.jpg" alt="Starlight Aesthetics" class="img" loading="lazy" decoding="async" />
+      </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="common" id="video-section">
+      <div class="img-container">
+        <div class="video-player">
+          <video 
+            src="https://video.dsmp.voyah.com.cn/website/h37b/video_05_20250812.mp4" 
+            autoplay 
+            muted 
+            loop 
+            playsinline
+            webkit-playsinline
+            class="video-js"
+          ></video>
+        </div>
       </div>
     </section>
 
@@ -98,7 +122,7 @@
     <section class="common" id="led-curtain">
       <h3 class="title inview-child">{{ textFor({ en: 'Twinkling Starlight LED Light Curtain', fr: 'Rideau Lumineux LED Étoiles Scintillantes', ar: 'ستارة LED النجوم الوميضة' }) }}</h3>
       <div class="single-img inview-child margin-top-0">
-        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_6.jpg" alt="LED Light Curtain" class="img" loading="lazy" decoding="async" />
+        <img src="https://www.voyah.com.cn/voyah-resources/images/car/newCourage/1920/sc_6.jpg" alt="LED Light Curtain" class="img" loading="lazy" decoding="async" />
       </div>
       <div class="single-description inview-child column1">
         <div class="description-item">
@@ -186,7 +210,7 @@
         <p class="subTitle">{{ textFor({ en: 'Galaxy as dome, surrounded by starlight, a mobile observatory', fr: 'Galaxie en dôme, entouré de lumières stellaires, un observatoire mobile', ar: 'المجرة كقبة، محاط بنور النجوم، مرصد متنقل' }) }}</p>
       </div>
       <div class="img-wrap">
-        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_8.jpg" alt="Interior" class="img" />
+        <img src="https://www.voyah.com.cn/voyah-resources/images/car/newCourage/1920/sc_8.jpg" alt="Interior" class="img" />
       </div>
     </section>
 
@@ -194,7 +218,7 @@
     <section class="common" id="ambient-light">
       <h3 class="title inview-child">{{ textFor({ en: 'Firefly Ambient Lighting', fr: 'Éclairage d\'Ambiance Lucioles', ar: 'إضاءة محيطة اليراعات' }) }}</h3>
       <div class="single-img inview-child">
-        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_8.jpg" alt="Ambient Lighting" class="img" loading="lazy" decoding="async" />
+        <img src="https://www.voyah.com.cn/voyah-resources/images/car/newCourage/1920/sc_7.jpg" alt="Ambient Lighting" class="img" loading="lazy" decoding="async" />
       </div>
     </section>
 
@@ -240,7 +264,7 @@
     </section>
 
     <!-- Section 3: Fun Home -->
-    <section id="section3" class="level-one" :style="{ backgroundImage: `url('/assets/OFFICIALVOYAH/newcourage/images/sc_12.jpg')` }">
+    <section id="section3" class="level-one" :style="{ backgroundImage: `url('https://www.voyah.com.cn/voyah-resources/images/car/newCourage/375/sc_12.jpg')` }">
       <h2 class="title inview-child inview-animated">{{ textFor({ en: 'Fun Home', fr: 'Maison Amusante', ar: 'المنزل الممتع' }) }}</h2>
       <p class="subTitle inview-child inview-animated">{{ textFor({ en: 'Space transformation, infinite possibilities', fr: 'Transformation spatiale, possibilités infinies', ar: 'تحول مكاني، إمكانيات لا نهائية' }) }}</p>
     </section>
@@ -248,7 +272,7 @@
     <!-- Space Features -->
     <section class="common" id="space-features">
       <div class="single-img-container inview-child">
-        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_13.jpg" alt="Space Features" class="single-img" loading="lazy" decoding="async" />
+        <img src="https://www.voyah.com.cn/voyah-resources/images/car/newCourage/1920/sc_13.jpg" alt="Space Features" class="single-img" loading="lazy" decoding="async" />
       </div>
       <div class="single-description inview-child features-grid">
         <div class="description-item">
@@ -263,7 +287,7 @@
     </section>
 
     <!-- Section 4: Smart Home -->
-    <section id="section4" class="level-one" :style="{ backgroundImage: `url('/assets/OFFICIALVOYAH/newcourage/images/sc_18.jpg')` }">
+    <section id="section4" class="level-one" :style="{ backgroundImage: `url('https://www.voyah.com.cn/voyah-resources/images/car/newCourage/375/sc_18.jpg')` }">
       <h2 class="title inview-child inview-animated">{{ textFor({ en: 'Smart Home', fr: 'Maison Intelligente', ar: 'المنزل الذكي' }) }}</h2>
       <p class="subTitle inview-child inview-animated">{{ textFor({ en: 'AI large model, making interaction more emotional', fr: 'Grand modèle IA, rendant l\'interaction plus émotionnelle', ar: 'نموذج ذكاء اصطناعي كبير، يجعل التفاعل أكثر عاطفية' }) }}</p>
     </section>
@@ -273,7 +297,7 @@
       <h3 class="title inview-child">{{ textFor({ en: 'HarmonyOS Cockpit', fr: 'Cockpit HarmonyOS', ar: 'مقصورة هارموني أو إس' }) }}</h3>
       <p class="subTitle inview-child">{{ textFor({ en: 'Seamless intelligent connectivity', fr: 'Connectivité intelligente fluide', ar: 'اتصال ذكي سلس' }) }}</p>
       <div class="img-container">
-        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_19.jpg" alt="HarmonyOS" class="single-img inview-child" loading="lazy" decoding="async" />
+        <img src="https://www.voyah.com.cn/voyah-resources/images/car/newCourage/1920/sc_19.jpg" alt="HarmonyOS" class="single-img inview-child" loading="lazy" decoding="async" />
       </div>
       <div class="single-description inview-child features-grid">
         <div class="description-item">
@@ -292,7 +316,7 @@
       <h3 class="title inview-child">{{ textFor({ en: 'Huawei ADS 3.0', fr: 'Huawei ADS 3.0', ar: 'نظام هواوي ADS 3.0' }) }}</h3>
       <p class="subTitle inview-child">{{ textFor({ en: 'Safer, smarter autonomous driving', fr: 'Conduite autonome plus sûre et intelligente', ar: 'قيادة ذاتية أكثر أماناً وذكاءً' }) }}</p>
       <div class="img-container">
-        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_21.jpg" alt="Huawei ADS" class="single-img inview-child" loading="lazy" decoding="async" />
+        <img src="https://www.voyah.com.cn/voyah-resources/images/car/newCourage/1920/sc_21.jpg" alt="Huawei ADS" class="single-img inview-child" loading="lazy" decoding="async" />
       </div>
       <div class="single-description inview-child features-grid">
         <div class="description-item">
@@ -347,7 +371,7 @@
     </section>
 
     <!-- Section 5: Efficient Home -->
-    <section id="section5" class="level-one" :style="{ backgroundImage: `url('/assets/OFFICIALVOYAH/newcourage/images/sc_34.jpg')` }">
+    <section id="section5" class="level-one" :style="{ backgroundImage: `url('https://www.voyah.com.cn/voyah-resources/images/car/newCourage/375/sc_34.jpg')` }">
       <h2 class="title inview-child inview-animated">{{ textFor({ en: 'Efficient Home', fr: 'Maison Efficace', ar: 'المنزل الكفؤ' }) }}</h2>
       <p class="subTitle inview-child inview-animated">{{ textFor({ en: 'Full-level 3-electric system, endless happiness', fr: 'Système 3-électrique complet, bonheur sans fin', ar: 'نظام ثلاثي كهربائي كامل، سعادة لا نهاية لها' }) }}</p>
     </section>
@@ -357,7 +381,7 @@
       <h3 class="title inview-child">{{ textFor({ en: 'Full-domain 800V Silicon Carbide Platform', fr: 'Plateforme 800V Carbure de Silicium', ar: 'منصة كربيد السيليكون 800V' }) }}</h3>
       <p class="subTitle inview-child">{{ textFor({ en: 'Low energy consumption, long range, farewell to range anxiety', fr: 'Faible consommation, longue autonomie, adieu à l\'anxiété', ar: 'استهلاك منخفض، مدى طويل، وداعاً للقلق' }) }}</p>
       <div class="img-container">
-        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_35.jpg" alt="800V Platform" class="single-img inview-child" loading="lazy" decoding="async" />
+        <img src="https://www.voyah.com.cn/voyah-resources/images/car/newCourage/1920/sc_35.jpg" alt="800V Platform" class="single-img inview-child" loading="lazy" decoding="async" />
       </div>
       <div class="single-description inview-child features-grid">
         <div class="description-item">
@@ -412,7 +436,7 @@
     </section>
 
     <!-- Section 6: Safe Home -->
-    <section id="section6" class="level-one" :style="{ backgroundImage: `url('/assets/OFFICIALVOYAH/newcourage/images/sc_39.jpg')` }">
+    <section id="section6" class="level-one" :style="{ backgroundImage: `url('https://www.voyah.com.cn/voyah-resources/images/car/newCourage/375/sc_39.jpg')` }">
       <h2 class="title inview-child inview-animated">{{ textFor({ en: 'Safe Home', fr: 'Maison Sûre', ar: 'المنزل الآمن' }) }}</h2>
       <p class="subTitle inview-child inview-animated">{{ textFor({ en: 'All-round safety, guarding loved ones every moment', fr: 'Sécurité totale, protéger les êtres chers à chaque instant', ar: 'سلامة شاملة، حماية الأحباء في كل لحظة' }) }}</p>
     </section>
@@ -422,7 +446,7 @@
       <h3 class="title inview-child">{{ textFor({ en: 'Body Safety', fr: 'Sécurité de la Carrosserie', ar: 'سلامة الهيكل' }) }}</h3>
       <p class="subTitle inview-child">{{ textFor({ en: 'Solid as rock, guarding the lifeline', fr: 'Solide comme le roc, gardien de la ligne de vie', ar: 'صلب كالصخر، حارس خط الحياة' }) }}</p>
       <div class="img-container">
-        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_40.jpg" alt="Body Safety" class="single-img inview-child" loading="lazy" decoding="async" />
+        <img src="https://www.voyah.com.cn/voyah-resources/images/car/newCourage/1920/sc_40.jpg" alt="Body Safety" class="single-img inview-child" loading="lazy" decoding="async" />
       </div>
       <div class="single-description inview-child column3">
         <div class="description-item">
@@ -458,7 +482,7 @@
       <h3 class="title inview-child">{{ textFor({ en: 'Battery Safety', fr: 'Sécurité de la Batterie', ar: 'سلامة البطارية' }) }}</h3>
       <p class="subTitle inview-child">{{ textFor({ en: 'Hardcore protection, TOP-level technical safety', fr: 'Protection inébranlable, sécurité technique de premier ordre', ar: 'حماية لا تتزعزع، أمان تقني من الطراز الأول' }) }}</p>
       <div class="img-container">
-        <img src="/assets/OFFICIALVOYAH/newcourage/images/sc_42.jpg" alt="Battery Safety" class="single-img inview-child" loading="lazy" decoding="async" />
+        <img src="https://www.voyah.com.cn/voyah-resources/images/car/newCourage/1920/sc_42.jpg" alt="Battery Safety" class="single-img inview-child" loading="lazy" decoding="async" />
       </div>
       <div class="single-description inview-child column3">
         <div class="description-item">
@@ -493,7 +517,7 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useSiteContent } from '~/composables/useSiteContent'
 
-const { textFor } = useSiteContent()
+const { textFor, buildPath } = useSiteContent()
 
 // Navigation state
 const activeSection = ref(0)
@@ -522,7 +546,7 @@ const chapterSections = computed(() => [
 // Gallery slides
 const gallerySlides = computed(() => [
   {
-    image: '/assets/OFFICIALVOYAH/newcourage/images/swiper_01_0001.jpg',
+    image: 'https://www.voyah.com.cn/voyah-resources/images/car/newCourage/1920/swiper_01_0001.jpg',
     text: textFor({ en: 'Spacious space, enjoyment for the whole family', fr: 'Espace spacieux, plaisir pour toute la famille', ar: 'مساحة واسعة، متعة للعائلة بأكملها' }),
     specs: [
       { value: '4810mm', label: textFor({ en: 'Length', fr: 'Longueur', ar: 'الطول' }) },
@@ -532,7 +556,7 @@ const gallerySlides = computed(() => [
     ]
   },
   {
-    image: '/assets/OFFICIALVOYAH/newcourage/images/swiper_01_0002.jpg',
+    image: 'https://www.voyah.com.cn/voyah-resources/images/car/newCourage/1920/swiper_01_0002.jpg',
     text: textFor({ en: 'Complete comfort, freedom at will', fr: 'Confort complet, liberté à volonté', ar: 'راحة كاملة، حرية على الإرادة' }),
     specs: [
       { value: textFor({ en: 'Zero-gravity seat', fr: 'Siège zéro-gravité', ar: 'مقعد بلا جاذبية' }), label: textFor({ en: 'Passenger', fr: 'Passager', ar: 'الراكب' }) },
@@ -542,7 +566,7 @@ const gallerySlides = computed(() => [
     ]
   },
   {
-    image: '/assets/OFFICIALVOYAH/newcourage/images/swiper_01_0003.jpg',
+    image: 'https://www.voyah.com.cn/voyah-resources/images/car/newCourage/1920/swiper_01_0003.jpg',
     text: textFor({ en: 'Smart technology, silky smooth', fr: 'Technologie intelligente, douce comme la soie', ar: 'تقنية ذكية، ناعمة كالحرير' }),
     specs: [
       { value: 'HarmonySpace 5', label: textFor({ en: 'Super desktop 2.0', fr: 'Super bureau 2.0', ar: 'سطح مكتب سوبر 2.0' }) },
@@ -550,7 +574,7 @@ const gallerySlides = computed(() => [
     ]
   },
   {
-    image: '/assets/OFFICIALVOYAH/newcourage/images/swiper_01_0005.jpg',
+    image: 'https://www.voyah.com.cn/voyah-resources/images/car/newCourage/1920/swiper_01_0005.jpg',
     text: textFor({ en: 'Full-capability 3-electric, efficiency first', fr: '3-électrique complet, efficacité d\'abord', ar: 'ثلاثي كهربائي كامل، الكفاءة أولاً' }),
     specs: [
       { value: '901km', label: textFor({ en: 'CLTC range', fr: 'Autonomie CLTC', ar: 'مدى CLTC' }) },
@@ -593,17 +617,17 @@ const carColors = computed(() => [
 // Interior slides
 const interiorSlides = computed(() => [
   {
-    image: '/assets/OFFICIALVOYAH/newcourage/images/sc_14.jpg',
+    image: 'https://www.voyah.com.cn/voyah-resources/images/car/newCourage/1920/sc_14.jpg',
     title: textFor({ en: 'Firefly Ambient Lighting', fr: 'Éclairage d\'Ambiance Lucioles', ar: 'إضاءة محيطة اليراعات' }),
     desc: textFor({ en: '64-color ambient lighting with customizable themes', fr: 'Éclairage d\'ambiance 64 couleurs avec thèmes personnalisables', ar: 'إضاءة محيطة بـ64 لون مع موضوعات قابلة للتخصيص' })
   },
   {
-    image: '/assets/OFFICIALVOYAH/newcourage/images/sc_15.jpg',
+    image: 'https://www.voyah.com.cn/voyah-resources/images/car/newCourage/1920/sc_15.jpg',
     title: textFor({ en: 'Zero-Gravity Seats', fr: 'Sièges Zéro-Gravité', ar: 'مقاعد بلا جاذبية' }),
     desc: textFor({ en: 'NASA-inspired ergonomic seating for ultimate comfort', fr: 'Sièges ergonomiques inspirés de la NASA', ar: 'مقاعد مريحة مستوحاة من ناسا' })
   },
   {
-    image: '/assets/OFFICIALVOYAH/newcourage/images/sc_16.jpg',
+    image: 'https://www.voyah.com.cn/voyah-resources/images/car/newCourage/1920/sc_16.jpg',
     title: textFor({ en: 'Premium Materials', fr: 'Matériaux Premium', ar: 'مواد فاخرة' }),
     desc: textFor({ en: 'Nappa leather and sustainable materials throughout', fr: 'Cuir Nappa et matériaux durables partout', ar: 'جلد نابا ومواد مستدامة في كل مكان' })
   }
@@ -707,6 +731,30 @@ onUnmounted(() => {
   width: 280px;
   height: auto;
   margin-bottom: 24px;
+}
+
+.kv-model-info {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.kv-model-name {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-family: 'DDIN', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  color: #fff;
+}
+
+.kv-model-price {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-weight: 400;
+  margin: 0;
+  opacity: 0.8;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .kv-slogan {

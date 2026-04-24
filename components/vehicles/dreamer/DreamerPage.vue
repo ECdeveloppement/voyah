@@ -7,6 +7,9 @@
         <img src="/assets/OFFICIALVOYAH/dreamer/images/dreamer.png" class="kv-logo" loading="eager" fetchpriority="high" decoding="async" />
         <p class="kv-slogan">{{ textFor({ en: 'Dream\'s Mobile Castle', fr: 'Château Mobile du Rêve', ar: 'القلعة المتنقلة للأحلام' }) }}</p>
         <div class="kv-btns">
+          <NuxtLink :to="buildPath('configuration-detail') + '?carModel=dreamer-2024'" class="voyah-button voyah-button--dark">
+            <span class="voyah-button__text">{{ textFor({ en: 'Configuration', fr: 'Configuration', ar: 'التكوين' }) }}</span>
+          </NuxtLink>
           <button class="voyah-button voyah-button--dark">{{ textFor({ en: 'Order Now', fr: 'Commander', ar: 'اطلب الآن' }) }}</button>
         </div>
       </div>
@@ -169,7 +172,7 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useSiteContent } from '~/composables/useSiteContent'
 
-const { textFor } = useSiteContent()
+const { textFor, buildPath } = useSiteContent()
 const activeSection = ref(0)
 const showMobileNav = ref(false)
 
@@ -221,7 +224,7 @@ onUnmounted(() => { if (scrollHandler) window.removeEventListener('scroll', scro
 <style scoped>
 .dreamer-page { background: #000; color: #fff; }
 .kv-section { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; }
-.kv-bg-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.kv-bg-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
 .kv-content { position: relative; z-index: 2; text-align: center; }
 .kv-logo { width: 280px; margin-bottom: 24px; }
 .kv-slogan { font-size: 24px; margin-bottom: 40px; }

@@ -4,7 +4,7 @@
     <section class="titan-hero" id="hero">
       <div class="titan-hero-bg">
         <img 
-          src="/assets/OFFICIALVOYAH/titan/images/sc_1.jpg" 
+          src="/voyah-resources/images/car/titan/1920/sc_1.jpg" 
           alt="Voyah Titan"
           class="titan-hero-image"
           loading="eager"
@@ -16,7 +16,7 @@
       <div class="titan-hero-content">
         <div class="titan-hero-inner">
           <img 
-            src="/assets/OFFICIALVOYAH/titan/images/482a7b36-c15e-4508-83e5-c9b79227dbfa1770619361896.png" 
+            src="/voyah-resources/images/car/car_logo/titan.png" 
             alt="Voyah Titan"
             class="titan-hero-logo inview-animated"
             loading="eager"
@@ -30,6 +30,9 @@
             {{ textFor(t('Starting from RMB 379,900', 'A partir de 379 900 RMB', 'السعر يبدأ من 379,900 يوان')) }}
           </div>
           <div class="titan-hero-actions inview-animated" style="--inview-delay: 0.3s;">
+            <BaseButton :to="buildPath('configuration-detail') + '?carModel=titan'" variant="primary" class="titan-btn-primary">
+              {{ textFor({ en: 'Configuration', fr: 'Configuration', ar: 'التكوين' }) }}
+            </BaseButton>
             <BaseButton :to="buildPath('book-drive.html')" variant="primary" class="titan-btn-primary">
               {{ textFor(t('Book test drive', 'Reserver un essai', 'حجز تجربة قيادة')) }}
             </BaseButton>
@@ -98,6 +101,7 @@ const mediaSections = computed(() => {
   const sections: ModelStorySection[] = [
     {
       id: 'chapter-1',
+      kind: 'carousel',
       kicker: t('01 Luxury', '01 Luxe', '01 الفخامة'),
       title: t('Flagship Luxury', 'Luxe Phare', 'الفخامة الرائدة'),
       summary: t(
@@ -106,18 +110,19 @@ const mediaSections = computed(() => {
         'تبدأ Titan بتناسبات SUV كبيرة بطابع احتفالي، ووضعية رائدة بستة مقاعد، ونبرة مقصورة فاخرة بطابع الصالون مهيأة للسفر العائلي الراقي.'
       ),
       images: [
-        '/assets/OFFICIALVOYAH/titan/images/sc_2.jpg',
-        '/assets/OFFICIALVOYAH/titan/images/sc_3.jpg',
-        '/assets/OFFICIALVOYAH/titan/images/sc_4_1.jpg',
-        '/assets/OFFICIALVOYAH/titan/images/sc_4_2.jpg',
-        '/assets/OFFICIALVOYAH/titan/images/sc_6_1.jpg',
-        '/assets/OFFICIALVOYAH/titan/images/sc_7_1.jpg',
-        '/assets/OFFICIALVOYAH/titan/images/sc_8_1.jpg',
-        '/assets/OFFICIALVOYAH/titan/images/sc_9.jpg'
+        '/voyah-resources/images/car/titan/1920/sc_2.jpg',
+        '/voyah-resources/images/car/titan/1920/sc_3.jpg',
+        '/voyah-resources/images/car/titan/1920/sc_4_1.jpg',
+        '/voyah-resources/images/car/titan/1920/sc_4_2.jpg',
+        '/voyah-resources/images/car/titan/1920/sc_6_1.jpg',
+        '/voyah-resources/images/car/titan/1920/sc_7_1.jpg',
+        '/voyah-resources/images/car/titan/1920/sc_8_1.jpg',
+        '/voyah-resources/images/car/titan/1920/sc_9.jpg'
       ]
     },
     {
       id: 'chapter-2',
+      kind: 'carousel',
       kicker: t('02 Intelligence', '02 Intelligence', '02 الذكاء'),
       title: t('Flagship Intelligence', 'Intelligence Phare', 'الذكاء الرائد'),
       summary: t(
@@ -126,17 +131,18 @@ const mediaSections = computed(() => {
         'تحدد مقصورة رقمية من جيل Harmony وثقة القيادة المساعدة من Huawei ومشهد الصوت الفاخر داخل المقصورة فصل الذكاء الرائد في Titan.'
       ),
       images: [
-        '/assets/OFFICIALVOYAH/titan/images/sc_20.jpg',
-        '/assets/OFFICIALVOYAH/titan/images/sc_21.jpg',
-        '/assets/OFFICIALVOYAH/titan/images/sc_22.jpg',
-        '/assets/OFFICIALVOYAH/titan/images/sc_23.jpg',
-        '/assets/OFFICIALVOYAH/titan/images/sc_11.jpg',
-        '/assets/OFFICIALVOYAH/titan/images/sc_13_1.jpg'
+        '/voyah-resources/images/car/titan/1920/sc_20.jpg',
+        '/voyah-resources/images/car/titan/1920/sc_21.jpg',
+        '/voyah-resources/images/car/titan/1920/sc_22.jpg',
+        '/voyah-resources/images/car/titan/1920/sc_23.jpg',
+        '/voyah-resources/images/car/titan/1920/sc_11.jpg',
+        '/voyah-resources/images/car/titan/1920/sc_13_1.jpg'
       ],
       videos: ['/voyah-resources/images/car/titan/video_01.mp4']
     },
     {
       id: 'chapter-3',
+      kind: 'carousel',
       kicker: t('03 Performance', '03 Performance', '03 الأداء'),
       title: t('Flagship Performance', 'Performance Phare', 'الأداء الرائد'),
       summary: t(
@@ -145,17 +151,18 @@ const mediaSections = computed(() => {
         'يشكل هيكل راحة من فئة المليون وقدرات قوية على مختلف الطرق وثبات مدى طويل Titan كسيارة SUV رائدة هادئة لكنها قوية الحضور.'
       ),
       images: [
-        '/assets/OFFICIALVOYAH/titan/images/sc_25.jpg',
-        '/assets/OFFICIALVOYAH/titan/images/sc_27_1.jpg',
-        '/assets/OFFICIALVOYAH/titan/images/sc_28.jpg',
-        '/assets/OFFICIALVOYAH/titan/images/sc_29.jpg',
-        '/assets/OFFICIALVOYAH/titan/images/sc_30.jpg',
-        '/assets/OFFICIALVOYAH/titan/images/sc_31.jpg'
+        '/voyah-resources/images/car/titan/1920/sc_25.jpg',
+        '/voyah-resources/images/car/titan/1920/sc_27_1.jpg',
+        '/voyah-resources/images/car/titan/1920/sc_28.jpg',
+        '/voyah-resources/images/car/titan/1920/sc_29.jpg',
+        '/voyah-resources/images/car/titan/1920/sc_30.jpg',
+        '/voyah-resources/images/car/titan/1920/sc_31.jpg'
       ],
       videos: ['/voyah-resources/images/car/titan/video_04.mp4']
     },
     {
       id: 'chapter-4',
+      kind: 'carousel',
       kicker: t('04 Safety', '04 Securite', '04 السلامة'),
       title: t('Flagship Safety', 'Securite Phare', 'السلامة الرائدة'),
       summary: t(
@@ -164,12 +171,12 @@ const mediaSections = computed(() => {
         'تُكمل بنية الهيكل المعززة وحماية البطارية متعددة الطبقات وحماية الركاب الشاملة Titan بثقة سلامة عائلية على مستوى الطرازات الرائدة.'
       ),
       images: [
-        '/assets/OFFICIALVOYAH/titan/images/sc_32.jpg',
-        '/assets/OFFICIALVOYAH/titan/images/sc_33_1.jpg',
-        '/assets/OFFICIALVOYAH/titan/images/sc_33_2.jpg',
-        '/assets/OFFICIALVOYAH/titan/images/sc_34_1.jpg',
-        '/assets/OFFICIALVOYAH/titan/images/sc_35_1.jpg',
-        '/assets/OFFICIALVOYAH/titan/images/sc_35_2.jpg'
+        '/voyah-resources/images/car/titan/1920/sc_32.jpg',
+        '/voyah-resources/images/car/titan/1920/sc_33_1.jpg',
+        '/voyah-resources/images/car/titan/1920/sc_33_2.jpg',
+        '/voyah-resources/images/car/titan/1920/sc_34_1.jpg',
+        '/voyah-resources/images/car/titan/1920/sc_35_1.jpg',
+        '/voyah-resources/images/car/titan/1920/sc_35_2.jpg'
       ]
     }
   ]
@@ -199,7 +206,6 @@ const mediaSections = computed(() => {
 <style scoped>
 .titan-page {
   background: #fff;
-  scroll-snap-type: y mandatory;
 }
 
 .titan-hero {
@@ -207,7 +213,6 @@ const mediaSections = computed(() => {
   height: 100vh;
   min-height: 700px;
   overflow: hidden;
-  scroll-snap-align: start;
 }
 
 .titan-hero-bg {

@@ -8,7 +8,7 @@
     <HomeServiceGrid id="service" :data="homePage.service" />
     <HomeCommunity id="community" :data="homePage.community" />
     <HomeGlobalMap id="map" :data="homePage.footprint" />
-    <HomeQuickActions />
+ 
   </div>
 </template>
 

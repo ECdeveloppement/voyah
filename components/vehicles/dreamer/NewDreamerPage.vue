@@ -7,6 +7,9 @@
         <img src="/assets/OFFICIALVOYAH/newDreamer/images/newDreamer.png" class="kv-logo" />
         <p class="kv-slogan">{{ textFor({ en: 'Panoramic Luxury Tech Flagship MPV', fr: 'MPV Phare Technologique Luxueux Panoramique', ar: 'MPV رائد تقني فاخر بانورامي' }) }}</p>
         <div class="kv-btns">
+          <NuxtLink :to="buildPath('configuration-detail') + '?carModel=dreamer-2025'" class="voyah-button voyah-button--plain">
+            <span class="voyah-button__text">{{ textFor({ en: 'Configuration', fr: 'Configuration', ar: 'التكوين' }) }}</span>
+          </NuxtLink>
           <button class="voyah-button voyah-button--plain">{{ textFor({ en: 'Book Test Drive', fr: 'Réserver Essai', ar: 'حجز تجربة قيادة' }) }}</button>
           <button class="voyah-button voyah-button--dark">{{ textFor({ en: 'Order Now', fr: 'Commander', ar: 'اطلب الآن' }) }}</button>
         </div>
@@ -372,7 +375,7 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useSiteContent } from '~/composables/useSiteContent'
 
-const { textFor } = useSiteContent()
+const { textFor, buildPath } = useSiteContent()
 const activeSection = ref(0)
 const showMobileNav = ref(false)
 const currentColor = ref(0)

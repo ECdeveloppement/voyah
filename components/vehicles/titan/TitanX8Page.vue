@@ -4,7 +4,7 @@
     <section class="titan-x8-hero" id="hero">
       <div class="titan-x8-hero-bg">
         <img 
-          src="/assets/OFFICIALVOYAH/titanX8/images/sc_1.jpg" 
+          src="/voyah-resources/images/car/titan_X8/1920/sc_1.jpg" 
           alt="Voyah Titan X8"
           class="titan-x8-hero-image"
           loading="eager"
@@ -16,7 +16,7 @@
       <div class="titan-x8-hero-content">
         <div class="titan-x8-hero-inner">
           <img 
-            src="/assets/OFFICIALVOYAH/titanX8/images/titan_X8.png" 
+            src="/voyah-resources/images/car/car_logo/titan_X8.png" 
             alt="Voyah Titan X8"
             class="titan-x8-hero-logo inview-animated"
             loading="eager"
@@ -63,7 +63,7 @@
     <ModelChapterNav :sections="chapterLinks" variant="titan-x8" />
 
     <!-- Section 1: Courtyard Space -->
-    <section class="titan-x8-section-full" id="section1" style="background-image: url('/assets/OFFICIALVOYAH/titanX8/images/sc_2.jpg')">
+    <section class="titan-x8-section-full" id="section1" style="background-image: url('/voyah-resources/images/car/titan_X8/1920/sc_2.jpg')">
       <div class="titan-x8-section-content">
         <h2 class="titan-x8-section-title inview-animated">{{ textFor(section1Title) }}</h2>
         <p class="titan-x8-section-subtitle inview-animated" style="--inview-delay: 0.1s;">{{ textFor(section1Subtitle) }}</p>
@@ -82,7 +82,7 @@
     </section>
 
     <!-- Section 2: Zero-Gravity Seats -->
-    <section class="titan-x8-section-full" id="section2" style="background-image: url('/assets/OFFICIALVOYAH/titanX8/images/sc_6.jpg')">
+    <section class="titan-x8-section-full" id="section2" style="background-image: url('/voyah-resources/images/car/titan_X8/1920/sc_3.jpg')">
       <div class="titan-x8-section-content">
         <h2 class="titan-x8-section-title inview-animated">{{ textFor(section2Title) }}</h2>
         <p class="titan-x8-section-subtitle inview-animated" style="--inview-delay: 0.1s;">{{ textFor(section2Subtitle) }}</p>
@@ -104,7 +104,7 @@
     </section>
 
     <!-- Section 3: Huawei ADS -->
-    <section class="titan-x8-section-full" id="section3" style="background-image: url('/assets/OFFICIALVOYAH/titanX8/images/sc_9.jpg')">
+    <section class="titan-x8-section-full" id="section3" style="background-image: url('/voyah-resources/images/car/titan_X8/1920/sc_1.jpg')">
       <div class="titan-x8-section-content">
         <h2 class="titan-x8-section-title inview-animated">{{ textFor(section3Title) }}</h2>
         <p class="titan-x8-section-subtitle inview-animated" style="--inview-delay: 0.1s;">{{ textFor(section3Subtitle) }}</p>
@@ -128,7 +128,7 @@
     </section>
 
     <!-- Section 4: Range & Charging -->
-    <section class="titan-x8-section-full" id="section4" style="background-image: url('/assets/OFFICIALVOYAH/titanX8/images/sc_12.jpg')">
+    <section class="titan-x8-section-full" id="section4" style="background-image: url('/voyah-resources/images/car/titan_X8/1920/sc_2.jpg')">
       <div class="titan-x8-section-content">
         <h2 class="titan-x8-section-title inview-animated">{{ textFor(section4Title) }}</h2>
         <p class="titan-x8-section-subtitle inview-animated" style="--inview-delay: 0.1s;">{{ textFor(section4Subtitle) }}</p>
@@ -157,7 +157,7 @@
     </section>
 
     <!-- Section 5: Chassis -->
-    <section class="titan-x8-section-full" id="section5" style="background-image: url('/assets/OFFICIALVOYAH/titanX8/images/sc_15.jpg')">
+    <section class="titan-x8-section-full" id="section5" style="background-image: url('/voyah-resources/images/car/titan_X8/1920/sc_3.jpg')">
       <div class="titan-x8-section-content">
         <h2 class="titan-x8-section-title inview-animated">{{ textFor(section5Title) }}</h2>
         <p class="titan-x8-section-subtitle inview-animated" style="--inview-delay: 0.1s;">{{ textFor(section5Subtitle) }}</p>
@@ -249,17 +249,17 @@ const section1Subtitle = t('Garden-level comfort, villa-class enjoyment', 'Confo
 
 const spaceFeatures = [
   {
-    image: '/assets/OFFICIALVOYAH/titanX8/images/sc_3.jpg',
+    image: '/voyah-resources/images/car/titan_X8/1920/sc_1.jpg',
     title: t('Large 5-Seat Layout', 'Grande disposition 5 places', 'تخطيط 5 مقاعد كبير'),
     desc: t('Spacious interior space, every seat is a VIP seat', 'Intérieur spacieux, chaque siège est un siège VIP', 'مساحة داخلية واسعة، كل مقعد هو مقعد VIP')
   },
   {
-    image: '/assets/OFFICIALVOYAH/titanX8/images/sc_4.jpg',
+    image: '/voyah-resources/images/car/titan_X8/1920/sc_2.jpg',
     title: t('Flexible Storage', 'Rangement flexible', 'تخزين مرن'),
     desc: t('Multiple storage spaces to meet various travel needs', 'Multiples espaces de rangement pour répondre à divers besoins de voyage', 'مساحات تخزين متعددة لتلبية احتياجات السفر المختلفة')
   },
   {
-    image: '/assets/OFFICIALVOYAH/titanX8/images/sc_5.jpg',
+    image: '/voyah-resources/images/car/titan_X8/1920/sc_3.jpg',
     title: t('Panoramic Sunroof', 'Toit panoramique', 'سقف بانورامي'),
     desc: t('Extra-large opening, enjoy the infinite scenery', 'Ouverture ultra-large, profitez du paysage infini', 'فتحة كبيرة جداً، استمتع بالمناظر اللانهائية')
   }
@@ -273,12 +273,12 @@ const seatsTitle = t('Second Row Dual Enjoyment', 'Double plaisir deuxième rang
 
 const seatFeatures = [
   {
-    image: '/assets/OFFICIALVOYAH/titanX8/images/sc_7.jpg',
+    image: '/voyah-resources/images/car/titan_X8/1920/sc_1.jpg',
     title: t('Zero-Gravity Mode', 'Mode zéro-gravité', 'وضع بلا جاذبية'),
     desc: t('One-click zero-gravity posture, evenly distributed body pressure', 'Posture zéro-gravité en un clic, pression corporelle uniformément répartie', 'وضع بلا جاذبية بنقرة واحدة، ضغط الجسم موزع بالتساوي')
   },
   {
-    image: '/assets/OFFICIALVOYAH/titanX8/images/sc_8.jpg',
+    image: '/voyah-resources/images/car/titan_X8/1920/sc_2.jpg',
     title: t('Massage Function', 'Fonction massage', 'وظيفة التدليك'),
     desc: t('Multiple massage modes, enjoy SPA-level comfort', 'Multiples modes de massage, confort niveau SPA', 'أوضاع تدليك متعددة، استمتع براحة مستوى السبا')
   }
@@ -329,17 +329,17 @@ const chassisTitle = t('Three-Chamber Air Suspension', 'Suspension pneumatique t
 
 const chassisFeatures = [
   {
-    image: '/assets/OFFICIALVOYAH/titanX8/images/sc_16.jpg',
+    image: '/voyah-resources/images/car/titan_X8/1920/sc_1.jpg',
     title: t('Three-Chamber Air Suspension', 'Suspension pneumatique trois chambres', 'تعليق هوائي بـ3 غرف'),
     desc: t('Adjustable stiffness and height, comfortable on any road', 'Rigidité et hauteur ajustables, confortable sur toute route', 'صلابة وارتفاع قابلين للتعديل، مريح على أي طريق')
   },
   {
-    image: '/assets/OFFICIALVOYAH/titanX8/images/sc_17.jpg',
+    image: '/voyah-resources/images/car/titan_X8/1920/sc_2.jpg',
     title: t('CDC Continuous Damping', 'Amortissement continu CDC', 'تخميد مستمر CDC'),
     desc: t('Real-time adjustment, smooth and stable', 'Ajustement en temps réel, doux et stable', 'تعديل في الوقت الفعلي، سلس ومستقر')
   },
   {
-    image: '/assets/OFFICIALVOYAH/titanX8/images/sc_18.jpg',
+    image: '/voyah-resources/images/car/titan_X8/1920/sc_3.jpg',
     title: t('Dual Motor 4WD', '4WD double moteur', 'دفع رباعي بمحركين'),
     desc: t('Powerful output, confident in all conditions', 'Sortie puissante, confiance dans toutes les conditions', 'قوة خرج عالية، ثقة في جميع الظروف')
   }
@@ -349,10 +349,9 @@ const chassisFeatures = [
 const galleryTitle = t('Exterior Gallery', 'Galerie extérieure', 'معرض الخارج')
 
 const galleryImages = [
-  '/assets/OFFICIALVOYAH/titanX8/images/sc_19.jpg',
-  '/assets/OFFICIALVOYAH/titanX8/images/sc_20.jpg',
-  '/assets/OFFICIALVOYAH/titanX8/images/sc_21.jpg',
-  '/assets/OFFICIALVOYAH/titanX8/images/sc_22.jpg'
+  '/voyah-resources/images/car/titan_X8/1920/sc_1.jpg',
+  '/voyah-resources/images/car/titan_X8/1920/sc_2.jpg',
+  '/voyah-resources/images/car/titan_X8/1920/sc_3.jpg'
 ]
 
 // CTA

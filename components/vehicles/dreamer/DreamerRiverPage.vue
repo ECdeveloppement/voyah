@@ -7,6 +7,10 @@
         <img src="/assets/OFFICIALVOYAH/dreamriver/images/dreamriver.png" class="kv-logo" loading="eager" fetchpriority="high" decoding="async" />
         <p class="kv-slogan">{{ textFor({ en: 'New Era Flagship Four-Seat MPV', fr: 'MPV Phare Quatre Places Nouvelle Ère', ar: 'MPV رائد بأربعة مقاعد في عصر جديد' }) }}</p>
         <div class="kv-btns">
+          <NuxtLink :to="buildPath('configuration-detail') + '?carModel=dreamer-mountains'" class="voyah-button voyah-button--plain">
+            <span class="voyah-button__text">{{ textFor({ en: 'Configuration', fr: 'Configuration', ar: 'التكوين' }) }}</span>
+          </NuxtLink>
+          <button class="voyah-button voyah-button--plain">{{ textFor({ en: 'Book Test Drive', fr: 'Réserver Essai', ar: 'حجز تجربة قيادة' }) }}</button>
           <button class="voyah-button voyah-button--dark">{{ textFor({ en: 'Order Now', fr: 'Commander', ar: 'اطلب الآن' }) }}</button>
         </div>
       </div>
@@ -204,7 +208,7 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useSiteContent } from '~/composables/useSiteContent'
 
-const { textFor } = useSiteContent()
+const { textFor, buildPath } = useSiteContent()
 const currentColor = ref(0)
 const currentSlide = ref({
   luxury: 0,

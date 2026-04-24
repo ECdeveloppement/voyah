@@ -1,11 +1,11 @@
 <template>
   <div :class="['site-shell', { 'is-rtl': currentLocale.dir === 'rtl' && !isLegacyParityPage }]">
-    <SiteHeader v-if="!isLegacyParityPage" />
+    <SiteHeader  v-if="!isLegacyParityPage" />
     <main :class="['site-main', { 'site-main--legacy': isLegacyParityPage, 'site-main--snapping': isSnappingPage }]">
       <slot />
     </main>
     <AppSidebar v-if="!isLegacyParityPage" />
-    <ScrollDots v-if="!isLegacyParityPage" />
+    <ScrollDots v-if="!isLegacyParityPage && !isPassionPage && !isTitanPage && !isTitanBlackEditionPage && !isTitanX8Page && !isDreamerPage" />
     <SiteFooter v-if="!isLegacyParityPage" />
   </div>
 </template>
@@ -27,9 +27,31 @@ const isLegacyParityPage = computed(() =>
   ['store.html'].some((slug) => route.path.endsWith(`/${slug}`) || route.path === `/${slug}`)
 )
 
+const isPassionPage = computed(() =>
+  ['passion.html'].some((slug) => route.path.endsWith(`/${slug}`) || route.path === `/${slug}`)
+)
+
+const isTitanPage = computed(() =>
+  ['titan.html'].some((slug) => route.path.endsWith(`/${slug}`) || route.path === `/${slug}`)
+)
+
+const isTitanBlackEditionPage = computed(() =>
+  ['titan_blackedition.html'].some((slug) => route.path.endsWith(`/${slug}`) || route.path === `/${slug}`)
+)
+
+const isTitanX8Page = computed(() =>
+  ['titan_X8.html'].some((slug) => route.path.endsWith(`/${slug}`) || route.path === `/${slug}`)
+)
+
+const isDreamerPage = computed(() =>
+  ['dreamer.html'].some((slug) => route.path.endsWith(`/${slug}`) || route.path === `/${slug}`)
+)
+
 const currentPage = computed(() => resolveCurrentPage())
 const isSnappingPage = computed(() => {
   if (!currentPage.value) return true // Homepage snapping
+  // Exclude titan.html from snapping for fixed display
+  if (currentPage.value.slug === 'titan.html') return false
   return currentPage.value.kind === 'model' // Vehicle model pages
 })
 

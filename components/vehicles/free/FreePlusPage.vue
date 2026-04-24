@@ -16,14 +16,21 @@
           fetchpriority="high"
           decoding="async"
         />
+        <div class="kv-model-info inview-child inview-animated" style="--inview-delay: 0.35s;">
+          <h1 class="kv-model-name">Voyah FREE+</h1>
+          <p class="kv-model-price">À partir de 209 900 RMB</p>
+        </div>
         <p class="kv-slogan inview-child inview-animated" style="--inview-delay: 0.4s;">
-          {{ textFor({ en: 'Redefine Your Journey', fr: 'Redéfinissez Votre Voyage', ar: 'أعد تعريف رحلتك' }) }}
+          {{ textFor({ en: 'New Energy Driving Control SUV', fr: 'SUV Contrôle Conduite Énergie Nouvelle', ar: 'سيارة SUV كهربائية جديدة' }) }}
         </p>
         <div class="kv-btns inview-child inview-animated" style="--inview-delay: 0.5s;">
-          <button class="voyah-button voyah-button--more voyah-button--dark voyah-button--plain">
-            <span class="voyah-button__text">{{ textFor({ en: 'Book Test Drive', fr: 'Réserver un Essai', ar: 'احجز تجربة قيادة' }) }}</span>
+          <NuxtLink :to="buildPath('configuration-detail') + '?carModel=free-plus'" class="voyah-button voyah-button--default voyah-button--dark voyah-button--plain">
+            <span class="voyah-button__text">{{ textFor({ en: 'Configuration', fr: 'Configuration', ar: 'التكوين' }) }}</span>
+          </NuxtLink>
+          <button class="voyah-button voyah-button--default voyah-button--dark voyah-button--plain">
+            <span class="voyah-button__text">{{ textFor({ en: 'Book Test Drive', fr: 'Réserver Essai', ar: 'حجز تجربة قيادة' }) }}</span>
           </button>
-          <button class="voyah-button voyah-button--more voyah-button--dark">
+          <button class="voyah-button voyah-button--default voyah-button--dark">
             <span class="voyah-button__text">{{ textFor({ en: 'Order Now', fr: 'Commander', ar: 'اطلب الآن' }) }}</span>
           </button>
         </div>
@@ -52,24 +59,7 @@
       </ul>
     </div>
 
-    <!-- Desktop Side Navigation -->
-    <nav class="side-nav" :class="{ visible: showSideNav }">
-      <div class="nav-line">
-        <div class="nav-progress" :style="{ height: navProgress + '%' }"></div>
-      </div>
-      <ul class="nav-dots">
-        <li
-          v-for="(section, index) in chapterSections"
-          :key="section.id"
-          class="nav-dot"
-          :class="{ active: activeSection === index }"
-          @click="scrollToSection(section.id)"
-        >
-          <span class="dot-number">{{ String(index + 1).padStart(2, '0') }}</span>
-          <span class="dot-title">{{ section.shortTitle || section.title }}</span>
-        </li>
-      </ul>
-    </nav>
+
 
     <!-- Section 1: HarmonyOS Cockpit -->
     <section id="section1" class="level-one" targetindex="0" ref="sectionRefs[0]">
@@ -488,7 +478,7 @@
 import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
 import { useSiteContent } from '~/composables/useSiteContent'
 
-const { textFor } = useSiteContent()
+const { textFor, buildPath } = useSiteContent()
 
 // Navigation state
 const activeSection = ref(0)
@@ -566,12 +556,12 @@ const interiorSlides = computed(() => [
     desc: textFor({ en: 'NASA-inspired ergonomic seating for ultimate comfort', fr: 'Sièges ergonomiques inspirés de la NASA pour un confort ultime', ar: 'مقاعد مريحة مستوحاة من ناسا لراحة قصوى' })
   },
   {
-    image: '/assets/OFFICIALVOYAH/freeplus/images/img_14_02.png',
+    image: '/voyah-resources/images/car/free/kv_1920.png',
     title: textFor({ en: 'Premium Materials', fr: 'Matériaux Premium', ar: 'مواد فاخرة' }),
     desc: textFor({ en: 'Nappa leather and sustainable wood trim throughout', fr: 'Cuir Nappa et finition bois durable dans tout l\'habitacle', ar: 'جلد نابا وتشطيبات خشبية مستدامة في كل مكان' })
   },
   {
-    image: '/assets/OFFICIALVOYAH/freeplus/images/img_14_03.png',
+    image: '/voyah-resources/images/car/free/bg_free_pc15_0001_1920.jpg',
     title: textFor({ en: 'Ambient Lighting', fr: 'Éclairage d\'Ambiance', ar: 'إضاءة المحيطة' }),
     desc: textFor({ en: '64-color ambient lighting with customizable themes', fr: 'Éclairage d\'ambiance 64 couleurs avec thèmes personnalisables', ar: 'إضاءة محيطة بـ64 لون مع موضوعات قابلة للتخصيص' })
   }
@@ -713,6 +703,30 @@ onUnmounted(() => {
   width: 280px;
   height: auto;
   margin-bottom: 24px;
+}
+
+.kv-model-info {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.kv-model-name {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-family: 'DDIN', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  color: #fff;
+}
+
+.kv-model-price {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-weight: 400;
+  margin: 0;
+  opacity: 0.8;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .kv-slogan {

@@ -15,10 +15,17 @@
           fetchpriority="high"
           decoding="async"
         />
+        <div class="kv-model-info inview-child inview-animated" style="--inview-delay: 0.35s;">
+          <h1 class="kv-model-name">Voyah FREE 318</h1>
+          <p class="kv-model-price">À partir de 189 900 RMB</p>
+        </div>
         <p class="kv-slogan inview-child inview-animated" style="--inview-delay: 0.4s;">
           {{ textFor({ en: 'New Energy Driving Control SUV', fr: 'SUV Contrôle Conduite Énergie Nouvelle', ar: 'سيارة SUV كهربائية جديدة' }) }}
         </p>
         <div class="kv-btns inview-child inview-animated" style="--inview-delay: 0.5s;">
+          <NuxtLink :to="buildPath('configuration-detail') + '?carModel=free-318'" class="voyah-button voyah-button--default voyah-button--dark voyah-button--plain">
+            <span class="voyah-button__text">{{ textFor({ en: 'Configuration', fr: 'Configuration', ar: 'التكوين' }) }}</span>
+          </NuxtLink>
           <button class="voyah-button voyah-button--default voyah-button--dark voyah-button--plain">
             <span class="voyah-button__text">{{ textFor({ en: 'Order Now', fr: 'Commander', ar: 'اطلب الآن' }) }}</span>
           </button>
@@ -487,7 +494,7 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useSiteContent } from '~/composables/useSiteContent'
 
-const { textFor } = useSiteContent()
+const { textFor, buildPath } = useSiteContent()
 
 // Navigation state
 const activeSection = ref(0)
@@ -642,6 +649,7 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  z-index: 1;
 }
 
 .kv-content {
@@ -656,6 +664,30 @@ onUnmounted(() => {
   width: 280px;
   height: auto;
   margin-bottom: 24px;
+}
+
+.kv-model-info {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.kv-model-name {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-family: 'DDIN', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  color: #fff;
+}
+
+.kv-model-price {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-weight: 400;
+  margin: 0;
+  opacity: 0.8;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .kv-slogan {

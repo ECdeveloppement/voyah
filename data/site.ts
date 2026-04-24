@@ -1769,3 +1769,5 @@ export const localize = (text: LocalizedText, locale: LocaleCode): string => tex
 export const findLocale = (code?: string) => locales.find((locale) => locale.code === code)
 
 export const resolvePage = (slug?: string): SitePage | undefined => (slug ? sitePageMap.get(slug) : undefined)
+
+

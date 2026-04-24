@@ -73,6 +73,7 @@ const t = (en: string, fr: string, ar: string): LocalizedText => ({
 
 export type ModelStorySection = {
   id: string
+  kind?: 'banner' | 'carousel' | 'gallery'
   kicker?: LocalizedText
   title: LocalizedText
   summary: LocalizedText

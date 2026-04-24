@@ -3,7 +3,7 @@
     <!-- Hero Section -->
     <section class="kv-section">
       <img 
-        src="/assets/OFFICIALVOYAH/passion-L/images/sc_1.jpg" 
+        src="/voyah-resources/images/car/passion-L/1920/sc_1.jpg" 
         alt="Passion L" 
         class="kv-bg-img"
         loading="eager"
@@ -11,18 +11,17 @@
         decoding="async"
       />
       <div class="kv-content">
-        <img 
-          src="/assets/OFFICIALVOYAH/passion-L/images/f4f5a6a1-71c8-4531-8a05-4e6e0cf7f70f1770619343790.png" 
-          alt="Passion L Logo" 
-          class="kv-logo inview-child inview-animated"
-          loading="lazy"
-          fetchpriority="low"
-          decoding="async"
-        />
+        <div class="kv-model-info inview-child inview-animated" style="--inview-delay: 0.3s;">
+          <h1 class="kv-model-name">Voyah Passion L</h1>
+          <p class="kv-model-price">À partir de 279 900 RMB</p>
+        </div>
         <p class="kv-slogan inview-child inview-animated" style="--inview-delay: 0.4s;">
           {{ textFor({ en: 'New-Era Flagship Sedan', fr: 'Berline Phare Nouvelle Ère', ar: 'سيدان رائدة من جيل جديد' }) }}
         </p>
         <div class="kv-btns inview-child inview-animated" style="--inview-delay: 0.5s;">
+          <NuxtLink :to="buildPath('configuration-detail') + '?carModel=passion-L'" class="voyah-button voyah-button--more voyah-button--dark voyah-button--plain">
+            <span class="voyah-button__text">{{ textFor({ en: 'Configuration', fr: 'Configuration', ar: 'التكوين' }) }}</span>
+          </NuxtLink>
           <button class="voyah-button voyah-button--more voyah-button--dark voyah-button--plain">
             <span class="voyah-button__text">{{ textFor({ en: 'Book Test Drive', fr: 'Réserver un Essai', ar: 'احجز تجربة قيادة' }) }}</span>
           </button>
@@ -55,28 +54,9 @@
       </ul>
     </div>
 
-    <!-- Desktop Side Navigation -->
-    <nav class="side-nav" :class="{ visible: showSideNav }">
-      <div class="nav-line">
-        <div class="nav-progress" :style="{ height: navProgress + '%' }"></div>
-      </div>
-      <ul class="nav-dots">
-        <li 
-          v-for="(section, index) in chapterSections" 
-          :key="section.id"
-          class="nav-dot"
-          :class="{ active: activeSection === index }"
-          @click="scrollToSection(section.id)"
-        >
-          <span class="dot-number">{{ String(index + 1).padStart(2, '0') }}</span>
-          <span class="dot-title">{{ section.shortTitle || section.title }}</span>
-        </li>
-      </ul>
-    </nav>
-
     <!-- Section 1: Oriental Flagship Aesthetics -->
     <section id="section1" class="level-one" targetindex="0" ref="sectionRefs[0]">
-      <div class="section-bg" style="background-image: url('/assets/OFFICIALVOYAH/passion-L/images/sc_2.jpg');"></div>
+      <div class="section-bg" style="background-image: url('/voyah-resources/images/car/passion-L/1920/sc_2.jpg');"></div>
       <div class="section-content">
         <h2 class="title inview-child inview-animated" style="--inview-delay: 0.3s;">{{ textFor({ en: 'Oriental Flagship Aesthetics', fr: 'Esthétique Orientale Phare', ar: 'الجماليات الشرقية الرائدة' }) }}</h2>
         <p class="subTitle inview-child inview-animated" style="--inview-delay: 0.4s;">{{ textFor({ en: 'Kunpeng Exterior Design', fr: 'Design Extérieur Kunpeng', ar: 'تصميم كون بينغ الخارجي' }) }}</p>
@@ -215,9 +195,10 @@
           :key="color.id"
           class="swiper-slide"
           :style="{ 
-            transition: 'none', 
-            left: idx === currentColor ? '0' : '100%',
-            opacity: idx === currentColor ? 1 : 0
+            transition: 'transform 0.5s ease-in-out, opacity 0.5s ease-in-out', 
+            transform: `translateX(${idx === currentColor ? '0' : '100%'})`,
+            opacity: idx === currentColor ? 1 : 0,
+            zIndex: idx === currentColor ? 1 : 0
           }"
         >
           <div class="swiper-slide-item">
@@ -243,7 +224,7 @@
 
     <!-- Section 6: Interior Space - Kunpeng Ambition -->
     <section id="section6" class="level-one" targetindex="0" ref="sectionRefs[5]">
-      <div class="section-bg" style="background-image: url('/assets/OFFICIALVOYAH/passion-L/images/sc_17.jpg');"></div>
+      <div class="section-bg" style="background-image: url('/voyah-resources/images/car/passion-L/1920/sc_17.jpg');"></div>
       <div class="section-content">
         <h2 class="title inview-child inview-animated" style="--inview-delay: 0.3s;">{{ textFor({ en: 'Kunpeng Ambition', fr: 'Ambition Kunpeng', ar: 'طموح كون بينغ' }) }}</h2>
         <p class="subTitle inview-child inview-animated" style="--inview-delay: 0.4s;">{{ textFor({ en: 'Elegant Oriental Interior', fr: 'Intérieur Oriental Élégant', ar: 'المقصورة الشرقية الأنيقة' }) }}</p>
@@ -293,7 +274,7 @@
 
     <!-- Section 7: HarmonySpace Cockpit -->
     <section id="section7" class="level-one" targetindex="0" ref="sectionRefs[6]">
-      <div class="section-bg" style="background-image: url('/assets/OFFICIALVOYAH/passion-L/images/sc_25.jpg');"></div>
+      <div class="section-bg" style="background-image: url('/voyah-resources/images/car/passion-L/1920/sc_25.jpg');"></div>
       <div class="section-content">
         <h2 class="title inview-child inview-animated" style="--inview-delay: 0.3s;">{{ textFor({ en: 'HarmonySpace Cockpit', fr: 'Cockpit HarmonySpace', ar: 'مقصورة هارموني سبيس' }) }}</h2>
         <p class="subTitle inview-child inview-animated" style="--inview-delay: 0.4s;">{{ textFor({ en: 'New Human-Vehicle Interaction', fr: 'Nouvelle Interaction Homme-Véhicule', ar: 'تفاعل جديد بين الإنسان والمركبة' }) }}</p>
@@ -304,7 +285,7 @@
     <section class="common">
       <h3 class="title inview-child">{{ textFor({ en: 'HarmonySpace Smart Cockpit', fr: 'Cockpit Intelligent HarmonySpace', ar: 'مقصورة هارموني سبيس الذكية' }) }}</h3>
       <div class="single-img-container inview-child">
-        <img src="https://www.voyah.com.cn/voyah-resources/images/car/passion-L/1920/sc_26.jpg" alt="HarmonySpace" class="single-img" />
+        <img src="/voyah-resources/images/car/passion-L/1920/sc_27.jpg" alt="HarmonySpace" class="single-img" />
       </div>
       <div class="single-description inview-child">
         <div class="description-item">
@@ -383,7 +364,7 @@
 
     <!-- Powertrain Section -->
     <section id="section8" class="level-one">
-      <div class="section-bg" style="background-image: url('/assets/OFFICIALVOYAH/passion-L/images/sc_31.jpg');"></div>
+      <div class="section-bg" style="background-image: url('/voyah-resources/images/car/passion-L/1920/sc_31.jpg');"></div>
       <div class="section-content">
         <h2 class="title inview-child inview-animated">{{ textFor({ en: '800V Voyah Hybrid', fr: 'Hybride Voyah 800V', ar: 'هجين فوياج 800V' }) }}</h2>
         <p class="subTitle inview-child inview-animated">{{ textFor({ en: '410km range, boundless world', fr: '410km d\'autonomie, monde sans limites', ar: 'مدى 410 كم، عالم بلا حدود' }) }}</p>
@@ -447,7 +428,7 @@
 
     <!-- Chassis Section -->
     <section class="level-one">
-      <div class="section-bg" style="background-image: url('/assets/OFFICIALVOYAH/passion-L/images/sc_35.jpg');"></div>
+      <div class="section-bg" style="background-image: url('/voyah-resources/images/car/passion-L/1920/sc_35.jpg');"></div>
       <div class="section-content">
         <h2 class="title inview-child inview-animated">{{ textFor({ en: 'Stable Journey, Cloud View', fr: 'Voyage Stable, Vue sur les Nuages', ar: 'رحلة مستقرة، إطلالة على السحاب' }) }}</h2>
         <p class="subTitle inview-child inview-animated">{{ textFor({ en: 'Magic Carpet Chassis, Perfect Balance', fr: 'Châssis Tapis Magique, Équilibre Parfait', ar: 'هيكل السجادة السحرية، توازن مثالي' }) }}</p>
@@ -457,7 +438,7 @@
     <!-- Magic Carpet Features -->
     <section class="common">
       <div class="single-img-container inview-child">
-        <img src="/assets/OFFICIALVOYAH/passion-L/images/sc_36.jpg" alt="Chassis" class="single-img" />
+        <img src="/voyah-resources/images/car/passion-L/1920/sc_36.jpg" alt="Chassis" class="single-img" />
       </div>
       <div class="single-description inview-child features-grid">
         <div class="description-item">
@@ -522,7 +503,7 @@
 
     <!-- Safety Banner -->
     <section class="level-one">
-      <div class="section-bg" style="background-image: url('/assets/OFFICIALVOYAH/passion-L/images/sc_39.jpg');"></div>
+      <div class="section-bg" style="background-image: url('/voyah-resources/images/car/passion-L/1920/sc_39.jpg');"></div>
       <div class="section-content">
         <h2 class="title inview-child inview-animated">{{ textFor({ en: 'All-Round Protection', fr: 'Protection Totale', ar: 'حماية شاملة' }) }}</h2>
       </div>
@@ -532,7 +513,7 @@
     <section class="common">
       <h3 class="title inview-child">{{ textFor({ en: 'Solid Passive Protection', fr: 'Protection Passive Solide', ar: 'حماية سلبية صلبة' }) }}</h3>
       <div class="single-img-container inview-child">
-        <img src="/assets/OFFICIALVOYAH/passion-L/images/sc_40.jpg" alt="Passive Safety" class="single-img" />
+        <img src="/voyah-resources/images/car/passion-L/1920/sc_40.jpg" alt="Passive Safety" class="single-img" />
       </div>
       <div class="single-description inview-child">
         <div class="description-item">
@@ -564,7 +545,7 @@ const props = defineProps<{
   model: any
 }>()
 
-const { textFor } = useSiteContent()
+const { textFor, buildPath } = useSiteContent()
 
 // Chapter sections data - using model data for translations
 const chapterSections = computed(() => [
@@ -579,48 +560,48 @@ const chapterSections = computed(() => [
 
 // Swiper slides data with translations
 const zhanyiSlides = computed(() => [
-  { image: '/assets/OFFICIALVOYAH/passion-L/images/sc_3.jpg', title: textFor({ en: 'Kunpeng Wings - Front Design', fr: 'Ailes Kunpeng - Design Avant', ar: 'أجنحة كون بينغ - التصميم الأمامي' }), desc: textFor({ en: 'Majestic presence, grand vision', fr: 'Présence majestueuse, grande vision', ar: 'حضور مهيب، رؤية عظيمة' }) },
-  { image: '/assets/OFFICIALVOYAH/passion-L/images/sc_3-2.jpg', title: textFor({ en: 'Water Character Headlights', fr: 'Phares en Forme d\'Eau', ar: ' المصابيح الأمامية على شكل ماء' }), desc: textFor({ en: 'Striking water-inspired lighting', fr: 'Éclairage inspiré de l\'eau', ar: 'إضاءة مستوحاة من الماء' }) },
-  { image: '/assets/OFFICIALVOYAH/passion-L/images/sc_3-3.jpg', title: textFor({ en: 'Cascading Grille', fr: 'Grille en Cascade', ar: 'شبكة أمامية متتالية' }), desc: textFor({ en: 'Rising to the sky with confidence', fr: 'S\'élever vers le ciel avec confiance', ar: 'الصعود إلى السماء بثقة' }) }
+  { image: '/voyah-resources/images/car/passion-L/1920/sc_3.jpg', title: textFor({ en: 'Kunpeng Wings - Front Design', fr: 'Ailes Kunpeng - Design Avant', ar: 'أجنحة كون بينغ - التصميم الأمامي' }), desc: textFor({ en: 'Majestic presence, grand vision', fr: 'Présence majestueuse, grande vision', ar: 'حضور مهيب، رؤية عظيمة' }), },
+  { image: '/voyah-resources/images/car/passion-L/1920/sc_3-2.jpg', title: textFor({ en: 'Water Character Headlights', fr: 'Phares en Forme d\'Eau', ar: ' المصابيح الأمامية على شكل ماء' }), desc: textFor({ en: 'Striking water-inspired lighting', fr: 'Éclairage inspiré de l\'eau', ar: 'إضاءة مستوحاة من الماء' }), },
+  { image: '/voyah-resources/images/car/passion-L/1920/sc_3-3.jpg', title: textFor({ en: 'Cascading Grille', fr: 'Grille en Cascade', ar: 'شبكة أمامية متتالية' }), desc: textFor({ en: 'Rising to the sky with confidence', fr: 'S\'élever vers le ciel avec confiance', ar: 'الصعود إلى السماء بثقة' }) }
 ])
 
 const qingkongSlides = computed(() => [
-  { image: '/assets/OFFICIALVOYAH/passion-L/images/sc_4.jpg', title: textFor({ en: 'Side Profile', fr: 'Profil Latéral', ar: 'الجانبية' }), desc: textFor({ en: 'Aspiring to the clouds', fr: 'Aspirant aux nuages', ar: 'تطلع إلى السحاب' }) },
-  { image: '/assets/OFFICIALVOYAH/passion-L/images/sc_4-2.jpg', title: textFor({ en: '20-inch Radiant Wheels', fr: 'Jantes Rayonnantes 20 pouces', ar: 'عجلات 20 بوصة مشرقة' }), desc: textFor({ en: 'Illuminating the journey ahead', fr: 'Illuminant le voyage à venir', ar: 'إنارة الرحلة القادمة' }) },
-  { image: '/assets/OFFICIALVOYAH/passion-L/images/sc_4-3.jpg', title: textFor({ en: '20-inch Shining Wheels', fr: 'Jantes Brillantes 20 pouces', ar: 'عجلات 20 بوصة لامعة' }), desc: textFor({ en: 'Bold and fearless', fr: 'Audacieux et sans peur', ar: 'جريء و بلا خوف' }) },
-  { image: '/assets/OFFICIALVOYAH/passion-L/images/sc_4-4.jpg', title: textFor({ en: '19-inch Light Track Wheels', fr: 'Jantes 19 pouces', ar: 'عجلات 19 بوصة' }), desc: textFor({ en: 'Light accompanies every journey', fr: 'La lumière accompagne chaque voyage', ar: 'الضوء يرافق كل رحلة' }) }
+  { image: '/voyah-resources/images/car/passion-L/1920/sc_4.jpg', title: textFor({ en: 'Side Profile', fr: 'Profil Latéral', ar: 'الجانبية' }), desc: textFor({ en: 'Aspiring to the clouds', fr: 'Aspirant aux nuages', ar: 'تطلع إلى السحاب' }), },
+  { image: '/voyah-resources/images/car/passion-L/1920/sc_4-2.jpg', title: textFor({ en: '20-inch Radiant Wheels', fr: 'Jantes Rayonnantes 20 pouces', ar: 'عجلات 20 بوصة مشرقة' }), desc: textFor({ en: 'Illuminating the journey ahead', fr: 'Illuminant le voyage à venir', ar: 'إنارة الرحلة القادمة' }), },
+  { image: '/voyah-resources/images/car/passion-L/1920/sc_4-3.jpg', title: textFor({ en: '20-inch Shining Wheels', fr: 'Jantes Brillantes 20 pouces', ar: 'عجلات 20 بوصة لامعة' }), desc: textFor({ en: 'Bold and fearless', fr: 'Audacieux et sans peur', ar: 'جريء و بلا خوف' }), },
+  { image: '/voyah-resources/images/car/passion-L/1920/sc_4-4.jpg', title: textFor({ en: '19-inch Light Track Wheels', fr: 'Jantes 19 pouces', ar: 'عجلات 19 بوصة' }), desc: textFor({ en: 'Light accompanies every journey', fr: 'La lumière accompagne chaque voyage', ar: 'الضوء يرافق كل رحلة' }) }
 ])
 
 const xiaoyaoSlides = computed(() => [
-  { image: '/assets/OFFICIALVOYAH/passion-L/images/sc_5.jpg', title: textFor({ en: 'Rear Design', fr: 'Design Arrière', ar: 'التصميم الخلفي' }), desc: textFor({ en: 'Commanding presence', fr: 'Présence imposante', ar: 'حضور مهيب' }) },
-  { image: '/assets/OFFICIALVOYAH/passion-L/images/sc_5-2.jpg', title: textFor({ en: 'Feather Tail Lights', fr: 'Feux Arrière Plume', ar: 'أضواء خلفية ريشية' }), desc: textFor({ en: 'Moving forward with light', fr: 'Avancer avec la lumière', ar: 'التقدم مع الضوء' }) }
+  { image: '/voyah-resources/images/car/passion-L/1920/sc_5.jpg', title: textFor({ en: 'Rear Design', fr: 'Design Arrière', ar: 'التصميم الخلفي' }), desc: textFor({ en: 'Commanding presence', fr: 'Présence imposante', ar: 'حضور مهيب' }), },
+  { image: '/voyah-resources/images/car/passion-L/1920/sc_5-2.jpg', title: textFor({ en: 'Feather Tail Lights', fr: 'Feux Arrière Plume', ar: 'أضواء خلفية ريشية' }), desc: textFor({ en: 'Moving forward with light', fr: 'Avancer avec la lumière', ar: 'التقدم مع الضوء' }) }
 ])
 
 // Interior slides data with translations
 const interiorSlides = computed(() => [
-  { image: '/assets/OFFICIALVOYAH/passion-L/images/sc_18.jpg', title: textFor({ en: 'Cloud Mountain Seats', fr: 'Sièges Montagne Nuage', ar: 'مقاعد جبل الغيمة' }), desc: textFor({ en: 'MPV-level comfort with layered texture', fr: 'Confort de niveau MPV avec texture en couches', ar: 'راحة على مستوى MPV مع نسيج طبقي' }) },
-  { image: '/assets/OFFICIALVOYAH/passion-L/images/sc_19.jpg', title: textFor({ en: 'Crystal Gear Shifter', fr: 'Levier de Vitesse en Cristal', ar: 'عصبة التروس الكريستالية' }), desc: textFor({ en: 'Diamond-cut crystal, warm as jade', fr: 'Cristal taillé en diamant, chaud comme le jade', ar: 'كريستال مقطوع بالماس، دافئ كاليشم' }) },
-  { image: '/assets/OFFICIALVOYAH/passion-L/images/sc_20.jpg', title: textFor({ en: 'Thousand Peak Trim', fr: 'Finition Mille Sommets', ar: 'تشطيب ألف قمة' }), desc: textFor({ en: 'Majestic mountain-inspired design', fr: 'Design majestueux inspiré des montagnes', ar: 'تصميم مهيب مستوحى من الجبال' }) }
+  { image: '/voyah-resources/images/car/passion-L/1920/sc_18.jpg', title: textFor({ en: 'Cloud Mountain Seats', fr: 'Sièges Montagne Nuage', ar: 'مقاعد جبل الغيمة' }), desc: textFor({ en: 'MPV-level comfort with layered texture', fr: 'Confort de niveau MPV avec texture en couches', ar: 'راحة على مستوى MPV مع نسيج طبقي' }), },
+  { image: '/voyah-resources/images/car/passion-L/1920/sc_19.jpg', title: textFor({ en: 'Crystal Gear Shifter', fr: 'Levier de Vitesse en Cristal', ar: 'عصبة التروس الكريستالية' }), desc: textFor({ en: 'Diamond-cut crystal, warm as jade', fr: 'Cristal taillé en diamant, chaud comme le jade', ar: 'كريستال مقطوع بالماس، دافئ كاليشم' }), },
+  { image: '/voyah-resources/images/car/passion-L/1920/sc_21.jpg', title: textFor({ en: 'Thousand Peak Trim', fr: 'Finition Mille Sommets', ar: 'Tribut mille sommets' }), desc: textFor({ en: 'Majestic mountain-inspired design', fr: 'Design majestueux inspiré des montagnes', ar: 'Design majestueux inspiré des montagnes' }) }
 ])
 
 // ADS slides data with translations
 const adsSlides = computed(() => [
-  { image: '/assets/OFFICIALVOYAH/passion-L/images/sc_27.jpg', title: textFor({ en: 'Full-Scene P2P Navigation', fr: 'Navigation P2P Toute Scène', ar: 'ملاحة P2P لكل المشاهد' }), desc: textFor({ en: 'Point-to-point 2.0 / Easy U-turn / Auto roundabout', fr: 'Point à point 2.0 / Demi-tour facile / Rond-point auto', ar: 'نقطة إلى نقطة 2.0 / دوران سهل / دوار تلقائي' }) },
-  { image: '/assets/OFFICIALVOYAH/passion-L/images/sc_28.jpg', title: textFor({ en: 'Smart Parking Assist', fr: 'Aide au Stationnement Intelligent', ar: 'مساعدة الركن الذكية' }), desc: textFor({ en: 'Multi-level parking / Remote park-in / Complex spots', fr: 'Stationnement multi-niveaux / Stationnement à distance', ar: 'ركن متعدد المستويات / ركن عن بعد' }) }
+  { image: '/voyah-resources/images/car/passion-L/1920/sc_27.jpg', title: textFor({ en: 'Full-Scene P2P Navigation', fr: 'Navigation P2P Toute Scène', ar: 'ملاحة P2P لكل المشاهد' }), desc: textFor({ en: 'Point-to-point 2.0 / Easy U-turn / Auto roundabout', fr: 'Point à point 2.0 / Demi-tour facile / Rond-point auto', ar: 'نقطة إلى نقطة 2.0 / دوران سهل / دوار تلقائي' }), },
+  { image: '/voyah-resources/images/car/passion-L/1920/sc_28.jpg', title: textFor({ en: 'Smart Parking Assist', fr: 'Aide au Stationnement Intelligent', ar: 'مساعدة الركن الذكية' }), desc: textFor({ en: 'Multi-level parking / Remote park-in / Complex spots', fr: 'Stationnement multi-niveaux / Stationnement à distance', ar: 'ركن متعدد المستويات / ركن عن بعد' }) }
 ])
 
 // Powertrain slides data with translations
 const powerSlides = computed(() => [
-  { image: '/assets/OFFICIALVOYAH/passion-L/images/sc_34.jpg', title: textFor({ en: 'Lanhai Power', fr: 'Puissance Lanhai', ar: 'قوة لانهي' }), desc: textFor({ en: 'Versatile hybrid solution for all scenarios', fr: 'Solution hybride polyvalente pour tous les scénarios', ar: 'حل هجين متعدد الاستخدامات لجميع السيناريوهات' }) },
-  { image: '/assets/OFFICIALVOYAH/passion-L/images/sc_34-2.jpg', title: textFor({ en: 'High-Energy Power', fr: 'Puissance Haute Énergie', ar: 'قوة طاقة عالية' }), desc: textFor({ en: '490kW total power, 915N·m torque, 0-100 in 4.8s', fr: '490kW, 915N·m, 0-100 en 4.8s', ar: '490 كيلوواط، 915 نيوتن متر، 0-100 في 4.8 ثانية' }) },
-  { image: '/assets/OFFICIALVOYAH/passion-L/images/sc_34-3.jpg', title: textFor({ en: 'Ultra-Low Fuel Consumption', fr: 'Consommation Ultra-Faible', ar: 'استهلاك وقود منخفض للغاية' }), desc: textFor({ en: '45.18% thermal efficiency, 5.67L/100km', fr: 'Rendement thermique 45.18%, 5.67L/100km', ar: 'كفاءة حرارية 45.18%، 5.67 لتر/100 كم' }) }
+  { image: '/voyah-resources/images/car/passion-L/1920/sc_34.jpg', title: textFor({ en: 'Lanhai Power', fr: 'Puissance Lanhai', ar: 'قوة لانهي' }), desc: textFor({ en: 'Versatile hybrid solution for all scenarios', fr: 'Solution hybride polyvalente pour tous les scénarios', ar: 'حل هجين متعدد الاستخدامات لجميع السيناريوهات' }), },
+  { image: '/voyah-resources/images/car/passion-L/1920/sc_34-2.jpg', title: textFor({ en: 'High-Energy Power', fr: 'Puissance Haute Énergie', ar: 'قوة طاقة عالية' }), desc: textFor({ en: '490kW total power, 915N·m torque, 0-100 in 4.8s', fr: '490kW, 915N·m, 0-100 en 4.8s', ar: '490 كيلوواط، 915 نيوتن متر، 0-100 في 4.8 ثانية' }), },
+  { image: '/voyah-resources/images/car/passion-L/1920/sc_34-3.jpg', title: textFor({ en: 'Ultra-Low Fuel Consumption', fr: 'Consommation Ultra-Faible', ar: 'استهلاك وقود منخفض للغاية' }), desc: textFor({ en: '45.18% thermal efficiency, 5.67L/100km', fr: 'Rendement thermique 45.18%, 5.67L/100km', ar: 'كفاءة حرارية 45.18%، 5.67 لتر/100 كم' }) }
 ])
 
 // Chassis slides data with translations
 const chassisSlides = computed(() => [
-  { image: '/assets/OFFICIALVOYAH/passion-L/images/sc_38.jpg', title: textFor({ en: 'Rear-Wheel Steering', fr: 'Direction des Roues Arrière', ar: 'توجيه العجلات الخلفية' }), desc: textFor({ en: 'More agile turns, more stable high-speed driving', fr: 'Virages plus agiles, conduite à haute vitesse plus stable', ar: 'منعطفات أكثر رشاقة، قيادة أسرع وأكثر استقرارًا' }) },
-  { image: '/assets/OFFICIALVOYAH/passion-L/images/sc_38-2.jpg', title: textFor({ en: '100-0km/h in 35.9m', fr: '100-0km/h en 35.9m', ar: '100-0 كم/س في 35.9 م' }), desc: textFor({ en: 'Extended safety boundary', fr: 'Limite de sécurité étendue', ar: 'حد السلامة الممتد' }) },
-  { image: '/assets/OFFICIALVOYAH/passion-L/images/sc_38-3.jpg', title: textFor({ en: 'Torque Vectoring AWD', fr: 'AWD Vectoriel de Couple', ar: 'دفع رباعي متجه العزم' }), desc: textFor({ en: 'Full power even when fully loaded', fr: 'Pleine puissance même en charge complète', ar: 'قوة كاملة حتى عند التحميل الكامل' }) }
+  { image: '/voyah-resources/images/car/passion-L/1920/sc_38.jpg', title: textFor({ en: 'Rear-Wheel Steering', fr: 'Direction des Roues Arrière', ar: 'توجيه العجلات الخلفية' }), desc: textFor({ en: 'More agile turns, more stable high-speed driving', fr: 'Virages plus agiles, conduite à haute vitesse plus stable', ar: 'منعطفات أكثر رشاقة، قيادة أسرع وأكثر استقرارًا' }), },
+  { image: '/voyah-resources/images/car/passion-L/1920/sc_38-2.jpg', title: textFor({ en: '100-0km/h in 35.9m', fr: '100-0km/h en 35.9m', ar: '100-0 كم/س في 35.9 م' }), desc: textFor({ en: 'Extended safety boundary', fr: 'Limite de sécurité étendue', ar: 'حد السلامة الممتد' }), },
+  { image: '/voyah-resources/images/car/passion-L/1920/sc_38-3.jpg', title: textFor({ en: 'Torque Vectoring AWD', fr: 'AWD Vectoriel de Couple', ar: 'دفع رباعي متجه العزم' }), desc: textFor({ en: 'Full power even when fully loaded', fr: 'Pleine puissance même en charge complète', ar: 'قوة كاملة حتى عند التحميل الكامل' }) }
 ])
 
 // Car colors data with translations
@@ -742,6 +723,30 @@ onUnmounted(() => {
   width: min(320px, 50vw);
   margin: 0 auto 20px;
   filter: brightness(0) invert(1);
+}
+
+.kv-model-info {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.kv-model-name {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-family: 'DDIN', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  color: #fff;
+}
+
+.kv-model-price {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-weight: 400;
+  margin: 0;
+  opacity: 0.8;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .kv-slogan {
@@ -970,6 +975,17 @@ onUnmounted(() => {
   max-height: 600px;
   overflow: hidden;
   margin-bottom: 40px;
+}
+
+.car-swiper-wap .swiper-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .swiper-slide-item {

@@ -16,6 +16,9 @@
           {{ textFor({ en: 'New Luxury Pure Electric SUV', fr: 'Nouveau SUV Électrique de Luxe', ar: 'سيارة SUV كهربائية فاخرة جديدة' }) }}
         </p>
         <div class="kv-btns inview-child inview-animated" style="--inview-delay: 0.5s;">
+          <NuxtLink :to="buildPath('configuration-detail') + '?carModel=zhiyin'" class="voyah-button voyah-button--more voyah-button--dark voyah-button--plain">
+            <span class="voyah-button__text">{{ textFor({ en: 'Configuration', fr: 'Configuration', ar: 'التكوين' }) }}</span>
+          </NuxtLink>
           <button class="voyah-button voyah-button--more voyah-button--dark voyah-button--plain">
             <span class="voyah-button__text">{{ textFor({ en: 'Book Test Drive', fr: 'Réserver Essai', ar: 'حجز تجربة قيادة' }) }}</span>
           </button>
@@ -663,7 +666,7 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useSiteContent } from '~/composables/useSiteContent'
 
-const { textFor } = useSiteContent()
+const { textFor, buildPath } = useSiteContent()
 
 // Navigation state
 const activeSection = ref(0)

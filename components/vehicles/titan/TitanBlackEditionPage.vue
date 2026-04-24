@@ -4,7 +4,7 @@
     <section class="titan-be-hero" id="hero">
       <div class="titan-be-hero-bg">
         <img 
-          src="/assets/OFFICIALVOYAH/titanblackediditon/images/sc_1.jpg" 
+          src="/voyah-resources/images/car/titan_blackedition/1920/sc_1.jpg" 
           alt="Voyah Titan Black Edition"
           class="titan-be-hero-image"
           loading="eager"
@@ -15,14 +15,6 @@
       </div>
       <div class="titan-be-hero-content">
         <div class="titan-be-hero-inner">
-          <img 
-            src="/assets/OFFICIALVOYAH/titanblackediditon/images/2d3ebdb7-6f35-4bfd-b929-d858d5cb3a351773729769599.png" 
-            alt="Voyah Titan Black Edition"
-            class="titan-be-hero-logo inview-animated"
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-          />
           <p class="titan-be-hero-slogan inview-animated" style="--inview-delay: 0.1s;">
             {{ textFor(heroSlogan) }}
           </p>
@@ -45,7 +37,7 @@
     <ModelChapterNav :sections="chapterLinks" variant="titan-be" />
 
     <!-- Section 1: Heavy Sword Without Edge -->
-    <section class="titan-be-section-full" id="section1" style="background-image: url('/assets/OFFICIALVOYAH/titanblackediditon/images/sc_2.jpg')">
+    <section class="titan-be-section-full" id="section1" style="background-image: url('/voyah-resources/images/car/titan_blackedition/1920/sc_2.jpg')">
       <div class="titan-be-section-content">
         <h2 class="titan-be-section-title inview-animated">{{ textFor(section1Title) }}</h2>
         <p class="titan-be-section-subtitle inview-animated" style="--inview-delay: 0.1s;">{{ textFor(section1Subtitle) }}</p>
@@ -69,7 +61,7 @@
     </section>
 
     <!-- Section 2: Black Ink Flowing Light -->
-    <section class="titan-be-section-full" id="section2" style="background-image: url('/assets/OFFICIALVOYAH/titanblackediditon/images/sc_8.jpg')">
+    <section class="titan-be-section-full" id="section2" style="background-image: url('/voyah-resources/images/car/titan_blackedition/1920/sc_1.jpg')">
       <div class="titan-be-section-content">
         <h2 class="titan-be-section-title inview-animated">{{ textFor(section2Title) }}</h2>
         <p class="titan-be-section-subtitle inview-animated" style="--inview-delay: 0.1s;">{{ textFor(section2Subtitle) }}</p>
@@ -82,7 +74,7 @@
     </section>
 
     <!-- Section 3: Global Circulation -->
-    <section class="titan-be-section-full" id="section3" style="background-image: url('/assets/OFFICIALVOYAH/titanblackediditon/images/sc_15.jpg')">
+    <section class="titan-be-section-full" id="section3" style="background-image: url('/voyah-resources/images/car/titan_blackedition/1920/sc_2.jpg')">
       <div class="titan-be-section-content">
         <h2 class="titan-be-section-title inview-animated">{{ textFor(section3Title) }}</h2>
         <p class="titan-be-section-subtitle inview-animated" style="--inview-delay: 0.1s;">{{ textFor(section3Subtitle) }}</p>
@@ -93,7 +85,7 @@
     <section class="titan-be-harmony-section" id="harmony">
       <h3 class="titan-be-harmony-title inview-animated">{{ textFor(harmonyTitle) }}</h3>
       <div class="titan-be-harmony-image">
-        <img src="/assets/OFFICIALVOYAH/titanblackediditon/images/sc_16_1.jpg" alt="Harmony Space 5" class="inview-animated" loading="lazy" decoding="async" />
+        <img src="/voyah-resources/images/car/titan_blackedition/1920/sc_1.jpg" alt="Harmony Space 5" class="inview-animated" loading="lazy" decoding="async" />
       </div>
       <div class="titan-be-harmony-features">
         <div v-for="(feature, idx) in harmonyFeatures" :key="idx" class="titan-be-harmony-feature">
@@ -104,7 +96,7 @@
     </section>
 
     <!-- Section 4: All-Weather -->
-    <section class="titan-be-section-full" id="section4" style="background-image: url('/assets/OFFICIALVOYAH/titanblackediditon/images/sc_17.jpg')">
+    <section class="titan-be-section-full" id="section4" style="background-image: url('/voyah-resources/images/car/titan_blackedition/1920/sc_3.jpg')">
       <div class="titan-be-section-content">
         <h2 class="titan-be-section-title inview-animated">{{ textFor(section4Title) }}</h2>
         <p class="titan-be-section-subtitle inview-animated" style="--inview-delay: 0.1s;">{{ textFor(section4Subtitle) }}</p>
@@ -117,7 +109,7 @@
     </section>
 
     <!-- Section 5: All-Dimensional Safety -->
-    <section class="titan-be-section-full" id="section5" style="background-image: url('/assets/OFFICIALVOYAH/titanblackediditon/images/sc_20.jpg')">
+    <section class="titan-be-section-full" id="section5" style="background-image: url('/voyah-resources/images/car/titan_blackedition/1920/sc_20.jpg')">
       <div class="titan-be-section-content">
         <h2 class="titan-be-section-title inview-animated">{{ textFor(section5Title) }}</h2>
         <p class="titan-be-section-subtitle inview-animated" style="--inview-delay: 0.1s;">{{ textFor(section5Subtitle) }}</p>
@@ -133,7 +125,7 @@
     <section class="titan-be-harmony-section" id="driving">
       <h3 class="titan-be-harmony-title inview-animated">{{ textFor(drivingTitle) }}</h3>
       <div class="titan-be-harmony-image">
-        <img src="/assets/OFFICIALVOYAH/titanblackediditon/images/sc_22_1.jpg" alt="Million-Class Driving" class="inview-animated" loading="lazy" decoding="async" />
+        <img src="/voyah-resources/images/car/titan_blackedition/1920/sc_2.jpg" alt="Million-Class Driving" class="inview-animated" loading="lazy" decoding="async" />
       </div>
       <div class="titan-be-harmony-features">
         <div v-for="(feature, idx) in drivingFeatures" :key="idx" class="titan-be-harmony-feature">
@@ -173,7 +165,8 @@ import BaseButton from '~/components/common/BaseButton.vue'
 import ModelChapterNav from '~/components/page/model/ModelChapterNav.vue'
 import ModelMediaSection from '~/components/page/model/ModelMediaSection.vue'
 import { useSiteContent } from '~/composables/useSiteContent'
-import type { LocalizedText, ModelStorySection } from '~/data/modelMedia'
+import type { LocalizedText } from '~/data/site'
+import type { ModelStorySection } from '~/data/modelMedia'
 
 const { textFor, buildPath } = useSiteContent()
 
@@ -271,17 +264,17 @@ const ctaTitle = t('Experience Voyah Titan Black Edition', 'Découvrez le Voyah 
 const ctaSubtitle = t('Book a test drive today', "Réservez un essai aujourd'hui", 'احجز تجربة قيادة اليوم')
 
 // Media sections
-const section1Media = computed<ModelStorySection>(() => ({
+const section1Media = computed(() => ({
   id: 'section1-carousel',
-  kind: 'carousel',
+  kind: 'carousel' as const,
   kicker: textFor(t('01 Design', '01 Design', '01 التصميم')),
   title: textFor(t('Exclusive Ink-Black Exterior', 'Extérieur exclusif noir encre', 'خارجي أسود حصري')),
   summary: textFor(t('A complete black outfit, all sharpness hidden', 'Une tenue noire complète, tous les tranchants cachés', 'زي أسود كامل، جميع الحدود مخفية')),
-  image: '/assets/OFFICIALVOYAH/titanblackediditon/images/sc_3_1.jpg',
+  image: '/voyah-resources/images/car/titan_blackedition/1920/sc_1.jpg',
   images: [
-    '/assets/OFFICIALVOYAH/titanblackediditon/images/sc_3_1.jpg',
-    '/assets/OFFICIALVOYAH/titanblackediditon/images/sc_3_2.jpg',
-    '/assets/OFFICIALVOYAH/titanblackediditon/images/sc_3_3.jpg'
+    '/voyah-resources/images/car/titan_blackedition/1920/sc_1.jpg',
+    '/voyah-resources/images/car/titan_blackedition/1920/sc_2.jpg',
+    '/voyah-resources/images/car/titan_blackedition/1920/sc_3.jpg'
   ],
   slides: [
     { image: '/assets/OFFICIALVOYAH/titanblackediditon/images/sc_3_1.jpg', title: textFor(t('Exclusive Ink-Black Exterior Kit', 'Kit extérieur exclusif noir encre', 'طقم خارجي أسود حصري')), summary: textFor(t('A complete black outfit, all sharpness hidden', 'Une tenue noire complète, tous les tranchants cachés', 'زي أسود كامل، جميع الحدود مخفية')) },
@@ -290,9 +283,9 @@ const section1Media = computed<ModelStorySection>(() => ({
   ]
 }))
 
-const section2Media = computed<ModelStorySection>(() => ({
+const section2Media = computed(() => ({
   id: 'section2-carousel',
-  kind: 'carousel',
+  kind: 'carousel' as const,
   kicker: textFor(t('02 Interior', '02 Intérieur', '02 الداخلية')),
   title: textFor(t('Cinnabar Interior', 'Intérieur cinabre', 'داخلية الازورد')),
   summary: textFor(t('In endless black ink, only a heart remains', "Dans l'encre noire sans fin, seul un peu de cœur reste", 'في الحبر الأسود البدون نهاية، لا يبقى إلا قلب صغير')),
@@ -311,26 +304,24 @@ const section2Media = computed<ModelStorySection>(() => ({
   ]
 }))
 
-const section4Media = computed<ModelStorySection>(() => ({
+const section4Media = computed(() => ({
   id: 'section4-carousel',
-  kind: 'carousel',
+  kind: 'carousel' as const,
   kicker: textFor(t('04 ADAS', '04 ADAS', '04 نظام المساعدة')),
   title: textFor(t('All-Weather Full-Scene Perception', 'Perception tous temps toutes scènes', 'إدراك شامل لجميع أحوال الطقس')),
   summary: textFor(t('34 high-precision sensors, eyes in all directions, ears in all directions', '34 capteurs haute précision, yeux dans toutes les directions, oreilles dans toutes les directions', '34 حساس دقيق، عيون في جميع الاتجاهات، آذان في جميع الاتجاهات')),
-  image: '/assets/OFFICIALVOYAH/titanblackediditon/images/sc_18_1.jpg',
+  image: '/voyah-resources/images/car/titan_blackedition/1920/sc_18_1.jpg',
   images: [
-    '/assets/OFFICIALVOYAH/titanblackediditon/images/sc_18_1.jpg',
-    '/assets/OFFICIALVOYAH/titanblackediditon/images/sc_18_2.jpg'
+    '/voyah-resources/images/car/titan_blackedition/1920/sc_18_1.jpg'
   ],
   slides: [
-    { image: '/assets/OFFICIALVOYAH/titanblackediditon/images/sc_18_1.jpg', title: textFor(t('New Gen 4 Laser Radars', 'Nouvelle génération 4 radars laser', 'جيل جديد من أجهزة الليزر الأربعة')), summary: textFor(t('First mass-produced global highest line forward 896-line laser radar', 'Premier radar laser 896 lignes avant mondial de plus haute ligne en production de masse', 'أول مادة إنتاج عالمية بـ896 خط ليزر أمامي')) },
-    { image: '/assets/OFFICIALVOYAH/titanblackediditon/images/sc_18_2.jpg', title: textFor(t('34 Perception Fusion Sensors', '34 capteurs fusion perception', '34 حساس اندماج إدراك'),), summary: textFor(t('34 high-precision sensors, eyes in all directions, ears in all directions', '34 capteurs haute précision, yeux dans toutes les directions, oreilles dans toutes les directions', '34 حساس دقيق، عيون في جميع الاتجاهات، آذان في جميع الاتجاهات')) }
+    { image: '/voyah-resources/images/car/titan_blackedition/1920/sc_18_1.jpg', title: textFor(t('New Gen 4 Laser Radars', 'Nouvelle génération 4 radars laser', 'جيل جديد من أجهزة الليزر الأربعة')), summary: textFor(t('First mass-produced global highest line forward 896-line laser radar', 'Premier radar laser 896 lignes avant mondial de plus haute ligne en production de masse', 'أول مادة إنتاج عالمية بـ896 خط ليزر أمامي')) }
   ]
 }))
 
-const section5Media = computed<ModelStorySection>(() => ({
+const section5Media = computed(() => ({
   id: 'section5-carousel',
-  kind: 'carousel',
+  kind: 'carousel' as const,
   kicker: textFor(t('05 Safety', '05 Sécurité', '05 الأمان')),
   title: textFor(t('Five-Layer Redundancy Protection', 'Protection redondance cinq couches', 'حماية بـ5 طبقات مكوّنة')),
   summary: textFor(t('Perception, braking, steering, communication, power all have redundancy', 'Perception, freinage, direction, communication, puissance ont tous de la redondance', 'الإدراك، المكابح، التوجيه، الاتصال، الطاقة لها إجهاد مكوّن')),
@@ -351,9 +342,9 @@ const section5Media = computed<ModelStorySection>(() => ({
   ]
 }))
 
-const chassisMedia = computed<ModelStorySection>(() => ({
+const chassisMedia = computed(() => ({
   id: 'chassis-carousel',
-  kind: 'carousel',
+  kind: 'carousel' as const,
   kicker: textFor(t('Chassis', 'Châssis', 'هيكل')),
   title: textFor(t('Million-Class Chassis', 'Châssis million-classe', 'هيكل فئة المليون')),
   summary: textFor(t('Full aluminum alloy aviation chassis, lightweight design enhances driving comfort', 'Châssis aviation alliage aluminium complet, design léger améliore confort de conduite', 'هيكل طيران ألمنيوم كامل، تصميم خفيف الوزن يحسن راحة القيادة')),

@@ -125,6 +125,22 @@ const scrollToSection = (id: string) => {
   text-align: right;
 }
 
+/* Appliquer le style fixe du Titan à tous les variant */
+.model-chapter-nav--passion,
+.model-chapter-nav--titan,
+.model-chapter-nav--titan-be,
+.model-chapter-nav--titan-blackedition,
+.model-chapter-nav--titan-x8,
+.model-chapter-nav--dreamer,
+.model-chapter-nav--freeplus {
+  position: sticky;
+  top: 72px;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
 @media (max-width: 768px) {
   .model-chapter-nav {
     top: 72px;

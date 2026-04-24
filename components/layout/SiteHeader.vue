@@ -13,13 +13,7 @@
           <img src="/sitelogo/logo.png" alt="Voyah" />
         </NuxtLink>
 
-        <div v-if="currentModel" class="header-model desktop-only">
-          <img :src="currentModel.logo" :alt="textFor(currentModel.title)" class="header-model__logo" />
-          <div class="header-model__meta">
-            <span class="header-model__name">{{ textFor(currentModel.title) }}</span>
-            <span class="header-model__price">{{ textFor(currentModel.price) }}</span>
-          </div>
-        </div>
+        <!-- Prix retiré du header - maintenant affiché dans la page -->
 
         <nav class="header-nav desktop-only" aria-label="Primary navigation">
           <div
@@ -33,6 +27,7 @@
               :to="buildPath(item.slug)"
               class="nav-link"
               :class="{ active: isItemActive(item) }"
+              @click="closeGroup"
             >
               {{ textFor(item.label) }}
             </NuxtLink>
@@ -74,6 +69,7 @@
                           :to="buildPath(entry.slug)"
                           class="models-card"
                           :style="{ '--stagger-idx': entryIdx }"
+                          @click="closeGroupImmediate"
                         >
                           <div class="models-card__media">
                             <img
@@ -195,21 +191,15 @@
             <NuxtLink
               v-for="localeItem in locales"
               :key="localeItem.code"
-              :to="switchLocalePath(localeItem.code)"
+              :to="getLocalePath(localeItem.code)"
               :class="['voyah-language-dropdown__item', { active: locale.code === localeItem.code }]"
+              @click="handleLanguageChange(localeItem.code)"
             >
               <span class="voyah-language-dropdown__code">{{ localeItem.code.toUpperCase() }}</span>
               <span class="voyah-language-dropdown__name">{{ localeItem.name }}</span>
             </NuxtLink>
           </div>
         </div>
-
-        <NuxtLink
-          :to="buildPath(currentModel?.slug ?? 'titan.html')"
-          class="header-cta header-cta--ghost"
-        >
-          {{ configLabel }}
-        </NuxtLink>
 
         <NuxtLink
           :to="buildPath('book-drive.html')"
@@ -274,24 +264,15 @@
             <NuxtLink
               v-for="localeItem in locales"
               :key="localeItem.code"
-              :to="switchLocalePath(localeItem.code)"
+              :to="getLocalePath(localeItem.code)"
               :class="['locale-chip', { active: locale.code === localeItem.code }]"
-              @click="mobileOpen = false"
+              @click="handleLanguageChange(localeItem.code); mobileOpen = false"
             >
               {{ localeItem.code.toUpperCase() }}
             </NuxtLink>
           </div>
 
           <div class="mobile-cta-row">
-            <NuxtLink
-              v-if="currentModel"
-              :to="buildPath(currentModel.slug)"
-              class="header-cta header-cta--ghost"
-              @click="mobileOpen = false"
-            >
-              {{ configLabel }}
-            </NuxtLink>
-
             <NuxtLink
               :to="buildPath('book-drive.html')"
               class="header-cta header-cta--ghost"
@@ -334,6 +315,7 @@ import { useSiteContent } from '~/composables/useSiteContent'
 import type { LocalizedText, NavItem } from '~/data/site'
 
 const { locale, locales, navigation, buildPath, switchLocalePath, textFor, resolveCurrentPage } = useSiteContent()
+const { $i18n } = useNuxtApp()
 
 const route = useRoute()
 const mobileOpen = ref(false)
@@ -352,12 +334,20 @@ const headerHeight = computed(() => {
   return 80
 })
 
+// État partagé : le secondary nav est-il actuellement visible ?
+// ModelSecondaryNav le contrôle via l'émit, SiteHeader le lit pour se cacher.
+const secondaryNavVisible = ref(false)
+
 const isTransparent = computed(() => isHomeRoute.value && scrollY.value < 4 && !mobileOpen.value)
-const isScrolled = computed(() => scrollY.value > 20 || !isHomeRoute.value)
+const isScrolled = computed(() => !!currentModel.value || scrollY.value > 10 || !isHomeRoute.value)
+
+// Le header principal disparaît quand le secondary nav est visible (page modèle + hors hero)
+const isHidden = computed(() =>
+  !!currentModel.value && secondaryNavVisible.value
+)
 
 const copy = (en: string, fr: string, ar: string): LocalizedText => ({ en, fr, ar })
 
-const configLabel = computed(() => useNuxtApp().$i18n.t('global.header.config'))
 const testDriveLabel = computed(() => useNuxtApp().$i18n.t('global.header.testDrive'))
 const orderLabel = computed(() => useNuxtApp().$i18n.t('global.header.order'))
 
@@ -508,11 +498,49 @@ const openGroup = (label: string) => {
 const handleClickOutside = (event: MouseEvent) => {
   const header = document.querySelector('.site-header')
   if (header && !header.contains(event.target as Node)) {
-    activeGroup.value = null
+    closeGroup()
   }
 }
 
+// Get locale path
+const getLocalePath = (localeCode: 'en' | 'fr' | 'ar') => {
+  // Use switchLocalePath to correctly handle URLs with or without prefixes
+  return switchLocalePath(localeCode)
+}
+
+// Handle language change with no_prefix strategy
+const handleLanguageChange = (localeCode: 'en' | 'fr' | 'ar') => {
+  // Change the locale immediately
+  if ($i18n) {
+    $i18n.setLocale(localeCode)
+  }
+  // Store the preferred locale in localStorage
+  localStorage.setItem('voyah-locale', localeCode)
+  localeOpen.value = false
+}
+
 const closeGroup = () => {
+  // Fermeture immédiate et propre pour éviter le flash blanc
+  const dropdowns = document.querySelectorAll('.nav-dropdown')
+  dropdowns.forEach(dropdown => {
+    dropdown.classList.add('closing')
+    setTimeout(() => {
+      dropdown.classList.remove('closing')
+    }, 150) // Réduit à 150ms pour correspondre à la CSS transition
+  })
+  activeGroup.value = null
+}
+
+// Fermeture immédiate pour les clics sur les liens du menu modèles
+const closeGroupImmediate = () => {
+  // Utiliser la même approche que closeGroup mais plus rapide
+  const dropdowns = document.querySelectorAll('.nav-dropdown')
+  dropdowns.forEach(dropdown => {
+    dropdown.classList.add('closing')
+    setTimeout(() => {
+      dropdown.classList.remove('closing')
+    }, 100) // Plus rapide pour les clics
+  })
   activeGroup.value = null
 }
 
@@ -542,6 +570,14 @@ onMounted(() => {
   updateScroll()
   window.addEventListener('scroll', updateScroll, { passive: true })
   document.addEventListener('click', handleClickOutside)
+  
+  // Load preferred locale from localStorage
+  const savedLocale = localStorage.getItem('voyah-locale')
+  if (savedLocale && $i18n && savedLocale !== $i18n.locale.value) {
+    // Validate locale type before setting
+    const validLocale = savedLocale as 'en' | 'fr' | 'ar'
+    $i18n.setLocale(validLocale)
+  }
 })
 
 onBeforeUnmount(() => {
@@ -557,20 +593,22 @@ onBeforeUnmount(() => {
   position: fixed;
   inset: 0 0 auto;
   z-index: 1000;
-  background: rgba(0, 0, 0, 0.6);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(0, 0, 0, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(20px) saturate(180%);
   transition:
     background-color 0.5s cubic-bezier(0.22, 1, 0.36, 1),
     border-color 0.5s cubic-bezier(0.22, 1, 0.36, 1),
     backdrop-filter 0.5s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .site-header--transparent {
-  background: transparent;
-  border-bottom-color: transparent;
-  backdrop-filter: blur(0);
+  background: rgba(0, 0, 0, 0.7);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px) saturate(150%);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
 }
 
 .site-header--mobile-open {
@@ -579,8 +617,10 @@ onBeforeUnmount(() => {
 }
 
 .site-header--scrolled {
-  background: rgba(0, 0, 0, 0.6);
-  border-bottom-color: rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.9);
+  border-bottom-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
 }
 
 .header-bar {
@@ -611,8 +651,13 @@ onBeforeUnmount(() => {
   width: 108px;
   height: auto;
   display: block;
-  filter: brightness(0) invert(1);
+  filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0,0,0,0.3));
   opacity: 1;
+  transition: filter 0.3s ease;
+}
+
+.brand-mark:hover img {
+  filter: brightness(0) invert(1) drop-shadow(0 4px 8px rgba(0,0,0,0.5));
 }
 
 .header-model {
@@ -634,14 +679,18 @@ onBeforeUnmount(() => {
 }
 
 .header-model__name {
-  color: #fff;
-  font-size: 0.72rem;
+  color: #ffffff;
+  font-size: 0.82rem;
   letter-spacing: 0.08em;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 
 .header-model__price {
-  color: rgba(255, 255, 255, 0.62);
-  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.76rem;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
 .header-nav {
@@ -663,10 +712,12 @@ onBeforeUnmount(() => {
   padding: 0 12px;
   background: transparent;
   border: 0;
-  color: rgba(255, 255, 255, 0.84);
+  color: rgba(255, 255, 255, 0.95);
   font-family: 'DDIN', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  font-size: 0.82rem;
-  font-weight: 400;
+  font-size: 0.86rem;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   line-height: 1.2;
@@ -745,12 +796,12 @@ onBeforeUnmount(() => {
   z-index: 3;
   opacity: 0;
   pointer-events: none;
-  transform: translateY(20px) scale(0.95);
-  filter: blur(2px);
+  transform: translateY(10px) scale(0.98);
+  filter: blur(1px);
   transition:
-    opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-    filter 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-group:hover .nav-dropdown {
@@ -767,18 +818,40 @@ onBeforeUnmount(() => {
   filter: blur(0);
 }
 
+.nav-dropdown.closing {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px) scale(0.98);
+  filter: blur(1px);
+}
+
 .nav-dropdown--models {
   position: fixed;
   left: 0;
   right: 0;
   width: 100vw;
-  transform: translateY(14px);
+  transform: translateY(4px);
   margin: 0;
   padding: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  transition: 
+    transform 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  visibility: hidden;
 }
 
 .nav-dropdown--models.open {
   transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav-dropdown--models.closing {
+  transform: translateY(4px);
+  opacity: 0;
+  visibility: hidden;
 }
 
 .nav-dropdown-container {
@@ -1133,8 +1206,9 @@ onBeforeUnmount(() => {
 
 .voyah-language-dropdown {
   position: absolute;
-  top: calc(100% + 8px);
+  top: 100%;
   right: 0;
+  padding-top: 8px; /* Buffer space inside the dropdown instead of a gap */
   min-width: 160px;
   display: grid;
   gap: 2px;
@@ -1151,6 +1225,40 @@ onBeforeUnmount(() => {
 }
 
 .locale-menu:hover .voyah-language-dropdown {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Add delay to prevent quick closing */
+.locale-menu {
+  position: relative;
+}
+
+.locale-menu .voyah-language-dropdown {
+  transition: opacity 0.3s ease 0.2s, transform 0.3s ease 0.2s;
+}
+
+.locale-menu:hover .voyah-language-dropdown {
+  transition-delay: 0s;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Invisible bridge to prevent mouse-out when moving to dropdown */
+.voyah-language-switcher::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: transparent;
+}
+
+/* Keep dropdown open when hovering over it */
+.voyah-language-dropdown:hover {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;

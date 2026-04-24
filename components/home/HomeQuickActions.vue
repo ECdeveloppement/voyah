@@ -10,7 +10,7 @@
       </span>
     </NuxtLink>
 
-    <a href="tel:4008888488" class="quick-action" aria-label="400-888-8488" title="400-888-8488">
+    <a href="tel:93107107" class="quick-action" aria-label="93 107 107" title="93 107 107">
       <span class="quick-action__icon" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none">
           <path d="M8.45 5.5H6.4C5.848 5.5 5.4 5.948 5.4 6.5C5.4 13.955 11.445 20 18.9 20C19.452 20 19.9 19.552 19.9 19V16.95C19.9 16.479 19.571 16.07 19.111 15.969L15.819 15.243C15.42 15.155 15.004 15.305 14.745 15.634L13.871 16.742C11.894 15.797 9.953 13.856 9.008 11.879L10.116 11.005C10.445 10.746 10.595 10.33 10.507 9.931L9.781 6.639C9.68 6.179 9.271 5.85 8.8 5.85L8.45 5.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" />

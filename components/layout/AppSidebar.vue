@@ -36,7 +36,7 @@
           <div v-if="showConsultation" class="sidebar-panel sidebar-panel--consult">
             <div class="panel-inner">
               <h4 class="panel-title">{{ $t('global.sidebar.hotlineTitle') }}</h4>
-              <p class="panel-hotline">400-888-8488</p>
+              <p class="panel-hotline">93 107 107 / 29 803 078</p>
               <p class="panel-hours">{{ $t('global.sidebar.hotlineHours') }}</p>
             </div>
           </div>

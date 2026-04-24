@@ -7,6 +7,9 @@
         <img src="/assets/OFFICIALVOYAH/dreamerChampion/images/dreamerChampion.png" class="kv-logo" loading="eager" fetchpriority="high" decoding="async" />
         <p class="kv-slogan">{{ textFor({ en: 'First Chinese MPV for Young Families', fr: 'Premier MPV Chinois pour Jeunes Familles', ar: 'MPV الصيني الأول للعائلات الشابة' }) }}</p>
         <div class="kv-btns">
+          <NuxtLink :to="buildPath('configuration-detail') + '?carModel=dreamer-champion'" class="voyah-button voyah-button--plain">
+            <span class="voyah-button__text">{{ textFor({ en: 'Configuration', fr: 'Configuration', ar: 'التكوين' }) }}</span>
+          </NuxtLink>
           <button class="voyah-button voyah-button--plain">{{ textFor({ en: 'Book Test Drive', fr: 'Réserver Essai', ar: 'حجز تجربة قيادة' }) }}</button>
           <button class="voyah-button voyah-button--dark">{{ textFor({ en: 'Order Now', fr: 'Commander', ar: 'اطلب الآن' }) }}</button>
         </div>
@@ -366,7 +369,7 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useSiteContent } from '~/composables/useSiteContent'
 
-const { textFor } = useSiteContent()
+const { textFor, buildPath } = useSiteContent()
 const activeSection = ref(0)
 const showMobileNav = ref(false)
 const currentSlide = ref({
