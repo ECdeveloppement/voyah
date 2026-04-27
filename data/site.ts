@@ -544,8 +544,8 @@ const makeModel = (options: {
     }
   }),
   ctaPrimary: t('Order now', 'Commander maintenant', 'اطلب الآن'),
-  ctaSecondary: t('Configuration list', 'Liste des configurations', 'قائمة التجهيزات'),
-  secondarySlug: 'store.html'
+  ctaSecondary: t('Configurations', 'Configurations', 'التكوينات'),
+  secondarySlug: 'configuration-detail'
 })
 
 export const navigation: NavItem[] = [

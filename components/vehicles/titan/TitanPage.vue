@@ -36,10 +36,7 @@
             <BaseButton :to="buildPath('book-drive.html')" variant="primary" class="titan-btn-primary">
               {{ textFor(t('Book test drive', 'Reserver un essai', 'حجز تجربة قيادة')) }}
             </BaseButton>
-            <BaseButton :to="buildPath('store.html')" variant="secondary" class="titan-btn-secondary">
-              {{ textFor(t('Order now', 'Commander maintenant', 'اطلب الآن')) }}
-            </BaseButton>
-          </div>
+                      </div>
         </div>
       </div>
     </section>

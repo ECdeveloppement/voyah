@@ -4,8 +4,22 @@
       <div class="container footer-app">
 
         <div class="footer-app-copy">
-          <h1 class="white-space-line">{{ textFor(footerContact.title) }}</h1>
-          <p class="footer-copy">{{ textFor(footerContact.body) }}</p>
+          <div class="footer-brands">
+            <div class="footer-voyah-info">
+              <h1 class="white-space-line">{{ textFor(footerContact.title) }}</h1>
+              <p class="footer-copy">{{ textFor(footerContact.body) }}</p>
+            </div>
+            <div class="footer-autohall">
+              <div class="autohall-footer-logo">
+                <img src="/static/assets/autohall_logo.png" alt="Autohall" />
+              </div>
+              <div class="autohall-info">
+                <h3>Autohall</h3>
+                <p>{{ t('global.footer.autohall.distributor') || 'Distributeur officiel Voyah en Tunisie' }}</p>
+                <p>{{ t('global.footer.autohall.solutions') || 'Solutions électriques premium' }}</p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="footer-app-image">
@@ -69,7 +83,7 @@ import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useSiteContent } from '~/composables/useSiteContent'
 
 const { footerColumns, footerContact, footerLegalLinks, buildPath, locale, textFor } = useSiteContent()
-const { t } = useNuxtApp().$i18n ? useNuxtApp().$i18n : { t: (k) => k }
+const { t } = useNuxtApp().$i18n ? useNuxtApp().$i18n : { t: (k: string) => k }
 
 const appLabel     = computed(() => t('global.footer.appLabel'))
 const miniLabel    = computed(() => t('global.footer.miniLabel'))
@@ -437,6 +451,98 @@ onUnmounted(() => {
   
   [dir="rtl"] .footer-qr {
     padding-right: 0;
+  }
+}
+
+/* ─── Autohall Footer Styles ───────────────────────────── */
+.footer-brands {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.footer-autohall {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.autohall-footer-logo {
+  flex-shrink: 0;
+}
+
+.autohall-footer-logo img {
+  height: 48px;
+  width: auto;
+  opacity: 0.9;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.autohall-footer-logo img:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.autohall-info h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.autohall-info p {
+  margin: 0 0 4px 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.autohall-info p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 900px) {
+  .footer-brands {
+    gap: 24px;
+  }
+  
+  .footer-autohall {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+  }
+  
+  .autohall-footer-logo img {
+    height: 40px;
+  }
+  
+  .autohall-info h3 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-autohall {
+    padding: 16px;
+  }
+  
+  .autohall-footer-logo img {
+    height: 36px;
+  }
+  
+  .autohall-info h3 {
+    font-size: 1.1rem;
+  }
+  
+  .autohall-info p {
+    font-size: 0.9rem;
   }
 }
 </style>

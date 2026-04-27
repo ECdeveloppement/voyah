@@ -23,6 +23,10 @@
     },
     "footer": {
       "brand": "Marque Voyah",
+      "autohall": {
+        "distributor": "Distributeur officiel Voyah en Tunisie",
+        "solutions": "Solutions électriques premium"
+      },
       "models": "Modèles",
       "store": "Centre de magasins",
       "service": "Service Voyah",
@@ -99,6 +103,113 @@
       "configurationSummary": "Résumé de la configuration",
       "downloadBrochure": "Télécharger la brochure",
       "orderNow": "Commander maintenant"
+    },
+    "domain": {
+      "EnergyCenterPage": {
+        "energy": {
+          "title": "Énergie Voyah",
+          "description": "Solutions énergétiques complètes pour une mobilité durable",
+          "solution": {
+            "title": "168 Solutions Énergétiques",
+            "subtitle_voyah": "VOYAH",
+            "subtitle_power": "PUISSANCE",
+            "card1": {
+              "line1": "Production d'Énergie Photovoltaïque",
+              "line2": "Système de Stockage d'Énergie",
+              "line3": "Intélation au Réseau Intelligent",
+              "line4": "Approvisionnement en Énergie Verte"
+            },
+            "card2": {
+              "line1": "Réseau de Charge Ultra-Rapide"
+            },
+            "card3": {
+              "line1": "Technologie Véhicule-Réseau (V2G)",
+              "line2": "Plateforme de Partage d'Énergie",
+              "line3": "Système de Recyclage des Batteries",
+              "line4": "Gestion Intelligente de l'Énergie",
+              "line5": "Solutions Neutres en Carbone",
+              "line6": "Cycle Énergétique Durable",
+              "line7": "Avenir de l'Énergie Propre",
+              "line8": "Leadership de l'Innovation"
+            }
+          },
+          "network": {
+            "title_prefix": "Réseau",
+            "title": "Énergétique",
+            "description": "Infrastructure de charge complète en Tunisie",
+            "description2": "Expansion rapide pour répondre à vos besoins",
+            "card_title": "Statistiques du Réseau",
+            "points": "Bornes de Charge",
+            "ultra_fast": "Stations Ultra-Rapides",
+            "green_energy": "Énergie Verte Fournie",
+            "co2_saved": "CO₂ Économisé"
+          },
+          "map": {
+            "power": "Puissance",
+            "status": "Statut",
+            "connectors": "Connecteurs",
+            "type": "Type",
+            "active": "Actif",
+            "planned": "Planifié",
+            "operational": "Opérationnel",
+            "planned_2025": "Planifié 2025",
+            "planned_2026": "Planifié 2026"
+          },
+          "fast_charging": {
+            "title_prefix": "Charge",
+            "title": "Rapide",
+            "description": "Technologie de charge ultra-rapide pour un ravitaillement énergétique rapide",
+            "peak_power": "Puissance de Pointe",
+            "peak_current": "Courant de Pointe",
+            "range": "Autonomie en 10 min",
+            "watch_video": "Voir la Vidéo"
+          },
+          "smart_charging": {
+            "title_prefix": "Charge",
+            "title": "Intelligente",
+            "description": "Solutions de charge intelligentes avec technologie avancée",
+            "watch_video": "Voir la Vidéo"
+          },
+          "eco": {
+            "title_prefix": "Écosystème",
+            "title": "Énergétique",
+            "v2g": "Technologie V2G",
+            "v2g_desc": "La technologie Véhicule-Réseau permet un flux d'énergie bidirectionnel",
+            "sharing": "Partage d'Énergie",
+            "sharing_desc": "Partagez l'infrastructure de charge avec d'autres utilisateurs",
+            "recycling": "Recyclage des Batteries",
+            "recycling_desc": "Gestion durable du cycle de vie des batteries"
+          },
+          "encyclopedia": {
+            "title": "Encyclopédie de l'Énergie",
+            "description": "Guide complet de la charge des véhicules électriques",
+            "fast_guide": "Guide de Charge Rapide",
+            "home_guide": "Charge à Domicile",
+            "public_guide": "Charge Publique",
+            "faq": "FAQ",
+            "fast_guide_title": "Guide de Charge Ultra-Rapide",
+            "fast_guide_desc": "Découvrez la technologie de charge ultra-rapide",
+            "winter_title": "Conseils de Charge Hivernale",
+            "winter_desc": "Optimisez les performances de charge par temps froid",
+            "free_parking_title": "Lieux de Parking Gratuit",
+            "free_parking_desc": "Trouvez des stations de charge avec parking gratuit",
+            "read_more": "Lire Plus",
+            "installation_title": "Installation à Domicile",
+            "installation_desc": "Guide d'installation des équipements de charge domestique",
+            "compatibility_title": "Compatibilité Véhicule",
+            "compatibility_desc": "Vérifiez la compatibilité avec votre véhicule",
+            "operators_title": "Opérateurs de Réseau",
+            "operators_desc": "Fournisseurs de réseaux de charge disponibles",
+            "app_title": "Application Mobile",
+            "app_desc": "Gérez la charge avec notre application mobile",
+            "faq_title": "Questions Fréquemment Posées",
+            "faq_desc": "Questions courantes sur la charge des VE"
+          },
+          "partners": {
+            "title": "Partenaires Énergétiques"
+          }
+        }
+      }
     }
   }
 }

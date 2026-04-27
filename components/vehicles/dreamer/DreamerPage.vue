@@ -10,24 +10,11 @@
           <NuxtLink :to="buildPath('configuration-detail') + '?carModel=dreamer-2024'" class="voyah-button voyah-button--dark">
             <span class="voyah-button__text">{{ textFor({ en: 'Configuration', fr: 'Configuration', ar: 'التكوين' }) }}</span>
           </NuxtLink>
-          <button class="voyah-button voyah-button--dark">{{ textFor({ en: 'Order Now', fr: 'Commander', ar: 'اطلب الآن' }) }}</button>
         </div>
       </div>
     </section>
 
-    <!-- Mobile Chapter Nav -->
-    <div class="car-nav-wap fixed-nav" :class="{ visible: showMobileNav }">
-      <ul class="car-nav-list">
-        <li v-for="(section, index) in chapterSections" :key="section.id" class="car-nav-item" :class="{ active: activeSection === index }" @click="scrollToSection(section.id)">
-          <div class="car-nav-item_icon"><div class="icon-outer"></div><div class="icon-inner"></div></div>
-          <div class="car-nav-item_text">
-            <p class="serial">{{ String(index + 1).padStart(2, '0') }}</p>
-            <p class="title">{{ section.title }}</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-
+    
     <!-- Section 1: All-Electric Power -->
     <section id="section1" class="level-one" :style="{ backgroundImage: `url('/assets/OFFICIALVOYAH/dreamer/images/bg_2_1920.jpg')` }">
       <h2 class="title">{{ textFor({ en: 'All-Electric Power, Peak Performance', fr: 'Puissance Tout Électrique, Performance de Pointe', ar: 'قوة كهربائية، أداء قمة' }) }}</h2>

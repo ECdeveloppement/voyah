@@ -9,9 +9,14 @@
   >
     <div class="container header-bar">
       <div class="header-left">
-        <NuxtLink :to="buildPath()" class="brand-mark" aria-label="Voyah home">
-          <img src="/sitelogo/logo.png" alt="Voyah" />
-        </NuxtLink>
+        <div class="brand-container">
+          <NuxtLink :to="buildPath()" class="brand-mark" aria-label="Voyah home">
+            <img src="/sitelogo/logo.png" alt="Voyah" />
+          </NuxtLink>
+          <div class="autohall-logo">
+            <img src="/static/assets/autohall_logo.png" alt="Autohall" />
+          </div>
+        </div>
 
         <!-- Prix retiré du header - maintenant affiché dans la page -->
 
@@ -29,7 +34,7 @@
               :class="{ active: isItemActive(item) }"
               @click="closeGroup"
             >
-              {{ textFor(item.label) }}
+              {{ textFor(item.label) || item.label.en }}
             </NuxtLink>
 
             <button
@@ -38,7 +43,7 @@
               class="nav-link nav-button"
               :class="{ active: activeGroup === item.label.en || (isHomeRoute && item.label.en === 'Models') }"
             >
-              {{ textFor(item.label) }}
+              {{ textFor(item.label) || item.label.en }}
             </button>
 
             <div
@@ -208,10 +213,7 @@
           {{ testDriveLabel }}
         </NuxtLink>
 
-        <NuxtLink :to="buildPath(currentModel?.slug ?? 'titan.html')" class="header-cta header-cta--primary">
-          {{ orderLabel }}
-        </NuxtLink>
-      </div>
+              </div>
 
       <button
         :class="['menu-toggle', 'mobile-only', { 'menu-toggle--active': mobileOpen }]"
@@ -240,11 +242,11 @@
               class="mobile-link"
               @click="mobileOpen = false"
             >
-              {{ textFor(item.label) }}
+              {{ textFor(item.label) || item.label.en }}
             </NuxtLink>
 
             <div v-else class="mobile-label">
-              {{ textFor(item.label) }}
+              {{ textFor(item.label) || item.label.en }}
             </div>
 
             <div v-if="item.children?.length" class="mobile-children">
@@ -281,14 +283,7 @@
               {{ testDriveLabel }}
             </NuxtLink>
 
-            <NuxtLink
-              :to="buildPath(currentModel?.slug ?? 'titan.html')"
-              class="header-cta header-cta--primary"
-              @click="mobileOpen = false"
-            >
-              {{ orderLabel }}
-            </NuxtLink>
-          </div>
+                      </div>
         </div>
       </div>
     </transition>
@@ -348,8 +343,7 @@ const isHidden = computed(() =>
 
 const copy = (en: string, fr: string, ar: string): LocalizedText => ({ en, fr, ar })
 
-const testDriveLabel = computed(() => useNuxtApp().$i18n.t('global.header.testDrive'))
-const orderLabel = computed(() => useNuxtApp().$i18n.t('global.header.order'))
+const testDriveLabel = computed(() => (useNuxtApp() as any).$i18n.t('global.header.testDrive'))
 
 const modelMenuSections = [
   {
@@ -449,7 +443,7 @@ const toolMenu = {
   title: copy('Tools', 'Outils', 'الأدوات'),
   items: [
     { slug: 'book-drive.html', label: copy('Book a test drive', 'Réserver un essai', 'احجز تجربة قيادة') },
-    { slug: 'titan.html', label: copy('Configure', 'Configurer', 'التهيئة') }
+    { slug: 'configuration-detail', label: copy('Configurations', 'Configurations', 'التكوينات') }
   ]
 }
 
@@ -512,10 +506,12 @@ const getLocalePath = (localeCode: 'en' | 'fr' | 'ar') => {
 const handleLanguageChange = (localeCode: 'en' | 'fr' | 'ar') => {
   // Change the locale immediately
   if ($i18n) {
-    $i18n.setLocale(localeCode)
+    ($i18n as any).setLocale(localeCode)
   }
   // Store the preferred locale in localStorage
-  localStorage.setItem('voyah-locale', localeCode)
+  if (process.client) {
+    localStorage.setItem('voyah-locale', localeCode)
+  }
   localeOpen.value = false
 }
 
@@ -563,7 +559,9 @@ const updateScroll = () => {
 }
 
 watch(mobileOpen, (isOpen) => {
-  document.body.style.overflow = isOpen ? 'hidden' : ''
+  if (process.client) {
+    document.body.style.overflow = isOpen ? 'hidden' : ''
+  }
 })
 
 onMounted(() => {
@@ -572,11 +570,13 @@ onMounted(() => {
   document.addEventListener('click', handleClickOutside)
   
   // Load preferred locale from localStorage
-  const savedLocale = localStorage.getItem('voyah-locale')
-  if (savedLocale && $i18n && savedLocale !== $i18n.locale.value) {
-    // Validate locale type before setting
-    const validLocale = savedLocale as 'en' | 'fr' | 'ar'
-    $i18n.setLocale(validLocale)
+  if (process.client) {
+    const savedLocale = localStorage.getItem('voyah-locale')
+    if (savedLocale && $i18n && savedLocale !== ($i18n as any).locale.value) {
+      // Validate locale type before setting
+      const validLocale = savedLocale as 'en' | 'fr' | 'ar'
+      ($i18n as any).setLocale(validLocale)
+    }
   }
 })
 
@@ -584,7 +584,9 @@ onBeforeUnmount(() => {
   if (scrollRaf) window.cancelAnimationFrame(scrollRaf)
   window.removeEventListener('scroll', updateScroll)
   document.removeEventListener('click', handleClickOutside)
-  document.body.style.overflow = ''
+  if (process.client) {
+    document.body.style.overflow = ''
+  }
 })
 </script>
 
@@ -746,7 +748,7 @@ onBeforeUnmount(() => {
   right: 12px;
   bottom: 14px;
   height: 2px;
-  background: #b31d22;
+  background: linear-gradient(90deg, #0066cc 50%, #00a651 50%);
   transform: scaleX(0);
   transform-origin: center;
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
@@ -1627,5 +1629,38 @@ onBeforeUnmount(() => {
 
 .is-rtl .header-nav {
   justify-content: flex-end;
+}
+
+/* Autohall Logo Styles */
+.brand-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.autohall-logo {
+  display: flex;
+  align-items: center;
+}
+
+.autohall-logo img {
+  height: 32px;
+  width: auto;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.autohall-logo img:hover {
+  opacity: 1;
+}
+
+@media (max-width: 1024px) {
+  .brand-container {
+    gap: 8px;
+  }
+  
+  .autohall-logo img {
+    height: 24px;
+  }
 }
 </style>

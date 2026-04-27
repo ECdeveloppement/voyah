@@ -48,10 +48,10 @@
             <BaseButton :to="buildPath('book-drive.html')" variant="primary" class="titan-x8-btn-primary">
               {{ textFor(bookDriveText) }}
             </BaseButton>
-            <BaseButton :to="buildPath('store.html')" variant="secondary" class="titan-x8-btn-secondary">
-              {{ textFor(orderNowText) }}
+            <BaseButton :to="buildPath('configuration-detail') + '?carModel=taishan-x8'" variant="secondary" class="titan-x8-btn-secondary">
+              {{ textFor(configurationsText) }}
             </BaseButton>
-          </div>
+                      </div>
         </div>
       </div>
       <div class="titan-x8-hero-disclaimer">
@@ -195,6 +195,9 @@
           <BaseButton :to="buildPath('book-drive.html')" variant="primary">
             {{ textFor(bookDriveText) }}
           </BaseButton>
+          <BaseButton :to="buildPath('configuration-detail') + '?carModel=taishan-x8'" variant="secondary">
+            {{ textFor(configurationsText) }}
+          </BaseButton>
           <BaseButton :to="buildPath('store.html')" variant="secondary">
             {{ textFor(findStoreText) }}
           </BaseButton>
@@ -230,8 +233,8 @@ const feature4Title = t('750km EV Range', '750km autonomie EV', 'مدى 750 كم
 const feature4Desc = t('370km PHEV Range', '370km autonomie PHEV', 'مدى 370 كم للهايبريد')
 
 const bookDriveText = t('Book test drive', 'Réserver un essai', 'حجز تجربة قيادة')
-const orderNowText = t('Order now', 'Commander maintenant', 'اطلب الآن')
 const findStoreText = t('Find a store', 'Trouver un magasin', 'ابحث عن متجر')
+const configurationsText = t('Configurations', 'Configurations', 'التكوينات')
 
 // Chapter links
 const chapterLinks = [

@@ -22,38 +22,14 @@
           <NuxtLink :to="buildPath('configuration-detail') + '?carModel=passion-L'" class="voyah-button voyah-button--more voyah-button--dark voyah-button--plain">
             <span class="voyah-button__text">{{ textFor({ en: 'Configuration', fr: 'Configuration', ar: 'التكوين' }) }}</span>
           </NuxtLink>
-          <button class="voyah-button voyah-button--more voyah-button--dark voyah-button--plain">
+          <NuxtLink :to="buildPath('book-drive.html')" class="voyah-button voyah-button--more voyah-button--dark voyah-button--plain">
             <span class="voyah-button__text">{{ textFor({ en: 'Book Test Drive', fr: 'Réserver un Essai', ar: 'احجز تجربة قيادة' }) }}</span>
-          </button>
-          <button class="voyah-button voyah-button--more voyah-button--dark">
-            <span class="voyah-button__text">{{ textFor({ en: 'Order Now', fr: 'Commander', ar: 'اطلب الآن' }) }}</span>
-          </button>
+          </NuxtLink>
         </div>
       </div>
     </section>
 
-    <!-- Mobile Chapter Nav -->
-    <div class="car-nav-wap fixed-nav" :class="{ visible: showMobileNav }">
-      <ul class="car-nav-list">
-        <li 
-          v-for="(section, index) in chapterSections" 
-          :key="section.id"
-          class="car-nav-item"
-          :class="{ active: activeSection === index }"
-          @click="scrollToSection(section.id)"
-        >
-          <div class="car-nav-item_icon">
-            <div class="icon-outer"></div>
-            <div class="icon-inner"></div>
-          </div>
-          <div class="car-nav-item_text">
-            <p class="serial">{{ String(index + 1).padStart(2, '0') }}</p>
-            <p class="title">{{ section.title }}</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-
+    
     <!-- Section 1: Oriental Flagship Aesthetics -->
     <section id="section1" class="level-one" targetindex="0" ref="sectionRefs[0]">
       <div class="section-bg" style="background-image: url('/voyah-resources/images/car/passion-L/1920/sc_2.jpg');"></div>
@@ -527,14 +503,7 @@
       </div>
     </section>
 
-    <!-- Bottom CTA Bar -->
-    <div class="car-nav-wrap-bottom" :class="{ visible: showBottomBar }">
-      <div class="car-nav-wrap-bottom-inner">
-        <div class="button-config">{{ textFor({ en: 'View All Configs', fr: 'Voir Toutes les Configs', ar: 'عرض جميع التكوينات' }) }}</div>
-        <div class="button-order">{{ textFor({ en: 'Order Now', fr: 'Commander', ar: 'اطلب الآن' }) }}</div>
       </div>
-    </div>
-  </div>
 </template>
 
 <script setup lang="ts">
@@ -1228,43 +1197,12 @@ onUnmounted(() => {
   margin: 0;
 }
 
-/* Bottom CTA Bar */
-.car-nav-wrap-bottom {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 99;
-  background: rgba(0, 0, 0, 0.95);
-  backdrop-filter: blur(10px);
-  padding: 15px 20px;
-  transform: translateY(100%);
-  transition: transform 0.3s ease;
-}
-
-.car-nav-wrap-bottom.visible {
-  transform: translateY(0);
-}
-
-.car-nav-wrap-bottom-inner {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.button-config,
-.button-order {
-  flex: 1;
+  .button-config {
   text-align: center;
   padding: 14px 24px;
   font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.3s ease;
-}
-
-.button-config {
   border: 1px solid rgba(255, 255, 255, 0.4);
   color: #fff;
   background: transparent;
@@ -1341,8 +1279,5 @@ onUnmounted(() => {
     gap: 20px;
   }
   
-  .car-nav-wrap-bottom-inner {
-    flex-direction: column;
   }
-}
 </style>

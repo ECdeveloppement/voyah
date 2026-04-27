@@ -4,18 +4,18 @@
       <section class="bg">
         <img class="headImg bg_pc" src="https://www.voyah.com.cn/static/assets/energy_bg-4482e81f.jpg" />
         <img class="headImg bg_mb" src="https://www.voyah.com.cn/static/assets/energy_bg_mb-36355b8d.png" />
-        <div class="title">{{ t('domain.EnergyCenterPage.energy.title') }}</div>
+        <div class="title">{{ t('global.domain.EnergyCenterPage.energy.title') }}</div>
         <div class="desc">
-          <p>{{ t('domain.EnergyCenterPage.energy.description') }}</p>
+          <p>{{ t('global.domain.EnergyCenterPage.energy.description') }}</p>
         </div>
       </section>
 
       <section class="section_1">
         <div class="section_1_container">
           <div class="main_card">
-            <div class="main_title">{{ t('domain.EnergyCenterPage.energy.solution.title') }}</div>
+            <div class="main_title">{{ t('global.domain.EnergyCenterPage.energy.solution.title') }}</div>
             <div class="main_subtitle">
-              <span class="subtitle_voyah">{{ t('domain.EnergyCenterPage.energy.solution.subtitle_voyah') }}</span><span class="subtitle_power">{{ t('domain.EnergyCenterPage.energy.solution.subtitle_power') }}</span>
+              <span class="subtitle_voyah">{{ t('global.domain.EnergyCenterPage.energy.solution.subtitle_voyah') }}</span><span class="subtitle_power">{{ t('global.domain.EnergyCenterPage.energy.solution.subtitle_power') }}</span>
             </div>
 
             <div class="cards_row">
@@ -26,10 +26,10 @@
                   <img class="card_bg_img" src="https://www.voyah.com.cn/static/assets/power_bg1-7048cd30.png" alt="" />
                   <div class="card_content">
                     <div class="card_text">
-                      <div class="card_line">{{ t('domain.EnergyCenterPage.energy.solution.card1.line1') }}</div>
-                      <div class="card_line">{{ t('domain.EnergyCenterPage.energy.solution.card1.line2') }}</div>
-                      <div class="card_line">{{ t('domain.EnergyCenterPage.energy.solution.card1.line3') }}</div>
-                      <div class="card_line">{{ t('domain.EnergyCenterPage.energy.solution.card1.line4') }}</div>
+                      <div class="card_line">{{ t('global.domain.EnergyCenterPage.energy.solution.card1.line1') }}</div>
+                      <div class="card_line">{{ t('global.domain.EnergyCenterPage.energy.solution.card1.line2') }}</div>
+                      <div class="card_line">{{ t('global.domain.EnergyCenterPage.energy.solution.card1.line3') }}</div>
+                      <div class="card_line">{{ t('global.domain.EnergyCenterPage.energy.solution.card1.line4') }}</div>
                     </div>
                   </div>
                   <div class="card_number">1</div>
@@ -41,7 +41,7 @@
                   <img class="card_bg_img" src="https://www.voyah.com.cn/static/assets/power_bg2-a6639f1e.png" alt="" />
                   <div class="card_content">
                     <div class="card_text">
-                      <div class="card_line">{{ t('domain.EnergyCenterPage.energy.solution.card2.line1') }}</div>
+                      <div class="card_line">{{ t('global.domain.EnergyCenterPage.energy.solution.card2.line1') }}</div>
                     </div>
                   </div>
                   <div class="card_number">6</div>
@@ -55,16 +55,16 @@
                 <div class="card_content">
                   <div class="card_text two_columns">
                     <div class="column">
-                      <div class="card_line">{{ t('domain.EnergyCenterPage.energy.solution.card3.line1') }}</div>
-                      <div class="card_line">{{ t('domain.EnergyCenterPage.energy.solution.card3.line2') }}</div>
-                      <div class="card_line">{{ t('domain.EnergyCenterPage.energy.solution.card3.line3') }}</div>
-                      <div class="card_line">{{ t('domain.EnergyCenterPage.energy.solution.card3.line4') }}</div>
+                      <div class="card_line">{{ t('global.domain.EnergyCenterPage.energy.solution.card3.line1') }}</div>
+                      <div class="card_line">{{ t('global.domain.EnergyCenterPage.energy.solution.card3.line2') }}</div>
+                      <div class="card_line">{{ t('global.domain.EnergyCenterPage.energy.solution.card3.line3') }}</div>
+                      <div class="card_line">{{ t('global.domain.EnergyCenterPage.energy.solution.card3.line4') }}</div>
                     </div>
                     <div class="column">
-                      <div class="card_line">{{ t('domain.EnergyCenterPage.energy.solution.card3.line5') }}</div>
-                      <div class="card_line">{{ t('domain.EnergyCenterPage.energy.solution.card3.line6') }}</div>
-                      <div class="card_line">{{ t('domain.EnergyCenterPage.energy.solution.card3.line7') }}</div>
-                      <div class="card_line">{{ t('domain.EnergyCenterPage.energy.solution.card3.line8') }}</div>
+                      <div class="card_line">{{ t('global.domain.EnergyCenterPage.energy.solution.card3.line5') }}</div>
+                      <div class="card_line">{{ t('global.domain.EnergyCenterPage.energy.solution.card3.line6') }}</div>
+                      <div class="card_line">{{ t('global.domain.EnergyCenterPage.energy.solution.card3.line7') }}</div>
+                      <div class="card_line">{{ t('global.domain.EnergyCenterPage.energy.solution.card3.line8') }}</div>
                     </div>
                   </div>
                 </div>
@@ -76,32 +76,32 @@
       </section>
 
       <section class="section2 section-energy">
-        <div class="title"><span class="large">{{ t('domain.EnergyCenterPage.energy.network.title_prefix') }}</span>{{ t('domain.EnergyCenterPage.energy.network.title') }}</div>
-        <div class="desc">{{ t('domain.EnergyCenterPage.energy.network.description') }}</div>
-        <div class="desc desc1">{{ t('domain.EnergyCenterPage.energy.network.description2') }}</div>
+        <div class="title"><span class="large">{{ t('global.domain.EnergyCenterPage.energy.network.title_prefix') }}</span>{{ t('global.domain.EnergyCenterPage.energy.network.title') }}</div>
+        <div class="desc">{{ t('global.domain.EnergyCenterPage.energy.network.description') }}</div>
+        <div class="desc desc1">{{ t('global.domain.EnergyCenterPage.energy.network.description2') }}</div>
 
         <div class="energy_content_wrapper">
           <div class="charge_card_white">
-            <div class="charge_title_white">{{ t('domain.EnergyCenterPage.energy.network.card_title') }}</div>
+            <div class="charge_title_white">{{ t('global.domain.EnergyCenterPage.energy.network.card_title') }}</div>
             <div class="charge_content_white">
               <div class="charge_row_white">
                 <div class="charge_item_white">
                   <div class="charge_number_white">500+</div>
-                  <div class="charge_label_white">{{ t('domain.EnergyCenterPage.energy.network.points') }}</div>
+                  <div class="charge_label_white">{{ t('global.domain.EnergyCenterPage.energy.network.points') }}</div>
                 </div>
                 <div class="charge_item_white">
                   <div class="charge_number_white">50</div>
-                  <div class="charge_label_white">{{ t('domain.EnergyCenterPage.energy.network.ultra_fast') }}</div>
+                  <div class="charge_label_white">{{ t('global.domain.EnergyCenterPage.energy.network.ultra_fast') }}</div>
                 </div>
               </div>
               <div class="charge_row_white">
                 <div class="charge_item_white">
                   <div class="charge_number_white">1,2 M kWh</div>
-                  <div class="charge_label_white">{{ t('domain.EnergyCenterPage.energy.network.green_energy') }}</div>
+                  <div class="charge_label_white">{{ t('global.domain.EnergyCenterPage.energy.network.green_energy') }}</div>
                 </div>
                 <div class="charge_item_white">
                   <div class="charge_number_white">800 T</div>
-                  <div class="charge_label_white">{{ t('domain.EnergyCenterPage.energy.network.co2_saved') }}</div>
+                  <div class="charge_label_white">{{ t('global.domain.EnergyCenterPage.energy.network.co2_saved') }}</div>
                 </div>
               </div>
             </div>
@@ -114,8 +114,8 @@
       </section>
 
       <section class="section2 section3" style="margin-top: 80px;">
-        <div class="title"><span class="large">{{ t('domain.EnergyCenterPage.energy.fast_charging.title_prefix') }}</span>{{ t('domain.EnergyCenterPage.energy.fast_charging.title') }}</div>
-        <div class="desc">{{ t('domain.EnergyCenterPage.energy.fast_charging.description') }}</div>
+        <div class="title"><span class="large">{{ t('global.domain.EnergyCenterPage.energy.fast_charging.title_prefix') }}</span>{{ t('global.domain.EnergyCenterPage.energy.fast_charging.title') }}</div>
+        <div class="desc">{{ t('global.domain.EnergyCenterPage.energy.fast_charging.description') }}</div>
         <div class="section3_1">
           <div class="image_container">
             <img class="charge_mb" src="https://www.voyah.com.cn/static/assets/charge_mb-0e5441f2.png" />
@@ -123,21 +123,21 @@
             <div class="blur_overlay"></div>
           </div>
           <div class="electric_list">
-            <div class="electric_item electric_item_left"><div class="num">120<span class="unit">kW</span></div><div class="tips">{{ t('domain.EnergyCenterPage.energy.fast_charging.peak_power') }}</div></div>
-            <div class="electric_item electric_item_center"><div class="num">250<span class="unit">A</span></div><div class="tips">{{ t('domain.EnergyCenterPage.energy.fast_charging.peak_current') }}</div></div>
-            <div class="electric_item electric_item_right"><div class="num">250<span class="unit">km</span></div><div class="tips">{{ t('domain.EnergyCenterPage.energy.fast_charging.range') }}</div></div>
+            <div class="electric_item electric_item_left"><div class="num">120<span class="unit">kW</span></div><div class="tips">{{ t('global.domain.EnergyCenterPage.energy.fast_charging.peak_power') }}</div></div>
+            <div class="electric_item electric_item_center"><div class="num">250<span class="unit">A</span></div><div class="tips">{{ t('global.domain.EnergyCenterPage.energy.fast_charging.peak_current') }}</div></div>
+            <div class="electric_item electric_item_right"><div class="num">250<span class="unit">km</span></div><div class="tips">{{ t('global.domain.EnergyCenterPage.energy.fast_charging.range') }}</div></div>
           </div>
         </div>
       </section>
 
       <section class="section2 section4" style="margin-top: 80px;">
         <div class="title">
-          <span class="large">{{ t('domain.EnergyCenterPage.energy.smart_charging.title_prefix') }}</span>
-          {{ t('domain.EnergyCenterPage.energy.smart_charging.title') }}
+          <span class="large">{{ t('global.domain.EnergyCenterPage.energy.smart_charging.title_prefix') }}</span>
+          {{ t('global.domain.EnergyCenterPage.energy.smart_charging.title') }}
         </div>
 
         <div class="desc">
-         {{ t('domain.EnergyCenterPage.energy.smart_charging.description') }}
+         {{ t('global.domain.EnergyCenterPage.energy.smart_charging.description') }}
         </div>
 
         <div class="section4_1">
@@ -155,7 +155,7 @@
               </video>
 
               <div class="video-btn" @click="openVideo">
-                {{ t('domain.EnergyCenterPage.energy.smart_charging.watch_video') }}
+                {{ t('global.domain.EnergyCenterPage.energy.smart_charging.watch_video') }}
                 <img
                   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAARzQklUCAgICHwIZIgAAAEhSURBVHic7dphTQNBFEXhOwQBlVAJ4KASkAAOsIAC6gCcgAMktBJwcPnThglptluanTcvcz4DM7k5adrdSgAAAAAAAAAAYEy2V7ZX0feY6ybgzDtJX7Y3AWf3z/bGv14z1dTEn4Fse0dNlRMDUVNtYqAua4r4kJ6ylvQxdE1nCuqutt4Kqo1Z0wUFdVFTzwXVwmrKMtDRc+tv4dkGUuuaMg501KSmzAOpRU3ZB1rcbfQFrrSX9FJKeV/qgMwDbQ/jfC95SMaB9pKeSimfLQ7L9hm0lXTfapwQV/zUeIy+exP/GOjN9jr63s1c+LhjjGpqMwcaq5rajEeu41VTmxho3GpqvPY5gxeHZxwG2tl+iL5Ll7L9eQEAAAAAAAAAAHTiB2v1UfW46pnfAAAAAElFTkSuQmCC"
                   alt=""
@@ -180,27 +180,27 @@
 
       <!-- Section 5 -->
       <section class="section2 section5" style="margin-top: 80px;">
-        <div class="title"><span class="large">{{ t('domain.EnergyCenterPage.energy.eco.title_prefix') }}</span>{{ t('domain.EnergyCenterPage.energy.eco.title') }}</div>
+        <div class="title"><span class="large">{{ t('global.domain.EnergyCenterPage.energy.eco.title_prefix') }}</span>{{ t('global.domain.EnergyCenterPage.energy.eco.title') }}</div>
         <div class="horizontal-tab commonTab auto-slide-tab">
           <div class="tab">
             <div class="tab-nav">
-              <div class="tab-item active" data-tab="0">{{ t('domain.EnergyCenterPage.energy.eco.v2g') }}</div>
-              <div class="tab-item" data-tab="1">{{ t('domain.EnergyCenterPage.energy.eco.sharing') }}</div>
-              <div class="tab-item" data-tab="2">{{ t('domain.EnergyCenterPage.energy.eco.recycling') }}</div>
+              <div class="tab-item active" data-tab="0">{{ t('global.domain.EnergyCenterPage.energy.eco.v2g') }}</div>
+              <div class="tab-item" data-tab="1">{{ t('global.domain.EnergyCenterPage.energy.eco.sharing') }}</div>
+              <div class="tab-item" data-tab="2">{{ t('global.domain.EnergyCenterPage.energy.eco.recycling') }}</div>
               <div class="slide-content"></div>
             </div>
           </div>
           <div class="tab_mb">
-            <div class="tab-item_mb active" data-tab="0">{{ t('domain.EnergyCenterPage.energy.eco.v2g') }}</div>
-            <div class="tab-item_mb" data-tab="1">{{ t('domain.EnergyCenterPage.energy.eco.sharing') }}</div>
-            <div class="tab-item_mb" data-tab="2">{{ t('domain.EnergyCenterPage.energy.eco.recycling') }}</div>
+            <div class="tab-item_mb active" data-tab="0">{{ t('global.domain.EnergyCenterPage.energy.eco.v2g') }}</div>
+            <div class="tab-item_mb" data-tab="1">{{ t('global.domain.EnergyCenterPage.energy.eco.sharing') }}</div>
+            <div class="tab-item_mb" data-tab="2">{{ t('global.domain.EnergyCenterPage.energy.eco.recycling') }}</div>
           </div>
           <div class="tab-content">
             <div class="tab-content-item active" data-tab="0">
               <div class="tab_content_demo">
                 <div class="img-wrapper">
                   <img src="https://www.voyah.com.cn/static/assets/V2G-cba13343.jpg" alt="Technologie V2G" />
-                  <div class="tab_desc">{{ t('domain.EnergyCenterPage.energy.eco.v2g_desc') }}</div>
+                  <div class="tab_desc">{{ t('global.domain.EnergyCenterPage.energy.eco.v2g_desc') }}</div>
                 </div>
               </div>
             </div>
@@ -209,7 +209,7 @@
                 <div class="img-wrapper">
                   <img src="https://www.voyah.com.cn/static/assets/kongxiang-f3e4984f.jpg" alt="Partage de bornes" />
                   <div class="tab_desc">
-{{ t('domain.EnergyCenterPage.energy.eco.sharing_desc') }}</div>
+{{ t('global.domain.EnergyCenterPage.energy.eco.sharing_desc') }}</div>
                 </div>
               </div>
             </div>
@@ -217,7 +217,7 @@
               <div class="tab_content_demo">
                 <div class="img-wrapper">
                   <img src="https://www.voyah.com.cn/static/assets/tici-b570e40a.jpg" alt="Recyclage des batteries" />
-                  <div class="tab_desc">{{ t('domain.EnergyCenterPage.energy.eco.recycling_desc') }}</div>
+                  <div class="tab_desc">{{ t('global.domain.EnergyCenterPage.energy.eco.recycling_desc') }}</div>
                 </div>
               </div>
             </div>
@@ -226,23 +226,23 @@
       </section>
 
       <section class="section2 section6">
-        <div class="title">{{ t('domain.EnergyCenterPage.energy.encyclopedia.title') }}</div>
-        <div class="desc">{{ t('domain.EnergyCenterPage.energy.encyclopedia.description') }}</div>
+        <div class="title">{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.title') }}</div>
+        <div class="desc">{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.description') }}</div>
         <div class="horizontal-tab commonTab">
           <div class="tab">
             <div class="tab-nav">
-              <div class="tab-item active" data-tab="0">{{ t('domain.EnergyCenterPage.energy.encyclopedia.fast_guide') }}</div>
-              <div class="tab-item" data-tab="1">{{ t('domain.EnergyCenterPage.energy.encyclopedia.home_guide') }}</div>
-              <div class="tab-item" data-tab="2">{{ t('domain.EnergyCenterPage.energy.encyclopedia.public_guide') }}</div>
-              <div class="tab-item" data-tab="3">{{ t('domain.EnergyCenterPage.energy.encyclopedia.faq') }}</div>
+              <div class="tab-item active" data-tab="0">{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.fast_guide') }}</div>
+              <div class="tab-item" data-tab="1">{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.home_guide') }}</div>
+              <div class="tab-item" data-tab="2">{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.public_guide') }}</div>
+              <div class="tab-item" data-tab="3">{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.faq') }}</div>
               <div class="slide-content"></div>
             </div>
           </div>
           <div class="tab_mb">
-            <div class="tab-item_mb active" data-tab="0">{{ t('domain.EnergyCenterPage.energy.encyclopedia.fast_guide') }}</div>
-            <div class="tab-item_mb" data-tab="1">{{ t('domain.EnergyCenterPage.energy.encyclopedia.home_guide') }}</div>
-            <div class="tab-item_mb" data-tab="2">{{ t('domain.EnergyCenterPage.energy.encyclopedia.public_guide') }}</div>
-            <div class="tab-item_mb" data-tab="3">{{ t('domain.EnergyCenterPage.energy.encyclopedia.faq') }}</div>
+            <div class="tab-item_mb active" data-tab="0">{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.fast_guide') }}</div>
+            <div class="tab-item_mb" data-tab="1">{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.home_guide') }}</div>
+            <div class="tab-item_mb" data-tab="2">{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.public_guide') }}</div>
+            <div class="tab-item_mb" data-tab="3">{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.faq') }}</div>
           </div>
           <div class="tab-content">
             <div class="tab-content-item active" data-tab="0">
@@ -250,21 +250,21 @@
                 <div class="book-grid">
                   <div class="book-card">
                     <img src="https://img.dsmp.voyah.com.cn/img/community-new/center/144115205301727945/77a9b4db-fd48-4770-a4ce-9f40b345994f-1760680986127.png" />
-                    <h4>{{ t('domain.EnergyCenterPage.energy.encyclopedia.fast_guide_title') }}</h4>
-                    <p>{{ t('domain.EnergyCenterPage.energy.encyclopedia.fast_guide_desc') }}</p>
-                    <div class="more">{{ t('domain.EnergyCenterPage.energy.encyclopedia.read_more') }}</div>
+                    <h4>{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.fast_guide_title') }}</h4>
+                    <p>{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.fast_guide_desc') }}</p>
+                    <div class="more">{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.read_more') }}</div>
                   </div>
                   <div class="book-card">
                     <img src="https://img.dsmp.voyah.com.cn/img/community-new/center/144115205301727945/a4c823a6-fff9-4f09-96c0-23984dde8e30-1763017997820.png" />
-                    <h4>{{ t('domain.EnergyCenterPage.energy.encyclopedia.winter_title') }}</h4>
-                    <p>{{ t('domain.EnergyCenterPage.energy.encyclopedia.winter_desc') }}</p>
-                    <div class="more">{{ t('domain.EnergyCenterPage.energy.encyclopedia.read_more') }}</div>
+                    <h4>{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.winter_title') }}</h4>
+                    <p>{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.winter_desc') }}</p>
+                    <div class="more">{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.read_more') }}</div>
                   </div>
                   <div class="book-card">
                     <img src="https://img.dsmp.voyah.com.cn/img/community-new/center/144115205301727945/6afd3d9b-388f-41e6-9b45-520a8a77646e-1758008380758.jpg" />
-                    <h4>{{ t('domain.EnergyCenterPage.energy.encyclopedia.free_parking_title') }}</h4>
-                    <p>{{ t('domain.EnergyCenterPage.energy.encyclopedia.free_parking_desc') }}</p>
-                    <div class="more">{{ t('domain.EnergyCenterPage.energy.encyclopedia.read_more') }}</div>
+                    <h4>{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.free_parking_title') }}</h4>
+                    <p>{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.free_parking_desc') }}</p>
+                    <div class="more">{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.read_more') }}</div>
                   </div>
                 </div>
               </div>
@@ -274,15 +274,15 @@
                 <div class="book-grid">
                   <div class="book-card">
                     <img src="https://img.dsmp.voyah.com.cn/img/community/center/cc251eb2-a5a4-4fa4-9c4f-4b16eaa0b2011704892427898.jpg" />
-                    <h4>{{ t('domain.EnergyCenterPage.energy.encyclopedia.installation_title') }}</h4>
-                    <p>{{ t('domain.EnergyCenterPage.energy.encyclopedia.installation_desc') }}</p>
-                    <div class="more">{{ t('domain.EnergyCenterPage.energy.encyclopedia.read_more') }}</div>
+                    <h4>{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.installation_title') }}</h4>
+                    <p>{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.installation_desc') }}</p>
+                    <div class="more">{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.read_more') }}</div>
                   </div>
                   <div class="book-card">
                     <img src="https://img.dsmp.voyah.com.cn/img/community/center/1ece860b-e95f-4d11-b96a-5325de63aeb81699348080554.jpg" />
-                    <h4>{{ t('domain.EnergyCenterPage.energy.encyclopedia.compatibility_title') }}</h4>
-                    <p>{{ t('domain.EnergyCenterPage.energy.encyclopedia.compatibility_desc') }}</p>
-                    <div class="more">{{ t('domain.EnergyCenterPage.energy.encyclopedia.read_more') }}</div>
+                    <h4>{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.compatibility_title') }}</h4>
+                    <p>{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.compatibility_desc') }}</p>
+                    <div class="more">{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.read_more') }}</div>
                   </div>
                 </div>
               </div>
@@ -292,15 +292,15 @@
                 <div class="book-grid">
                   <div class="book-card">
                     <img src="https://img.dsmp.voyah.com.cn/img/community/center/457565c8-b131-42f5-8e4a-fd1ca685e0dd1696006751985.jpg" />
-                    <h4>{{ t('domain.EnergyCenterPage.energy.encyclopedia.operators_title') }}</h4>
-                    <p>{{ t('domain.EnergyCenterPage.energy.encyclopedia.operators_desc') }}</p>
-                    <div class="more">{{ t('domain.EnergyCenterPage.energy.encyclopedia.read_more') }}</div>
+                    <h4>{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.operators_title') }}</h4>
+                    <p>{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.operators_desc') }}</p>
+                    <div class="more">{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.read_more') }}</div>
                   </div>
                   <div class="book-card">
                     <img src="https://img.dsmp.voyah.com.cn/img/community/center/5a234409-f6ab-41a4-ad4e-f5eea2ce46d11696006912848.jpg" />
-                    <h4>{{ t('domain.EnergyCenterPage.energy.encyclopedia.app_title') }}</h4>
-                    <p>{{ t('domain.EnergyCenterPage.energy.encyclopedia.app_desc') }}</p>
-                    <div class="more">{{ t('domain.EnergyCenterPage.energy.encyclopedia.read_more') }}</div>
+                    <h4>{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.app_title') }}</h4>
+                    <p>{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.app_desc') }}</p>
+                    <div class="more">{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.read_more') }}</div>
                   </div>
                 </div>
               </div>
@@ -310,9 +310,9 @@
                 <div class="book-grid">
                   <div class="book-card">
                     <img src="https://img.dsmp.voyah.com.cn/img/community/pgc/list/33c2da05-e679-4379-9c9b-9a64653d1c0a1678347727724.jpg" />
-                    <h4>{{ t('domain.EnergyCenterPage.energy.encyclopedia.faq_title') }}</h4>
-                    <p>{{ t('domain.EnergyCenterPage.energy.encyclopedia.faq_desc') }}</p>
-                    <div class="more">{{ t('domain.EnergyCenterPage.energy.encyclopedia.read_more') }}</div>
+                    <h4>{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.faq_title') }}</h4>
+                    <p>{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.faq_desc') }}</p>
+                    <div class="more">{{ t('global.domain.EnergyCenterPage.energy.encyclopedia.read_more') }}</div>
                   </div>
                 </div>
               </div>
@@ -325,7 +325,7 @@
       <section class="section7">
         <img class="headImg bg_pc" src="https://www.voyah.com.cn/static/assets/partner_pc-b12d249b.png" />
         <div class="content">
-          <div class="title">{{ t('domain.EnergyCenterPage.energy.partners.title') }}</div>
+          <div class="title">{{ t('global.domain.EnergyCenterPage.energy.partners.title') }}</div>
          
         </div>
       </section>
@@ -410,18 +410,18 @@ onMounted(() => {
   }).addTo(map)
 
   const stations = [
-    { name: 'Tunis', coords: [36.8065, 10.1815], type: 'active', power: '350 kW', status: t('domain.EnergyCenterPage.energy.map.operational'), connectors: 4 },
-    { name: 'Sousse', coords: [35.8256, 10.6369], type: 'active', power: '350 kW', status: t('domain.EnergyCenterPage.energy.map.operational'), connectors: 4 },
-    { name: 'Sfax', coords: [34.7406, 10.7603], type: 'active', power: '350 kW', status: t('domain.EnergyCenterPage.energy.map.operational'), connectors: 4 },
-    { name: 'Gabès', coords: [33.8815, 10.0982], type: 'active', power: '150 kW', status: t('domain.EnergyCenterPage.energy.map.operational'), connectors: 2 },
-    { name: 'Tozeur', coords: [33.9197, 8.1335], type: 'active', power: '150 kW', status: t('domain.EnergyCenterPage.energy.map.operational'), connectors: 2 },
-    { name: 'Ben Guerdane', coords: [33.1392, 11.2194], type: 'active', power: '150 kW', status: t('domain.EnergyCenterPage.energy.map.operational'), connectors: 2 },
-    { name: 'Bizerte', coords: [37.2744, 9.8739], type: 'planned', power: '350 kW', status: t('domain.EnergyCenterPage.energy.map.planned_2025'), connectors: 4 },
-    { name: 'Kairouan', coords: [35.6781, 10.0964], type: 'planned', power: '150 kW', status: t('domain.EnergyCenterPage.energy.map.planned_2025'), connectors: 2 },
-    { name: 'Gafsa', coords: [34.4250, 8.7842], type: 'planned', power: '150 kW', status: t('domain.EnergyCenterPage.energy.map.planned_2026'), connectors: 2 },
-    { name: 'Nabeul', coords: [36.4550, 10.7363], type: 'planned', power: '150 kW', status: t('domain.EnergyCenterPage.energy.map.planned_2025'), connectors: 2 },
-    { name: 'Monastir', coords: [35.7645, 10.8115], type: 'planned', power: '150 kW', status: t('domain.EnergyCenterPage.energy.map.planned_2025'), connectors: 2 },
-    { name: 'Mahdia', coords: [35.5043, 11.0622], type: 'planned', power: '150 kW', status: t('domain.EnergyCenterPage.energy.map.planned_2026'), connectors: 2 },
+    { name: 'Tunis', coords: [36.8065, 10.1815], type: 'active', power: '350 kW', status: t('global.domain.EnergyCenterPage.energy.map.operational'), connectors: 4 },
+    { name: 'Sousse', coords: [35.8256, 10.6369], type: 'active', power: '350 kW', status: t('global.domain.EnergyCenterPage.energy.map.operational'), connectors: 4 },
+    { name: 'Sfax', coords: [34.7406, 10.7603], type: 'active', power: '350 kW', status: t('global.domain.EnergyCenterPage.energy.map.operational'), connectors: 4 },
+    { name: 'Gabès', coords: [33.8815, 10.0982], type: 'active', power: '150 kW', status: t('global.domain.EnergyCenterPage.energy.map.operational'), connectors: 2 },
+    { name: 'Tozeur', coords: [33.9197, 8.1335], type: 'active', power: '150 kW', status: t('global.domain.EnergyCenterPage.energy.map.operational'), connectors: 2 },
+    { name: 'Ben Guerdane', coords: [33.1392, 11.2194], type: 'active', power: '150 kW', status: t('global.domain.EnergyCenterPage.energy.map.operational'), connectors: 2 },
+    { name: 'Bizerte', coords: [37.2744, 9.8739], type: 'planned', power: '350 kW', status: t('global.domain.EnergyCenterPage.energy.map.planned_2025'), connectors: 4 },
+    { name: 'Kairouan', coords: [35.6781, 10.0964], type: 'planned', power: '150 kW', status: t('global.domain.EnergyCenterPage.energy.map.planned_2025'), connectors: 2 },
+    { name: 'Gafsa', coords: [34.4250, 8.7842], type: 'planned', power: '150 kW', status: t('global.domain.EnergyCenterPage.energy.map.planned_2026'), connectors: 2 },
+    { name: 'Nabeul', coords: [36.4550, 10.7363], type: 'planned', power: '150 kW', status: t('global.domain.EnergyCenterPage.energy.map.planned_2025'), connectors: 2 },
+    { name: 'Monastir', coords: [35.7645, 10.8115], type: 'planned', power: '150 kW', status: t('global.domain.EnergyCenterPage.energy.map.planned_2025'), connectors: 2 },
+    { name: 'Mahdia', coords: [35.5043, 11.0622], type: 'planned', power: '150 kW', status: t('global.domain.EnergyCenterPage.energy.map.planned_2026'), connectors: 2 },
   ]
 
   const activeIcon = L.divIcon({ className: 'custom-marker-active', html: '<div class="marker-active"></div>', iconSize: [20, 20], popupAnchor: [0, -10] })
@@ -433,10 +433,10 @@ onMounted(() => {
     marker.bindPopup(`
       <div class="station-popup">
         <h3>⚡ ${station.name}</h3>
-        <p><strong>${t('domain.EnergyCenterPage.energy.map.power')}:</strong> ${station.power}</p>
-        <p><strong>${t('domain.EnergyCenterPage.energy.map.status')}:</strong> ${station.status}</p>
-        <p><strong>${t('domain.EnergyCenterPage.energy.map.connectors')}:</strong> ${station.connectors} connecteurs</p>
-        <p><strong>${t('domain.EnergyCenterPage.energy.map.type')}:</strong> ${station.type === 'active' ? t('domain.EnergyCenterPage.energy.map.active') : t('domain.EnergyCenterPage.energy.map.planned')}</p>
+        <p><strong>${t('global.domain.EnergyCenterPage.energy.map.power', 'Power')}:</strong> ${station.power}</p>
+        <p><strong>${t('global.domain.EnergyCenterPage.energy.map.status', 'Status')}:</strong> ${station.status}</p>
+        <p><strong>${t('global.domain.EnergyCenterPage.energy.map.connectors', 'Connectors')}:</strong> ${station.connectors} connecteurs</p>
+        <p><strong>${t('global.domain.EnergyCenterPage.energy.map.type', 'Type')}:</strong> ${station.type === 'active' ? t('global.domain.EnergyCenterPage.energy.map.active', 'Active') : t('global.domain.EnergyCenterPage.energy.map.planned', 'Planned')}</p>
       </div>
     `)
   })

@@ -23,38 +23,14 @@
           <NuxtLink :to="buildPath('configuration-detail') + '?carModel=zhiyin-new'" class="voyah-button voyah-button--more voyah-button--dark voyah-button--plain">
             <span class="voyah-button__text">{{ textFor({ en: 'Configuration', fr: 'Configuration', ar: 'التكوين' }) }}</span>
           </NuxtLink>
-          <button class="voyah-button voyah-button--more voyah-button--dark voyah-button--plain">
+          <NuxtLink :to="buildPath('book-drive.html')" class="voyah-button voyah-button--more voyah-button--dark voyah-button--plain">
             <span class="voyah-button__text">{{ textFor({ en: 'Book Test Drive', fr: 'Réserver un Essai', ar: 'احجز تجربة قيادة' }) }}</span>
-          </button>
-          <button class="voyah-button voyah-button--more voyah-button--dark">
-            <span class="voyah-button__text">{{ textFor({ en: 'Order Now', fr: 'Commander', ar: 'اطلب الآن' }) }}</span>
-          </button>
-        </div>
+          </NuxtLink>
+                  </div>
       </div>
     </section>
 
-    <!-- Mobile Chapter Nav -->
-    <div class="car-nav-wap fixed-nav" :class="{ visible: showMobileNav }">
-      <ul class="car-nav-list">
-        <li
-          v-for="(section, index) in chapterSections"
-          :key="section.id"
-          class="car-nav-item"
-          :class="{ active: activeSection === index }"
-          @click="scrollToSection(section.id)"
-        >
-          <div class="car-nav-item_icon">
-            <div class="icon-outer"></div>
-            <div class="icon-inner"></div>
-          </div>
-          <div class="car-nav-item_text">
-            <p class="serial">{{ String(index + 1).padStart(2, '0') }}</p>
-            <p class="title">{{ section.title }}</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-
+    
     <!-- Car Gallery Swiper -->
     <section class="car-gallery" id="gallery">
       <div class="swiper-container">

@@ -105,7 +105,7 @@
             <div class="config-name-spacer"></div>
             <div class="version-col-header" v-for="version in displayVersions" :key="version.id">
               <div class="version-name">{{ version.name[locale?.code || 'en'] }}</div>
-              <div class="version-price">{{ typeof version.price === 'object' ? version.price[locale?.code || 'en'] : version.price }}</div>
+              <div class="version-price">{{ formatPrice(typeof version.price === 'object' ? version.price[locale?.code || 'en'] : version.price) }}</div>
             </div>
           </div>
         </div>
@@ -313,6 +313,16 @@ const getCategoryTitle = (category: string): string => {
     'exterior': { en: 'Exterior Configuration', fr: 'Extérieur', ar: 'الخارجي' }
   }
   return titles[category]?.[locale.value?.code || 'en'] || category
+}
+
+const formatPrice = (raw: string | number | undefined): string => {
+  if (raw === undefined || raw === null || raw === '') return ''
+  if (typeof raw === 'number') {
+    return raw.toLocaleString('fr-FR').replace(/\u202f/g, ',').replace(',', ',') + ' ¥'
+  }
+  const str = String(raw).trim()
+  if (str.includes('¥')) return str
+  return str + ' ¥'
 }
 
 const availableVersions = computed<Version[]>(() => {

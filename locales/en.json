@@ -23,6 +23,10 @@
     },
     "footer": {
       "brand": "Voyah Brand",
+      "autohall": {
+        "distributor": "Official Voyah distributor in Tunisia",
+        "solutions": "Premium electric vehicle solutions"
+      },
       "models": "Models",
       "store": "Store Center",
       "service": "Voyah Service",
@@ -99,6 +103,113 @@
       "configurationSummary": "Configuration Summary",
       "downloadBrochure": "Download Brochure",
       "orderNow": "Order Now"
+    },
+    "domain": {
+      "EnergyCenterPage": {
+        "energy": {
+          "title": "Voyah Energy",
+          "description": "Comprehensive energy solutions for sustainable mobility",
+          "solution": {
+            "title": "168 Energy Solutions",
+            "subtitle_voyah": "VOYAH",
+            "subtitle_power": "POWER",
+            "card1": {
+              "line1": "Photovoltaic Power Generation",
+              "line2": "Energy Storage System",
+              "line3": "Smart Grid Integration",
+              "line4": "Green Energy Supply"
+            },
+            "card2": {
+              "line1": "Ultra-Fast Charging Network"
+            },
+            "card3": {
+              "line1": "Vehicle-to-Grid (V2G) Technology",
+              "line2": "Energy Sharing Platform",
+              "line3": "Battery Recycling System",
+              "line4": "Smart Energy Management",
+              "line5": "Carbon Neutral Solutions",
+              "line6": "Sustainable Energy Cycle",
+              "line7": "Clean Energy Future",
+              "line8": "Innovation Leadership"
+            }
+          },
+          "network": {
+            "title_prefix": "Energy",
+            "title": "Network",
+            "description": "Comprehensive charging infrastructure across Tunisia",
+            "description2": "Expanding rapidly to serve your needs",
+            "card_title": "Network Statistics",
+            "points": "Charging Points",
+            "ultra_fast": "Ultra-Fast Stations",
+            "green_energy": "Green Energy Supplied",
+            "co2_saved": "CO₂ Saved"
+          },
+          "map": {
+            "power": "Power",
+            "status": "Status",
+            "connectors": "Connectors",
+            "type": "Type",
+            "active": "Active",
+            "planned": "Planned",
+            "operational": "Operational",
+            "planned_2025": "Planned 2025",
+            "planned_2026": "Planned 2026"
+          },
+          "fast_charging": {
+            "title_prefix": "Fast",
+            "title": "Charging",
+            "description": "Ultra-fast charging technology for quick energy replenishment",
+            "peak_power": "Peak Power",
+            "peak_current": "Peak Current",
+            "range": "Range in 10 min",
+            "watch_video": "Watch Video"
+          },
+          "smart_charging": {
+            "title_prefix": "Smart",
+            "title": "Charging",
+            "description": "Intelligent charging solutions with advanced technology",
+            "watch_video": "Watch Video"
+          },
+          "eco": {
+            "title_prefix": "Energy",
+            "title": "Ecosystem",
+            "v2g": "V2G Technology",
+            "v2g_desc": "Vehicle-to-Grid technology enables bi-directional energy flow",
+            "sharing": "Energy Sharing",
+            "sharing_desc": "Share charging infrastructure with other users",
+            "recycling": "Battery Recycling",
+            "recycling_desc": "Sustainable battery lifecycle management"
+          },
+          "encyclopedia": {
+            "title": "Energy Encyclopedia",
+            "description": "Complete guide to electric vehicle charging",
+            "fast_guide": "Fast Charging Guide",
+            "home_guide": "Home Charging",
+            "public_guide": "Public Charging",
+            "faq": "FAQ",
+            "fast_guide_title": "Ultra-Fast Charging Guide",
+            "fast_guide_desc": "Learn about ultra-fast charging technology",
+            "winter_title": "Winter Charging Tips",
+            "winter_desc": "Optimize charging performance in cold weather",
+            "free_parking_title": "Free Parking Locations",
+            "free_parking_desc": "Find charging stations with free parking",
+            "read_more": "Read More",
+            "installation_title": "Home Installation",
+            "installation_desc": "Guide to installing home charging equipment",
+            "compatibility_title": "Vehicle Compatibility",
+            "compatibility_desc": "Check compatibility with your vehicle",
+            "operators_title": "Network Operators",
+            "operators_desc": "Available charging network providers",
+            "app_title": "Mobile App",
+            "app_desc": "Manage charging with our mobile application",
+            "faq_title": "Frequently Asked Questions",
+            "faq_desc": "Common questions about EV charging"
+          },
+          "partners": {
+            "title": "Energy Partners"
+          }
+        }
+      }
     }
   }
 }

@@ -11,33 +11,33 @@
     <ul class="sidebar-list">
       <!-- Test Drive -->
       <li class="sidebar-item group">
-        <NuxtLink :to="buildPath('book-drive.html')" class="sidebar-link" :aria-label="$t('global.sidebar.testDrive')">
+        <NuxtLink :to="buildPath('book-drive.html')" class="sidebar-link" :aria-label="textFor({ en: 'Test Drive', fr: 'Essai Routier', ar: 'اختبار القيادة' })">
           <div class="sidebar-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M4 18h16M4 14h16M6 10l2-4h8l2 4M3 10h18M5 14v4M19 14v4" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <span class="sidebar-tooltip">{{ $t('global.sidebar.testDrive') }}</span>
+          <span class="sidebar-tooltip">{{ textFor({ en: 'Test Drive', fr: 'Essai Routier', ar: 'اختبار القيادة' }) }}</span>
         </NuxtLink>
       </li>
 
       <!-- Consultation -->
       <li class="sidebar-item group" @mouseenter="showConsultation = true" @mouseleave="showConsultation = false">
-        <button type="button" class="sidebar-link" :aria-label="$t('global.sidebar.consultation')">
+        <button type="button" class="sidebar-link" :aria-label="textFor({ en: 'Consultation', fr: 'Consultation', ar: 'استشارة' })">
           <div class="sidebar-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.06 12.06 0 00.57 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.06 12.06 0 002.81.57A2 2 0 0122 16.92z" />
             </svg>
           </div>
-          <span class="sidebar-tooltip">{{ $t('global.sidebar.consultation') }}</span>
+          <span class="sidebar-tooltip">{{ textFor({ en: 'Consultation', fr: 'Consultation', ar: 'استشارة' }) }}</span>
         </button>
 
         <Transition name="panel-slide">
           <div v-if="showConsultation" class="sidebar-panel sidebar-panel--consult">
             <div class="panel-inner">
-              <h4 class="panel-title">{{ $t('global.sidebar.hotlineTitle') }}</h4>
+              <h4 class="panel-title">{{ textFor({ en: 'Hotline', fr: 'Hotline', ar: 'الخط الساخن' }) }}</h4>
               <p class="panel-hotline">93 107 107 / 29 803 078</p>
-              <p class="panel-hours">{{ $t('global.sidebar.hotlineHours') }}</p>
+              <p class="panel-hours">{{ textFor({ en: 'Mon-Fri: 9:00-18:00', fr: 'Lun-Ven: 9:00-18:00', ar: 'الإثنين-الجمعة: 9:00-18:00' }) }}</p>
             </div>
           </div>
         </Transition>
@@ -45,14 +45,14 @@
 
       <!-- App QR -->
       <li class="sidebar-item group" @mouseenter="showApp = true" @mouseleave="showApp = false">
-        <button type="button" class="sidebar-link" :aria-label="$t('global.sidebar.app')">
+        <button type="button" class="sidebar-link" :aria-label="textFor({ en: 'App', fr: 'App', ar: 'التطبيق' })">
           <div class="sidebar-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
               <path d="M7 7h4v4H7zM7 13h4v4H7zM13 7h4v4h-4zM13 13h1v1h-1zM16 13h1v1h-1zM14 14h1v1h-1zM13 15h1v1h-1zM16 15h1v1h-1zM15 16h1v1h-1zM13 17h1v1h-1zM15 17h2v1h-2z" />
             </svg>
           </div>
-          <span class="sidebar-tooltip">{{ $t('global.sidebar.app') }}</span>
+          <span class="sidebar-tooltip">{{ textFor({ en: 'App', fr: 'App', ar: 'التطبيق' }) }}</span>
         </button>
 
         <Transition name="panel-slide">
@@ -61,7 +61,7 @@
               <div class="panel-qr-box">
                 <img src="/static/assets/qr-code-a2fb7ce9.png" alt="QR Code" class="panel-qr" @error="handleImgError" />
               </div>
-              <p class="panel-copy">{{ $t('global.footer.appEyebrow') }}</p>
+              <p class="panel-copy">{{ textFor({ en: 'Download the App', fr: 'Téléchargez l\'App', ar: 'حمل التطبيق' }) }}</p>
             </div>
           </div>
         </Transition>
@@ -69,13 +69,13 @@
 
       <!-- Feedback -->
       <li class="sidebar-item group">
-        <button type="button" class="sidebar-link" :aria-label="$t('global.sidebar.feedback')">
+        <button type="button" class="sidebar-link" :aria-label="textFor({ en: 'Feedback', fr: 'Feedback', ar: 'ملاحظات' })">
           <div class="sidebar-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />
             </svg>
           </div>
-          <span class="sidebar-tooltip">{{ $t('global.sidebar.feedback') }}</span>
+          <span class="sidebar-tooltip">{{ textFor({ en: 'Feedback', fr: 'Feedback', ar: 'ملاحظات' }) }}</span>
         </button>
       </li>
     </ul>
@@ -94,7 +94,7 @@ import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { currentLocaleInfo, useSiteContent } from '~/composables/useSiteContent'
 
 const currentLocale = currentLocaleInfo()
-const { buildPath } = useSiteContent()
+const { buildPath, textFor } = useSiteContent()
 
 const expanded = ref(false)
 const showConsultation = ref(false)

@@ -25,10 +25,10 @@
             <BaseButton :to="buildPath('book-drive.html')" variant="primary" class="titan-be-btn-primary">
               {{ textFor(bookDriveText) }}
             </BaseButton>
-            <BaseButton :to="buildPath('store.html')" variant="secondary" class="titan-be-btn-secondary">
-              {{ textFor(orderNowText) }}
+            <BaseButton :to="buildPath('configuration-detail') + '?carModel=taishan-black'" variant="secondary" class="titan-be-btn-secondary">
+              {{ textFor(configurationsText) }}
             </BaseButton>
-          </div>
+                      </div>
         </div>
       </div>
     </section>
@@ -150,6 +150,9 @@
           <BaseButton :to="buildPath('book-drive.html')" variant="primary">
             {{ textFor(bookDriveText) }}
           </BaseButton>
+          <BaseButton :to="buildPath('configuration-detail') + '?carModel=taishan-black'" variant="secondary">
+            {{ textFor(configurationsText) }}
+          </BaseButton>
           <BaseButton :to="buildPath('store.html')" variant="secondary">
             {{ textFor(findStoreText) }}
           </BaseButton>
@@ -176,8 +179,8 @@ const t = (en: string, fr: string, ar: string): LocalizedText => ({ en, fr, ar }
 const heroSlogan = t('Black ink reveals Mount Tai, vision determines the universe', "L'encre noire révèle le Mont Tai, la vision détermine l'univers", 'الحبر الأسود يكشف جبل الطائش، والرؤية تحدد الكون')
 const priceText = t('Starting from RMB 509,900', 'À partir de 509 900 RMB', 'السعر يبدأ من 509,900 يوان')
 const bookDriveText = t('Book test drive', 'Réserver un essai', 'حجز تجربة قيادة')
-const orderNowText = t('Order now', 'Commander maintenant', 'اطلب الآن')
 const findStoreText = t('Find a store', 'Trouver un magasin', 'ابحث عن متجر')
+const configurationsText = t('Configurations', 'Configurations', 'التكوينات')
 
 // Chapter links
 const chapterLinks = computed(() => [

@@ -9,24 +9,12 @@
           <NuxtLink :to="buildPath('configuration-detail') + '?carModel=dreamer-2026'" class="voyah-button voyah-button--plain">
             <span class="voyah-button__text">{{ textFor({ en: 'Configuration', fr: 'Configuration', ar: 'التكوين' }) }}</span>
           </NuxtLink>
-          <button class="voyah-button voyah-button--plain">{{ textFor({ en: 'Book Test Drive', fr: 'Réserver Essai', ar: 'حجز تجربة قيادة' }) }}</button>
-          <button class="voyah-button voyah-button--dark">{{ textFor({ en: 'Order Now', fr: 'Commander', ar: 'اطلب الآن' }) }}</button>
+          <NuxtLink :to="buildPath('book-drive.html')" class="voyah-button voyah-button--plain">{{ textFor({ en: 'Book Test Drive', fr: 'Réserver Essai', ar: 'حجز تجربة قيادة' }) }}</NuxtLink>
         </div>
       </div>
     </section>
 
-    <div class="car-nav-wap fixed-nav" :class="{ visible: showMobileNav }">
-      <ul class="car-nav-list">
-        <li v-for="(section, index) in chapterSections" :key="section.id" class="car-nav-item" :class="{ active: activeSection === index }" @click="scrollToSection(section.id)">
-          <div class="car-nav-item_icon"><div class="icon-outer"></div><div class="icon-inner"></div></div>
-          <div class="car-nav-item_text">
-            <p class="serial">{{ String(index + 1).padStart(2, '0') }}</p>
-            <p class="title">{{ section.title }}</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-
+    
     <section id="section1" class="level-one" :style="{ backgroundImage: `url('/assets/OFFICIALVOYAH/newDreamer26/images/bg_02_1920.jpg')` }">
       <h2 class="title">{{ textFor({ en: 'Flagship Luxury', fr: 'Luxe Phare', ar: 'الفخامة الرائدة' }) }}</h2>
       <p class="subTitle">{{ textFor({ en: 'Embrace Heaven and Earth', fr: 'Embrasser Ciel et Terre', ar: 'احتضان السماء والأرض' }) }}</p>

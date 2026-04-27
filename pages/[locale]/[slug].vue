@@ -2,15 +2,6 @@
   <div :key="locale.code">
   <ServiceCenterPage v-if="servicePage" />
   <EnergyCenterPage v-else-if="energyPage" />
-  <LegacyBusinessPage
-    v-else-if="legacyBusinessPage"
-    :page="legacyBusinessPage.page"
-    :prefix="legacyBusinessPage.prefix"
-    :root-class="legacyBusinessPage.rootClass"
-    :scope-attr="legacyBusinessPage.scopeAttr"
-    :text-for="textFor"
-    :section-titles="legacyBusinessPage.sectionTitles"
-  />
   <StoreCenterPage v-else-if="storePage" />
   <LegacyDisclosurePage v-else-if="legacyDisclosurePage" :page="legacyDisclosurePage" :text-for="textFor" />
   <PassionLPage v-else-if="modelPage?.slug === 'passion-L.html'" :model="modelPage" />
@@ -44,7 +35,7 @@
   <CommunityPage v-else-if="infoPage?.slug === 'community.html'" :page="infoPage" />
   <LifestyleStorePage v-else-if="infoPage?.slug === 'lifestyle-store.html'" :page="infoPage" />
   <InfoPage
-    v-else-if="infoPage && !legacyBusinessPage && !legacyDisclosurePage && !storePage && !servicePage && !energyPage"
+    v-else-if="infoPage && !legacyDisclosurePage && !storePage && !servicePage && !energyPage"
     :page="infoPage"
   />
   <LegalPage v-else-if="legalPage" :page="legalPage" />
@@ -54,10 +45,9 @@
 <script setup lang="ts">
 import InfoPage from '~/components/page/InfoPage.vue'
 import LegalPage from '~/components/page/LegalPage.vue'
-import LegacyBusinessPage from '~/components/page/legacy/LegacyBusinessPage.vue'
-import LegacyDisclosurePage from '~/components/page/legacy/LegacyDisclosurePage.vue'
-import EnergyCenterPage from '~/components/page/legacy/EnergyCenterPage.vue'
 import ServiceCenterPage from '~/components/page/legacy/ServiceCenterPage.vue'
+import EnergyCenterPage from '~/components/page/legacy/EnergyCenterPage.vue'
+import LegacyDisclosurePage from '~/components/page/legacy/LegacyDisclosurePage.vue'
 import StoreCenterPage from '~/components/page/legacy/StoreCenterPage.vue'
 import ModelPage from '~/components/page/ModelPage.vue'
 import PassionLPage from '~/components/vehicles/passion/PassionLPage.vue'
@@ -111,10 +101,6 @@ const { textFor, locale } = useSiteContent()
 const storePage = computed(() => infoPage.value?.slug === 'store.html')
 const servicePage = computed(() => infoPage.value?.slug === 'service.html')
 const energyPage = computed(() => infoPage.value?.slug === 'energy.html')
-const legacyBusinessPage = computed(() => {
-  if (!infoPage.value) return null
-  return null
-})
 const legacyDisclosurePage = computed<InfoDefinition | null>(() => {
   if (!infoPage.value) return null
   return ['purchasing.html', 'environmental.html', 'document.html'].includes(infoPage.value.slug)

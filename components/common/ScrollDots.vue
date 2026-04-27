@@ -148,6 +148,11 @@ onBeforeUnmount(() => {
   pointer-events: none;
 }
 
+/* Hide scroll-dots only on homepage */
+.voyah-homepage .scroll-dots {
+  display: none;
+}
+
 .scroll-dots--rtl {
   left: auto;
   right: 48px;

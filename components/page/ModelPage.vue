@@ -14,7 +14,7 @@
         <BaseButton :to="buildPath('book-drive.html')" variant="primary">
           {{ textFor(model.ctaPrimary) }}
         </BaseButton>
-        <BaseButton :to="buildPath(model.secondarySlug)" variant="secondary">
+        <BaseButton :to="model.secondarySlug === 'configuration-detail' ? buildPath(model.secondarySlug) + '?carModel=' + ({ 'dreamer.html': 'dreamer-2024' }[model.slug] ?? model.slug.replace('.html', '')) : buildPath(model.secondarySlug)" variant="secondary">
           {{ textFor(model.ctaSecondary) }}
         </BaseButton>
       </template>

@@ -10,8 +10,7 @@
           <NuxtLink :to="buildPath('configuration-detail') + '?carModel=dreamer-champion'" class="voyah-button voyah-button--plain">
             <span class="voyah-button__text">{{ textFor({ en: 'Configuration', fr: 'Configuration', ar: 'التكوين' }) }}</span>
           </NuxtLink>
-          <button class="voyah-button voyah-button--plain">{{ textFor({ en: 'Book Test Drive', fr: 'Réserver Essai', ar: 'حجز تجربة قيادة' }) }}</button>
-          <button class="voyah-button voyah-button--dark">{{ textFor({ en: 'Order Now', fr: 'Commander', ar: 'اطلب الآن' }) }}</button>
+          <NuxtLink :to="buildPath('book-drive.html')" class="voyah-button voyah-button--plain">{{ textFor({ en: 'Book Test Drive', fr: 'Réserver Essai', ar: 'حجز تجربة قيادة' }) }}</NuxtLink>
         </div>
       </div>
     </section>

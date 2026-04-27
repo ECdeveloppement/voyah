@@ -24,13 +24,10 @@
           <NuxtLink :to="buildPath('configuration-detail') + '?carModel=passion'" class="voyah-button voyah-button--more voyah-button--dark voyah-button--plain">
             <span class="voyah-button__text">{{ textFor({ en: 'Configuration', fr: 'Configuration', ar: 'التكوين' }) }}</span>
           </NuxtLink>
-          <button class="voyah-button voyah-button--more voyah-button--dark voyah-button--plain">
+          <NuxtLink :to="buildPath('book-drive.html')" class="voyah-button voyah-button--more voyah-button--dark voyah-button--plain">
             <span class="voyah-button__text">{{ textFor({ en: 'Book Test Drive', fr: 'Réserver un Essai', ar: 'Book Test Drive' }) }}</span>
-          </button>
-          <button class="voyah-button voyah-button--more voyah-button--dark">
-            <span class="voyah-button__text">{{ textFor({ en: 'Order Now', fr: 'Commander', ar: 'Order Now' }) }}</span>
-          </button>
-        </div>
+          </NuxtLink>
+                  </div>
       </div>
     </section>
 
@@ -673,22 +670,6 @@ onUnmounted(() => {
   border-color: rgba(255, 255, 255, 0.6);
 }
 
-/* Navigation */
-.car-nav-wap {
-  position: fixed;
-  top: 50%;
-  left: 20px;
-  transform: translateY(-50%);
-  z-index: 100;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-}
-
-.car-nav-wap.visible {
-  opacity: 1;
-  visibility: visible;
-}
 
 .car-nav-list {
   display: flex;
@@ -1202,9 +1183,6 @@ onUnmounted(() => {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .car-nav-wap {
-    left: 10px;
-  }
   
   .car-nav-side {
     right: 20px;

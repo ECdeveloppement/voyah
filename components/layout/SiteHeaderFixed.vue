@@ -391,7 +391,7 @@ const toolMenu = {
   title: copy('Tools', 'Outils', 'Al-Adawat'),
   items: [
     { slug: 'book-drive.html', label: copy('Book a test drive', 'Réserver un essai', 'Ajadr tajribat qiyada') },
-    { slug: 'titan.html', label: copy('Configure', 'Configurer', 'Al-tahyiya') }
+    { slug: 'configuration-detail', label: copy('Configurations', 'Configurations', 'التكوينات') }
   ]
 }
 
@@ -582,7 +582,7 @@ onBeforeUnmount(() => {
   right: 12px;
   bottom: 14px;
   height: 2px;
-  background: #b31d22;
+  background: linear-gradient(90deg, #0066cc 50%, #00a651 50%);
   transform: scaleX(0);
   transform-origin: center;
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);

@@ -23,6 +23,10 @@
     },
     "footer": {
       "brand": "علامة فوياه",
+      "autohall": {
+        "distributor": "الموزع الرسمي لفوياه في تونس",
+        "solutions": "حلول كهربائية مميزة"
+      },
       "models": "الطرازات",
       "store": "المركز التجاري",
       "service": "خدمات فوياه",
@@ -98,7 +102,114 @@
       "totalPrice": "Total Price",
       "configurationSummary": "Configuration Summary",
       "downloadBrochure": "Download Brochure",
-      "orderNow": "Order Now"
+      "orderNow": "اطلب الآن"
+    },
+    "domain": {
+      "EnergyCenterPage": {
+        "energy": {
+          "title": "طاقة فوياه",
+          "description": "حلول طاقة شاملة للتنقل المستدام",
+          "solution": {
+            "title": "168 حلول طاقة",
+            "subtitle_voyah": "فوياه",
+            "subtitle_power": "الطاقة",
+            "card1": {
+              "line1": "توليد الطاقة الكهروضوئية",
+              "line2": "نظام تخزين الطاقة",
+              "line3": "التكامل مع الشبكة الذكية",
+              "line4": "إمدادات الطاقة النظيفة"
+            },
+            "card2": {
+              "line1": "شبكة الشحن الفائقة السرعة"
+            },
+            "card3": {
+              "line1": "تقنية السيارة-الشبكة (V2G)",
+              "line2": "منصة مشاركة الطاقة",
+              "line3": "نظام إعادة تدوير البطاريات",
+              "line4": "إدارة الطاقة الذكية",
+              "line5": "حلول محايدة الكربون",
+              "line6": "دورة الطاقة المستدامة",
+              "line7": "مستقبل الطاقة النظيفة",
+              "line8": "قيادة الابتكار"
+            }
+          },
+          "network": {
+            "title_prefix": "شبكة",
+            "title": "الطاقة",
+            "description": "بنية تحتية شاملة للشحن في تونس",
+            "description2": "توسع سريع لتلبية احتياجاتك",
+            "card_title": "إحصائيات الشبكة",
+            "points": "نقاط الشحن",
+            "ultra_fast": "محطات الشحن الفائق السرعة",
+            "green_energy": "الطاقة الخضراء الموردة",
+            "co2_saved": "CO₂ تم توفيره"
+          },
+          "map": {
+            "power": "القدرة",
+            "status": "الحالة",
+            "connectors": "موصلات",
+            "type": "النوع",
+            "active": "نشط",
+            "planned": "مخطط",
+            "operational": "تشغيلي",
+            "planned_2025": "مخطط 2025",
+            "planned_2026": "مخطط 2026"
+          },
+          "fast_charging": {
+            "title_prefix": "شحن",
+            "title": "سريع",
+            "description": "تقنية الشحن فائق السرعة لإعادة شحن الطاقة بسرعة",
+            "peak_power": "القدرة القصوى",
+            "peak_current": "التيار القصوى",
+            "range": "مدى في 10 دقائق",
+            "watch_video": "شاهد الفيديو"
+          },
+          "smart_charging": {
+            "title_prefix": "شحن",
+            "title": "ذكي",
+            "description": "حلول الشحن الذكية بتقنية متقدمة",
+            "watch_video": "شاهد الفيديو"
+          },
+          "eco": {
+            "title_prefix": "نظام",
+            "title": "الطاقة البيئي",
+            "v2g": "تقنية V2G",
+            "v2g_desc": "تقنية السيارة-الشبكة تمكن تدفق الطاقة ثنائي الاتجاه",
+            "sharing": "مشاركة الطاقة",
+            "sharing_desc": "شارك بنية الشحن التحتية مع مستخدمين آخرين",
+            "recycling": "إعادة تدوير البطاريات",
+            "recycling_desc": "إدارة مستدامة لدورة حياة البطاريات"
+          },
+          "encyclopedia": {
+            "title": "موسوعة الطاقة",
+            "description": "دليل شامل لشحن المركبات الكهربائية",
+            "fast_guide": "دليل الشحن السريع",
+            "home_guide": "الشحن المنزلي",
+            "public_guide": "الشحن العام",
+            "faq": "الأسئلة الشائعة",
+            "fast_guide_title": "دليل الشحن فائق السرعة",
+            "fast_guide_desc": "تعرف على تقنية الشحن فائق السرعة",
+            "winter_title": "نصائح الشحن الشتوي",
+            "winter_desc": "تحسين أداء الشحن في الطقس البارد",
+            "free_parking_title": "مواقف مجانية",
+            "free_parking_desc": "ابحث عن محطات شحن مع مواقف مجانية",
+            "read_more": "اقرأ المزيد",
+            "installation_title": "التثبيت المنزلي",
+            "installation_desc": "دليل تثبيت معدات الشحن المنزلية",
+            "compatibility_title": "توافق المركبة",
+            "compatibility_desc": "تحقق من التوافق مع مركبتك",
+            "operators_title": "مشغلي الشبكة",
+            "operators_desc": "مزودو شبكات الشحن المتاحة",
+            "app_title": "التطبيق المحمول",
+            "app_desc": "إدارة الشحن مع تطبيقنا المحمول",
+            "faq_title": "الأسئلة المتكررة",
+            "faq_desc": "أسئلة شائعة حول شحن المركبات الكهربائية"
+          },
+          "partners": {
+            "title": "شركاء الطاقة"
+          }
+        }
+      }
     }
   }
 }
