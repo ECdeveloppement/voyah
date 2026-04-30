@@ -125,12 +125,45 @@ onMounted(() => {
   updateDots()
   setupObserver()
 
+  // Add scroll listener to hide dots when footer is visible
+  const handleScroll = () => {
+    const footer = document.querySelector('.site-footer, footer')
+    const scrollDots = document.querySelector('.scroll-dots')
+    
+    if (footer && scrollDots) {
+      const footerRect = footer.getBoundingClientRect()
+      const windowHeight = window.innerHeight
+      
+      // Hide dots when footer is visible (even partially)
+      if (footerRect.top < windowHeight) {
+        scrollDots.classList.add('hidden')
+      } else {
+        scrollDots.classList.remove('hidden')
+      }
+    }
+  }
+
+  window.addEventListener('scroll', handleScroll)
+  handleScroll() // Check initial state
+
+  // Store cleanup function
+  const cleanup = () => {
+    window.removeEventListener('scroll', handleScroll)
+  }
+
   // Re-run if content changes (Nuxt hydration)
   const mutationObserver = new MutationObserver(() => {
     updateDots()
     setupObserver()
   })
   mutationObserver.observe(document.body, { childList: true, subtree: true })
+
+  // Store cleanup for onBeforeUnmount
+  onBeforeUnmount(() => {
+    cleanup()
+    if (observer) observer.disconnect()
+    mutationObserver.disconnect()
+  })
 })
 
 onBeforeUnmount(() => {
@@ -146,11 +179,18 @@ onBeforeUnmount(() => {
   transform: translateY(-50%);
   z-index: 150;
   pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
 /* Hide scroll-dots only on homepage */
 .voyah-homepage .scroll-dots {
   display: none;
+}
+
+/* Hide scroll-dots when footer is visible */
+.scroll-dots.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .scroll-dots--rtl {

@@ -52,7 +52,9 @@
                 'nav-dropdown',
                 {
                   open: activeGroup === item.label.en,
-                  'nav-dropdown--models': item.label.en === 'Models'
+                  'nav-dropdown--models': item.label.en === 'Models',
+                  'nav-dropdown--service': item.label.en === 'Voyah Service',
+                  'nav-dropdown--about': item.label.en === 'About Voyah'
                 }
               ]"
               @scroll.stop
@@ -854,6 +856,40 @@ onBeforeUnmount(() => {
   transform: translateY(4px);
   opacity: 0;
   visibility: hidden;
+}
+
+.nav-dropdown--service {
+  left: 50%;
+  transform: translateX(-50%) translateY(10px) scale(0.98);
+}
+
+.nav-dropdown--about {
+  left: 20%;
+  transform: translateX(-50%) translateY(10px) scale(0.98);
+}
+
+.nav-group:hover .nav-dropdown--service {
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+
+.nav-group:hover .nav-dropdown--about {
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+
+.nav-dropdown--service.open {
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+
+.nav-dropdown--about.open {
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+
+.nav-dropdown--service.closing {
+  transform: translateX(-50%) translateY(10px) scale(0.98);
+}
+
+.nav-dropdown--about.closing {
+  transform: translateX(-50%) translateY(10px) scale(0.98);
 }
 
 .nav-dropdown-container {

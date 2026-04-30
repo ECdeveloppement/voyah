@@ -47,7 +47,7 @@
       "companyLabel": "Entreprise",
       "phoneLabel": "Téléphone",
       "emailLabel": "Email",
-      "emailValue": "contact@voyah.com",
+      "emailValue": "{'contact@voyah.com'}",
       "appEyebrow": "Scannez pour télécharger"
     },
     "autohalls": {
