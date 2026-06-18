@@ -105,7 +105,6 @@
             <div class="config-name-spacer"></div>
             <div class="version-col-header" v-for="version in displayVersions" :key="version.id">
               <div class="version-name">{{ version.name[locale?.code || 'en'] }}</div>
-              <div class="version-price">{{ formatPrice(typeof version.price === 'object' ? version.price[locale?.code || 'en'] : version.price) }}</div>
             </div>
           </div>
         </div>

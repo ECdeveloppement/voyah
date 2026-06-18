@@ -102,6 +102,7 @@ const driveLabel = computed(() => {
 <style scoped>
 .models-section {
   background: #fff;
+  overflow: hidden;
 }
 
 .section-title--dark {
@@ -160,33 +161,47 @@ const driveLabel = computed(() => {
   transform: scaleX(1);
 }
 
+/* ============================================
+   MAIN STAGE - FLEX LAYOUT (No absolute positioning)
+   ============================================ */
 .model-stage {
   position: relative;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
-  min-height: 680px;
+  min-height: auto;
   background:
     radial-gradient(circle at 50% 34%, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0) 34%),
     linear-gradient(180deg, #f7f4ef 0%, #f1ebe3 100%);
+  border-radius: 16px;
 }
 
+/* Viewer - Image container */
 .model-stage__viewer {
-  position: absolute;
-  inset: 0;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6px 42px 208px;
+  padding: 30px 30px 10px;
+  min-height: 350px;
+  width: 100%;
+  flex-shrink: 0;
 }
 
+/* Frame - Panel container below image */
 .model-stage__frame {
-  position: absolute;
-  inset: auto 0 0;
-  padding: 0;
+  position: relative;
+  padding: 0 24px 24px;
+  width: 100%;
+  flex-shrink: 0;
 }
 
+/* Image styles */
 .model-stage-image {
-  width: min(100%, 1120px);
+  width: 100%;
+  max-width: 700px;
   height: auto;
+  max-height: 400px;
   object-fit: contain;
   transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -208,14 +223,18 @@ const driveLabel = computed(() => {
   transform: scale(1.018);
 }
 
+/* Panel - Card style */
 .model-stage-panel {
   display: grid;
   gap: 18px;
-  padding: 20px 28px 22px;
-  border-radius: 0;
+  padding: 24px 28px 26px;
+  border-radius: 14px;
   background: rgba(248, 246, 242, 0.96);
-  border-top: 1px solid rgba(17, 17, 17, 0.08);
+  border: 1px solid rgba(17, 17, 17, 0.08);
   backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 100%;
+  box-shadow: 0 8px 30px rgba(17, 17, 17, 0.06);
 }
 
 .model-stage-panel__content {
@@ -257,10 +276,16 @@ const driveLabel = computed(() => {
   border-radius: 0;
 }
 
+.model-stage-panel :deep(.metric-value),
+.model-stage-panel :deep(.metric-label) {
+  color: #111;
+}
+
 .model-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  margin-top: 4px;
 }
 
 .model-actions :deep(.base-button.secondary) {
@@ -284,14 +309,13 @@ const driveLabel = computed(() => {
   border-color: #000;
 }
 
+/* ============================================
+   TABLET - 900px and below
+   ============================================ */
 @media (max-width: 900px) {
-  .model-stage {
-    min-height: 660px;
-  }
-
   .model-stage__viewer {
-    min-height: 520px;
-    padding: 24px 22px 220px;
+    min-height: 300px;
+    padding: 24px 24px 10px;
   }
 
   .model-stage__frame {
@@ -299,7 +323,156 @@ const driveLabel = computed(() => {
   }
 
   .model-stage-panel {
-    padding: 22px;
+    padding: 20px 22px 22px;
+    border-radius: 12px;
+  }
+
+  .model-stage-image {
+    max-height: 320px;
+  }
+}
+
+/* ============================================
+   MOBILE - 600px and below
+   ============================================ */
+@media (max-width: 600px) {
+  .model-switcher {
+    gap: 16px;
+    margin: 16px 0 12px;
+    padding-bottom: 10px;
+  }
+
+  .model-switch {
+    font-size: 0.9rem;
+  }
+
+  .model-stage {
+    border-radius: 12px;
+  }
+
+  .model-stage__viewer {
+    min-height: 220px;
+    padding: 16px 16px 8px;
+  }
+
+  .model-stage__frame {
+    padding: 0 12px 12px;
+  }
+
+  .model-stage-panel {
+    padding: 16px 18px 18px;
+    border-radius: 10px;
+    gap: 14px;
+  }
+
+  .model-stage-panel__content {
+    gap: 14px;
+  }
+
+  .model-stage-panel h3 {
+    font-size: 1.3rem;
+  }
+
+  .model-category {
+    font-size: 0.8rem;
+  }
+
+  .model-actions {
+    gap: 10px;
+  }
+
+  .model-actions :deep(.base-button) {
+    font-size: 0.85rem;
+    padding: 8px 18px;
+  }
+
+  .model-stage-image {
+    max-height: 200px;
+    max-width: 100%;
+  }
+
+  .model-stage:hover .model-stage-image {
+    transform: none;
+  }
+}
+
+/* ============================================
+   EXTRA SMALL - 400px and below
+   ============================================ */
+@media (max-width: 400px) {
+  .model-stage__viewer {
+    min-height: 160px;
+    padding: 12px 12px 6px;
+  }
+
+  .model-stage__frame {
+    padding: 0 8px 8px;
+  }
+
+  .model-stage-panel {
+    padding: 14px;
+    border-radius: 8px;
+    gap: 12px;
+  }
+
+  .model-stage-panel__content {
+    gap: 12px;
+  }
+
+  .model-stage-panel h3 {
+    font-size: 1.1rem;
+  }
+
+  .model-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .model-actions :deep(.base-button) {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+
+  .model-stage-image {
+    max-height: 140px;
+  }
+}
+
+/* ============================================
+   LANDSCAPE MOBILE - Height constrained
+   ============================================ */
+@media (max-height: 700px) and (max-width: 800px) {
+  .model-stage__viewer {
+    min-height: 160px;
+    padding: 12px 16px 6px;
+  }
+
+  .model-stage-image {
+    max-height: 150px;
+  }
+
+  .model-stage-panel {
+    padding: 12px 16px 14px;
+    gap: 10px;
+  }
+
+  .model-stage-panel__content {
+    gap: 10px;
+  }
+
+  .model-stage-panel h3 {
+    font-size: 1.1rem;
+  }
+
+  .model-actions {
+    gap: 6px;
+  }
+ 
+  .model-actions :deep(.base-button) {
+    padding: 6px 14px;
+    font-size: 0.8rem;
   }
 }
 </style>
