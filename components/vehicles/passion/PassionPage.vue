@@ -31,8 +31,9 @@
       </div>
     </section>
 
-    
-    
+    <!-- Chapter Navigation -->
+    <ModelChapterNav :sections="chapterLinks" variant="passion" />
+
     <!-- Section 1: Executive Design -->
     <section id="section1" class="level-one" targetindex="0" ref="sectionRefs[0]">
       <div class="section-bg-placeholder"></div>
@@ -365,12 +366,16 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useSiteContent } from '~/composables/useSiteContent'
+import ModelChapterNav from '~/components/page/model/ModelChapterNav.vue'
 
 const props = defineProps<{
   model: any
 }>()
 
-const { textFor } = useSiteContent()
+const { textFor, buildPath } = useSiteContent()
+
+// Chapter links for navigation
+const chapterLinks = computed(() => chapterSections.value.map(s => ({ id: s.id, label: s.title })))
 
 // Chapter sections data
 const chapterSections = computed(() => [

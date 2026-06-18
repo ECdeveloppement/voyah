@@ -5,6 +5,7 @@
   <StoreCenterPage v-else-if="storePage" />
   <LegacyDisclosurePage v-else-if="legacyDisclosurePage" :page="legacyDisclosurePage" :text-for="textFor" />
   <PassionLPage v-else-if="modelPage?.slug === 'passion-L.html'" :model="modelPage" />
+  <PassionPage v-else-if="modelPage?.slug === 'passion.html'" />
   <TitanPage v-else-if="modelPage?.slug === 'titan.html'" />
   <TitanBlackEditionPage v-else-if="modelPage?.slug === 'titan_blackedition.html'" />
   <TitanX8Page v-else-if="modelPage?.slug === 'titan_X8.html'" />
@@ -50,6 +51,7 @@ import EnergyCenterPage from '~/components/page/legacy/EnergyCenterPage.vue'
 import LegacyDisclosurePage from '~/components/page/legacy/LegacyDisclosurePage.vue'
 import StoreCenterPage from '~/components/page/legacy/StoreCenterPage.vue'
 import ModelPage from '~/components/page/ModelPage.vue'
+import PassionPage from '~/components/vehicles/passion/PassionPage.vue'
 import PassionLPage from '~/components/vehicles/passion/PassionLPage.vue'
 import TitanPage from '~/components/vehicles/titan/TitanPage.vue'
 import TitanBlackEditionPage from '~/components/vehicles/titan/TitanBlackEditionPage.vue'

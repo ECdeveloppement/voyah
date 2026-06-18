@@ -50,8 +50,10 @@ const isDreamerPage = computed(() =>
 const currentPage = computed(() => resolveCurrentPage())
 const isSnappingPage = computed(() => {
   if (!currentPage.value) return true // Homepage snapping
-  // Exclude titan.html from snapping for fixed display
-  if (currentPage.value.slug === 'titan.html') return false
+  // Exclude model pages from snapping for fixed navbar display
+  if (currentPage.value.kind === 'model' &&
+    ['titan.html', 'passion.html', 'titan_blackedition.html', 'titan_X8.html', 'dreamer.html']
+      .includes(currentPage.value.slug)) return false
   return currentPage.value.kind === 'model' // Vehicle model pages
 })
 
