@@ -336,9 +336,6 @@
 <script setup>
 import { onMounted, ref, onBeforeUnmount } from 'vue'
 import { useI18n } from 'vue-i18n'
-import L from 'leaflet'
-import 'leaflet/dist/leaflet.css'
-
 const { t } = useI18n()
 
 const showVideo = ref(false)
@@ -362,43 +359,50 @@ const startAutoSlide = (container) => {
     if (!isUserInteracting) {
       const tabItems = container.querySelectorAll('.tab-item, .tab-item_mb')
       const totalSlides = tabItems.length
-      if (totalSlides > 0) {
-        currentSlideIndex = (currentSlideIndex + 1) % totalSlides
-        const nextTab = tabItems[currentSlideIndex]
-        if (nextTab) nextTab.click()
-      }
+      tabItems.forEach((item) => item.classList.remove('tab-item-active'))
+      tabItems.forEach(item => {
+        const parent = item.closest('.tab-mb-wrap')
+        if (parent) {
+          const contents = parent.querySelectorAll('.tab-content-item')
+          contents.forEach(content => content.classList.remove('tab-content-item-act'))
+        }
+      })
     }
-  }, 3000)
+  }, 4000)
 }
 
 const resetAutoSlideTimer = (container) => {
   if (resetTimer) clearTimeout(resetTimer)
-  isUserInteracting = true
-  resetTimer = setTimeout(() => { isUserInteracting = false }, 8000)
+  resetTimer = setTimeout(() => {
+    isUserInteracting = false
+    startAutoSlide(container)
+  }, 5000)
 }
 
-const initAutoSlideTab = () => {
-  const autoSlideContainer = document.querySelector('.auto-slide-tab')
-  if (!autoSlideContainer) return
-  startAutoSlide(autoSlideContainer)
-  const tabItems = autoSlideContainer.querySelectorAll('.tab-item, .tab-item_mb')
+const setupTabs = (container) => {
+  const tabItems = container.querySelectorAll('.tab-item, .tab-item_mb')
+  const contents = container.querySelectorAll('.tab-content-item')
+
   tabItems.forEach(item => {
     item.addEventListener('click', () => {
-      resetAutoSlideTimer(autoSlideContainer)
+      resetAutoSlideTimer(container)
       const clickedIndex = Array.from(tabItems).indexOf(item)
       if (clickedIndex !== -1) currentSlideIndex = clickedIndex
     })
   })
 }
 
-delete L.Icon.Default.prototype._getIconUrl
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
-  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
-  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
-})
+onMounted(async () => {
+  const L = (await import('leaflet')).default
+  await import('leaflet/dist/leaflet.css')
 
-onMounted(() => {
+  delete L.Icon.Default.prototype._getIconUrl
+  L.Icon.Default.mergeOptions({
+    iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+    iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+  })
+
   const tunisiaCenter = [34.0, 9.5]
   const map = L.map('tunisia-map').setView(tunisiaCenter, 7)
 

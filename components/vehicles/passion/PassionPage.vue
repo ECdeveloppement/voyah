@@ -952,12 +952,15 @@ onUnmounted(() => {
 
 /* Single Image */
 .single-img-container {
+  position: relative;
   width: 100%;
   max-width: 800px;
   margin: 40px auto;
 }
 
 .single-img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: auto;
   object-fit: cover;
@@ -1180,9 +1183,9 @@ onUnmounted(() => {
   opacity: 0;
 }
 
-.single-img[src],
-.slide-img[src],
-.color-car-img[src] {
+.single-img,
+.slide-img,
+.color-car-img {
   opacity: 1;
 }
 

@@ -44,6 +44,7 @@
 </template>
 
 <script setup lang="ts">
+import { defineAsyncComponent } from 'vue'
 import InfoPage from '~/components/page/InfoPage.vue'
 import LegalPage from '~/components/page/LegalPage.vue'
 import ServiceCenterPage from '~/components/page/legacy/ServiceCenterPage.vue'
@@ -51,36 +52,37 @@ import EnergyCenterPage from '~/components/page/legacy/EnergyCenterPage.vue'
 import LegacyDisclosurePage from '~/components/page/legacy/LegacyDisclosurePage.vue'
 import StoreCenterPage from '~/components/page/legacy/StoreCenterPage.vue'
 import ModelPage from '~/components/page/ModelPage.vue'
-import PassionPage from '~/components/vehicles/passion/PassionPage.vue'
-import PassionLPage from '~/components/vehicles/passion/PassionLPage.vue'
-import TitanPage from '~/components/vehicles/titan/TitanPage.vue'
-import TitanBlackEditionPage from '~/components/vehicles/titan/TitanBlackEditionPage.vue'
-import TitanX8Page from '~/components/vehicles/titan/TitanX8Page.vue'
-import FreePlusPage from '~/components/vehicles/free/FreePlusPage.vue'
-import Free318Page from '~/components/vehicles/free/Free318Page.vue'
-import CouragePage from '~/components/vehicles/courage/CouragePage.vue'
-import NewCouragePage from '~/components/vehicles/newcourage/NewCouragePage.vue'
-import NewDreamer26Page from '~/components/vehicles/dreamer/NewDreamer26Page.vue'
-import DreamerChampionPage from '~/components/vehicles/dreamer/DreamerChampionPage.vue'
-import NewDreamerPage from '~/components/vehicles/dreamer/NewDreamerPage.vue'
-import DreamerRiverPage from '~/components/vehicles/dreamer/DreamerRiverPage.vue'
-import ArchitecturePage from '~/components/tech/ArchitecturePage.vue'
-import SafetyPage from '~/components/tech/SafetyPage.vue'
-import SmartCockpitPage from '~/components/tech/SmartCockpitPage.vue'
-import BatteryPage from '~/components/tech/BatteryPage.vue'
-import IRPage from '~/components/corporate/IRPage.vue'
-import CorporatePage from '~/components/corporate/CorporatePage.vue'
-import RecruitPage from '~/components/corporate/RecruitPage.vue'
-import JoinUsPage from '~/components/corporate/JoinUsPage.vue'
-import AboutPage from '~/components/brand/AboutPage.vue'
-import NewsPage from '~/components/brand/NewsPage.vue'
-import PhilosophyPage from '~/components/brand/PhilosophyPage.vue'
-import KunpengPage from '~/components/brand/KunpengPage.vue'
-import FaqPage from '~/components/service/FaqPage.vue'
-import WarrantyPage from '~/components/service/WarrantyPage.vue'
-import AppPage from '~/components/service/AppPage.vue'
-import CommunityPage from '~/components/lifestyle/CommunityPage.vue'
-import LifestyleStorePage from '~/components/lifestyle/LifestyleStorePage.vue'
+
+const PassionPage = defineAsyncComponent(() => import('~/components/vehicles/passion/PassionPage.vue'))
+const PassionLPage = defineAsyncComponent(() => import('~/components/vehicles/passion/PassionLPage.vue'))
+const TitanPage = defineAsyncComponent(() => import('~/components/vehicles/titan/TitanPage.vue'))
+const TitanBlackEditionPage = defineAsyncComponent(() => import('~/components/vehicles/titan/TitanBlackEditionPage.vue'))
+const TitanX8Page = defineAsyncComponent(() => import('~/components/vehicles/titan/TitanX8Page.vue'))
+const FreePlusPage = defineAsyncComponent(() => import('~/components/vehicles/free/FreePlusPage.vue'))
+const Free318Page = defineAsyncComponent(() => import('~/components/vehicles/free/Free318Page.vue'))
+const CouragePage = defineAsyncComponent(() => import('~/components/vehicles/courage/CouragePage.vue'))
+const NewCouragePage = defineAsyncComponent(() => import('~/components/vehicles/newcourage/NewCouragePage.vue'))
+const NewDreamer26Page = defineAsyncComponent(() => import('~/components/vehicles/dreamer/NewDreamer26Page.vue'))
+const DreamerChampionPage = defineAsyncComponent(() => import('~/components/vehicles/dreamer/DreamerChampionPage.vue'))
+const NewDreamerPage = defineAsyncComponent(() => import('~/components/vehicles/dreamer/NewDreamerPage.vue'))
+const DreamerRiverPage = defineAsyncComponent(() => import('~/components/vehicles/dreamer/DreamerRiverPage.vue'))
+const ArchitecturePage = defineAsyncComponent(() => import('~/components/tech/ArchitecturePage.vue'))
+const SafetyPage = defineAsyncComponent(() => import('~/components/tech/SafetyPage.vue'))
+const SmartCockpitPage = defineAsyncComponent(() => import('~/components/tech/SmartCockpitPage.vue'))
+const BatteryPage = defineAsyncComponent(() => import('~/components/tech/BatteryPage.vue'))
+const IRPage = defineAsyncComponent(() => import('~/components/corporate/IRPage.vue'))
+const CorporatePage = defineAsyncComponent(() => import('~/components/corporate/CorporatePage.vue'))
+const RecruitPage = defineAsyncComponent(() => import('~/components/corporate/RecruitPage.vue'))
+const JoinUsPage = defineAsyncComponent(() => import('~/components/corporate/JoinUsPage.vue'))
+const AboutPage = defineAsyncComponent(() => import('~/components/brand/AboutPage.vue'))
+const NewsPage = defineAsyncComponent(() => import('~/components/brand/NewsPage.vue'))
+const PhilosophyPage = defineAsyncComponent(() => import('~/components/brand/PhilosophyPage.vue'))
+const KunpengPage = defineAsyncComponent(() => import('~/components/brand/KunpengPage.vue'))
+const FaqPage = defineAsyncComponent(() => import('~/components/service/FaqPage.vue'))
+const WarrantyPage = defineAsyncComponent(() => import('~/components/service/WarrantyPage.vue'))
+const AppPage = defineAsyncComponent(() => import('~/components/service/AppPage.vue'))
+const CommunityPage = defineAsyncComponent(() => import('~/components/lifestyle/CommunityPage.vue'))
+const LifestyleStorePage = defineAsyncComponent(() => import('~/components/lifestyle/LifestyleStorePage.vue'))
 import { resolvePage, type InfoDefinition } from '~/data/site'
 import { useSiteContent } from '~/composables/useSiteContent'
 
