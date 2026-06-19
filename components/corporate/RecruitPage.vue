@@ -1,9 +1,9 @@
 <template>
   <div class="custom-page recruit-page">
     <PageHero
-      :eyebrow="$t('domain.recruit.eyebrow', 'Business Opportunities')"
-      :title="$t('domain.recruit.title', 'Partner with Voyah')"
-      :summary="$t('domain.recruit.summary', 'Join our expanding global network to deliver premium zero-emission mobility.')"
+      :eyebrow="textFor(t('Business Opportunities', 'Opportunités d\'affaires', 'فرص تجارية'))"
+      :title="textFor(t('Partner with Voyah', 'Partenariat avec Voyah', 'كن شريكًا مع Voyah'))"
+      :summary="textFor(t('Join our expanding global network to deliver premium zero-emission mobility.', 'Rejoignez notre réseau mondial en expansion pour offrir une mobilité premium zéro émission.', 'انضم إلى شبكتنا العالمية المتوسعة لتقديم حلول تنقل فاخرة خالية من الانبعاثات.'))"
       image="/voyah-resources/brand/philosophy_hero.jpg"
       align="center"
       :compact="true"
@@ -14,22 +14,22 @@
         <div class="recruit-grid">
            <!-- Left Column: Value Proposition -->
            <div class="recruit-info">
-             <h2>{{ $t('domain.recruit.info_title', 'Why Partner with Us?') }}</h2>
-             <p class="lead">{{ $t('domain.recruit.info_lead', 'We offer a highly competitive dealership model with comprehensive backing.') }}</p>
+              <h2>{{ textFor(t('Why Partner with Us?', 'Pourquoi devenir partenaire ?', 'لماذا تكون شريكًا معنا؟')) }}</h2>
+              <p class="lead">{{ textFor(t('We offer a highly competitive dealership model with comprehensive backing.', 'Nous proposons un modèle de concession hautement compétitif avec un soutien complet.', 'نقدم نموذج وكالة تنافسي للغاية مع دعم شامل.')) }}</p>
              
              <ul class="benefit-list">
                 <li>
                   <svg viewBox="0 0 24 24" fill="none" stroke="#c59c62" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                   <div>
-                    <h4>{{ $t('domain.recruit.b1_title', 'Premium Product Lineup') }}</h4>
-                    <p>{{ $t('domain.recruit.b1_desc', 'Exclusive access to our flagship ESSA 800V luxury EV portfolio.') }}</p>
+                    <h4>{{ textFor(t('Premium Product Lineup', 'Gamme de produits premium', 'تشكيلة منتجات فاخرة')) }}</h4>
+                    <p>{{ textFor(t('Exclusive access to our flagship ESSA 800V luxury EV portfolio.', 'Accès exclusif à notre portefeuille phare de VE de luxe ESSA 800V.', 'وصول حصري إلى مجموعتنا الرائدة من السيارات الكهربائية الفاخرة ESSA 800V.')) }}</p>
                   </div>
                 </li>
                 <li>
                   <svg viewBox="0 0 24 24" fill="none" stroke="#c59c62" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                   <div>
-                    <h4>{{ $t('domain.recruit.b2_title', 'Comprehensive Training') }}</h4>
-                    <p>{{ $t('domain.recruit.b2_desc', 'Technical and sales onboarding directly orchestrated by Voyah Global HQ.') }}</p>
+                    <h4>{{ textFor(t('Comprehensive Training', 'Formation complète', 'تدريب شامل')) }}</h4>
+                    <p>{{ textFor(t('Technical and sales onboarding directly orchestrated by Voyah Global HQ.', 'Intégration technique et commerciale directement orchestrée par le siège mondial de Voyah.', 'التدريب التقني والتجاري مباشرة من المقر العالمي لـ Voyah.')) }}</p>
                   </div>
                 </li>
              </ul>
@@ -37,24 +37,24 @@
 
            <!-- Right Column: Application Form Mock -->
            <div class="recruit-form-card">
-              <h3>{{ $t('domain.recruit.form_title', 'Dealership Application') }}</h3>
+               <h3>{{ textFor(t('Dealership Application', 'Demande de concession', 'طلب الوكالة')) }}</h3>
               <form @submit.prevent>
                  <div class="form-group">
-                    <label>{{ $t('domain.recruit.f_company', 'Company Name') }}</label>
+                    <label>{{ textFor(t('Company Name', 'Nom de l\'entreprise', 'اسم الشركة')) }}</label>
                     <input type="text" placeholder="Enter full legal name" class="v-input" />
                  </div>
                  <div class="form-row">
                     <div class="form-group half">
-                       <label>{{ $t('domain.recruit.f_name', 'Contact Name') }}</label>
+                        <label>{{ textFor(t('Contact Name', 'Nom du contact', 'اسم جهة الاتصال')) }}</label>
                        <input type="text" placeholder="Your name" class="v-input" />
                     </div>
                     <div class="form-group half">
-                       <label>{{ $t('domain.recruit.f_email', 'Email Address') }}</label>
+                        <label>{{ textFor(t('Email Address', 'Adresse e-mail', 'البريد الإلكتروني')) }}</label>
                        <input type="email" placeholder="official@company.com" class="v-input" />
                     </div>
                  </div>
                  <div class="form-group">
-                    <label>{{ $t('domain.recruit.f_region', 'Target Territory') }}</label>
+                    <label>{{ textFor(t('Target Territory', 'Territoire cible', 'المنطقة المستهدفة')) }}</label>
                     <select class="v-select">
                       <option value="" disabled selected>Select a region...</option>
                       <option value="eu">Europe</option>
@@ -62,7 +62,7 @@
                       <option value="ap">Asia Pacific</option>
                     </select>
                  </div>
-                 <button type="submit" class="btn-submit">{{ $t('domain.recruit.f_submit', 'Submit Inquiry') }}</button>
+                  <button type="submit" class="btn-submit">{{ textFor(t('Submit Inquiry', 'Soumettre la demande', 'إرسال الاستفسار')) }}</button>
               </form>
            </div>
         </div>
@@ -73,11 +73,16 @@
 
 <script setup lang="ts">
 import PageHero from '~/components/common/PageHero.vue'
-import type { InfoDefinition } from '~/data/site'
+import type { InfoDefinition, LocalizedText } from '~/data/site'
+import { useSiteContent } from '~/composables/useSiteContent'
+
+const t = (en: string, fr: string, ar: string): LocalizedText => ({ en, fr, ar })
 
 const props = defineProps<{
   page: InfoDefinition
 }>()
+
+const { textFor } = useSiteContent()
 </script>
 
 <style scoped>

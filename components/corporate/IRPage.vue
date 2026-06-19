@@ -1,9 +1,9 @@
 <template>
   <div class="custom-page ir-page">
     <PageHero
-      :eyebrow="$t('domain.corporate.ir.eyebrow', 'Investor Relations')"
-      :title="$t('domain.corporate.ir.title', 'Financial Transparency & Governance')"
-      :summary="$t('domain.corporate.ir.summary', 'Commitment to long-term value creation.')"
+      :eyebrow="textFor(t('Investor Relations', 'Relations investisseurs', 'علاقات المستثمرين'))"
+      :title="textFor(t('Financial Transparency & Governance', 'Transparence financière et gouvernance', 'الشفافية المالية والحوكمة'))"
+      :summary="textFor(t('Commitment to long-term value creation.', 'Engagement envers la création de valeur à long terme.', 'الالتزام بخلق قيمة طويلة الأجل.'))"
       image="/voyah-resources/brand/philosophy_hero.jpg"
       align="center"
       :compact="true"
@@ -12,9 +12,9 @@
     <section class="ir-nav-wrapper">
       <div class="container">
         <ul class="ir-nav">
-          <li :class="{ active: activeTab === 'reports' }" @click="activeTab = 'reports'">{{ $t('domain.corporate.ir.tab_reports', 'Financial Reports') }}</li>
-          <li :class="{ active: activeTab === 'governance' }" @click="activeTab = 'governance'">{{ $t('domain.corporate.ir.tab_gov', 'Corporate Governance') }}</li>
-          <li :class="{ active: activeTab === 'stock' }" @click="activeTab = 'stock'">{{ $t('domain.corporate.ir.tab_stock', 'Stock Info') }}</li>
+          <li :class="{ active: activeTab === 'reports' }" @click="activeTab = 'reports'">{{ textFor(t('Financial Reports', 'Rapports financiers', 'التقارير المالية')) }}</li>
+          <li :class="{ active: activeTab === 'governance' }" @click="activeTab = 'governance'">{{ textFor(t('Corporate Governance', 'Gouvernance d\'entreprise', 'حوكمة الشركات')) }}</li>
+          <li :class="{ active: activeTab === 'stock' }" @click="activeTab = 'stock'">{{ textFor(t('Stock Info', 'Informations boursières', 'معلومات السهم')) }}</li>
         </ul>
       </div>
     </section>
@@ -23,8 +23,8 @@
     <section v-if="activeTab === 'reports'" class="ir-content-section section-shell">
       <div class="container">
         <div class="ir-header">
-          <h2>{{ $t('domain.corporate.ir.tab_reports', 'Financial Reports') }}</h2>
-          <p>{{ $t('domain.corporate.ir.reports_sub', 'Download quarterly and annual earnings distributions.') }}</p>
+          <h2>{{ textFor(t('Financial Reports', 'Rapports financiers', 'التقارير المالية')) }}</h2>
+          <p>{{ textFor(t('Download quarterly and annual earnings distributions.', 'Téléchargez les distributions de résultats trimestrielles et annuelles.', 'قم بتنزيل توزيعات الأرباح ربع السنوية والسنوية.')) }}</p>
         </div>
         
         <div class="report-list">
@@ -32,11 +32,11 @@
             <div class="report-year">{{ year }}</div>
             <div class="report-downloads">
               <a href="#" class="download-link">
-                <span>{{ $t('domain.corporate.ir.q1', 'Q1 Interim Report') }}</span>
+                <span>{{ textFor(t('Q1 Interim Report', 'Rapport intermédiaire T1', 'التقرير المؤقت للربع الأول')) }}</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
               </a>
               <a href="#" class="download-link">
-                <span>{{ $t('domain.corporate.ir.annual', 'Annual Financial Report') }}</span>
+                <span>{{ textFor(t('Annual Financial Report', 'Rapport financier annuel', 'التقرير المالي السنوي')) }}</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
               </a>
             </div>
@@ -49,18 +49,18 @@
     <section v-else-if="activeTab === 'governance'" class="ir-content-section section-shell bg-light">
       <div class="container">
         <div class="ir-header">
-          <h2>{{ $t('domain.corporate.ir.tab_gov', 'Corporate Governance') }}</h2>
-          <p>{{ $t('domain.corporate.ir.gov_sub', 'Maintaining high standards of business ethics.') }}</p>
+          <h2>{{ textFor(t('Corporate Governance', 'Gouvernance d\'entreprise', 'حوكمة الشركات')) }}</h2>
+          <p>{{ textFor(t('Maintaining high standards of business ethics.', 'Maintien de normes élevées d\'éthique des affaires.', 'الحفاظ على معايير عالية من أخلاقيات الأعمال.')) }}</p>
         </div>
         
         <div class="gov-grid">
            <div class="gov-card">
-              <h3>{{ $t('domain.corporate.ir.board', 'Board of Directors') }}</h3>
-              <p>{{ $t('domain.corporate.ir.board_desc', 'Overseeing strategic development and risk management.') }}</p>
+               <h3>{{ textFor(t('Board of Directors', 'Conseil d\'administration', 'مجلس الإدارة')) }}</h3>
+               <p>{{ textFor(t('Overseeing strategic development and risk management.', 'Supervision du développement stratégique et de la gestion des risques.', 'الإشراف على التطوير الاستراتيجي وإدارة المخاطر.')) }}</p>
            </div>
            <div class="gov-card">
-              <h3>{{ $t('domain.corporate.ir.committees', 'Committees') }}</h3>
-              <p>{{ $t('domain.corporate.ir.comm_desc', 'Audit, Remuneration, and Nomination committees.') }}</p>
+               <h3>{{ textFor(t('Committees', 'Comités', 'اللجان')) }}</h3>
+               <p>{{ textFor(t('Audit, Remuneration, and Nomination committees.', 'Comités d\'audit, de rémunération et de nomination.', 'لجان التدقيق والمكافآت والترشيحات.')) }}</p>
            </div>
         </div>
       </div>
@@ -70,7 +70,7 @@
     <section v-else-if="activeTab === 'stock'" class="ir-content-section section-shell">
       <div class="container">
          <div class="ir-header">
-          <h2>{{ $t('domain.corporate.ir.tab_stock', 'Stock Information') }}</h2>
+          <h2>{{ textFor(t('Stock Information', 'Informations sur l\'action', 'معلومات السهم')) }}</h2>
         </div>
         <div class="stock-ticker">
            <div class="ticker-symbol">HKG: 0489</div>
@@ -86,11 +86,16 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import PageHero from '~/components/common/PageHero.vue'
-import type { InfoDefinition } from '~/data/site'
+import type { InfoDefinition, LocalizedText } from '~/data/site'
+import { useSiteContent } from '~/composables/useSiteContent'
+
+const t = (en: string, fr: string, ar: string): LocalizedText => ({ en, fr, ar })
 
 const props = defineProps<{
   page: InfoDefinition
 }>()
+
+const { textFor } = useSiteContent()
 
 const activeTab = ref('reports')
 </script>

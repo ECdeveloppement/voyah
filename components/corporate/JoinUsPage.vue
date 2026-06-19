@@ -1,9 +1,9 @@
 <template>
   <div class="custom-page joinus-page">
     <PageHero
-      :eyebrow="$t('domain.joinus.eyebrow', 'Careers')"
-      :title="$t('domain.joinus.title', 'Shape the Future of Mobility')"
-      :summary="$t('domain.joinus.summary', 'We are looking for visionary thinkers to join our global engineering and design hubs.')"
+      :eyebrow="textFor(t('Careers', 'Carrières', 'وظائف'))"
+      :title="textFor(t('Shape the Future of Mobility', 'Façonnez l\'avenir de la mobilité', 'شكل مستقبل التنقل'))"
+      :summary="textFor(t('We are looking for visionary thinkers to join our global engineering and design hubs.', 'Nous recherchons des penseurs visionnaires pour rejoindre nos pôles mondiaux d\'ingénierie et de design.', 'نحن نبحث عن مفكرين ذوي رؤية للانضمام إلى مراكز الهندسة والتصميم العالمية لدينا.'))"
       image="/voyah-resources/brand/kunpeng_hero.jpg"
       align="start"
       :compact="true"
@@ -13,18 +13,18 @@
       <div class="container">
         <!-- Filter Bar -->
         <div class="job-filters">
-           <input type="text" :placeholder="$t('domain.joinus.search', 'Search for positions...')" class="search-input" />
+           <input type="text" :placeholder="textFor(t('Search for positions...', 'Rechercher des postes...', 'البحث عن وظائف...'))" class="search-input" />
            <select class="filter-select">
-              <option value="">{{ $t('domain.joinus.dept_all', 'All Departments') }}</option>
-              <option value="engineering">{{ $t('domain.joinus.dept_eng', 'Engineering & R&D') }}</option>
-              <option value="design">{{ $t('domain.joinus.dept_design', 'Design') }}</option>
-              <option value="sales">{{ $t('domain.joinus.dept_sales', 'Sales & Marketing') }}</option>
+               <option value="">{{ textFor(t('All Departments', 'Tous les départements', 'جميع الأقسام')) }}</option>
+               <option value="engineering">{{ textFor(t('Engineering & R&D', 'Ingénierie & R&D', 'الهندسة والبحث والتطوير')) }}</option>
+               <option value="design">{{ textFor(t('Design', 'Design', 'التصميم')) }}</option>
+               <option value="sales">{{ textFor(t('Sales & Marketing', 'Ventes & Marketing', 'المبيعات والتسويق')) }}</option>
            </select>
            <select class="filter-select">
-              <option value="">{{ $t('domain.joinus.loc_all', 'All Locations') }}</option>
-              <option value="oslo">{{ $t('domain.joinus.loc_oslo', 'Oslo, Norway') }}</option>
-              <option value="wuhan">{{ $t('domain.joinus.loc_wuhan', 'Wuhan, China') }}</option>
-              <option value="turin">{{ $t('domain.joinus.loc_turin', 'Turin, Italy') }}</option>
+               <option value="">{{ textFor(t('All Locations', 'Tous les lieux', 'جميع المواقع')) }}</option>
+               <option value="oslo">{{ textFor(t('Oslo, Norway', 'Oslo, Norvège', 'أوسلو، النرويج')) }}</option>
+               <option value="wuhan">{{ textFor(t('Wuhan, China', 'Wuhan, Chine', 'ووهان، الصين')) }}</option>
+               <option value="turin">{{ textFor(t('Turin, Italy', 'Turin, Italie', 'تورينو، إيطاليا')) }}</option>
            </select>
         </div>
 
@@ -40,7 +40,7 @@
                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                  Wuhan, China
               </p>
-              <button class="btn-apply">{{ $t('domain.joinus.apply', 'Apply Now') }}</button>
+               <button class="btn-apply">{{ textFor(t('Apply Now', 'Postuler', 'تقدم الآن')) }}</button>
            </div>
            
            <div class="job-card">
@@ -53,7 +53,7 @@
                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                  Turin, Italy
               </p>
-              <button class="btn-apply">{{ $t('domain.joinus.apply', 'Apply Now') }}</button>
+               <button class="btn-apply">{{ textFor(t('Apply Now', 'Postuler', 'تقدم الآن')) }}</button>
            </div>
            
            <div class="job-card">
@@ -66,7 +66,7 @@
                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                  Oslo, Norway
               </p>
-              <button class="btn-apply">{{ $t('domain.joinus.apply', 'Apply Now') }}</button>
+               <button class="btn-apply">{{ textFor(t('Apply Now', 'Postuler', 'تقدم الآن')) }}</button>
            </div>
            
            <div class="job-card">
@@ -79,7 +79,7 @@
                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                  Wuhan, China
               </p>
-              <button class="btn-apply">{{ $t('domain.joinus.apply', 'Apply Now') }}</button>
+               <button class="btn-apply">{{ textFor(t('Apply Now', 'Postuler', 'تقدم الآن')) }}</button>
            </div>
         </div>
       </div>
@@ -89,11 +89,16 @@
 
 <script setup lang="ts">
 import PageHero from '~/components/common/PageHero.vue'
-import type { InfoDefinition } from '~/data/site'
+import type { InfoDefinition, LocalizedText } from '~/data/site'
+import { useSiteContent } from '~/composables/useSiteContent'
+
+const t = (en: string, fr: string, ar: string): LocalizedText => ({ en, fr, ar })
 
 const props = defineProps<{
   page: InfoDefinition
 }>()
+
+const { textFor } = useSiteContent()
 </script>
 
 <style scoped>
