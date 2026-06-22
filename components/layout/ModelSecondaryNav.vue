@@ -9,7 +9,6 @@
     <div class="secondary-nav-content">
       <div class="secondary-nav-left">
         <div class="secondary-brand">VOYAH</div>
-        <div class="secondary-price">{{ modelPrice }}</div>
       </div>
 
       <div class="secondary-nav-right">
@@ -47,11 +46,6 @@ const emit = defineEmits<{
 }>()
 
 const { buildPath, textFor } = useSiteContent()
-
-const modelPrice = computed(() => {
-  if (!props.currentModel?.price) return ''
-  return textFor(props.currentModel.price)
-})
 
 const configLabel = computed(() => useNuxtApp().$i18n.t('global.header.config'))
 const testDriveLabel = computed(() => useNuxtApp().$i18n.t('global.header.testDrive'))
@@ -220,12 +214,6 @@ onBeforeUnmount(() => {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  font-family: 'DDIN', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-}
-
-.secondary-price {
-  color: rgba(255, 255, 255, 0.65);
-  font-size: 0.88rem;
   font-family: 'DDIN', 'PingFang SC', 'Microsoft YaHei', sans-serif;
 }
 

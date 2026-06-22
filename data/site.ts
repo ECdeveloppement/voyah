@@ -596,8 +596,8 @@ const models: ModelDefinition[] = [
     slug: 'passion-L.html',
     title: t('Voyah Passion L', 'Voyah Passion L', 'Voyah Passion L'),
     subtitle: t('New-era flagship sedan', 'Berline phare de nouvelle génération', 'سيدان رائدة من الجيل الجديد'),
-    description: t('Starting from RMB 279,900.', 'À partir de 279 900 RMB.', 'السعر يبدأ من 279,900 يوان'),
-    price: t('Starting from RMB 279,900', 'À partir de 279 900 RMB', 'السعر يبدأ من 279,900 يوان'),
+    description: t('A refined flagship sedan with executive-class comfort and advanced electric performance.', 'Une berline phare raffinée avec un confort de classe exécutive et des performances électriques avancées.', 'سيدان رائدة متطورة تجمع بين راحة الفئة التنفيذية والأداء الكهربائي المتقدم.'),
+    price: t('Flagship executive sedan', 'Berline exécutive phare', 'سيدان تنفيذية رائدة'),
     heroImage: '/voyah-resources/images/car/passion-L/1920/sc_1.jpg',
     logo: '/voyah-resources/images/car/car_logo/passion-L.png',
     gallery: [
@@ -634,8 +634,8 @@ const models: ModelDefinition[] = [
     slug: 'titan.html',
     title: t('Voyah Titan', 'Voyah Titan', 'Voyah Titan'),
     subtitle: t('New-era flagship six-seat SUV', 'SUV phare à six places de nouvelle génération', 'سيارة SUV رائدة بستة مقاعد من الجيل الجديد'),
-    description: t('Starting from RMB 379,900.', 'À partir de 379 900 RMB.', 'السعر يبدأ من 379,900 يوان'),
-    price: t('Starting from RMB 379,900', 'À partir de 379 900 RMB', 'السعر يبدأ من 379,900 يوان'),
+    description: t('A bold six-seat flagship SUV with commanding presence and refined luxury for every journey.', 'Un SUV phare audacieux à six places avec une présence imposante et un luxe raffiné pour chaque voyage.', 'سيارة SUV رائدة بستة مقاعد ذات حضور قوي وفخامة راقية لكل رحلة.'),
+    price: t('Six-seat flagship SUV', 'SUV phare à six places', 'SUV رائدة بستة مقاعد'),
     heroImage: '/voyah-resources/images/car/titan/1920/sc_1.jpg',
     logo: '/voyah-resources/images/car/car_logo/titan.png',
     gallery: [
@@ -803,7 +803,7 @@ const models: ModelDefinition[] = [
     title: t('25 Voyah Dreamer', 'Voyah Dreamer 25', 'Voyah Dreamer 25'),
     subtitle: t('Panoramic luxury technology flagship MPV', 'Monospace phare technologique de luxe panoramique', 'MPV رائدة تجمع بين الفخامة والتقنية البانورامية'),
     description: t('A panoramic luxury flagship MPV with premium comfort, intelligent cabin tech, and long-distance composure.', 'Un MPV phare de luxe panoramique avec confort premium, technologie d’habitacle intelligente et sérénité longue distance.', 'سيارة MPV رائدة فاخرة بانورامية مع راحة فاخرة وتقنية مقصورة ذكية وثبات في الرحلات الطويلة.'),
-    price: t('Starting from RMB 329,900', 'À partir de 329 900 RMB', 'السعر يبدأ من 329,900 يوان'),
+    price: t('Panoramic luxury flagship MPV', 'MPV phare de luxe panoramique', 'MPV رائدة فاخرة بانورامية'),
     heroImage: '/voyah-resources/images/car/newDreamer/h56c_pc08_banner01.jpg',
     logo: '/voyah-resources/images/car/car_logo/newDreamer.png',
     gallery: [

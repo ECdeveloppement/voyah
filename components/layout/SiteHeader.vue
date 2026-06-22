@@ -690,12 +690,7 @@ onBeforeUnmount(() => {
   text-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 
-.header-model__price {
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 0.76rem;
-  font-weight: 500;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-}
+
 
 .header-nav {
   display: flex;

@@ -74,6 +74,13 @@ const scrollToSection = (id: string) => {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
+.model-chapter-nav--passion {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+}
+
 .model-chapter-nav-inner {
   display: flex;
   gap: 28px;

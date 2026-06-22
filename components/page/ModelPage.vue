@@ -20,7 +20,6 @@
       </template>
       <template #meta>
         <aside class="model-hero-meta">
-          <p class="model-hero-price">{{ textFor(model.price) }}</p>
           <div class="model-hero-features">
             <span v-for="feature in model.features.slice(0, 3)" :key="textFor(feature.title)">
               {{ textFor(feature.title) }}
@@ -280,10 +279,6 @@ const chapterLinks = computed(() => [
   backdrop-filter: blur(20px);
 }
 
-.model-page :deep(.page-hero-meta .model-hero-price) {
-  font-size: 1rem;
-}
-
 .model-page :deep(.page-hero-meta .model-hero-features span) {
   font-size: 0.84rem;
 }
@@ -328,119 +323,6 @@ const chapterLinks = computed(() => [
   background: rgba(12, 18, 25, 0.34);
   border: 1px solid rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(18px);
-}
-
-.model-hero-price {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.94);
-  font-size: 1.08rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-}
-
-.model-hero-features {
-  display: grid;
-  gap: 10px;
-}
-
-.model-hero-features span {
-  padding-top: 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  color: rgba(235, 242, 247, 0.82);
-  font-size: 0.9rem;
-  line-height: 1.45;
-}
-
-.model-page :deep(.page-hero-overlay) {
-  background:
-    linear-gradient(180deg, rgba(5, 8, 12, 0.08), rgba(5, 8, 12, 0.72)),
-    linear-gradient(90deg, rgba(5, 8, 12, 0.56), rgba(5, 8, 12, 0.14) 46%, rgba(5, 8, 12, 0.28));
-}
-
-.model-overview {
-  padding: 76px 0 56px;
-  background: linear-gradient(180deg, #fff, #f7f4ef);
-}
-
-.model-overview-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
-  gap: 34px;
-  align-items: start;
-  margin-bottom: 36px;
-}
-
-.model-overview-kicker,
-.model-cta-kicker {
-  margin: 0 0 12px;
-  color: #A68B5B;
-  font-size: 0.84rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.model-overview-title {
-  margin: 0;
-  color: #101720;
-  font-size: clamp(2.2rem, 3.9vw, 4.2rem);
-  line-height: 1;
-}
-
-.model-overview-summary,
-.model-overview-note {
-  margin: 18px 0 0;
-  color: #53606d;
-  line-height: 1.85;
-}
-
-.model-overview-highlights {
-  list-style: none;
-  margin: 28px 0 0;
-  padding: 0;
-  display: grid;
-  gap: 12px;
-}
-
-.model-overview-highlights li {
-  padding-top: 12px;
-  border-top: 1px solid rgba(16, 23, 32, 0.08);
-  color: #101720;
-  font-size: 0.98rem;
-  letter-spacing: 0.02em;
-}
-
-.model-overview-panel {
-  padding: 36px;
-  border-radius: 0;
-  background: rgba(255, 255, 255, 0.86);
-  border: 1px solid rgba(16, 23, 32, 0.08);
-  box-shadow: 0 0 0 rgba(16, 23, 32, 0);
-  will-change: transform;
-  transition:
-    border-color 0.34s cubic-bezier(0.22, 1, 0.36, 1),
-    background-color 0.34s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.34s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.34s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.model-overview-panel:hover {
-  border-color: rgba(16, 23, 32, 0.16);
-  background: rgba(255, 255, 255, 0.93);
-  transform: translateY(-2px);
-  box-shadow: 0 18px 38px -30px rgba(16, 23, 32, 0.28);
-}
-
-.model-overview-logo {
-  width: min(240px, 72%);
-}
-
-.model-overview-price {
-  margin: 22px 0 0;
-  color: #101720;
-  font-size: 1.22rem;
-  font-weight: 600;
-  padding-bottom: 18px;
-  border-bottom: 1px solid rgba(16, 23, 32, 0.08);
 }
 
 .model-overview-actions {

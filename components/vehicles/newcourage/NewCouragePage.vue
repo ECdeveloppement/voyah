@@ -14,7 +14,6 @@
         />
         <div class="kv-model-info inview-child inview-animated" style="--inview-delay: 0.35s;">
           <h1 class="kv-model-name">New Voyah Courage</h1>
-          <p class="kv-model-price">À partir de 259 900 RMB</p>
         </div>
         <p class="kv-slogan inview-child inview-animated" style="--inview-delay: 0.4s;">
           {{ textFor({ en: 'Huawei ADS & HarmonyOS Cockpit Pure Electric SUV', fr: 'SUV Électrique Huawei ADS & Cockpit HarmonyOS', ar: 'سيارة SUV كهربائية Huawei ADS و HarmonyOS' }) }}
@@ -722,15 +721,6 @@ onUnmounted(() => {
   text-transform: uppercase;
   font-family: 'DDIN', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   color: #fff;
-}
-
-.kv-model-price {
-  font-size: clamp(1rem, 2vw, 1.4rem);
-  font-weight: 400;
-  margin: 0;
-  opacity: 0.8;
-  letter-spacing: 0.02em;
-  color: rgba(255, 255, 255, 0.9);
 }
 
 .kv-slogan {

@@ -74,7 +74,6 @@
         </div>
         <div class="stock-ticker">
            <div class="ticker-symbol">HKG: 0489</div>
-           <div class="ticker-price">4.21 <small>HKD</small></div>
            <div class="ticker-change positive">+0.12 (2.93%)</div>
         </div>
       </div>
@@ -242,17 +241,6 @@ const activeTab = ref('reports')
 .ticker-symbol {
   font-size: 1.2rem;
   color: #6c757d;
-}
-.ticker-price {
-  font-size: 4rem;
-  font-weight: bold;
-  color: #212529;
-  line-height: 1;
-  margin: 10px 0;
-}
-.ticker-price small {
-  font-size: 1.5rem;
-  font-weight: normal;
 }
 .ticker-change.positive {
   color: #28a745;

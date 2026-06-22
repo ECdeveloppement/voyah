@@ -314,16 +314,6 @@ const getCategoryTitle = (category: string): string => {
   return titles[category]?.[locale.value?.code || 'en'] || category
 }
 
-const formatPrice = (raw: string | number | undefined): string => {
-  if (raw === undefined || raw === null || raw === '') return ''
-  if (typeof raw === 'number') {
-    return raw.toLocaleString('fr-FR').replace(/\u202f/g, ',').replace(',', ',') + ' ¥'
-  }
-  const str = String(raw).trim()
-  if (str.includes('¥')) return str
-  return str + ' ¥'
-}
-
 const availableVersions = computed<Version[]>(() => {
   return currentSeries.value?.versions || []
 })
@@ -1028,12 +1018,6 @@ onUnmounted(() => {
   font-weight: 600;
   color: #111;
   margin-bottom: 8px;
-}
-
-.version-price {
-  font-size: 14px;
-  color: #406a70;
-  font-weight: 500;
 }
 
 /* Config Data */

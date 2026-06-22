@@ -26,9 +26,6 @@
           <p class="titan-hero-slogan inview-animated" style="--inview-delay: 0.1s;">
             {{ textFor(t('New-era flagship six-seat SUV', 'SUV phare a six places de nouvelle generation', 'سيارة SUV رائدة بستة مقاعد من الجيل الجديد')) }}
           </p>
-          <div class="titan-hero-price inview-animated" style="--inview-delay: 0.2s;">
-            {{ textFor(t('Starting from RMB 379,900', 'A partir de 379 900 RMB', 'السعر يبدأ من 379,900 يوان')) }}
-          </div>
           <div class="titan-hero-actions inview-animated" style="--inview-delay: 0.3s;">
             <BaseButton :to="buildPath('configuration-detail') + '?carModel=titan'" variant="primary" class="titan-btn-primary">
               {{ textFor({ en: 'Configuration', fr: 'Configuration', ar: 'التكوين' }) }}
@@ -260,13 +257,6 @@ const mediaSections = computed(() => {
   letter-spacing: 0.15em;
   margin-bottom: 16px;
   color: rgba(255, 255, 255, 0.9);
-}
-
-.titan-hero-price {
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  font-weight: 500;
-  margin-bottom: 32px;
-  color: rgba(255, 255, 255, 0.85);
 }
 
 .titan-hero-actions {

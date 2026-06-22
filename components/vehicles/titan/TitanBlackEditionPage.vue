@@ -18,9 +18,6 @@
           <p class="titan-be-hero-slogan inview-animated" style="--inview-delay: 0.1s;">
             {{ textFor(heroSlogan) }}
           </p>
-          <div class="titan-be-hero-price inview-animated" style="--inview-delay: 0.2s;">
-            {{ textFor(priceText) }}
-          </div>
           <div class="titan-be-hero-actions inview-animated" style="--inview-delay: 0.3s;">
             <BaseButton :to="buildPath('book-drive.html')" variant="primary" class="titan-be-btn-primary">
               {{ textFor(bookDriveText) }}
@@ -177,7 +174,6 @@ const t = (en: string, fr: string, ar: string): LocalizedText => ({ en, fr, ar }
 
 // Hero texts
 const heroSlogan = t('Black ink reveals Mount Tai, vision determines the universe', "L'encre noire révèle le Mont Tai, la vision détermine l'univers", 'الحبر الأسود يكشف جبل الطائش، والرؤية تحدد الكون')
-const priceText = t('Starting from RMB 509,900', 'À partir de 509 900 RMB', 'السعر يبدأ من 509,900 يوان')
 const bookDriveText = t('Book test drive', 'Réserver un essai', 'حجز تجربة قيادة')
 const findStoreText = t('Find a store', 'Trouver un magasin', 'ابحث عن متجر')
 const configurationsText = t('Configurations', 'Configurations', 'التكوينات')
@@ -426,13 +422,6 @@ const chassisMedia = computed(() => ({
   letter-spacing: 0.2em;
   margin-bottom: 16px;
   font-weight: 300;
-}
-
-.titan-be-hero-price {
-  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
-  font-weight: 500;
-  margin-bottom: 32px;
-  color: rgba(255, 255, 255, 0.9);
 }
 
 .titan-be-hero-actions {

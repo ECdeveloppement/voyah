@@ -31,10 +31,9 @@
                   <img src="/voyah-resources/utilities/1x1_placeholder.png" alt="Voyah Thermos" class="placeholder-img" style="background: #f1f2f6;" />
                   <div class="badge-new">New</div>
                </div>
-               <div class="product-info">
-                  <h3>{{ $t('domain.store.p1_title', 'Titanium Smart Multi-Thermos') }}</h3>
-                  <p class="price">¥299</p>
-               </div>
+                <div class="product-info">
+                   <h3>{{ $t('domain.store.p1_title', 'Titanium Smart Multi-Thermos') }}</h3>
+                </div>
             </div>
 
             <!-- Product Item 2 -->
@@ -42,10 +41,9 @@
                <div class="product-media">
                   <img src="/voyah-resources/utilities/1x1_placeholder.png" alt="1:18 Model" class="placeholder-img" style="background: #e8eaed;" />
                </div>
-               <div class="product-info">
-                  <h3>{{ $t('domain.store.p2_title', 'Voyah FREE 1:18 Diecast Model') }}</h3>
-                  <p class="price">¥899</p>
-               </div>
+                <div class="product-info">
+                   <h3>{{ $t('domain.store.p2_title', 'Voyah FREE 1:18 Diecast Model') }}</h3>
+                </div>
             </div>
 
             <!-- Product Item 3 -->
@@ -56,8 +54,7 @@
                </div>
                <div class="product-info">
                   <h3>{{ $t('domain.store.p3_title', 'Signature Kunpeng Edition Jacket') }}</h3>
-                  <p class="price"><span class="old-price">¥1299</span> ¥999</p>
-               </div>
+                </div>
             </div>
 
             <!-- Product Item 4 -->
@@ -67,8 +64,7 @@
                </div>
                <div class="product-info">
                   <h3>{{ $t('domain.store.p4_title', 'Premium Nappa Leather Key Fob Cover') }}</h3>
-                  <p class="price">¥150</p>
-               </div>
+                </div>
             </div>
          </div>
       </div>
@@ -186,18 +182,7 @@ const props = defineProps<{
   line-height: 1.4;
   margin-bottom: 8px;
 }
-.price {
-  font-weight: bold;
-  color: #c59c62;
-  font-size: 1.2rem;
-}
-.old-price {
-  color: #adb5bd;
-  text-decoration: line-through;
-  font-size: 0.9rem;
-  margin-right: 8px;
-  font-weight: normal;
-}
+
 
 @media (max-width: 1200px) {
   .products-grid { grid-template-columns: repeat(3, 1fr); }

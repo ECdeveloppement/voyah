@@ -26,7 +26,6 @@
           </div>
 
           <aside class="dreamer-hero-meta">
-            <p class="dreamer-hero-price">{{ $t('pages.dreamer.hero.price') }}</p>
             <div class="dreamer-hero-features">
               <span>{{ $t('pages.dreamer.sections.chapter_1.title') }}</span>
               <span>{{ $t('pages.dreamer.sections.chapter_2.title') }}</span>
@@ -169,14 +168,6 @@ import BaseButton from '~/components/common/BaseButton.vue'
   background: rgba(12, 18, 25, 0.42);
   border: 1px solid rgba(255, 255, 255, 0.14);
   backdrop-filter: blur(20px);
-}
-
-.dreamer-hero-price {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.94);
-  font-size: 1.08rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
 }
 
 .dreamer-hero-features {
