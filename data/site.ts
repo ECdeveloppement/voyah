@@ -1,8 +1,14 @@
+import { dealerDocuments, modelDisplayName, publicModelSlugs } from './dealer'
+
 export const locales = [
   { code: 'en', name: 'English', dir: 'ltr' },
   { code: 'fr', name: 'Français', dir: 'ltr' },
   { code: 'ar', name: 'العربية', dir: 'rtl' }
 ] as const
+
+/** Seuls les modèles exhibés par le concessionnaire restent accessibles. */
+export const isPublicModel = (slug?: string): boolean =>
+  !!slug && (publicModelSlugs as readonly string[]).includes(slug)
 
 export type LocaleCode = (typeof locales)[number]['code']
 export type LocalizedText = Record<LocaleCode, string>
@@ -10,6 +16,7 @@ export type LocalizedText = Record<LocaleCode, string>
 export type NavItem = {
   label: LocalizedText
   slug?: string
+  href?: string
   thumb?: string
   children?: NavItem[]
 }
@@ -139,13 +146,6 @@ export type HomeData = {
 export type FooterColumn = {
   title: LocalizedText
   links: Array<{ label: LocalizedText; slug: string }>
-}
-
-export type FooterContact = {
-  title: LocalizedText
-  body: LocalizedText
-  appCode: string
-  miniProgramCode: string
 }
 
 const t = (en: string, fr: string, ar: string): LocalizedText => ({ en, fr, ar })
@@ -548,47 +548,26 @@ const makeModel = (options: {
   secondarySlug: 'store.html'
 })
 
+/** Menu repris du site de référence : Models▾, Essai, Service, About▾, Contact. */
 export const navigation: NavItem[] = [
-  { label: t('Voyah Brand', 'Marque Voyah', 'علامة Voyah'), slug: 'brand.html' },
   {
-    label: t('Models', 'Modèles', 'الطرازات'),
+    label: t('Our Models', 'Nos modèles', 'طرازاتنا'),
     children: [
-      { label: t('Voyah Passion L', 'Voyah Passion L', 'Voyah Passion L'), slug: 'passion-L.html', thumb: '/voyah-resources/images/car/car_logo/passion-L.png' },
-      { label: t('Voyah Passion', 'Voyah Passion', 'Voyah Passion'), slug: 'passion.html', thumb: '/voyah-resources/images/car/car_logo/passion.png' },
-      { label: t('Voyah Titan', 'Voyah Titan', 'Voyah Titan'), slug: 'titan.html', thumb: '/voyah-resources/images/car/car_logo/titan.png' },
-      { label: t('Voyah Titan Black Edition', 'Voyah Titan Black Edition', 'Voyah Titan Black Edition'), slug: 'titan_blackedition.html', thumb: '/voyah-resources/images/car/car_logo/titan_blackedition.png' },
-      { label: t('Voyah Titan X8', 'Voyah Titan X8', 'Voyah Titan X8'), slug: 'titan_X8.html', thumb: '/voyah-resources/images/car/car_logo/titan_X8.png' },
-      { label: t('Voyah FREE+', 'Voyah FREE+', 'Voyah FREE+'), slug: 'free+.html', thumb: '/voyah-resources/images/car/car_logo/free+.png' },
-      { label: t('Voyah FREE 318', 'Voyah FREE 318', 'Voyah FREE 318'), slug: 'free.html', thumb: '/voyah-resources/images/car/car_logo/free.png' },
-      { label: t('New Voyah Courage', 'Nouveau Voyah Courage', 'Voyah Courage الجديد'), slug: 'newCourage.html', thumb: '/voyah-resources/images/car/car_logo/newCourage.png' },
-      { label: t('Voyah Courage', 'Voyah Courage', 'Voyah Courage'), slug: 'courage.html', thumb: '/voyah-resources/images/car/car_logo/courage.png' },
-      { label: t('26 Voyah Dreamer', 'Voyah Dreamer 26', 'Voyah Dreamer 26'), slug: 'newDreamer26.html', thumb: '/voyah-resources/images/car/car_logo/newDreamer26.png' },
-      { label: t('Voyah Dreamer Champion', 'Voyah Dreamer Champion', 'Voyah Dreamer Champion'), slug: 'dreamer-champion.html', thumb: '/voyah-resources/images/car/car_logo/dreamer-champion.png' },
-      { label: t('25 Voyah Dreamer', 'Voyah Dreamer 25', 'Voyah Dreamer 25'), slug: 'newDreamer.html', thumb: '/voyah-resources/images/car/car_logo/newDreamer.png' },
-      { label: t('Voyah Dreamer Mountain River', 'Voyah Dreamer Montagne-Rivière', 'Voyah Dreamer Mountain River'), slug: 'dreamriver.html', thumb: '/voyah-resources/images/car/car_logo/dreamriver.png' },
-      { label: t('24 Voyah Dreamer', 'Voyah Dreamer 24', 'Voyah Dreamer 24'), slug: 'dreamer.html', thumb: '/voyah-resources/images/car/car_logo/dreamer.png' }
+      { label: modelDisplayName['free.html'], slug: 'free.html', thumb: '/voyah-resources/images/car/car_logo/free.png' },
+      { label: modelDisplayName['newDreamer26.html'], slug: 'newDreamer26.html', thumb: '/voyah-resources/images/car/car_logo/newDreamer26.png' }
     ]
   },
-  { label: t('Store Center', 'Centre de magasins', 'مركز المعارض'), slug: 'store.html' },
+  { label: t('Book a Test Drive', 'Essai', 'تجربة القيادة'), slug: 'book-drive.html' },
+  { label: t('Book a Service', 'Service', 'الصيانة'), slug: 'book-service.html' },
   {
-    label: t('Voyah Service', 'Service Voyah', 'خدمات Voyah'),
+    label: t('About Us', 'À propos', 'عن الشركة'),
+    slug: 'about.html',
     children: [
-      { label: t('User Service', 'Service client', 'خدمة المستخدم'), slug: 'service.html' },
-      { label: t('Voyah Energy', 'Énergie Voyah', 'طاقة Voyah'), slug: 'energy.html' },
-      { label: t('Procurement', 'Achats', 'المشتريات'), slug: 'purchasing.html' },
-      { label: t('Environmental Disclosure', 'Informations environnementales', 'الإفصاح البيئي'), slug: 'environmental.html' },
-      { label: t('Document Download', 'Téléchargements', 'تنزيل المستندات'), slug: 'document.html' }
+      { label: t('About Us', 'À propos de Voyah', 'عن Voyah'), slug: 'about.html' },
+      { label: t('Company Profile', 'Profil de la société', 'ملف الشركة'), href: dealerDocuments.companyProfile }
     ]
   },
-  {
-    label: t('About Voyah', 'À propos de Voyah', 'عن Voyah'),
-    children: [
-      { label: t('Corporate Culture', 'Culture d’entreprise', 'الثقافة المؤسسية'), slug: 'corporate.html' },
-      { label: t('Join Us', 'Rejoignez-nous', 'انضم إلينا'), slug: 'joinus.html' },
-      { label: t('Partner Recruitment', 'Recrutement de partenaires', 'استقطاب الشركاء'), slug: 'recruit-partners.html' },
-      { label: t('Investor Relations', 'Relations investisseurs', 'علاقات المستثمرين'), slug: 'ir.html' }
-    ]
-  }
+  { label: t('Contact Us', 'Contact', 'اتصل بنا'), slug: 'contact.html' }
 ]
 
 const models: ModelDefinition[] = [
@@ -879,6 +858,15 @@ const models: ModelDefinition[] = [
   })
 ]
 
+// Les deux modèles de la vitrine portent le nom commercial affiché partout sur le site.
+for (const model of models) {
+  const displayName = modelDisplayName[model.slug]
+  if (isPublicModel(model.slug) && displayName) {
+    model.title = displayName
+    model.price = displayName
+  }
+}
+
 const infoPages: InfoDefinition[] = [
   {
     kind: 'info',
@@ -1082,17 +1070,57 @@ const infoPages: InfoDefinition[] = [
   },
   {
     kind: 'info',
+    slug: 'quote.html',
+    eyebrow: t('Purchase', 'Achat', 'الشراء'),
+    title: t('Request a Quote', 'Demander un devis', 'اطلب عرض سعر'),
+    summary: t(
+      'Tell us which Voyah model interests you and receive a tailored proposal.',
+      'Indiquez le modèle Voyah qui vous intéresse et recevez une proposition adaptée.',
+      'اختر طراز Voyah الذي يهمك وستتلقى عرضاً مخصصاً.'
+    ),
+    heroImage: '/voyah-resources/lifestyle/store_hero.jpg',
+    blocks: [],
+    ctaSlug: 'store.html'
+  },
+  {
+    kind: 'info',
     slug: 'book-drive.html',
     eyebrow: t('Experience', 'Expérience', 'التجربة'),
     title: t('Book a Test Drive', 'Réserver un essai', 'احجز تجربة قيادة'),
     summary: t('Book a guided test drive with the Voyah lineup.', 'Réservez un essai guidé avec la gamme Voyah.', 'احجز تجربة قيادة موجّهة مع مجموعة Voyah.'),
-    heroImage: '/assets/voyah/home-image-43.png',
+    heroImage: '',
     blocks: [
       block('/assets/voyah/home-image-44.png', 'Guided selection', 'Choix guidé', 'اختيار موجّه', 'Prospective owners can narrow the lineup according to usage needs, size preference, and product character before scheduling an in-person drive.', 'Les futurs clients peuvent affiner la gamme selon les besoins d’usage, les préférences d’espace et le caractère du produit avant de programmer un essai en magasin.', 'يمكن للعملاء المحتملين تضييق الاختيار بحسب احتياجات الاستخدام وتفضيلات الحجم وطابع المنتج قبل تحديد موعد تجربة القيادة في المعرض.'),
       block('/assets/voyah/home-image-45.jpg', 'Store coordination', 'Coordination en magasin', 'تنسيق المعرض', 'The booking flow connects directly to the physical store network so that consultation, arrival planning, and drive preparation stay within one smooth process.', 'Le parcours de réservation se connecte directement au réseau de magasins afin que le conseil, la préparation de la visite et l’organisation de l’essai restent dans un processus fluide unique.', 'يرتبط مسار الحجز مباشرة بشبكة المعارض الفعلية حتى تظل الاستشارة والتخطيط للزيارة وتجهيز تجربة القيادة ضمن عملية سلسة واحدة.'),
       block('/assets/voyah/home-image-46.png', 'Ownership onboarding', 'Découverte de la possession', 'تهيئة الملكية', 'A test drive supports not only product discovery but also a clearer understanding of the full ownership journey and service experience.', 'L’essai sert non seulement à découvrir le produit, mais aussi à mieux comprendre le parcours de possession complet et l’expérience de service.', 'لا تخدم تجربة القيادة اكتشاف المنتج فقط، بل تساعد أيضاً على فهم أوضح لرحلة الملكية الكاملة وتجربة الخدمة.'),
     ],
     ctaSlug: 'store.html'
+  },
+  {
+    kind: 'info',
+    slug: 'book-service.html',
+    eyebrow: t('After-sales', 'Après-vente', 'ما بعد البيع'),
+    title: t('Book a Service', 'Prendre un rendez-vous', 'حجز موعد صيانة'),
+    summary: t(
+      'Schedule an intervention with the Auto Hall after-sales workshop in Tunis.',
+      'Planifiez une intervention avec l’atelier après-vente Auto Hall à Tunis.',
+      'حدد موعداً مع ورشة ما بعد البيع لدى أوتو هول في تونس.'
+    ),
+    heroImage: '/voyah-resources/service/warranty_hero.jpg',
+    blocks: []
+  },
+  {
+    kind: 'info',
+    slug: 'contact.html',
+    eyebrow: t('Contact', 'Contact', 'اتصل بنا'),
+    title: t('Contact Us', 'Nous contacter', 'اتصل بنا'),
+    summary: t(
+      'Any questions? Feel free to contact us.',
+      'Une question ? N’hésitez pas à nous contacter.',
+      'لديك سؤال؟ لا تتردد في التواصل معنا.'
+    ),
+    heroImage: '',
+    blocks: []
   },
   {
     kind: 'info',
@@ -1351,86 +1379,43 @@ const legalPages: LegalDefinition[] = [
   }
 ]
 
-export const sitePages: SitePage[] = [...models, ...infoPages, ...legalPages]
+export const sitePages: SitePage[] = [
+  ...models.filter((model) => isPublicModel(model.slug)),
+  ...infoPages,
+  ...legalPages
+]
 export const supportedSlugs = sitePages.map((page) => page.slug)
 const sitePageMap = new Map<string, SitePage>(sitePages.map((page) => [page.slug, page]))
 
 export const homePage: HomeData = {
   slides: [
     {
-      image: '/voyah-resources/website/advertisingbanner/image/7d8f79a2-9614-47e0-b336-5f660d63ad171770618641574.jpg',
-      video: '/voyah-resources/website/advertisingbanner/video/7d8f79a2-9614-47e0-b336-5f660d63ad171770618641574.mp4',
-      logo: '/voyah-resources/sitelogo/pc/brand.png',
-      title: t('', '', ''),
+      image: '/assets/qatar/images/free-home-1.webp',
+      logo: '/assets/qatar/images/logo-free.webp',
+      title: modelDisplayName['free.html'],
       description: t(
-        'A new-era flagship six-seat SUV',
-        'Un SUV phare six places de nouvelle génération',
-        'سيارة SUV رائدة بستة مقاعد من الجيل الجديد'
+        'A new era car. Advanced technological solutions meet the expectations of demanding customers who lead a modern lifestyle in harmony with the natural environment.',
+        'Une voiture d’une nouvelle ère. Les solutions technologiques de ce modèle répondent aux attentes des clients exigeants qui mènent un mode de vie moderne, en harmonie avec l’environnement naturel.',
+        'سيارة عصر جديد. تلبي الحلول التقنية في هذا الطراز توقعات العملاء الذين يعيشون حياة عصرية بانسجام مع البيئة الطبيعية.'
       ),
-      primaryLabel: t('Learn more', 'En savoir plus', 'اعرف المزيد'),
-      secondaryLabel: t('Order now', 'Commander', 'اطلب الآن'),
-      primarySlug: 'titan.html',
-      secondarySlug: 'store.html'
+      primaryLabel: t('Discover Free', 'Découvrir FREE', 'اكتشف FREE'),
+      secondaryLabel: t('Book a test drive', 'Réserver un essai', 'احجز تجربة قيادة'),
+      primarySlug: 'free.html',
+      secondarySlug: 'book-drive.html'
     },
     {
-      image: '/voyah-resources/website/advertisingbanner/image/f0c4f930-2c5e-4b18-8212-e73cb76c18b11770618136349.jpg',
-      video: '/voyah-resources/website/advertisingbanner/video/f0c4f930-2c5e-4b18-8212-e73cb76c18b11770618136349.mp4',
-      logo: '/voyah-resources/website/navigationbar/image/48068657-2f04-4e9e-a356-fb33e4b689101770619447889.png',
-      title: t('', '', ''),
+      image: '/assets/qatar/images/dream-5cfd69cd.webp',
+      logo: '/assets/qatar/images/logo_dream.webp',
+      title: modelDisplayName['newDreamer26.html'],
       description: t(
-        'A new-era flagship MPV',
-        'Un monospace phare de nouvelle génération',
-        'سيارة MPV رائدة من الجيل الجديد'
+        'The latest automotive technologies combined with advanced environmentally friendly solutions: very high comfort, distinctive design, impressive dynamics and excellent safety.',
+        'Les dernières technologies automobiles associées à des solutions respectueuses de l’environnement : confort très élevé, design distinctif, dynamisme impressionnant et sécurité exemplaire.',
+        'أحدث تقنيات السيارات مع حلول متقدمة صديقة للبيئة: راحة عالية جداً، تصميم مميز، ديناميكية لافتة وسلامة ممتازة.'
       ),
-      primaryLabel: t('Learn more', 'En savoir plus', 'اعرف المزيد'),
-      secondaryLabel: t('Order now', 'Commander', 'اطلب الآن'),
+      primaryLabel: t('Discover Dream', 'Découvrir DREAM', 'اكتشف DREAM'),
+      secondaryLabel: t('Book a test drive', 'Réserver un essai', 'احجز تجربة قيادة'),
       primarySlug: 'newDreamer26.html',
-      secondarySlug: 'store.html'
-    },
-    {
-      image: '/voyah-resources/website/advertisingbanner/image/785c4160-8515-46a2-8bc9-a4f7b1907c0c1770618243037.jpg',
-      video: '/voyah-resources/website/advertisingbanner/video/785c4160-8515-46a2-8bc9-a4f7b1907c0c1770618243037.mp4',
-      logo: '/voyah-resources/website/navigationbar/image/09a0e118-e3a0-4cc1-afdc-f135820b2c201770619310485.png',
-      title: t('', '', ''),
-      description: t(
-        'A new-era flagship sedan',
-        'Berline phare de nouvelle génération',
-        'سيدان رائدة من الجيل الجديد'
-      ),
-      primaryLabel: t('Learn more', 'En savoir plus', 'اعرف المزيد'),
-      secondaryLabel: t('Order now', 'Commander', 'اطلب الآن'),
-      primarySlug: 'passion-L.html',
-      secondarySlug: 'store.html'
-    },
-    {
-      image: '/voyah-resources/website/advertisingbanner/image/1779ce91-787b-4a77-9fec-1deb13fedeb31770618459950.jpg',
-      video: '/voyah-resources/website/advertisingbanner/video/1779ce91-787b-4a77-9fec-1deb13fedeb31770618459950.mp4',
-      logo: '/voyah-resources/website/navigationbar/image/ea0f8412-5208-4822-b42d-bdbbb64741b41770619334518.png',
-      title: t('', '', ''),
-      description: t(
-        'Premium intelligent SUV with Huawei ADS and Harmony cockpit',
-        'SUV premium intelligente avec Huawei ADS et cockpit Harmony',
-        'سيارة SUV ذكية فاخرة مع Huawei ADS ومقصورة Harmony'
-      ),
-      primaryLabel: t('Learn more', 'En savoir plus', 'اعرف المزيد'),
-      secondaryLabel: t('Order now', 'Commander', 'اطلب الآن'),
-      primarySlug: 'free+.html',
-      secondarySlug: 'store.html'
-    },
-    {
-      image: '/voyah-resources/website/advertisingbanner/image/e33e96dc-3430-4882-946d-62abdf88dc0d1770618522586.jpg',
-      video: '/voyah-resources/website/advertisingbanner/video/e33e96dc-3430-4882-946d-62abdf88dc0d1770618522586.mp4',
-      logo: '/voyah-resources/website/navigationbar/image/d515bc38-574b-44fb-aebc-2f721eccfb461773885854055.png',
-      title: t('', '', ''),
-      description: t(
-        'New luxury pure-electric SUV with long range and family comfort',
-        'Nouveau SUV de luxe 100 % électrique avec grande autonomية et confort familial',
-        'سيارة SUV كهربائية فاخرة جديدة بمدى طويل وراحة عائلية'
-      ),
-      primaryLabel: t('Learn more', 'En savoir plus', 'اعرف المزيد'),
-      secondaryLabel: t('Order now', 'Commander', 'اطلب الآن'),
-      primarySlug: 'newCourage.html',
-      secondarySlug: 'store.html'
+      secondarySlug: 'book-drive.html'
     }
   ],
   brandIntro: {
@@ -1447,70 +1432,29 @@ export const homePage: HomeData = {
   modelsBody: t('', '', ''),
   models: [
     {
-      slug: 'titan.html',
-      image: '/voyah-resources/website/advertisingseries/image/4a4ba784-9bdc-4842-a3cf-22e2b1e46d761770618807747.jpg',
-      title: t('Voyah Titan', 'Voyah Titan', 'Voyah Titan'),
+      slug: 'free.html',
+      image: '/voyah-resources/images/car/free/kv_1920.png',
+      title: modelDisplayName['free.html'],
       category: t(
-        'A new-era flagship six-seat SUV',
-        'Un SUV phare six places de nouvelle génération',
-        'سيارة SUV رائدة بستة مقاعد من الجيل الجديد'
+        'Long-range premium crossover',
+        'Crossover premium longue autonomie',
+        'كروس أوفر فاخر بعيد المدى'
       ),
       metrics: [
-        metric('5000 mm', 'Length', 'Longueur', 'الطول'),
-        metric('1995 mm', 'Width', 'Largeur', 'العرض'),
-        metric('1820 mm', 'Height', 'Hauteur', 'الارتفاع')
+        metric('SUV', 'Body type', 'Carrosserie', 'نوع الهيكل'),
+        metric('Touring comfort', 'Long-route feel', 'Confort longue route', 'راحة السفر'),
+        metric('Practical luxury', 'Daily use', 'Usage quotidien', 'الاستخدام اليومي')
       ]
     },
     {
       slug: 'newDreamer26.html',
-      image: '/voyah-resources/website/advertisingseries/image/7ef23102-331e-418d-9139-72a7c77264011770618843718.jpg',
-      title: t('26 Voyah Dreamer', 'Voyah Dreamer 26', 'Voyah Dreamer 26'),
-      category: t('A new-era flagship MPV', 'Un monospace phare de nouvelle génération', 'سيارة MPV رائدة من الجيل الجديد'),
+      image: '/voyah-resources/images/car/newDreamer26/kv_1920.jpg',
+      title: modelDisplayName['newDreamer26.html'],
+      category: t('A new-era flagship MPV', 'Monospace phare de nouvelle génération', 'سيارة MPV رائدة من الجيل الجديد'),
       metrics: [
         metric('MPV', 'Body type', 'Carrosserie', 'نوع الهيكل'),
         metric('Flagship', 'Positioning', 'Positionnement', 'الفئة'),
-        metric('6 / 7 seats', 'Seating', 'Places', 'عدد المقاعد')
-      ]
-    },
-    {
-      slug: 'passion-L.html',
-      image: '/voyah-resources/website/advertisingseries/image/c6a84270-5367-4b46-9bbb-ca363039b20f1770618873239.jpg',
-      title: t('Voyah Passion L', 'Voyah Passion L', 'Voyah Passion L'),
-      category: t('Berline phare de nouvelle génération', 'Berline phare de nouvelle génération', 'سيدان رائدة من الجيل الجديد'),
-      metrics: [
-        metric('Sedan', 'Body type', 'Carrosserie', 'نوع الهيكل'),
-        metric('Flagship', 'Positioning', 'Positionnement', 'الفئة'),
-        metric('Executive luxury', 'Experience', 'Expérience', 'التجربة')
-      ]
-    },
-    {
-      slug: 'free+.html',
-      image: '/voyah-resources/website/advertisingseries/image/e8a95859-ce35-4110-8156-b9f6a9c3365d1770618911247.jpg',
-      title: t('Voyah FREE+', 'Voyah FREE+', 'Voyah FREE+'),
-      category: t(
-        'Premium intelligent SUV',
-        'SUV premium intelligente',
-        'سيارة SUV ذكية فاخرة'
-      ),
-      metrics: [
-        metric('SUV', 'Body type', 'Carrosserie', 'نوع الهيكل'),
-        metric('Huawei ADS', 'Driving tech', 'Conduite intelligente', 'تقنية القيادة'),
-        metric('Harmony cockpit', 'Cabin', 'Cockpit', 'المقصورة')
-      ]
-    },
-    {
-      slug: 'newCourage.html',
-      image: '/assets/voyah/home-image-63.jpg',
-      title: t('New Voyah Courage', 'Nouveau Voyah Courage', 'Voyah Courage الجديد'),
-      category: t(
-        'New luxury pure-electric SUV',
-        'Nouveau SUV de luxe 100 % électrique',
-        'سيارة SUV كهربائية فاخرة جديدة'
-      ),
-      metrics: [
-        metric('Pure electric', 'Powertrain', 'Motorisation', 'منظومة الحركة'),
-        metric('Huawei ADS', 'Driving tech', 'Conduite intelligente', 'تقنية القيادة'),
-        metric('Harmony cockpit', 'Cabin', 'Cockpit', 'المقصورة')
+        metric('Six / seven seats', 'Seating', 'Places', 'عدد المقاعد')
       ]
     }
   ],
@@ -1699,34 +1643,25 @@ export const homePage: HomeData = {
 
 export const footerColumns: FooterColumn[] = [
   {
+    title: t('Our Models', 'Nos modèles', 'طرازاتنا'),
+    links: [
+      { label: modelDisplayName['free.html'], slug: 'free.html' },
+      { label: modelDisplayName['newDreamer26.html'], slug: 'newDreamer26.html' }
+    ]
+  },
+  {
+    title: t('Purchase', 'Achat', 'الشراء'),
+    links: [
+      { label: t('Book a test drive', 'Réserver un essai', 'احجز تجربة قيادة'), slug: 'book-drive.html' },
+      { label: t('Request a quote', 'Demander un devis', 'اطلب عرض سعر'), slug: 'quote.html' },
+      { label: t('Store center', 'Centre de magasins', 'مركز المعارض'), slug: 'store.html' },
+      { label: t('News', 'Actualités', 'الأخبار'), slug: 'news.html' }
+    ]
+  },
+  {
     title: t('Voyah Brand', 'Marque Voyah', 'علامة Voyah'),
     links: [
       { label: t('Voyah Brand', 'Marque Voyah', 'علامة Voyah'), slug: 'brand.html' }
-    ]
-  },
-  {
-    title: t('Models', 'Modèles', 'الطرازات'),
-    links: [
-      { label: t('Voyah Passion L', 'Voyah Passion L', 'Voyah Passion L'), slug: 'passion-L.html' },
-      { label: t('Voyah Passion', 'Voyah Passion', 'Voyah Passion'), slug: 'passion.html' },
-      { label: t('Voyah Titan', 'Voyah Titan', 'Voyah Titan'), slug: 'titan.html' },
-      { label: t('Voyah Titan Black Edition', 'Voyah Titan Black Edition', 'Voyah Titan Black Edition'), slug: 'titan_blackedition.html' },
-      { label: t('Voyah Titan X8', 'Voyah Titan X8', 'Voyah Titan X8'), slug: 'titan_X8.html' },
-      { label: t('Voyah FREE+', 'Voyah FREE+', 'Voyah FREE+'), slug: 'free+.html' },
-      { label: t('New Voyah Courage', 'Nouveau Voyah Courage', 'Voyah Courage الجديد'), slug: 'newCourage.html' },
-      { label: t('Voyah FREE 318', 'Voyah FREE 318', 'Voyah FREE 318'), slug: 'free.html' },
-      { label: t('Voyah Courage', 'Voyah Courage', 'Voyah Courage'), slug: 'courage.html' },
-      { label: t('26 Voyah Dreamer', 'Voyah Dreamer 26', 'Voyah Dreamer 26'), slug: 'newDreamer26.html' },
-      { label: t('Voyah Dreamer Champion', 'Voyah Dreamer Champion', 'Voyah Dreamer Champion'), slug: 'dreamer-champion.html' },
-      { label: t('25 Voyah Dreamer', 'Voyah Dreamer 25', 'Voyah Dreamer 25'), slug: 'newDreamer.html' },
-      { label: t('Voyah Dreamer Mountain River', 'Voyah Dreamer Montagne-Rivière', 'Voyah Dreamer Mountain River'), slug: 'dreamriver.html' },
-      { label: t('24 Voyah Dreamer', 'Voyah Dreamer 24', 'Voyah Dreamer 24'), slug: 'dreamer.html' }
-    ]
-  },
-  {
-    title: t('Store Center', 'Centre de magasins', 'مركز المعارض'),
-    links: [
-      { label: t('Store center', 'Centre de magasins', 'مركز المعارض'), slug: 'store.html' }
     ]
   },
   {
@@ -1756,13 +1691,6 @@ export const footerLegalLinks = [
   { label: t('Cookies', 'Cookies', 'ملفات تعريف الارتباط'), slug: 'cookie.html' },
   { label: t('Authorization', 'Autorisation', 'التفويض'), slug: 'authorization.html' }
 ]
-
-export const footerContact: FooterContact = {
-  title: t('Download the Voyah App and explore a new world of Voyah', 'Téléchargez l’application Voyah \n et explorez un nouvel univers Voyah', 'حمّل تطبيق Voyah واستكشف عالماً جديداً من Voyah'),
-  body: t('Stay up to date with the latest Voyah news and discover community activities with distinctive taste.', 'Restez au plus près des dernières actualités Voyah et découvrez des activités communautaires au caractère affirmé.', 'اطلع على أحدث أخبار Voyah واكتشف أنشطة المجتمع التي تحمل طابعاً مميزاً.'),
-  appCode: '/assets/voyah/home-image-41.png',
-  miniProgramCode: '/assets/voyah/home-image-70.png'
-}
 
 export const localize = (text: LocalizedText, locale: LocaleCode): string => text[locale] ?? text.en
 

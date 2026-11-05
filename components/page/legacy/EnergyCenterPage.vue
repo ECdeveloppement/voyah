@@ -336,8 +336,6 @@
 <script setup>
 import { onMounted, ref, onBeforeUnmount } from 'vue'
 import { useI18n } from 'vue-i18n'
-import L from 'leaflet'
-import 'leaflet/dist/leaflet.css'
 
 const { t } = useI18n()
 
@@ -391,14 +389,18 @@ const initAutoSlideTab = () => {
   })
 }
 
-delete L.Icon.Default.prototype._getIconUrl
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
-  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
-  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
-})
+onMounted(async () => {
+  const leafletModule = await import('leaflet')
+  const L = leafletModule.default
+  await import('leaflet/dist/leaflet.css')
 
-onMounted(() => {
+  delete L.Icon.Default.prototype._getIconUrl
+  L.Icon.Default.mergeOptions({
+    iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+    iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+  })
+
   const tunisiaCenter = [34.0, 9.5]
   const map = L.map('tunisia-map').setView(tunisiaCenter, 7)
 

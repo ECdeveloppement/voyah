@@ -42,6 +42,7 @@
                   <BaseButton :to="buildPath('book-drive.html')" variant="primary">
                     {{ driveLabel }}
                   </BaseButton>
+                  <BrochureButton :slug="activeModel.slug" />
                 </div>
               </div>
             </Transition>
@@ -56,6 +57,7 @@
 import { gsap } from 'gsap'
 import type { HomeData, LocalizedText } from '~/data/site'
 import BaseButton from '~/components/common/BaseButton.vue'
+import BrochureButton from '~/components/common/BrochureButton.vue'
 import MetricGrid from '~/components/common/MetricGrid.vue'
 import { useSectionReveal } from '~/composables/useSectionReveal'
 import { useSiteContent } from '~/composables/useSiteContent'

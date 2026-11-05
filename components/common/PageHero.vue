@@ -128,12 +128,12 @@ onMounted(() => {
 
 .page-hero-overlay {
   background:
-    linear-gradient(180deg, rgba(5, 8, 12, 0.18), rgba(5, 8, 12, 0.7)),
-    linear-gradient(92deg, rgba(5, 8, 12, 0.64), rgba(5, 8, 12, 0.2) 48%, rgba(5, 8, 12, 0.52));
+    linear-gradient(180deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.7)),
+    linear-gradient(92deg, rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.2) 48%, rgba(0, 0, 0, 0.52));
 }
 
 .page-hero-gradient {
-  background: radial-gradient(120% 80% at 78% 100%, rgba(2, 4, 8, 0.16), rgba(2, 4, 8, 0));
+  background: radial-gradient(120% 80% at 78% 100%, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0));
 }
 
 .page-hero--passion-L .page-hero-media img,
@@ -179,16 +179,16 @@ onMounted(() => {
 .page-hero--passion-L .page-hero-overlay,
 .page-hero--passion .page-hero-overlay {
   background:
-    linear-gradient(180deg, rgba(5, 8, 12, 0.16), rgba(5, 8, 12, 0.72)),
-    linear-gradient(92deg, rgba(5, 8, 12, 0.66), rgba(5, 8, 12, 0.22) 52%, rgba(5, 8, 12, 0.56));
+    linear-gradient(180deg, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.72)),
+    linear-gradient(92deg, rgba(0, 0, 0, 0.66), rgba(0, 0, 0, 0.22) 52%, rgba(0, 0, 0, 0.56));
 }
 
 .page-hero--titan .page-hero-overlay,
 .page-hero--titan_blackedition .page-hero-overlay,
 .page-hero--titan_X8 .page-hero-overlay {
   background:
-    linear-gradient(180deg, rgba(5, 8, 12, 0.22), rgba(5, 8, 12, 0.76)),
-    linear-gradient(90deg, rgba(5, 8, 12, 0.62), rgba(5, 8, 12, 0.2) 50%, rgba(5, 8, 12, 0.6));
+    linear-gradient(180deg, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.76)),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.6));
 }
 
 .page-hero--freeplus .page-hero-overlay,
@@ -196,8 +196,8 @@ onMounted(() => {
 .page-hero--newCourage .page-hero-overlay,
 .page-hero--courage .page-hero-overlay {
   background:
-    linear-gradient(180deg, rgba(5, 8, 12, 0.2), rgba(5, 8, 12, 0.72)),
-    linear-gradient(90deg, rgba(5, 8, 12, 0.58), rgba(5, 8, 12, 0.16) 50%, rgba(5, 8, 12, 0.52));
+    linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.72)),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.16) 50%, rgba(0, 0, 0, 0.52));
 }
 
 .page-hero--newDreamer26 .page-hero-overlay,
@@ -206,8 +206,8 @@ onMounted(() => {
 .page-hero--dreamriver .page-hero-overlay,
 .page-hero--dreamer .page-hero-overlay {
   background:
-    linear-gradient(180deg, rgba(5, 8, 12, 0.18), rgba(5, 8, 12, 0.74)),
-    linear-gradient(88deg, rgba(5, 8, 12, 0.62), rgba(5, 8, 12, 0.18) 48%, rgba(5, 8, 12, 0.56));
+    linear-gradient(180deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.74)),
+    linear-gradient(88deg, rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.18) 48%, rgba(0, 0, 0, 0.56));
 }
 
 .page-hero-content {

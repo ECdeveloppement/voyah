@@ -1,14 +1,7 @@
 <template>
   <div class="voyah-homepage">
-    <HomeHero id="hero" :slides="homePage.slides" />
-    <HomeBrandIntro id="brand" :data="homePage.brandIntro" />
-    <HomeModels id="models" :title="homePage.modelsTitle" :body="homePage.modelsBody" :models="homePage.models" />
-    <HomeStatsMedia id="energy" :data="homePage.energy" />
-    <HomeTechnology id="tech" :data="homePage.technology" />
-    <HomeServiceGrid id="service" :data="homePage.service" />
-    <HomeCommunity id="community" :data="homePage.community" />
-    <HomeGlobalMap id="map" :data="homePage.footprint" />
-    <HomeQuickActions />
+    <HomeVideoHero />
+    <HomeModelCards :slides="homePage.slides" />
   </div>
 </template>
 
@@ -16,18 +9,13 @@
 import { useSeoMeta } from '#app'
 import { homePage } from '~/data/site'
 import { useSiteContent } from '~/composables/useSiteContent'
+import HomeModelCards from '~/components/home/HomeModelCards.vue'
+import HomeVideoHero from '~/components/home/HomeVideoHero.vue'
 
 const { textFor } = useSiteContent()
 
 useSeoMeta({
   title: () => `Voyah | ${textFor(homePage.modelsTitle)}`,
-  description: () => textFor(homePage.brandIntro.body)
+  description: () => textFor(homePage.slides[0].description)
 })
 </script>
-
-<style scoped>
-.voyah-homepage > * {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-}
-</style>

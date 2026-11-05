@@ -1,7 +1,6 @@
 import {
   findLocale,
   footerColumns,
-  footerContact,
   footerLegalLinks,
   locales,
   localize,
@@ -52,7 +51,6 @@ export const useSiteContent = () => {
     navigation,
     footerColumns,
     footerLegalLinks,
-    footerContact,
     buildPath,
     switchLocalePath,
     textFor,

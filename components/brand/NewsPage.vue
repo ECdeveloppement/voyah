@@ -1,83 +1,75 @@
 <template>
-  <div class="custom-page newspage">
+  <div class="news-page">
     <PageHero
-      :eyebrow="$t('domain.newspage.eyebrow', 'Latest Updates')"
-      :title="$t('domain.newspage.title', 'Voyah Newsroom')"
-      :summary="$t('domain.newspage.summary', 'Press releases, technological developments, and global expansion news.')"
-      image="/voyah-resources/brand/news_hero.jpg"
+      :eyebrow="textFor(page.eyebrow)"
+      :title="textFor(page.title)"
+      :summary="textFor(page.summary)"
+      :image="page.heroImage"
       align="start"
-      :compact="true"
+      compact
     />
-    
-    <!-- Filter Tabs -->
-    <div class="news-filters">
-       <div class="container">
-          <ul>
-             <li class="active">{{ $t('domain.newspage.filter_all', 'All News') }}</li>
-             <li>{{ $t('domain.newspage.filter_corp', 'Corporate') }}</li>
-             <li>{{ $t('domain.newspage.filter_prod', 'Product') }}</li>
-             <li>{{ $t('domain.newspage.filter_tech', 'Technology') }}</li>
-          </ul>
-       </div>
-    </div>
-    
-    <!-- Masonry/Grid of Articles -->
-    <section class="news-list-section section-shell">
+
+    <nav class="news-filters" :aria-label="textFor(labels.news)">
       <div class="container">
-        <div class="news-grid">
-           <!-- Featured Article -->
-           <article class="news-card featured">
-              <div class="news-card-media" style="background-image: url('/voyah-resources/brand/kunpeng_hero.jpg')"></div>
-              <div class="news-card-content">
-                 <div class="news-meta">
-                    <span class="category">{{ $t('domain.newspage.filter_tech', 'Technology') }}</span>
-                    <span class="date">Oct 14, 2024</span>
-                 </div>
-                 <h3>{{ $t('domain.newspage.news1_title', 'Voyah Unveils Next-Gen AI Cockpit at Global Tech Summit') }}</h3>
-                 <p>{{ $t('domain.newspage.news1_desc', 'Integrating the Snapdragon 8295 architecture with a localized large language model for unprecedented cabin intelligence.') }}</p>
-                 <a href="#" class="read-more">{{ $t('domain.newspage.read_more', 'Read Full Release') }} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-              </div>
-           </article>
-           
-           <article class="news-card">
-              <div class="news-card-media small" style="background-image: url('/voyah-resources/lifestyle/community_hero.jpg')"></div>
-              <div class="news-card-content">
-                 <div class="news-meta">
-                    <span class="category">{{ $t('domain.newspage.filter_corp', 'Corporate') }}</span>
-                    <span class="date">Sep 22, 2024</span>
-                 </div>
-                 <h3>{{ $t('domain.newspage.news2_title', 'European Expansion Accelerates: Voyah Enters Spain') }}</h3>
-                 <a href="#" class="read-more">{{ $t('domain.newspage.read_more', 'Read Full Release') }}</a>
-              </div>
-           </article>
+        <ul>
+          <li
+            v-for="tab in tabs"
+            :key="tab.id"
+            :class="['news-filter', { active: activeCategory === tab.id }]"
+            @click="selectCategory(tab.id)"
+          >
+            {{ tab.label }}
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-           <article class="news-card">
-              <div class="news-card-media small" style="background-image: url('/voyah-resources/models/titan_ultra_hero.jpg')"></div>
-              <div class="news-card-content">
-                 <div class="news-meta">
-                    <span class="category">{{ $t('domain.newspage.filter_prod', 'Product') }}</span>
-                    <span class="date">Jul 10, 2024</span>
-                 </div>
-                 <h3>{{ $t('domain.newspage.news3_title', 'Titan Ultra 2026 Concepts Teased') }}</h3>
-                 <a href="#" class="read-more">{{ $t('domain.newspage.read_more', 'Read Full Release') }}</a>
-              </div>
-           </article>
+    <section class="news-list-section">
+      <div class="container">
+        <p v-if="!filtered.length" class="news-empty">{{ textFor(labels.empty) }}</p>
 
-           <article class="news-card">
-              <div class="news-card-media small" style="background-image: url('/voyah-resources/tech/safety_battery_shield.png')"></div>
-              <div class="news-card-content">
-                 <div class="news-meta">
-                    <span class="category">{{ $t('domain.newspage.filter_tech', 'Technology') }}</span>
-                    <span class="date">Jun 05, 2024</span>
-                 </div>
-                 <h3>{{ $t('domain.newspage.news4_title', 'Amber Battery Shield Achieves New Thermal Records') }}</h3>
-                 <a href="#" class="read-more">{{ $t('domain.newspage.read_more', 'Read Full Release') }}</a>
+        <div v-else class="news-grid">
+          <article
+            v-for="(item, index) in visibleItems"
+            :key="item.id"
+            :class="['news-card', { featured: index === 0 }]"
+          >
+            <div
+              :class="['news-card-media', { small: index !== 0 }]"
+              :style="{ backgroundImage: `url('${item.image}')` }"
+              role="img"
+              :aria-label="textFor(item.title)"
+            />
+
+            <div class="news-card-content">
+              <div class="news-meta">
+                <span class="category">{{ textFor(newsCategoryLabels[item.category]) }}</span>
+                <span class="date">{{ formatDate(item.date) }}</span>
               </div>
-           </article>
+
+              <h3>{{ textFor(item.title) }}</h3>
+              <p v-if="index === 0">{{ textFor(item.excerpt) }}</p>
+
+              <a
+                v-if="item.url.trim()"
+                :href="item.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="read-more"
+              >
+                {{ textFor(labels.readMore) }}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </article>
         </div>
-        
-        <div class="load-more-container">
-           <button class="btn-load-more">{{ $t('domain.newspage.load_more', 'Load More Content') }}</button>
+
+        <div v-if="filtered.length > visibleCount" class="load-more-container">
+          <button type="button" class="btn-load-more" @click="showMore">
+            {{ textFor(labels.loadMore) }}
+          </button>
         </div>
       </div>
     </section>
@@ -87,176 +79,268 @@
 <script setup lang="ts">
 import PageHero from '~/components/common/PageHero.vue'
 import type { InfoDefinition } from '~/data/site'
+import { newsCategoryLabels, newsItems, type NewsCategory } from '~/data/news'
+import { t } from '~/data/dealer'
+import { useSiteContent } from '~/composables/useSiteContent'
 
-const props = defineProps<{
-  page: InfoDefinition
-}>()
+defineProps<{ page: InfoDefinition }>()
+
+const { locale, textFor } = useSiteContent()
+
+const PAGE_SIZE = 4
+
+const labels = {
+  news: t('News', 'Actualités', 'الأخبار'),
+  all: t('All news', 'Toutes les actualités', 'كل الأخبار'),
+  empty: t(
+    'No news published yet. Check back soon.',
+    'Aucune actualité publiée pour le moment. Revenez bientôt.',
+    'لا توجد أخبار منشورة بعد. تابعنا قريباً.'
+  ),
+  readMore: t('Read full release', 'Lire le communiqué', 'قراءة البيان كاملاً'),
+  loadMore: t('Load more', 'Voir plus', 'عرض المزيد')
+}
+
+const activeCategory = ref<'all' | NewsCategory>('all')
+const visibleCount = ref(PAGE_SIZE)
+
+const tabs = computed(() => [
+  { id: 'all' as const, label: textFor(labels.all) },
+  ...(Object.keys(newsCategoryLabels) as NewsCategory[]).map((id) => ({
+    id,
+    label: textFor(newsCategoryLabels[id])
+  }))
+])
+
+const filtered = computed(() => {
+  const items =
+    activeCategory.value === 'all'
+      ? [...newsItems]
+      : newsItems.filter((item) => item.category === activeCategory.value)
+
+  return items.sort((a, b) => b.date.localeCompare(a.date))
+})
+
+const visibleItems = computed(() => filtered.value.slice(0, visibleCount.value))
+
+const selectCategory = (id: 'all' | NewsCategory) => {
+  activeCategory.value = id
+  visibleCount.value = PAGE_SIZE
+}
+
+const showMore = () => {
+  visibleCount.value += PAGE_SIZE
+}
+
+const formatDate = (iso: string) =>
+  new Intl.DateTimeFormat(locale.value.code, { day: 'numeric', month: 'short', year: 'numeric' }).format(
+    new Date(`${iso}T00:00:00`)
+  )
 </script>
 
 <style scoped>
-.custom-page { background: #fdfbf7; min-height: 80vh; }
-.news-filters {
-  background: #fff;
-  border-bottom: 1px solid #e9ecef;
-  padding: 0;
+.news-page {
+  background: var(--bg);
+  color: var(--text);
 }
+
+.news-filters {
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
 .news-filters ul {
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 40px;
+  gap: 32px;
 }
-.news-filters li {
-  padding: 24px 0;
-  color: #6c757d;
-  font-weight: 500;
+
+.news-filter {
+  padding: 20px 0;
+  color: var(--text-soft);
+  letter-spacing: 0.12em;
   cursor: pointer;
   position: relative;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: 0.9rem;
+  font-size: 0.82rem;
+  transition: color 0.3s ease;
 }
-.news-filters li:hover {
-  color: #212529;
+
+.news-filter:hover,
+.news-filter.active {
+  color: var(--heading);
 }
-.news-filters li.active {
-  color: #c59c62;
-}
-.news-filters li.active::after {
+
+.news-filter.active::after {
   content: '';
   position: absolute;
   bottom: -1px;
   left: 0;
   right: 0;
   height: 2px;
-  background: #c59c62;
+  background: #85b4d9;
 }
 
 .news-list-section {
-  padding: 80px 0;
+  padding: 64px 0 88px;
 }
+
+.news-empty {
+  color: var(--text-soft);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.86rem;
+}
+
 .news-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
 }
+
 .news-card {
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  background: var(--panel);
+  border: 1px solid var(--line);
   display: flex;
   flex-direction: column;
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.4s ease;
 }
+
 .news-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transform: translateY(-4px);
+  border-color: #d7dde5;
 }
+
 .news-card.featured {
   grid-column: span 3;
   flex-direction: row;
 }
+
 .news-card-media {
   background-size: cover;
   background-position: center;
   flex: 1;
   min-height: 240px;
 }
+
+.news-card-media.small {
+  min-height: 200px;
+}
+
 .news-card.featured .news-card-media {
   flex: 2;
-  min-height: 400px;
+  min-height: 380px;
 }
+
 .news-card-content {
-  padding: 40px;
+  padding: 32px;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 12px;
 }
+
 .news-meta {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
-  font-size: 0.85rem;
+  gap: 16px;
+  font-size: 0.76rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.14em;
 }
+
 .news-meta .category {
-  color: #c59c62;
-  font-weight: bold;
+  color: var(--heading);
 }
+
 .news-meta .date {
-  color: #adb5bd;
+  color: var(--text-soft);
 }
+
 .news-card h3 {
-  font-family: var(--font-heading);
-  font-size: 1.6rem;
-  color: #212529;
-  margin-bottom: 15px;
-  line-height: 1.3;
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--heading);
 }
+
 .news-card.featured h3 {
-  font-size: 2.2rem;
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
 }
+
 .news-card p {
-  color: #6c757d;
-  line-height: 1.6;
-  margin-bottom: 30px;
+  margin: 0;
+  color: var(--text-soft);
+  line-height: 1.7;
 }
+
 .read-more {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #212529;
+  color: var(--heading);
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-  margin-top: auto;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  margin-top: 8px;
 }
+
 .read-more svg {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   transition: transform 0.3s ease;
 }
-.read-more:hover {
-  color: #c59c62;
-}
+
 .read-more:hover svg {
-  transform: translateX(5px);
+  transform: translateX(4px);
 }
 
 .load-more-container {
   display: flex;
   justify-content: center;
-  margin-top: 60px;
+  margin-top: 48px;
 }
+
 .btn-load-more {
   background: transparent;
-  border: 2px solid #212529;
-  color: #212529;
-  padding: 15px 40px;
-  border-radius: 30px;
-  font-weight: 500;
+  border: 1px solid var(--line);
+  border-radius: 9999px;
+  color: var(--heading);
+  padding: 13px 34px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
 }
+
 .btn-load-more:hover {
-  background: #212529;
+  background: #000;
   color: #fff;
 }
 
 @media (max-width: 991px) {
   .news-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
+
   .news-card.featured {
     grid-column: span 1;
     flex-direction: column;
   }
+
   .news-card.featured .news-card-media {
-    min-height: 300px;
+    min-height: 280px;
   }
 }
 </style>

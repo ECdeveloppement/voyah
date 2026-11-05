@@ -6,8 +6,9 @@
         <img src="/assets/OFFICIALVOYAH/newDreamer26/images/newDreamer26.png" class="kv-logo" loading="eager" fetchpriority="high" decoding="async" />
         <p class="kv-slogan">{{ textFor({ en: 'Flagship MPV of the New Era', fr: 'MPV Phare de la Nouvelle Ère', ar: 'MPV الرائد للعصر الجديد' }) }}</p>
         <div class="kv-btns">
-          <button class="voyah-button voyah-button--plain">{{ textFor({ en: 'Book Test Drive', fr: 'Réserver Essai', ar: 'حجز تجربة قيادة' }) }}</button>
-          <button class="voyah-button voyah-button--dark">{{ textFor({ en: 'Order Now', fr: 'Commander', ar: 'اطلب الآن' }) }}</button>
+          <NuxtLink :to="buildPath('book-drive.html')" class="voyah-button voyah-button--plain">{{ textFor({ en: 'Book Test Drive', fr: 'Réserver Essai', ar: 'حجز تجربة قيادة' }) }}</NuxtLink>
+          <NuxtLink :to="buildPath('quote.html')" class="voyah-button voyah-button--dark">{{ textFor({ en: 'Order Now', fr: 'Commander', ar: 'اطلب الآن' }) }}</NuxtLink>
+          <BrochureButton slug="newDreamer26.html" />
         </div>
       </div>
     </section>
@@ -130,9 +131,10 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
+import BrochureButton from '~/components/common/BrochureButton.vue'
 import { useSiteContent } from '~/composables/useSiteContent'
 
-const { textFor } = useSiteContent()
+const { textFor, buildPath } = useSiteContent()
 const activeSection = ref(0)
 const showMobileNav = ref(false)
 const currentSlide = ref({ kunpeng: 0 })
@@ -181,8 +183,8 @@ onUnmounted(() => { if (scrollHandler) window.removeEventListener('scroll', scro
 .kv-content { position: relative; z-index: 2; text-align: center; }
 .kv-logo { width: 280px; margin-bottom: 24px; }
 .kv-slogan { font-size: 24px; margin-bottom: 40px; }
-.kv-btns { display: flex; gap: 20px; justify-content: center; }
-.voyah-button { padding: 14px 32px; border: 1px solid #fff; background: transparent; color: #fff; cursor: pointer; }
+.kv-btns { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+.voyah-button { padding: 14px 32px; border: 1px solid #fff; border-radius: 9999px; background: transparent; color: #fff; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.16em; }
 .voyah-button--dark { background: #fff; color: #000; }
 .car-nav-wap { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.9); z-index: 100; transform: translateY(100%); transition: transform 0.3s; }
 .car-nav-wap.visible { transform: translateY(0); }

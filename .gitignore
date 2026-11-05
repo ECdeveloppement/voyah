@@ -1,9 +1,17 @@
 # Dependencies
 node_modules/
 
-# Nuxt build output
+# Nuxt build output — .output/public est déployé tel quel sur le serveur IIS
 .nuxt/
-.output/
+.output/*
+!.output/public/
+
+# Outillage de comparaison avec voyahqatar.com (non livré)
+scratch/
+scrape/
+
+# Demandes de formulaire archivées côté serveur
+.data/
 
 # Production build
 dist/

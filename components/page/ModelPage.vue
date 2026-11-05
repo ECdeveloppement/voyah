@@ -17,6 +17,7 @@
         <BaseButton :to="buildPath(model.secondarySlug)" variant="secondary">
           {{ textFor(model.ctaSecondary) }}
         </BaseButton>
+        <BrochureButton :slug="model.slug" />
       </template>
       <template #meta>
         <aside class="model-hero-meta">
@@ -48,6 +49,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import BaseButton from '~/components/common/BaseButton.vue'
+import BrochureButton from '~/components/common/BrochureButton.vue'
 import PageHero from '~/components/common/PageHero.vue'
 import ModelChapterNav from '~/components/page/model/ModelChapterNav.vue'
 import ModelMediaSection from '~/components/page/model/ModelMediaSection.vue'

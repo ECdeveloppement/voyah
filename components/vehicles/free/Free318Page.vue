@@ -19,9 +19,10 @@
           {{ textFor({ en: 'New Energy Driving Control SUV', fr: 'SUV Contrôle Conduite Énergie Nouvelle', ar: 'سيارة SUV كهربائية جديدة' }) }}
         </p>
         <div class="kv-btns inview-child inview-animated" style="--inview-delay: 0.5s;">
-          <button class="voyah-button voyah-button--default voyah-button--dark voyah-button--plain">
+          <NuxtLink :to="buildPath('quote.html')" class="voyah-button voyah-button--default voyah-button--dark voyah-button--plain">
             <span class="voyah-button__text">{{ textFor({ en: 'Order Now', fr: 'Commander', ar: 'اطلب الآن' }) }}</span>
-          </button>
+          </NuxtLink>
+          <BrochureButton slug="free.html" />
         </div>
       </div>
     </section>
@@ -485,9 +486,10 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
+import BrochureButton from '~/components/common/BrochureButton.vue'
 import { useSiteContent } from '~/composables/useSiteContent'
 
-const { textFor } = useSiteContent()
+const { textFor, buildPath } = useSiteContent()
 
 // Navigation state
 const activeSection = ref(0)
@@ -1106,13 +1108,16 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   padding: 14px 32px;
-  font-size: 15px;
-  font-weight: 400;
-  letter-spacing: 0.05em;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
   border: 1px solid #fff;
+  border-radius: 9999px;
   background: transparent;
   color: #fff;
   cursor: pointer;
+  text-decoration: none;
   transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 

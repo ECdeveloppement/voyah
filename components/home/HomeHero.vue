@@ -42,7 +42,13 @@
             }
           ]"
         >
-          <img src="/sitelogo/logo.png" alt="Voyah" class="hero-logo" />
+          <img
+            v-if="slide.logo"
+            :src="slide.logo"
+            :alt="heroTitle(slide) || 'Voyah'"
+            class="hero-logo"
+          />
+          <img v-else src="/sitelogo/logo.png" alt="Voyah" class="hero-logo" />
           <h1 v-if="heroTitle(slide)">{{ heroTitle(slide) }}</h1>
           <p v-if="heroDescription(slide)">{{ heroDescription(slide) }}</p>
 
@@ -112,7 +118,7 @@ const props = defineProps<{
 
 const { buildPath, textFor } = useSiteContent()
 
-const activeIndex = ref(2)
+const activeIndex = ref(0)
 const videoEls = ref<(HTMLVideoElement | null)[]>([])
 let autoplayDelay: gsap.core.Tween | null = null
 let progressTween: gsap.core.Tween | null = null
@@ -388,14 +394,14 @@ onBeforeUnmount(() => {
 }
 
 .button-row :deep(.base-button) {
-  min-height: 40px;
-  min-width: 140px;
-  padding: 0 28px;
-  border-radius: 0;
-  font-size: 0.8rem;
-  letter-spacing: 0.02em;
-  text-transform: none;
-  font-weight: 400;
+  min-height: 44px;
+  min-width: 160px;
+  padding: 0 26px;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
 }
 
 .button-row :deep(.base-button.secondary) {
@@ -405,8 +411,9 @@ onBeforeUnmount(() => {
 }
 
 .button-row :deep(.base-button.secondary:hover) {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.8);
+  background: #fff;
+  color: #000;
+  border-color: #fff;
 }
 
 .button-row :deep(.base-button.primary) {
@@ -416,8 +423,9 @@ onBeforeUnmount(() => {
 }
 
 .button-row :deep(.base-button.primary:hover) {
-  background: #f5f5f5;
-  border-color: #f5f5f5;
+  background: transparent;
+  color: #fff;
+  border-color: #fff;
 }
 
 .hero-controls {
