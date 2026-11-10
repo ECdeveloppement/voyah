@@ -9,20 +9,24 @@ export type Localized = { en: string; fr: string; ar: string }
 export const t = (en: string, fr: string, ar: string): Localized => ({ en, fr, ar })
 
 /** Modèles exhibés, dans l'ordre d'affichage. Les autres pages modèle sont masquées. */
-export const publicModelSlugs = ['free.html', 'newDreamer26.html'] as const
+export const publicModelSlugs = ['free.html', 'newDreamer26.html', 'passion.html', 'courage.html'] as const
 
 export type PublicModelSlug = (typeof publicModelSlugs)[number]
 
 /** Titre court affiché dans le menu, les slides et les sélecteurs de formulaire. */
 export const modelDisplayName: Record<string, Localized> = {
   'free.html': t('VOYAH FREE', 'VOYAH FREE', 'VOYAH FREE'),
-  'newDreamer26.html': t('VOYAH DREAM', 'VOYAH DREAM', 'VOYAH DREAM')
+  'newDreamer26.html': t('VOYAH DREAM', 'VOYAH DREAM', 'VOYAH DREAM'),
+  'passion.html': t('VOYAH PASSION', 'VOYAH PASSION', 'VOYAH PASSION'),
+  'courage.html': t('VOYAH COURAGE', 'VOYAH COURAGE', 'VOYAH COURAGE')
 }
 
 /** Valeur transmise au concessionnaire quand une demande concerne un modèle précis. */
 export const modelKeyValue: Record<string, string> = {
   'free.html': 'VOYAH FREE',
-  'newDreamer26.html': 'VOYAH DREAM'
+  'newDreamer26.html': 'VOYAH DREAM',
+  'passion.html': 'VOYAH PASSION',
+  'courage.html': 'VOYAH COURAGE'
 }
 
 /** Déposer les PDF officiels dans public/brochures/ pour activer le téléchargement. */
@@ -43,11 +47,6 @@ export const socialLinks: SocialLink[] = [
   { id: 'linkedin', label: t('LinkedIn', 'LinkedIn', 'لينكدإن'), url: '' },
   { id: 'whatsapp', label: t('WhatsApp', 'WhatsApp', 'واتساب'), url: '' }
 ]
-
-/** Documents du revendeur servis en téléchargement direct ; '' = l'entrée reste cachée. */
-export const dealerDocuments = {
-  companyProfile: '/documents/auto-hall-profile.pdf'
-}
 
 export type DealerContact = {
   brandLabel: string
@@ -182,8 +181,8 @@ export const leadForms = {
     ),
     fields: [
       { name: 'name', label: t('Your Name', 'Votre nom', 'الاسم'), type: 'text', required: true },
-      { name: 'email', label: t('E-mail', 'E-mail', 'البريد الإلكتروني'), type: 'email', required: true },
       { name: 'subject', label: t('Subject', 'Objet', 'الموضوع'), type: 'text', required: true },
+      { name: 'email', label: t('E-mail', 'E-mail', 'البريد الإلكتروني'), type: 'email', required: true },
       { name: 'phone_number', label: t('Phone Number', 'Numéro de téléphone', 'رقم الهاتف'), type: 'tel', required: true },
       {
         name: 'message',

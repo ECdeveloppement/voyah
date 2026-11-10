@@ -3,6 +3,7 @@ node_modules/
 
 # Nuxt build output — .output/public est déployé tel quel sur le serveur IIS
 .nuxt/
+.nuxt-publish/
 .output/*
 !.output/public/
 

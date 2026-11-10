@@ -1,6 +1,6 @@
 <template>
   <div :key="locale.code">
-  <ServiceCenterPage v-if="servicePage" />
+  <ServicePage v-if="servicePage" />
   <EnergyCenterPage v-else-if="energyPage" />
   <LegacyBusinessPage
     v-else-if="legacyBusinessPage"
@@ -13,16 +13,15 @@
   />
   <StoreCenterPage v-else-if="storePage" />
   <LegacyDisclosurePage v-else-if="legacyDisclosurePage" :page="legacyDisclosurePage" :text-for="textFor" />
+  <ContactPage v-else-if="infoPage?.slug === 'contact.html'" />
   <LeadPage v-else-if="leadPage" :page="leadPage.page" :form-key="leadPage.formKey" />
   <PassionLPage v-else-if="modelPage?.slug === 'passion-L.html'" :model="modelPage" />
   <TitanPage v-else-if="modelPage?.slug === 'titan.html'" />
   <TitanBlackEditionPage v-else-if="modelPage?.slug === 'titan_blackedition.html'" />
   <TitanX8Page v-else-if="modelPage?.slug === 'titan_X8.html'" />
   <FreePlusPage v-else-if="modelPage?.slug === 'free+.html'" />
-  <QatarModelPage v-else-if="freeContent" :slug="'free.html'" :content="freeContent" />
-  <CouragePage v-else-if="modelPage?.slug === 'courage.html'" />
+  <QatarModelPage v-else-if="qatarContent && modelPage" :slug="modelPage.slug" :content="qatarContent" />
   <NewCouragePage v-else-if="modelPage?.slug === 'newCourage.html'" />
-  <QatarModelPage v-else-if="dreamContent" :slug="'newDreamer26.html'" :content="dreamContent" />
   <DreamerChampionPage v-else-if="modelPage?.slug === 'dreamer-champion.html'" />
   <NewDreamerPage v-else-if="modelPage?.slug === 'newDreamer.html'" />
   <DreamerRiverPage v-else-if="modelPage?.slug === 'dreamriver.html'" />
@@ -54,11 +53,12 @@
 
 <script setup lang="ts">
 import InfoPage from '~/components/page/InfoPage.vue'
+import ContactPage from '~/components/page/ContactPage.vue'
 import LegalPage from '~/components/page/LegalPage.vue'
 import LegacyBusinessPage from '~/components/page/legacy/LegacyBusinessPage.vue'
 import LegacyDisclosurePage from '~/components/page/legacy/LegacyDisclosurePage.vue'
 import EnergyCenterPage from '~/components/page/legacy/EnergyCenterPage.vue'
-import ServiceCenterPage from '~/components/page/legacy/ServiceCenterPage.vue'
+import ServicePage from '~/components/page/ServicePage.vue'
 import StoreCenterPage from '~/components/page/legacy/StoreCenterPage.vue'
 import ModelPage from '~/components/page/ModelPage.vue'
 import QatarModelPage from '~/components/page/model/QatarModelPage.vue'
@@ -70,7 +70,6 @@ import TitanPage from '~/components/vehicles/titan/TitanPage.vue'
 import TitanBlackEditionPage from '~/components/vehicles/titan/TitanBlackEditionPage.vue'
 import TitanX8Page from '~/components/vehicles/titan/TitanX8Page.vue'
 import FreePlusPage from '~/components/vehicles/free/FreePlusPage.vue'
-import CouragePage from '~/components/vehicles/courage/CouragePage.vue'
 import NewCouragePage from '~/components/vehicles/newcourage/NewCouragePage.vue'
 import DreamerChampionPage from '~/components/vehicles/dreamer/DreamerChampionPage.vue'
 import NewDreamerPage from '~/components/vehicles/dreamer/NewDreamerPage.vue'
@@ -107,11 +106,8 @@ const slug = computed(() => (Array.isArray(route.params.slug) ? route.params.slu
 const page = computed(() => (typeof slug.value === 'string' ? resolvePage(slug.value) ?? null : null))
 
 const modelPage = computed(() => (page.value?.kind === 'model' ? page.value : null))
-const freeContent = computed(() =>
-  modelPage.value?.slug === 'free.html' ? modelPageContentBySlug['free.html'] : null
-)
-const dreamContent = computed(() =>
-  modelPage.value?.slug === 'newDreamer26.html' ? modelPageContentBySlug['newDreamer26.html'] : null
+const qatarContent = computed(() =>
+  modelPage.value ? modelPageContentBySlug[modelPage.value.slug] ?? null : null
 )
 const infoPage = computed(() => (page.value?.kind === 'info' ? page.value : null))
 const legalPage = computed(() => (page.value?.kind === 'legal' ? page.value : null))
@@ -120,7 +116,6 @@ const { textFor, locale } = useSiteContent()
 const leadFormBySlug: Partial<Record<string, LeadFormKey>> = {
   'book-drive.html': 'test-drive',
   'book-service.html': 'service',
-  'contact.html': 'contact',
   'quote.html': 'quote'
 }
 const leadPage = computed(() => {

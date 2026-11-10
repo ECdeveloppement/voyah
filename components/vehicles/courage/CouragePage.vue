@@ -3,7 +3,7 @@
     <!-- Hero Section -->
     <section class="kv-section" id="hero">
       <div class="kv-bg">
-        <img src="/assets/OFFICIALVOYAH/courage/images/h37_pc01_0001.jpg" alt="Voyah Courage" class="kv-bg-img" />
+        <img src="/voyah-resources/images/global/courage-hero.jpg" alt="Voyah Courage" class="kv-bg-img" />
       </div>
       <div class="kv-content">
         <img
@@ -13,7 +13,7 @@
           style="--inview-delay: 0.3s;"
         />
         <p class="kv-slogan inview-child inview-animated" style="--inview-delay: 0.4s;">
-          {{ textFor({ en: 'New Luxury Pure Electric SUV', fr: 'Nouveau SUV Électrique de Luxe', ar: 'سيارة SUV كهربائية فاخرة جديدة' }) }}
+          {{ textFor({ en: 'Premium Electric SUV', fr: 'SUV électrique premium', ar: 'سيارة SUV كهربائية فاخرة' }) }}
         </p>
         <div class="kv-btns inview-child inview-animated" style="--inview-delay: 0.5s;">
           <button class="voyah-button voyah-button--more voyah-button--dark voyah-button--plain">

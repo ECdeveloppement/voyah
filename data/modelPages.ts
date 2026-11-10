@@ -34,7 +34,8 @@ export type ModelSection =
 
 export type ModelPageContent = {
   logo: string
-  heroVideo: string
+  /** Absent sur les modèles sans vidéo locale : le visuel `heroPoster` sert de hero. */
+  heroVideo?: string
   heroPoster: string
   tagline: Localized
   /** Chiffres posés sur le hero, en 2×2 sur mobile. */
@@ -616,8 +617,385 @@ export const dreamPageContent: ModelPageContent = {
   specNote
 }
 
+const PASSION_IMG = '/voyah-resources/images/car/passion/1920'
+const COURAGE_IMG = '/voyah-resources/images/car/courage/1920'
+/** Visuels officiels de la version globale (aucune surimpression en chinois). */
+const GLOBAL_IMG = '/voyah-resources/images/global'
+
+/**
+ * PASSION : même système de page que FREE/DREAM, sans vidéo locale (le visuel
+ * de hero tient lieu de bannière). Les chiffres reprennent les seules données
+ * documentées du catalogue tunisien.
+ */
+export const passionPageContent: ModelPageContent = {
+  logo: `${GLOBAL_IMG}/passion-wordmark.png`,
+  heroPoster: `${GLOBAL_IMG}/passion-hero.jpg`,
+  tagline: t(
+    'The new executive electric flagship sedan',
+    'La nouvelle berline électrique phare exécutive',
+    'سيدان كهربائية تنفيذية رائدة جديدة'
+  ),
+  heroMetrics: [
+    { label: t('Length', 'Longueur', 'الطول'), value: '5088 mm' },
+    { label: t('Wheelbase', 'Empattement', 'قاعدة العجلات'), value: '3000 mm' },
+    { label: t('Power mode', 'Motorisation', 'نوع الحركة'), value: 'REV/PHEV' },
+    { label: t('Body', 'Carrosserie', 'نوع الهيكل'), value: 'Sedan' }
+  ],
+  compactMetrics: [
+    { label: t('Length', 'Longueur', 'الطول'), value: '5088 mm' },
+    { label: t('Wheelbase', 'Empattement', 'قاعدة العجلات'), value: '3000 mm' },
+    { label: t('Power mode', 'Motorisation', 'نوع الحركة'), value: 'REV/PHEV' }
+  ],
+  comfortTitle: t('Enjoy Comfort', 'Profitez du confort', 'استمتع بالراحة'),
+  sections: [
+    { type: 'parallax', image: `${GLOBAL_IMG}/passion-front.jpg` },
+    {
+      type: 'comfortRows',
+      rows: [
+        {
+          image: `${GLOBAL_IMG}/passion-roof.jpg`,
+          text: t(
+            'Panoramic glass roof that floods the cabin with light',
+            'Toit vitré panoramique qui inonde l’habitacle de lumière',
+            'سقف زجاجي بانورامي يمل المقصورة بالضوء'
+          )
+        },
+        {
+          image: `${GLOBAL_IMG}/passion-cockpit.jpg`,
+          text: t(
+            'Triple-screen cockpit: driving data, comfort and entertainment at a glance',
+            'Cockpit à triple écran : conduite, confort et divertissement d’un seul regard',
+            'قمرة بثلاث شاشات: بيانات القيادة والراحة والترفيه في لمحة واحدة'
+          )
+        },
+        {
+          image: `${GLOBAL_IMG}/passion-chassis.jpg`,
+          text: t(
+            'Electronically controlled air suspension that adapts to every road',
+            'Suspension pneumatique à commande électronique, adaptée à chaque route',
+            'تعليق هوائي متحكم به إلكترونيًا يتكيّف مع كل الطرق'
+          )
+        },
+        {
+          image: `${PASSION_IMG}/fl13.jpg`,
+          text: t(
+            'Rear touch tablet to command the executive seat',
+            'Tablette tactile à l’arrière pour commander le siège exécutif',
+            'لوحة لمس خلفية للتحكم بالمقعد التنفيذي'
+          )
+        }
+      ]
+    },
+    {
+      type: 'cards',
+      heading: t('All-round intelligence', 'Intelligence à 360°', 'ذكاء شامل'),
+      cards: [
+        {
+          image: `${PASSION_IMG}/fl05.jpg`,
+          title: t(
+            'Central electronic architecture',
+            'Architecture électronique centrale',
+            'بنية إلكترونية مركزية'
+          ),
+          body: t(
+            'Comfort, safety and connectivity functions grouped and updatable over the air',
+            'Fonctions de confort, de sécurité et de connectivité regroupées et mises à jour à distance',
+            'وظائف الراحة والسلامة والاتصال مجمّعة وقابلة للتحديث عبر الهواء'
+          )
+        },
+        {
+          image: `${PASSION_IMG}/fl20.jpg`,
+          title: t(
+            'REV/PHEV series-parallel hybrid',
+            'Hybride série-parallèle REV/PHEV',
+            'نظام هجين متوازي-تسلسلي REV/PHEV'
+          ),
+          body: t(
+            'Electric drive at the heart, a petrol range extender for long journeys',
+            'La traction électrique au cœur, un prolongateur d’autonomie essence pour les grands trajets',
+            'الدفع الكهربائي في القلب، وممتد مدى يعمل بالبنزين للرحلات الطويلة'
+          )
+        }
+      ]
+    },
+    {
+      type: 'band',
+      image: `${GLOBAL_IMG}/passion-cabin.jpg`,
+      variant: 'intro',
+      text: t(
+        'Designed for executives: a silent cabin, four connected screens and lounge-level comfort.',
+        'Pensée pour les cadres : habitacle silencieux, quatre écrans connectés et confort de salon.',
+        'مصممة للمسؤولين: مقصورة هادئة وأربع شاشات متصلة وراحة بمستوى الصالون.'
+      )
+    },
+    {
+      type: 'cards',
+      heading: t('High quality safety', 'Sécurité de haute qualité', 'سلامة عالية الجودة'),
+      cards: [
+        {
+          image: `${GLOBAL_IMG}/passion-body.jpg`,
+          title: t(
+            'Rigid hybrid body structure',
+            'Structure de carrosserie rigide hybride',
+            'هيكل جسم هجين صلب'
+          ),
+          body: t(
+            'High-strength steel and aluminium surround the cabin',
+            'Acier haute résistance et aluminium entourent l’habitacle',
+            'فولاذ عالي الصلابة وألمنيوم يحيطان بالمقصورة'
+          )
+        },
+        {
+          image: `${GLOBAL_IMG}/passion-battery.jpg`,
+          title: t(
+            'Multi-layer battery protection',
+            'Protection de la batterie en plusieurs couches',
+            'حماية متعددة الطبقات للبطارية'
+          ),
+          body: t(
+            'The battery pack is shielded layer by layer, from cells to casing',
+            'Le pack batterie est protégé couche par couche, des cellules au boîtier',
+            'حزمة البطارية محمية طبقة تلو الأخرى، من الخلايا إلى الغلاف'
+          )
+        }
+      ]
+    },
+    { type: 'band', image: `${GLOBAL_IMG}/passion-profile.jpg`, variant: 'cta' },
+    { type: 'specs' }
+  ],
+  configLabel: configLabelValue,
+  specTabs: [
+    {
+      id: '1',
+      label: t('Basic parameters', 'Paramètres de base', 'المعايير الأساسية'),
+      rows: [
+        {
+          name: t('Length x Width x Height (mm)', 'Longueur x Largeur x Hauteur (mm)', 'الطول x العرض x الارتفاع (مم)'),
+          value: t('5088 x 1970 x 1505', '5088 x 1970 x 1505', '5088 × 1970 × 1505')
+        },
+        {
+          name: t('Wheelbase (mm)', 'Empattement (mm)', 'قاعدة العجلات (مم)'),
+          value: t('3000', '3000', '3000')
+        },
+        {
+          name: t('Power mode', 'Motorisation', 'نوع الحركة'),
+          value: t('REV/PHEV', 'REV/PHEV', 'REV/PHEV')
+        },
+        {
+          name: t('Body type', 'Carrosserie', 'نوع الهيكل'),
+          value: t('Sedan', 'Berline', 'سيدان')
+        }
+      ]
+    },
+    {
+      id: '2',
+      label: t('Featured configurations', 'Équipements phares', 'أهم التجهيزات'),
+      rows: [
+        {
+          name: t('Panoramic glass roof', 'Toit vitré panoramique', 'سقف زجاجي بانورامي'),
+          value: dot
+        },
+        {
+          name: t('Triple-screen cockpit', 'Cockpit à triple écran', 'قمرة بثلاث شاشات'),
+          value: dot
+        },
+        {
+          name: t('Air suspension', 'Suspension pneumatique', 'تعليق هوائي'),
+          value: dot
+        },
+        {
+          name: t('Rear touch tablet', 'Tablette tactile arrière', 'لوحة لمس خلفية'),
+          value: dot
+        }
+      ]
+    }
+  ],
+  specNote
+}
+
+/** COURAGE : même gabarit de page, SUV 100 % électrique. */
+export const couragePageContent: ModelPageContent = {
+  logo: `${GLOBAL_IMG}/courage-wordmark.png`,
+  heroPoster: `${GLOBAL_IMG}/courage-hero.jpg`,
+  tagline: t(
+    'Premium electric SUV',
+    'SUV électrique premium',
+    'سيارة SUV كهربائية فاخرة'
+  ),
+  heroMetrics: [
+    { label: t('Length', 'Longueur', 'الطول'), value: '4725 mm' },
+    { label: t('Wheelbase', 'Empattement', 'قاعدة العجلات'), value: '2900 mm' },
+    { label: t('Power mode', 'Motorisation', 'نوع الحركة'), value: 'BEV' },
+    { label: t('Body', 'Carrosserie', 'نوع الهيكل'), value: 'SUV' }
+  ],
+  compactMetrics: [
+    { label: t('Length', 'Longueur', 'الطول'), value: '4725 mm' },
+    { label: t('Wheelbase', 'Empattement', 'قاعدة العجلات'), value: '2900 mm' },
+    { label: t('Power mode', 'Motorisation', 'نوع الحركة'), value: 'BEV' }
+  ],
+  comfortTitle: t('Enjoy Comfort', 'Profitez du confort', 'استمتع بالراحة'),
+  sections: [
+    { type: 'parallax', image: `${GLOBAL_IMG}/courage-charge.jpg` },
+    {
+      type: 'comfortRows',
+      rows: [
+        {
+          image: `${GLOBAL_IMG}/courage-screen.jpg`,
+          text: t(
+            'Large central screen for navigation, climate and media',
+            'Grand écran central pour la navigation, la climatisation et les médias',
+            'شاشة مركزية كبيرة للملاحة والتكييف والوسائط'
+          )
+        },
+        {
+          image: `${GLOBAL_IMG}/courage-seats.jpg`,
+          text: t(
+            'Perforated seats with ventilation for the whole family',
+            'Sièges perforés et ventilés pour toute la famille',
+            'مقاعد مثقبة ومهواة لجميع أفراد العائلة'
+          )
+        },
+        {
+          image: `${GLOBAL_IMG}/courage-trunk.jpg`,
+          text: t(
+            'Connected services and entertainment on board, every day and on holidays',
+            'Services connectés et divertissement à bord, au quotidien comme en vacances',
+            'خدمات متصلة وترفيه على متن السيارة يوميًا وفي العطلات'
+          )
+        }
+      ]
+    },
+    {
+      type: 'cards',
+      heading: t('All-round intelligence', 'Intelligence à 360°', 'ذكاء شامل'),
+      cards: [
+        {
+          image: `${COURAGE_IMG}/h37_pc25_0001.jpg`,
+          title: t(
+            '360° camera views',
+            'Vues panoramiques 360°',
+            'رؤية محيطية 360°'
+          ),
+          body: t(
+            'Surround cameras assist parking and tight city streets',
+            'Les caméras d’entourage assistent le stationnement et les ruelles étroites',
+            'كاميرات محيطية تساعد في الركن والشوارع الضيقة'
+          )
+        },
+        {
+          image: `${GLOBAL_IMG}/courage-cargo.jpg`,
+          title: t(
+            'A five-seater for getaways',
+            'Un cinq places pour les évasions',
+            'سيارة بخمسة مقاعد للنزهات'
+          ),
+          body: t(
+            'Boot space and cabin modularity for weekends by the sea',
+            'Volume de coffre et modularité de l’habitacle pour les week-ends au bord de la mer',
+            'مساحة صندوق وتقسيمات مرنة لعطلات نهاية الأسبوع بجانب البحر'
+          )
+        }
+      ]
+    },
+    {
+      type: 'band',
+      image: `${COURAGE_IMG}/h37_pc17_0001.jpg`,
+      variant: 'intro',
+      text: t(
+        'A pure electric SUV sized for the city and relaxed on the highway.',
+        'Un SUV 100 % électrique à la taille idéale en ville et serein sur autoroute.',
+        'سيارة SUV كهربائية بالكامل بحجم مثالي في المدينة وهادئة على الطرق السريعة.'
+      )
+    },
+    {
+      type: 'cards',
+      heading: t('High quality safety', 'Sécurité de haute qualité', 'سلامة عالية الجودة'),
+      cards: [
+        {
+          image: `${COURAGE_IMG}/h37_pc28_0001.jpg`,
+          title: t(
+            'Rigid hybrid body structure',
+            'Structure de carrosserie rigide hybride',
+            'هيكل جسم هجين صلب'
+          ),
+          body: t(
+            'High-strength steel and aluminium protect the cabin in an impact',
+            'Acier haute résistance et aluminium protègent l’habitacle en cas de choc',
+            'فولاذ عالي الصلابة والألمنيوم يحميان المقصورة عند الاصطدام'
+          )
+        },
+        {
+          image: `${COURAGE_IMG}/h37_pc26_0001.jpg`,
+          title: t(
+            'Multi-layer battery protection',
+            'Protection de la batterie en plusieurs couches',
+            'حماية متعددة الطبقات للبطارية'
+          ),
+          body: t(
+            'The battery pack is shielded layer by layer, from cells to casing',
+            'Le pack batterie est protégé couche par couche, des cellules au boîtier',
+            'حزمة البطارية محمية طبقة تلو الأخرى، من الخلايا إلى الغلاف'
+          )
+        }
+      ]
+    },
+    { type: 'band', image: `${COURAGE_IMG}/h37_pc14_0001.jpg`, variant: 'cta' },
+    { type: 'specs' }
+  ],
+  configLabel: configLabelValue,
+  specTabs: [
+    {
+      id: '1',
+      label: t('Basic parameters', 'Paramètres de base', 'المعايير الأساسية'),
+      rows: [
+        {
+          name: t('Length x Width x Height (mm)', 'Longueur x Largeur x Hauteur (mm)', 'الطول x العرض x الارتفاع (مم)'),
+          value: t('4725 x 1900 x 1650', '4725 x 1900 x 1650', '4725 × 1900 × 1650')
+        },
+        {
+          name: t('Wheelbase (mm)', 'Empattement (mm)', 'قاعدة العجلات (مم)'),
+          value: t('2900', '2900', '2900')
+        },
+        {
+          name: t('Power mode', 'Motorisation', 'نوع الحركة'),
+          value: t('BEV', 'BEV', 'BEV')
+        },
+        {
+          name: t('Body type', 'Carrosserie', 'نوع الهيكل'),
+          value: t('SUV', 'SUV', 'SUV')
+        }
+      ]
+    },
+    {
+      id: '2',
+      label: t('Featured configurations', 'Équipements phares', 'أهم التجهيزات'),
+      rows: [
+        {
+          name: t('Central touchscreen', 'Écran tactile central', 'شاشة لمس مركزية'),
+          value: dot
+        },
+        {
+          name: t('Ventilated seats', 'Sièges ventilés', 'مقاعد مهواة'),
+          value: dot
+        },
+        {
+          name: t('360° camera views', 'Vues panoramiques 360°', 'رؤية محيطية 360°'),
+          value: dot
+        },
+        {
+          name: t('Five seats', 'Cinq places', 'خمسة مقاعد'),
+          value: dot
+        }
+      ]
+    }
+  ],
+  specNote
+}
+
 /** Contenu de page modèle par slug public ; absent = page modèle générique. */
 export const modelPageContentBySlug: Record<string, ModelPageContent> = {
   'free.html': freePageContent,
-  'newDreamer26.html': dreamPageContent
+  'newDreamer26.html': dreamPageContent,
+  'passion.html': passionPageContent,
+  'courage.html': couragePageContent
 }

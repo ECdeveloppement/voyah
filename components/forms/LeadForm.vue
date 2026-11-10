@@ -11,22 +11,35 @@
       >
         <div v-for="field in row" :key="field.name" class="lead-form__field">
           <label :for="fieldId(field)">{{ textFor(field.label) }}<span v-if="field.required"> *</span></label>
-          <component
-            :is="field.type === 'select' ? 'select' : field.type === 'textarea' ? 'textarea' : 'input'"
+          <input
+            v-if="field.type !== 'select' && field.type !== 'textarea'"
             :id="fieldId(field)"
             v-model="values[field.name]"
-            :type="field.type === 'select' || field.type === 'textarea' ? undefined : field.type"
+            :type="field.type"
             :required="field.required"
             :aria-invalid="errors[field.name] ? 'true' : 'false'"
             :placeholder="field.placeholder ? textFor(field.placeholder) : undefined"
+          />
+          <select
+            v-else-if="field.type === 'select'"
+            :id="fieldId(field)"
+            v-model="values[field.name]"
+            :required="field.required"
+            :aria-invalid="errors[field.name] ? 'true' : 'false'"
           >
-            <template v-if="field.type === 'select'">
-              <option value="" disabled selected></option>
-              <option v-for="option in modelOptions" :key="option.value" :value="option.value">
-                {{ option.label }}
-              </option>
-            </template>
-          </component>
+            <option value="" disabled selected></option>
+            <option v-for="option in modelOptions" :key="option.value" :value="option.value">
+              {{ option.label }}
+            </option>
+          </select>
+          <textarea
+            v-else
+            :id="fieldId(field)"
+            v-model="values[field.name]"
+            :required="field.required"
+            :aria-invalid="errors[field.name] ? 'true' : 'false'"
+            :placeholder="field.placeholder ? textFor(field.placeholder) : undefined"
+          />
           <p v-if="errors[field.name]" class="lead-form__error">{{ errors[field.name] }}</p>
         </div>
       </div>

@@ -9,6 +9,8 @@ const prerenderRoutes = [
 ]
 
 export default defineNuxtConfig({
+  // Permet de lancer `nuxt generate` sans écraser le `.nuxt` du serveur de dev en cours.
+  buildDir: process.env.NUXT_BUILD_DIR ?? '.nuxt',
   devtools: { enabled: false },
   app: {
     head: {
@@ -54,7 +56,7 @@ export default defineNuxtConfig({
     }
   },
   runtimeConfig: {
-    // Renseignés par les variables d'environnement NUXT_SMTP_* et NUXT_LEAD_*
+    // Renseignés par les variables d'environnement NUXT_SMTP_* / NUXT_MAIL_* / NUXT_LEAD_*
     smtp: {
       host: '',
       port: 465,
@@ -63,7 +65,12 @@ export default defineNuxtConfig({
       pass: '',
       from: ''
     },
-    leadTo: ''
+    leadTo: '',
+    // Noms alternatifs acceptés pour l'expéditeur / destinataire (NUXT_MAIL_FROM / NUXT_MAIL_TO)
+    mail: {
+      from: '',
+      to: ''
+    }
   },
   compatibilityDate: '2026-03-31'
 })

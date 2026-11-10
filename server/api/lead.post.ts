@@ -97,7 +97,7 @@ export default defineEventHandler(async (event: H3Event) => {
   }
 
   const config = useRuntimeConfig(event)
-  const to = config.leadTo || config.smtp.user
+  const to = config.mail?.to || config.leadTo || config.smtp.user
 
   // Toute demande est archivée : la boîte mail du revendeur reste joignable même en cas d'échec SMTP.
   await useStorage('leads').setItem(`${Date.now()}-${formKey}.json`, lead)
@@ -132,11 +132,11 @@ export default defineEventHandler(async (event: H3Event) => {
   try {
     await createTransport({
       host: config.smtp.host,
-      port: Number(config.smtp.port),
-      secure: Boolean(config.smtp.secure),
+      port: Number(config.smtp.port) || 465,
+      secure: (Number(config.smtp.port) || 465) === 465 || String(config.smtp.secure).toLowerCase() === 'true',
       auth: { user: config.smtp.user, pass: config.smtp.pass }
     }).sendMail({
-      from: config.smtp.from || config.smtp.user,
+      from: config.mail?.from || config.smtp.from || config.smtp.user,
       to,
       replyTo: values.email || undefined,
       subject: localize(schema.subject, locale),

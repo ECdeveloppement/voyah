@@ -3,6 +3,7 @@
     <!-- Hero vidéo pleine largeur, chiffres posés dessus -->
     <section class="model-hero">
       <video
+        v-if="content.heroVideo"
         ref="heroVideo"
         class="model-hero__video"
         :class="{ 'is-ended': heroVideoEnded }"
@@ -16,6 +17,7 @@
       >
         <source :src="content.heroVideo" type="video/mp4" />
       </video>
+      <img v-else class="model-hero__video" :src="content.heroPoster" :alt="textFor(title)" />
 
       <span class="model-hero__scrim model-hero__scrim--top" aria-hidden="true"></span>
       <span class="model-hero__scrim model-hero__scrim--bottom" aria-hidden="true"></span>

@@ -90,6 +90,16 @@
         </div>
       </section>
 
+      <section class="ref-services" v-bind="scopeBind">
+        <div class="ref-services__grid" v-bind="scopeBind">
+          <article v-for="svc in referenceServices" :key="svc.title" class="ref-service-card" v-bind="scopeBind">
+            <img :src="svc.image" :alt="svc.title" loading="lazy" v-bind="scopeBind" />
+            <h3 v-bind="scopeBind">{{ svc.title }}</h3>
+            <p v-bind="scopeBind">{{ svc.desc }}</p>
+          </article>
+        </div>
+      </section>
+
       <section class="section_1" v-bind="scopeBind">
         <div class="section_1_1" v-bind="scopeBind">
           <div class="img_1 inview-child" v-bind="scopeBind">
@@ -577,6 +587,55 @@ const copy = {
 } as const
 
 const t = computed(() => copy[lang.value])
+
+const referenceServices = computed(() => {
+  const items = [
+    {
+      image: '/reference-models/service-customer-care.png',
+      title: {
+        en: 'Customer care',
+        fr: 'Service client',
+        ar: 'خدمة العملاء'
+      },
+      desc: {
+        en: 'We uphold the service tenets of Professionalism, Efficiency and Customer First, delivering comprehensive support and a premium experience.',
+        fr: 'Nous défendons les principes de professionnalisme, d’efficacité et de client d’abord, avec un accompagnement complet et une expérience premium.',
+        ar: 'نلتزم بمبادئ الاحترافية والكفاءة وتقديم الأولوية للعميل، مع دعم شامل وتجربة فاخرة.'
+      }
+    },
+    {
+      image: '/reference-models/service-warranty.png',
+      title: {
+        en: 'Warranty',
+        fr: 'Garantie',
+        ar: 'الضمان'
+      },
+      desc: {
+        en: 'Long-period warranty services for every new vehicle, with free repairs for manufacturing defects during the warranty period.',
+        fr: 'Garantie longue durée pour chaque véhicule neuf, avec réparations gratuites en cas de défaut de fabrication pendant la période de garantie.',
+        ar: 'ضمان طويل المدى لكل مركبة جديدة، مع إصلاحات مجانية في حال وجود عيوب تصنيع خلال فترة الضمان.'
+      }
+    },
+    {
+      image: '/reference-models/service-genuine-parts.png',
+      title: {
+        en: 'Genuine parts',
+        fr: 'Pièces d’origine',
+        ar: 'قطع غيار أصلية'
+      },
+      desc: {
+        en: 'A continuous supply of genuine parts that maintain the vehicle’s original reliability, comfort and safety.',
+        fr: 'Un approvisionnement continu en pièces d’origine qui préservent la fiabilité, le confort et la sécurité d’origine du véhicule.',
+        ar: 'إمداد مستمر بقطع الغيار الأصلية للحفاظ على موثوقية المركبة وراحتها وسلامتها الأصلية.'
+      }
+    }
+  ]
+  return items.map((item) => ({
+    image: item.image,
+    title: item.title[lang.value] ?? item.title.en,
+    desc: item.desc[lang.value] ?? item.desc.en
+  }))
+})
 
 const purchaseCards = computed(() => {
   if (lang.value === 'ar') {
@@ -1327,5 +1386,50 @@ const stories = computed(() => {
 /* Fix autohall contact card alignment in RTL */
 :global(.is-rtl) .autohall-contact-card {
   text-align: center;
+}
+
+.ref-services {
+  padding: 60px 24px;
+  background: #fff;
+}
+
+.ref-services__grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.ref-service-card {
+  background: #f7f5f1;
+  border: 1px solid #e8e3da;
+  overflow: hidden;
+}
+
+.ref-service-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.ref-service-card h3 {
+  margin: 16px 20px 8px;
+  font-size: 1.2rem;
+  color: #1a1a1a;
+}
+
+.ref-service-card p {
+  margin: 0 20px 20px;
+  color: #525252;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 900px) {
+  .ref-services__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 </style>

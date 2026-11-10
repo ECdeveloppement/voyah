@@ -2,6 +2,7 @@
   <div class="voyah-homepage">
     <HomeVideoHero />
     <HomeModelCards :slides="homePage.slides" />
+    <HomeNews />
   </div>
 </template>
 
@@ -10,6 +11,7 @@ import { useSeoMeta } from '#app'
 import { homePage } from '~/data/site'
 import { useSiteContent } from '~/composables/useSiteContent'
 import HomeModelCards from '~/components/home/HomeModelCards.vue'
+import HomeNews from '~/components/home/HomeNews.vue'
 import HomeVideoHero from '~/components/home/HomeVideoHero.vue'
 
 const { textFor } = useSiteContent()

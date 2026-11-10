@@ -19,8 +19,8 @@
           v-for="item in navigation"
           :key="item.slug ?? item.href ?? item.label.en"
           class="nav-group"
-          @mouseenter="activeGroup = item.label.en"
-          @mouseleave="activeGroup = null"
+          @mouseenter="openGroup(item.label.en)"
+          @mouseleave="closeGroup(item.label.en)"
         >
           <NuxtLink
             v-if="item.slug"
@@ -34,19 +34,43 @@
             </svg>
           </NuxtLink>
 
-          <button v-else type="button" class="nav-link nav-button" :class="{ active: isGroupActive(item) }">
+          <button
+            v-else
+            type="button"
+            class="nav-link nav-button"
+            :class="{ active: isGroupActive(item) || activeGroup === item.label.en }"
+            :aria-expanded="activeGroup === item.label.en ? 'true' : 'false'"
+            @click="toggleGroup(item.label.en)"
+          >
             {{ textFor(item.label) }}
             <svg v-if="visibleChildren(item).length" class="nav-caret" viewBox="0 0 12 12" aria-hidden="true">
               <path d="M2 4.5 6 8.5 10 4.5" fill="none" stroke="currentColor" stroke-width="1.4" />
             </svg>
           </button>
 
-          <div v-if="visibleChildren(item).length" class="nav-dropdown" :class="{ open: activeGroup === item.label.en }">
+          <div
+            v-if="visibleChildren(item).length && hasModelThumbs(item)"
+            class="nav-dropdown nav-model-band"
+            :class="{ open: activeGroup === item.label.en }"
+          >
+            <NuxtLink
+              v-for="child in visibleChildren(item)"
+              :key="child.slug ?? child.href"
+              :to="buildPath(child.slug)"
+              class="nav-model-card"
+              @click="closeAllGroups"
+            >
+              <img :src="child.thumb" :alt="textFor(child.label)" loading="lazy" />
+              <span>{{ textFor(child.label) }}</span>
+            </NuxtLink>
+          </div>
+
+          <div v-else-if="visibleChildren(item).length" class="nav-dropdown" :class="{ open: activeGroup === item.label.en }">
             <template v-for="child in visibleChildren(item)" :key="child.slug ?? child.href">
               <a v-if="child.href" :href="child.href" class="nav-dropdown__item" target="_blank" rel="noopener">
                 {{ textFor(child.label) }}
               </a>
-              <NuxtLink v-else :to="buildPath(child.slug)" class="nav-dropdown__item" @click="activeGroup = null">
+              <NuxtLink v-else :to="buildPath(child.slug)" class="nav-dropdown__item" @click="closeAllGroups">
                 <span>{{ textFor(child.label) }}</span>
               </NuxtLink>
             </template>
@@ -139,7 +163,32 @@ const { locale, locales, navigation, buildPath, switchLocalePath, textFor } = us
 const route = useRoute()
 const mobileOpen = ref(false)
 const activeGroup = ref<string | null>(null)
+const pinnedGroup = ref<string | null>(null)
 const localeOpen = ref(false)
+
+const openGroup = (label: string) => {
+  activeGroup.value = label
+}
+
+const closeGroup = (label: string) => {
+  if (pinnedGroup.value === label) return
+  if (activeGroup.value === label) activeGroup.value = null
+}
+
+const toggleGroup = (label: string) => {
+  if (pinnedGroup.value === label) {
+    pinnedGroup.value = null
+    activeGroup.value = null
+  } else {
+    pinnedGroup.value = label
+    activeGroup.value = label
+  }
+}
+
+const closeAllGroups = () => {
+  pinnedGroup.value = null
+  activeGroup.value = null
+}
 
 const labels = {
   language: { en: 'Language', fr: 'Langue', ar: 'اللغة' } as LocalizedText
@@ -156,11 +205,14 @@ const visibleChildren = (item: { children?: { slug?: string; href?: string }[] }
 const isGroupActive = (item: { children?: { slug?: string; href?: string }[] }) =>
   Boolean(item.children?.some((child) => child.slug && route.path.endsWith(child.slug)))
 
+const hasModelThumbs = (item: { children?: { thumb?: string }[] }) =>
+  Boolean(item.children?.length && item.children.every((child) => Boolean(child.thumb)))
+
 watch(
   () => route.fullPath,
   () => {
     mobileOpen.value = false
-    activeGroup.value = null
+    closeAllGroups()
   }
 )
 
@@ -284,6 +336,56 @@ watch(
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+}
+
+.nav-model-band {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 94px;
+  width: 100vw;
+  padding: 24px 40px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-6px);
+}
+
+.nav-model-band.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.nav-model-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: #111;
+  text-decoration: none;
+  min-width: 120px;
+}
+
+.nav-model-card img {
+  width: 150px;
+  height: 90px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.nav-model-card:hover img {
+  transform: scale(1.06);
+}
+
+.nav-model-card span {
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #111;
 }
 
 .nav-dropdown__item {

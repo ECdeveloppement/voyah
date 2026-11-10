@@ -120,6 +120,12 @@ const { buildPath, textFor } = useSiteContent()
 }
 
 @media (min-width: 1024px) {
+  .home-models__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
   .home-model-card__media {
     height: 600px;
   }

@@ -1,4 +1,4 @@
-import { dealerDocuments, modelDisplayName, publicModelSlugs } from './dealer'
+import { modelDisplayName, publicModelSlugs } from './dealer'
 
 export const locales = [
   { code: 'en', name: 'English', dir: 'ltr' },
@@ -553,20 +553,15 @@ export const navigation: NavItem[] = [
   {
     label: t('Our Models', 'Nos modèles', 'طرازاتنا'),
     children: [
-      { label: modelDisplayName['free.html'], slug: 'free.html', thumb: '/voyah-resources/images/car/car_logo/free.png' },
-      { label: modelDisplayName['newDreamer26.html'], slug: 'newDreamer26.html', thumb: '/voyah-resources/images/car/car_logo/newDreamer26.png' }
+      { label: modelDisplayName['free.html'], slug: 'free.html', thumb: '/reference-models/free.jpg' },
+      { label: modelDisplayName['newDreamer26.html'], slug: 'newDreamer26.html', thumb: '/reference-models/dream.jpg' },
+      { label: modelDisplayName['passion.html'], slug: 'passion.html', thumb: '/reference-models/passion.jpg' },
+      { label: modelDisplayName['courage.html'], slug: 'courage.html', thumb: '/reference-models/courage.jpg' }
     ]
   },
   { label: t('Book a Test Drive', 'Essai', 'تجربة القيادة'), slug: 'book-drive.html' },
-  { label: t('Book a Service', 'Service', 'الصيانة'), slug: 'book-service.html' },
-  {
-    label: t('About Us', 'À propos', 'عن الشركة'),
-    slug: 'about.html',
-    children: [
-      { label: t('About Us', 'À propos de Voyah', 'عن Voyah'), slug: 'about.html' },
-      { label: t('Company Profile', 'Profil de la société', 'ملف الشركة'), href: dealerDocuments.companyProfile }
-    ]
-  },
+  { label: t('Service', 'Service', 'الخدمات'), slug: 'service.html' },
+  { label: t('About Us', 'À propos', 'عن الشركة'), slug: 'about.html' },
   { label: t('Contact Us', 'Contact', 'اتصل بنا'), slug: 'contact.html' }
 ]
 
@@ -593,20 +588,20 @@ const models: ModelDefinition[] = [
   makeModel({
     slug: 'passion.html',
     title: t('Voyah Passion', 'Voyah Passion', 'Voyah Passion'),
-    subtitle: t('Performance electric sedan', 'Berline électrique performante', 'سيدان كهربائية عالية الأداء'),
-    description: t('A sleek electric sedan pairing decisive proportions, a quieter executive cabin, and composed grand-touring confidence.', 'Une berline électrique élancée qui associe des proportions affirmées, un habitacle exécutif plus silencieux et une assurance de grand tourisme maîtrisée.', 'سيدان كهربائية أنيقة تجمع بين التناسق الجريء والمقصورة التنفيذية الأكثر هدوءًا وثقة السفر الطويل المتزنة.'),
-    price: t('Executive performance sedan', 'Berline exécutive performante', 'سيدان تنفيذية عالية الأداء'),
-    heroImage: '/voyah-resources/images/car/passion/1920/fl01.jpg',
-    logo: '/voyah-resources/images/car/car_logo/passion.png',
+    subtitle: t('The New Executive Electric Flagship Sedan', 'La nouvelle berline électrique phare exécutive', 'سيدان كهربائية تنفيذية رائدة جديدة'),
+    description: t('Length x Width x Height (mm): 5088x1970x1505. Wheelbase (mm): 3000. Power Mode: REV/PHEV.', 'Longueur x Largeur x Hauteur (mm) : 5088x1970x1505. Empattement (mm) : 3000. Motorisation : REV/PHEV.', 'الأبعاد الطول x العرض x الارتفاع (مم): 5088x1970x1505. قاعدة العجلات (مم): 3000. نوع الحركة: REV/PHEV.'),
+    price: t('The New Executive Electric Flagship', 'La nouvelle berline électrique phare exécutive', 'سيدان كهربائية تنفيذية رائدة جديدة'),
+    heroImage: '/voyah-resources/images/global/passion-front.jpg',
+    logo: '/voyah-resources/images/global/passion-wordmark.png',
     gallery: [
-      '/voyah-resources/images/car/passion/1920/fl04.jpg',
-      '/voyah-resources/images/car/passion/1920/fl11.jpg',
-      '/voyah-resources/images/car/passion/1920/fl21.jpg'
+      '/voyah-resources/images/global/passion-hero.jpg',
+      '/voyah-resources/images/global/passion-roof.jpg',
+      '/voyah-resources/images/global/passion-cockpit.jpg'
     ],
     metrics: [
-      metric('Grand tourer', 'Character', 'Caractère', 'الطابع'),
-      metric('Refined ride', 'Chassis tuning', 'Mise au point châssis', 'معايرة الهيكل'),
-      metric('Digital luxury', 'Cabin feel', 'Ambiance intérieure', 'أجواء المقصورة')
+      metric('5088x1970x1505', 'Length x Width x Height (mm)', 'Longueur x Largeur x Hauteur (mm)', 'الأبعاد (مم)'),
+      metric('3000', 'Wheelbase (mm)', 'Empattement (mm)', 'قاعدة العجلات (مم)'),
+      metric('REV/PHEV', 'Power Mode', 'Motorisation', 'نوع الحركة')
     ]
   }),
   makeModel({
@@ -723,20 +718,20 @@ const models: ModelDefinition[] = [
   makeModel({
     slug: 'courage.html',
     title: t('Voyah Courage', 'Voyah Courage', 'Voyah Courage'),
-    subtitle: t('Luxury pure-electric family SUV', 'SUV familial de luxe 100 % électrique', 'سيارة SUV عائلية كهربائية فاخرة'),
-    description: t('A full-electric SUV focused on expressive design, practical family comfort, and everyday long-range confidence.', 'Un SUV électrique centré sur un design expressif, un confort familial pratique et une confiance d’autonomie au quotidien.', 'سيارة SUV كهربائية بالكامل تركز على التصميم التعبيري والراحة العائلية العملية والثقة في المدى اليومي الطويل.'),
-    price: t('Luxury pure-electric family SUV', 'SUV familial de luxe 100 % électrique', 'سيارة SUV عائلية كهربائية فاخرة'),
-    heroImage: '/voyah-resources/images/car/courage/1920/h37_pc01_0001.jpg',
-    logo: '/voyah-resources/images/car/car_logo/courage.png',
+    subtitle: t('Premium Electric SUV', 'SUV électrique premium', 'سيارة SUV كهربائية فاخرة'),
+    description: t('Length x Width x Height (mm): 4725x1900x1650. Wheelbase (mm): 2900. Power Mode: BEV.', 'Longueur x Largeur x Hauteur (mm) : 4725x1900x1650. Empattement (mm) : 2900. Motorisation : BEV.', 'الأبعاد الطول x العرض x الارتفاع (مم): 4725x1900x1650. قاعدة العجلات (مم): 2900. نوع الحركة: BEV.'),
+    price: t('Premium Electric SUV', 'SUV électrique premium', 'سيارة SUV كهربائية فاخرة'),
+    heroImage: '/voyah-resources/images/global/courage-hero.jpg',
+    logo: '/voyah-resources/images/global/courage-wordmark.png',
     gallery: [
-      '/voyah-resources/images/car/courage/1920/h37_pc03_0001.jpg',
-      '/voyah-resources/images/car/courage/1920/h37_pc04_0001.jpg',
-      '/voyah-resources/images/car/courage/1920/h37_pc06_0001.jpg'
+      '/voyah-resources/images/global/courage-charge.jpg',
+      '/voyah-resources/images/global/courage-screen.jpg',
+      '/voyah-resources/images/global/courage-seats.jpg'
     ],
     metrics: [
-      metric('901 km', 'Electric range', 'Autonomie électrique', 'مدى القيادة'),
-      metric('109 kWh', 'Battery', 'Batterie', 'البطارية'),
-      metric('800 V', 'Platform', 'Plateforme', 'المنصة')
+      metric('4725x1900x1650', 'Length x Width x Height (mm)', 'Longueur x Largeur x Hauteur (mm)', 'الأبعاد (مم)'),
+      metric('2900', 'Wheelbase (mm)', 'Empattement (mm)', 'قاعدة العجلات (مم)'),
+      metric('BEV', 'Power Mode', 'Motorisation', 'نوع الحركة')
     ]
   }),
   makeModel({
@@ -1390,31 +1385,59 @@ const sitePageMap = new Map<string, SitePage>(sitePages.map((page) => [page.slug
 export const homePage: HomeData = {
   slides: [
     {
-      image: '/assets/qatar/images/free-home-1.webp',
-      logo: '/assets/qatar/images/logo-free.webp',
+      image: '/reference-models/free.jpg',
+      logo: '/assets/qatar/images/logo_free-5145b289d90a90daf245e873c46b0fb5.png.webp',
       title: modelDisplayName['free.html'],
       description: t(
         'A new era car. Advanced technological solutions meet the expectations of demanding customers who lead a modern lifestyle in harmony with the natural environment.',
         'Une voiture d’une nouvelle ère. Les solutions technologiques de ce modèle répondent aux attentes des clients exigeants qui mènent un mode de vie moderne, en harmonie avec l’environnement naturel.',
         'سيارة عصر جديد. تلبي الحلول التقنية في هذا الطراز توقعات العملاء الذين يعيشون حياة عصرية بانسجام مع البيئة الطبيعية.'
       ),
-      primaryLabel: t('Discover Free', 'Découvrir FREE', 'اكتشف FREE'),
+      primaryLabel: t('Discover', 'Découvrir', 'اكتشف'),
       secondaryLabel: t('Book a test drive', 'Réserver un essai', 'احجز تجربة قيادة'),
       primarySlug: 'free.html',
       secondarySlug: 'book-drive.html'
     },
     {
-      image: '/assets/qatar/images/dream-5cfd69cd.webp',
-      logo: '/assets/qatar/images/logo_dream.webp',
+      image: '/reference-models/dream.jpg',
+      logo: '/assets/qatar/images/logo_dream-0d008dae1da07d45ff4669e5f0ee80fe.webp',
       title: modelDisplayName['newDreamer26.html'],
       description: t(
         'The latest automotive technologies combined with advanced environmentally friendly solutions: very high comfort, distinctive design, impressive dynamics and excellent safety.',
         'Les dernières technologies automobiles associées à des solutions respectueuses de l’environnement : confort très élevé, design distinctif, dynamisme impressionnant et sécurité exemplaire.',
         'أحدث تقنيات السيارات مع حلول متقدمة صديقة للبيئة: راحة عالية جداً، تصميم مميز، ديناميكية لافتة وسلامة ممتازة.'
       ),
-      primaryLabel: t('Discover Dream', 'Découvrir DREAM', 'اكتشف DREAM'),
+      primaryLabel: t('Discover', 'Découvrir', 'اكتشف'),
       secondaryLabel: t('Book a test drive', 'Réserver un essai', 'احجز تجربة قيادة'),
       primarySlug: 'newDreamer26.html',
+      secondarySlug: 'book-drive.html'
+    },
+    {
+      image: '/reference-models/passion.jpg',
+      logo: '/voyah-resources/images/global/passion-wordmark.png',
+      title: modelDisplayName['passion.html'],
+      description: t(
+        'A sleek electric sedan pairing decisive proportions, a quieter executive cabin, and composed grand-touring confidence.',
+        'Une berline électrique élancée qui associe des proportions affirmées, un habitacle exécutif plus silencieux et une assurance de grand tourisme maîtrisée.',
+        'سيدان كهربائية أنيقة تجمع بين التناسق الجريء والمقصورة التنفيذية الأكثر هدوءًا وثقة السفر الطويل المتزنة.'
+      ),
+      primaryLabel: t('Discover', 'Découvrir', 'اكتشف'),
+      secondaryLabel: t('Book a test drive', 'Réserver un essai', 'احجز تجربة قيادة'),
+      primarySlug: 'passion.html',
+      secondarySlug: 'book-drive.html'
+    },
+    {
+      image: '/reference-models/courage.jpg',
+      logo: '/voyah-resources/images/global/courage-wordmark.png',
+      title: modelDisplayName['courage.html'],
+      description: t(
+        'A full-electric SUV focused on expressive design, practical family comfort, and everyday long-range confidence.',
+        'Un SUV électrique centré sur un design expressif, un confort familial pratique et une confiance d’autonomie au quotidien.',
+        'سيارة SUV كهربائية بالكامل تركز على التصميم التعبيري والراحة العائلية العملية والثقة في المدى اليومي الطويل.'
+      ),
+      primaryLabel: t('Discover', 'Découvrir', 'اكتشف'),
+      secondaryLabel: t('Book a test drive', 'Réserver un essai', 'احجز تجربة قيادة'),
+      primarySlug: 'courage.html',
       secondarySlug: 'book-drive.html'
     }
   ],
@@ -1646,7 +1669,9 @@ export const footerColumns: FooterColumn[] = [
     title: t('Our Models', 'Nos modèles', 'طرازاتنا'),
     links: [
       { label: modelDisplayName['free.html'], slug: 'free.html' },
-      { label: modelDisplayName['newDreamer26.html'], slug: 'newDreamer26.html' }
+      { label: modelDisplayName['newDreamer26.html'], slug: 'newDreamer26.html' },
+      { label: modelDisplayName['passion.html'], slug: 'passion.html' },
+      { label: modelDisplayName['courage.html'], slug: 'courage.html' }
     ]
   },
   {
