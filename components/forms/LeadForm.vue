@@ -17,6 +17,7 @@
             v-model="values[field.name]"
             :type="field.type"
             :required="field.required"
+            :min="field.type === 'date' ? minDate : undefined"
             :aria-invalid="errors[field.name] ? 'true' : 'false'"
             :placeholder="field.placeholder ? textFor(field.placeholder) : undefined"
           />
@@ -27,8 +28,10 @@
             :required="field.required"
             :aria-invalid="errors[field.name] ? 'true' : 'false'"
           >
-            <option value="" disabled selected></option>
-            <option v-for="option in modelOptions" :key="option.value" :value="option.value">
+            <option v-if="!field.defaultValue" value="" disabled>
+              {{ field.placeholder ? textFor(field.placeholder) : '' }}
+            </option>
+            <option v-for="option in optionsFor(field)" :key="option.value" :value="option.value">
               {{ option.label }}
             </option>
           </select>
@@ -62,7 +65,7 @@
 
 <script setup lang="ts">
 import { $fetch } from 'ofetch'
-import { leadForms, modelDisplayName, publicModelSlugs, t, type LeadField } from '~/data/dealer'
+import { hiddenFormModelSlugs, leadForms, modelDisplayName, publicModelSlugs, t, type LeadField } from '~/data/dealer'
 import { useSiteContent } from '~/composables/useSiteContent'
 
 const props = defineProps<{ form: keyof typeof leadForms }>()
@@ -108,20 +111,29 @@ const fieldRows = computed<LeadField[][]>(() => {
   return rows
 })
 
-const modelOptions = publicModelSlugs.map((slug) => ({
+const visibleModelSlugs = publicModelSlugs.filter(
+  (slug) => !(hiddenFormModelSlugs as readonly string[]).includes(slug)
+)
+
+const modelOptions = visibleModelSlugs.map((slug) => ({
   value: slug,
   label: textFor(modelDisplayName[slug])
 }))
 
+const optionsFor = (field: LeadField) =>
+  field.choices ? field.choices.map((choice) => ({ value: choice.value, label: textFor(choice.label) })) : modelOptions
+
+const minDate = new Date().toISOString().slice(0, 10)
+
 const paramValue = (value: unknown) => (Array.isArray(value) ? String(value[0] ?? '') : String(value ?? ''))
 
 const values = reactive<Record<string, string>>(
-  Object.fromEntries(schema.value.fields.map((field) => [field.name, '']))
+  Object.fromEntries(schema.value.fields.map((field) => [field.name, field.defaultValue ?? '']))
 )
 
 const requestedModel = paramValue(route.query.model)
 const modelField = schema.value.fields.find((field) => field.options === 'models')
-if (modelField && requestedModel && (publicModelSlugs as readonly string[]).includes(requestedModel)) {
+if (modelField && requestedModel && (visibleModelSlugs as readonly string[]).includes(requestedModel)) {
   values[modelField.name] = requestedModel
 }
 
@@ -144,6 +156,23 @@ const validate = () => {
 
     if (field.type === 'email' && value && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value)) {
       errors[field.name] = textFor(t('Please enter a valid e-mail.', 'Saisissez un e-mail valide.', 'أدخل بريداً إلكترونياً صحيحاً.'))
+    }
+
+    if (field.type === 'tel' && value && !/^\d{8}$/.test(value)) {
+      errors[field.name] = textFor(t('Please enter a valid 8-digit phone number.', 'Saisissez un numéro de téléphone valide à 8 chiffres.', 'أدخل رقماً هاتفياً صحيحاً من 8 أرقام.'))
+    }
+
+    if (field.type === 'date' && value) {
+      const selectedDate = new Date(value)
+      const today = new Date()
+      today.setHours(0, 0, 0, 0)
+      if (Number.isNaN(selectedDate.getTime()) || selectedDate < today) {
+        errors[field.name] = textFor(t('Please choose a valid future date.', 'Choisissez une date valide et future.', 'اختر تاريخاً صالحاً في المستقبل.'))
+      }
+    }
+
+    if (field.type === 'time' && value && !/^\d{2}:\d{2}$/.test(value)) {
+      errors[field.name] = textFor(t('Please enter a valid time.', 'Saisissez une heure valide.', 'أدخل وقتاً صحيحاً.'))
     }
   }
 

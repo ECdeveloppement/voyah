@@ -1,0 +1,867 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://voyahtunisie.com/en</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/Passion</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/Passion"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/Passion"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/Passion"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/Passion"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/Free</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/Free"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/Free"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/Free"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/Free"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/Courage</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/Courage"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/Courage"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/Courage"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/Courage"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/Dream</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/Dream"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/Dream"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/Dream"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/Dream"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/brand.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/brand.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/brand.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/brand.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/brand.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/store.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/store.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/store.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/store.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/store.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/service.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/service.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/service.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/service.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/service.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/energy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/energy.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/energy.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/energy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/energy.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/corporate.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/corporate.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/corporate.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/corporate.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/corporate.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/joinus.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/joinus.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/joinus.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/joinus.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/joinus.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/recruit-partners.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/recruit-partners.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/recruit-partners.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/recruit-partners.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/recruit-partners.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/ir.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/ir.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/ir.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/ir.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/ir.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/environmental.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/environmental.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/environmental.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/environmental.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/environmental.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/document.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/document.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/document.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/document.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/document.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/purchasing.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/purchasing.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/purchasing.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/purchasing.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/purchasing.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/contact.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/architecture.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/architecture.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/architecture.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/architecture.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/architecture.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/safety.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/safety.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/safety.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/safety.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/safety.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/smart-cockpit.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/smart-cockpit.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/smart-cockpit.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/smart-cockpit.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/smart-cockpit.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/battery.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/battery.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/battery.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/battery.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/battery.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/about.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/news.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/news.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/news.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/news.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/news.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/actualite-voyah-courage.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/actualite-voyah-courage.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/actualite-voyah-courage.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/actualite-voyah-courage.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/actualite-voyah-courage.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/actualite-voyah-mhero.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/actualite-voyah-mhero.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/actualite-voyah-mhero.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/actualite-voyah-mhero.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/actualite-voyah-mhero.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/brand-philosophy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/brand-philosophy.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/brand-philosophy.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/brand-philosophy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/brand-philosophy.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/kunpeng-design.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/kunpeng-design.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/kunpeng-design.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/kunpeng-design.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/kunpeng-design.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/warranty.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/warranty.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/warranty.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/warranty.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/warranty.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/app-download.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/app-download.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/app-download.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/app-download.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/app-download.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/faq.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/faq.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/community.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/community.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/community.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/community.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/community.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/lifestyle-store.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/lifestyle-store.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/lifestyle-store.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/lifestyle-store.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/lifestyle-store.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/legal.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/legal.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/legal.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/legal.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/legal.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/privacy.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/cookie.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/cookie.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/cookie.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/cookie.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/cookie.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/en/authorization.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/authorization.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/authorization.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/authorization.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/authorization.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/Passion</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/Passion"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/Passion"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/Passion"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/Passion"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/Free</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/Free"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/Free"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/Free"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/Free"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/Courage</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/Courage"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/Courage"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/Courage"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/Courage"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/Dream</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/Dream"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/Dream"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/Dream"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/Dream"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/brand.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/brand.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/brand.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/brand.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/brand.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/store.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/store.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/store.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/store.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/store.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/service.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/service.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/service.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/service.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/service.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/energy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/energy.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/energy.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/energy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/energy.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/corporate.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/corporate.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/corporate.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/corporate.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/corporate.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/joinus.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/joinus.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/joinus.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/joinus.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/joinus.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/recruit-partners.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/recruit-partners.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/recruit-partners.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/recruit-partners.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/recruit-partners.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/ir.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/ir.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/ir.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/ir.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/ir.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/environmental.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/environmental.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/environmental.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/environmental.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/environmental.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/document.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/document.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/document.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/document.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/document.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/purchasing.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/purchasing.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/purchasing.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/purchasing.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/purchasing.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/contact.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/architecture.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/architecture.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/architecture.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/architecture.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/architecture.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/safety.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/safety.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/safety.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/safety.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/safety.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/smart-cockpit.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/smart-cockpit.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/smart-cockpit.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/smart-cockpit.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/smart-cockpit.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/battery.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/battery.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/battery.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/battery.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/battery.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/about.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/news.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/news.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/news.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/news.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/news.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/actualite-voyah-courage.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/actualite-voyah-courage.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/actualite-voyah-courage.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/actualite-voyah-courage.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/actualite-voyah-courage.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/actualite-voyah-mhero.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/actualite-voyah-mhero.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/actualite-voyah-mhero.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/actualite-voyah-mhero.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/actualite-voyah-mhero.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/brand-philosophy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/brand-philosophy.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/brand-philosophy.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/brand-philosophy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/brand-philosophy.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/kunpeng-design.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/kunpeng-design.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/kunpeng-design.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/kunpeng-design.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/kunpeng-design.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/warranty.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/warranty.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/warranty.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/warranty.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/warranty.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/app-download.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/app-download.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/app-download.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/app-download.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/app-download.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/faq.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/faq.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/community.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/community.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/community.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/community.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/community.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/lifestyle-store.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/lifestyle-store.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/lifestyle-store.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/lifestyle-store.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/lifestyle-store.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/legal.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/legal.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/legal.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/legal.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/legal.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/privacy.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/cookie.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/cookie.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/cookie.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/cookie.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/cookie.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/fr/authorization.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/authorization.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/authorization.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/authorization.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/authorization.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/Passion</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/Passion"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/Passion"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/Passion"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/Passion"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/Free</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/Free"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/Free"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/Free"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/Free"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/Courage</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/Courage"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/Courage"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/Courage"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/Courage"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/Dream</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/Dream"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/Dream"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/Dream"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/Dream"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/brand.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/brand.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/brand.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/brand.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/brand.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/store.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/store.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/store.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/store.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/store.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/service.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/service.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/service.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/service.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/service.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/energy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/energy.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/energy.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/energy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/energy.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/corporate.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/corporate.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/corporate.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/corporate.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/corporate.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/joinus.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/joinus.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/joinus.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/joinus.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/joinus.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/recruit-partners.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/recruit-partners.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/recruit-partners.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/recruit-partners.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/recruit-partners.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/ir.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/ir.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/ir.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/ir.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/ir.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/environmental.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/environmental.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/environmental.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/environmental.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/environmental.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/document.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/document.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/document.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/document.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/document.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/purchasing.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/purchasing.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/purchasing.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/purchasing.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/purchasing.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/contact.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/architecture.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/architecture.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/architecture.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/architecture.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/architecture.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/safety.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/safety.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/safety.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/safety.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/safety.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/smart-cockpit.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/smart-cockpit.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/smart-cockpit.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/smart-cockpit.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/smart-cockpit.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/battery.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/battery.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/battery.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/battery.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/battery.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/about.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/news.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/news.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/news.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/news.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/news.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/actualite-voyah-courage.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/actualite-voyah-courage.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/actualite-voyah-courage.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/actualite-voyah-courage.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/actualite-voyah-courage.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/actualite-voyah-mhero.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/actualite-voyah-mhero.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/actualite-voyah-mhero.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/actualite-voyah-mhero.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/actualite-voyah-mhero.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/brand-philosophy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/brand-philosophy.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/brand-philosophy.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/brand-philosophy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/brand-philosophy.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/kunpeng-design.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/kunpeng-design.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/kunpeng-design.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/kunpeng-design.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/kunpeng-design.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/warranty.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/warranty.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/warranty.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/warranty.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/warranty.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/app-download.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/app-download.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/app-download.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/app-download.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/app-download.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/faq.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/faq.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/community.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/community.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/community.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/community.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/community.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/lifestyle-store.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/lifestyle-store.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/lifestyle-store.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/lifestyle-store.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/lifestyle-store.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/legal.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/legal.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/legal.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/legal.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/legal.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/privacy.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/cookie.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/cookie.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/cookie.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/cookie.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/cookie.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://voyahtunisie.com/ar/authorization.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://voyahtunisie.com/en/authorization.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://voyahtunisie.com/fr/authorization.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://voyahtunisie.com/ar/authorization.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://voyahtunisie.com/fr/authorization.html"/>
+    <priority>0.6</priority>
+  </url>
+</urlset>

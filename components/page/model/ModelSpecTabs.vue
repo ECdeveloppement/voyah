@@ -63,23 +63,105 @@
         </ul>
       </div>
     </div>
+
+    <div class="spec-tabs__download">
+      <button class="spec-tabs__download-button" type="button" @click="downloadConfiguration">
+        {{ textFor(downloadLabel) }}
+      </button>
+      <small class="spec-tabs__download-hint">{{ configurationFile ? 'XLSX' : 'CSV' }} · {{ textFor(downloadHint) }}</small>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { computed, useId } from 'vue'
+import { t } from '~/data/dealer'
 import type { ModelSpecTab } from '~/data/modelPages'
 import { useSiteContent } from '~/composables/useSiteContent'
 
-const props = withDefaults(defineProps<{ tabs: ModelSpecTab[]; listLabel?: string }>(), {
+const props = withDefaults(defineProps<{
+  tabs: ModelSpecTab[]
+  modelName: string
+  note: string
+  listLabel?: string
+  slug?: string
+}>(), {
   listLabel: 'Caractéristiques'
 })
 
-const { textFor } = useSiteContent()
+const { textFor, locale } = useSiteContent()
+const downloadLabel = t('Download configuration', 'Télécharger la configuration', 'تنزيل المواصفات')
+const downloadHint = t('All categories', 'Toutes les catégories', 'جميع الفئات')
 
-const uid = Math.random().toString(36).slice(2, 8)
+const configurationFiles: Record<string, string> = {
+  Free: '/voyah-resources/fiche-technique-Free.xlsx',
+  Dream: '/voyah-resources/fiche-technique-Dream.xlsx',
+  Courage: '/voyah-resources/fiche-technique-Courage.xlsx'
+}
+const configurationFile = computed(() => (props.slug ? configurationFiles[props.slug] ?? null : null))
+
+const uid = useId()
 const selected = ref(props.tabs[0]?.id ?? '')
 const expanded = ref('')
 const isMobile = ref(false)
+
+watch(() => props.tabs, () => {
+  selected.value = props.tabs[0]?.id ?? ''
+  expanded.value = ''
+})
+
+const csvCell = (value: string) => {
+  // Guard spreadsheet formulas, including triggers hidden behind whitespace.
+  const safeValue = /^\s*[=+\-@\t\r\n]/.test(value) ? `'${value}` : value
+  return `"${safeValue.replace(/"/g, '""')}"`
+}
+
+const downloadConfiguration = () => {
+  if (configurationFile.value) {
+    const anchor = document.createElement('a')
+    anchor.href = configurationFile.value
+    anchor.download = configurationFile.value.split('/').pop() ?? 'configuration.xlsx'
+    anchor.hidden = true
+    try {
+      document.body.appendChild(anchor)
+      anchor.click()
+    } finally {
+      anchor.remove()
+    }
+    return
+  }
+  const rows: string[][] = [
+    [props.modelName, '', ''],
+    [
+      textFor(t('Category', 'Catégorie', 'الفئة')),
+      textFor(t('Specification', 'Caractéristique', 'المواصفة')),
+      textFor(t('Value', 'Valeur', 'القيمة'))
+    ],
+    ...props.tabs.flatMap((tab) => tab.rows.map((row) => [
+      textFor(tab.label), textFor(row.name), textFor(row.value)
+    ])),
+    [textFor(t('Note', 'Note', 'ملاحظة')), '', props.note]
+  ]
+  const csv = rows.map((row) => row.map(csvCell).join(';')).join('\r\n')
+  const slug = props.modelName.normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '') || 'voyah'
+  const url = URL.createObjectURL(new Blob(['\uFEFF', csv], { type: 'text/csv;charset=utf-8' }))
+  const anchor = document.createElement('a')
+  anchor.href = url
+  anchor.download = `${slug}-configuration-${locale.value.code}.csv`
+  anchor.hidden = true
+  try {
+    document.body.appendChild(anchor)
+    anchor.click()
+  } finally {
+    anchor.remove()
+    // Let the browser dispatch the download before releasing the Blob URL.
+    window.setTimeout(() => URL.revokeObjectURL(url), 0)
+  }
+}
 
 const move = (offset: number) => {
   const index = props.tabs.findIndex((tab) => tab.id === selected.value)
@@ -105,6 +187,53 @@ onUnmounted(() => {
 
 <style scoped>
 /* Onglets du tableau de caractéristiques : reprise du motif du site de référence. */
+.spec-tabs {
+  min-width: 0;
+}
+
+.spec-tabs__download {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.spec-tabs__download-button {
+  box-sizing: border-box;
+  max-width: 100%;
+  min-height: 44px;
+  padding: 12px 20px;
+  border: 1px solid #406a70;
+  border-radius: 4px;
+  background: #406a70;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.spec-tabs__download-button:hover {
+  background: #34575c;
+}
+
+.spec-tabs__download-button:focus-visible {
+  outline: 2px solid #406a70;
+  outline-offset: 3px;
+}
+
+.spec-tabs__download-hint {
+  max-width: 100%;
+  color: #525252;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
 .spec-tabs__list {
   display: flex;
   gap: 8px;
@@ -169,6 +298,11 @@ onUnmounted(() => {
   border-bottom: 1px solid #d4d4d4;
   font-size: 1rem;
   line-height: 1.5rem;
+}
+
+.spec-tabs__row > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .spec-tabs__value {

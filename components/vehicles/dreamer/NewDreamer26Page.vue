@@ -7,8 +7,8 @@
         <p class="kv-slogan">{{ textFor({ en: 'Flagship MPV of the New Era', fr: 'MPV Phare de la Nouvelle Ère', ar: 'MPV الرائد للعصر الجديد' }) }}</p>
         <div class="kv-btns">
           <NuxtLink :to="buildPath('book-drive.html')" class="voyah-button voyah-button--plain">{{ textFor({ en: 'Book Test Drive', fr: 'Réserver Essai', ar: 'حجز تجربة قيادة' }) }}</NuxtLink>
-          <NuxtLink :to="buildPath('quote.html')" class="voyah-button voyah-button--dark">{{ textFor({ en: 'Order Now', fr: 'Commander', ar: 'اطلب الآن' }) }}</NuxtLink>
-          <BrochureButton slug="newDreamer26.html" />
+          <NuxtLink :to="buildPath('devis')" class="voyah-button voyah-button--dark">{{ textFor({ en: 'Order Now', fr: 'Commander', ar: 'اطلب الآن' }) }}</NuxtLink>
+          <BrochureButton slug="Dream" />
         </div>
       </div>
     </section>

@@ -91,7 +91,7 @@ const modelGalleryMap: Record<string, string[]> = {
     '1920/sc_8.jpg',
     '1920/sc_9.jpg'
   ]),
-  'passion.html': carGallery('passion', [
+  'Passion': carGallery('passion', [
     '1920/fl01.jpg',
     '1920/fl02.jpg',
     '1920/fl03.jpg',
@@ -132,7 +132,7 @@ const modelGalleryMap: Record<string, string[]> = {
     'img_11_01.png',
     'img_25_1920.png'
   ]),
-  'free.html': carGallery('free', [
+  'Free': carGallery('free', [
     'bg-free-h97D-1.jpg',
     'bg_free_pc4_0002_1920.jpg',
     'bg_free_pc15_0001_1920.jpg',
@@ -152,7 +152,7 @@ const modelGalleryMap: Record<string, string[]> = {
     '1920/sc_14.jpg',
     '1920/sc_20.jpg'
   ]),
-  'courage.html': carGallery('courage', [
+  'Courage': carGallery('courage', [
     '1920/h37_pc01_0001.jpg',
     '1920/h37_pc02_0001.jpg',
     '1920/h37_pc03_0001.jpg',
@@ -162,7 +162,7 @@ const modelGalleryMap: Record<string, string[]> = {
     '1920/h37_pc14_0001.jpg',
     '1920/h37_pc17_0001.jpg'
   ]),
-  'newDreamer26.html': carGallery('newDreamer26', [
+  'Dream': carGallery('newDreamer26', [
     'kv_1920.jpg',
     'sc_3.jpg',
     'sc_5.jpg',
@@ -291,7 +291,7 @@ const modelStorySectionMap: Record<string, ModelStorySection[]> = {
       ])
     }
   ],
-  'newDreamer26.html': [
+  'Dream': [
     {
       id: 'chapter-1',
       title: t('Flagship luxury', 'Luxe phare', 'Ø§Ù„ÙØ®Ø§Ù…Ø© Ø§Ù„Ø±Ø§Ø¦Ø¯Ø©'),
@@ -674,7 +674,7 @@ const modelStorySectionMap: Record<string, ModelStorySection[]> = {
       images: carGallery('titan_X8', ['1920/sc_1.jpg'])
     }
   ],
-  'passion.html': [
+  'Passion': [
     {
       id: 'chapter-1',
       kicker: t('01 Sedan design', '01 Design berline', '01 تصميم السيدان'),
@@ -767,7 +767,7 @@ const modelStorySectionMap: Record<string, ModelStorySection[]> = {
       ])
     }
   ],
-  'free.html': [
+  'Free': [
     {
       id: 'chapter-1',
       kicker: t('01 Exterior', '01 Extérieur', '01 الخارجية'),
@@ -852,7 +852,7 @@ const modelStorySectionMap: Record<string, ModelStorySection[]> = {
       images: carGallery('free', ['bg_free_pc27_0006.jpg', 'bg_free_pc27_0007.jpg', 'bg_free_pc28_0001_1920.jpg', 'bg_free_pc29_0003.jpg'])
     }
   ],
-  'courage.html': [
+  'Courage': [
     {
       id: 'chapter-1',
       kicker: t('Exterior', 'Extérieur', 'الخارجية'),

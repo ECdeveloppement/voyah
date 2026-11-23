@@ -53,16 +53,16 @@
             class="nav-dropdown nav-model-band"
             :class="{ open: activeGroup === item.label.en }"
           >
-            <NuxtLink
-              v-for="child in visibleChildren(item)"
-              :key="child.slug ?? child.href"
-              :to="buildPath(child.slug)"
-              class="nav-model-card"
-              @click="closeAllGroups"
-            >
-              <img :src="child.thumb" :alt="textFor(child.label)" loading="lazy" />
-              <span>{{ textFor(child.label) }}</span>
-            </NuxtLink>
+            <template v-for="child in menuChildren(item)" :key="child.slug ?? child.href ?? 'teaser'">
+              <div v-if="child.mobileTeaser" class="nav-model-card nav-model-card--teaser">
+                <img :src="child.thumb" alt="" loading="lazy" />
+                <span>Voyah</span>
+              </div>
+              <NuxtLink v-else :to="buildPath(child.slug)" class="nav-model-card" @click="closeAllGroups">
+                <img :src="child.thumb" :alt="textFor(child.label)" loading="lazy" />
+                <span>{{ textFor(child.label) }}</span>
+              </NuxtLink>
+            </template>
           </div>
 
           <div v-else-if="visibleChildren(item).length" class="nav-dropdown" :class="{ open: activeGroup === item.label.en }">
@@ -80,7 +80,7 @@
 
       <div class="header-actions desktop-only">
         <div class="locale-menu" @mouseenter="localeOpen = true" @mouseleave="localeOpen = false">
-          <button type="button" class="locale-trigger" :aria-label="textFor(labels.language)">
+          <button type="button" class="locale-trigger" :aria-label="textFor(labels.language)" @click="localeOpen = !localeOpen">
             <img class="locale-globe" src="/assets/qatar/icons/language.svg" alt="" aria-hidden="true" />
             <span>{{ currentLocaleName }}</span>
           </button>
@@ -121,9 +121,13 @@
 
           <div v-else class="mobile-label">{{ textFor(item.label) }}</div>
 
-          <div v-if="visibleChildren(item).length" class="mobile-children">
-            <template v-for="child in visibleChildren(item)" :key="child.slug ?? child.href">
-              <a v-if="child.href" :href="child.href" class="mobile-link child" target="_blank" rel="noopener">
+          <div v-if="menuChildren(item).length" class="mobile-children">
+            <template v-for="child in menuChildren(item)" :key="child.slug ?? child.href ?? 'teaser'">
+              <div v-if="child.mobileTeaser" class="mobile-model-teaser">
+                <img :src="child.thumb" alt="" loading="lazy" />
+                <span>Voyah</span>
+              </div>
+              <a v-else-if="child.href" :href="child.href" class="mobile-link child" target="_blank" rel="noopener">
                 {{ textFor(child.label) }}
               </a>
               <NuxtLink v-else :to="buildPath(child.slug)" class="mobile-link child" @click="mobileOpen = false">
@@ -154,7 +158,7 @@
 <script setup lang="ts">
 import { useRoute } from '#app'
 import { dealerContact } from '~/data/dealer'
-import type { LocalizedText } from '~/data/site'
+import type { LocalizedText, NavItem } from '~/data/site'
 import { useSiteContent } from '~/composables/useSiteContent'
 import SocialLinks from '~/components/common/SocialLinks.vue'
 
@@ -198,9 +202,13 @@ const currentLocaleName = computed(() => locales.find((item) => item.code === lo
 
 const isItemActive = (item: { slug?: string }) => (item.slug ? route.path.endsWith(item.slug) : false)
 
-/** Un enfant sans page ni document (par ex. un PDF non fourni) n’est pas affiché. */
-const visibleChildren = (item: { children?: { slug?: string; href?: string }[] }) =>
-  (item.children ?? []).filter((child) => Boolean(child.slug || child.href))
+/** Un enfant sans page ni document (par ex. un PDF non fourni) n’est pas affiché. Les éléments `hidden` sont masqués temporairement mais restent dans les données. */
+const visibleChildren = (item: { children?: { slug?: string; href?: string; hidden?: boolean }[] }) =>
+  (item.children ?? []).filter((child) => Boolean(child.slug || child.href) && !child.hidden)
+
+/** Les menus desktop et mobile affichent aussi le visuel teasing, sans lien ni nom de modèle. */
+const menuChildren = (item: { children?: NavItem[] }) =>
+  (item.children ?? []).filter((child) => child.mobileTeaser || (Boolean(child.slug || child.href) && !child.hidden))
 
 const isGroupActive = (item: { children?: { slug?: string; href?: string }[] }) =>
   Boolean(item.children?.some((child) => child.slug && route.path.endsWith(child.slug)))
@@ -388,6 +396,14 @@ watch(
   color: #111;
 }
 
+.nav-model-card--teaser {
+  cursor: default;
+}
+
+.nav-model-card--teaser:hover img {
+  transform: none;
+}
+
 .nav-dropdown__item {
   display: block;
   padding: 8px 12px;
@@ -524,6 +540,28 @@ watch(
   padding-inline-start: 14px;
   color: var(--band-text-soft);
   font-size: 0.84rem;
+}
+
+.mobile-model-teaser {
+  padding: 8px 0 10px 14px;
+}
+
+.mobile-model-teaser img {
+  display: block;
+  width: 100%;
+  max-width: 220px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.mobile-model-teaser span {
+  display: block;
+  padding-top: 6px;
+  color: var(--band-text-soft);
+  font-size: 0.84rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .mobile-locales {

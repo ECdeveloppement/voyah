@@ -19,10 +19,10 @@
           {{ textFor({ en: 'New Energy Driving Control SUV', fr: 'SUV Contrôle Conduite Énergie Nouvelle', ar: 'سيارة SUV كهربائية جديدة' }) }}
         </p>
         <div class="kv-btns inview-child inview-animated" style="--inview-delay: 0.5s;">
-          <NuxtLink :to="buildPath('quote.html')" class="voyah-button voyah-button--default voyah-button--dark voyah-button--plain">
+          <NuxtLink :to="buildPath('devis')" class="voyah-button voyah-button--default voyah-button--dark voyah-button--plain">
             <span class="voyah-button__text">{{ textFor({ en: 'Order Now', fr: 'Commander', ar: 'اطلب الآن' }) }}</span>
           </NuxtLink>
-          <BrochureButton slug="free.html" />
+          <BrochureButton slug="Free" />
         </div>
       </div>
     </section>

@@ -7,9 +7,17 @@
  */
 import { t, type Localized } from './dealer'
 
-export type ModelMetric = { label: Localized; value: string }
+export type ModelMetric = {
+  label: Localized
+  value: string
+  /** Paires libellé/valeur affichées sous le libellé à la place de la valeur (ex. les deux couples moteur). */
+  lines?: { label: Localized; value: string }[]
+}
 
-export type ModelComfortRow = { image: string; text: Localized }
+/** Groupe de chiffres presentant une version donnee d'un meme modele (ex. FREE 2WD / 4WD). */
+export type ModelHeroVersion = { name: Localized; metrics: ModelMetric[] }
+
+export type ModelComfortRow = { image: string; text: Localized; description?: Localized }
 
 export type ModelFeatureCard = { image: string; title: Localized; body: Localized }
 
@@ -29,7 +37,7 @@ export type ModelSection =
   | { type: 'cards'; heading?: Localized; cards: ModelFeatureCard[] }
   | { type: 'hoverGrid'; tiles: ModelHoverTile[] }
   /** 'intro' : texte blanc posé en haut de l'image. 'cta' : logo + boutons centrés. */
-  | { type: 'band'; image: string; variant: 'intro' | 'cta'; text?: Localized }
+  | { type: 'band'; image: string; variant: 'intro' | 'cta'; text?: Localized; cta?: 'testDrive' | 'quote'; fullImage?: boolean }
   | { type: 'specs' }
 
 export type ModelPageContent = {
@@ -40,6 +48,8 @@ export type ModelPageContent = {
   tagline: Localized
   /** Chiffres posés sur le hero, en 2×2 sur mobile. */
   heroMetrics: ModelMetric[]
+  /** Versions distinctes affichées au-dessus du hero (remplace heroMetrics quand renseigné). */
+  heroVersions?: ModelHeroVersion[]
   /** Trois chiffres répétés sous le hero, uniquement sur mobile. */
   compactMetrics: ModelMetric[]
   /** Titre 36 px centré qui introduit les lignes « confort ». */
@@ -76,7 +86,11 @@ const brochureNote = t(
 )
 
 /** Libellés des boutons de demande, identiques sur les deux pages modèles. */
-export const modelCtaLabels = { testDrive: ctaBandNote, brochure: brochureNote }
+export const modelCtaLabels = {
+  testDrive: ctaBandNote,
+  quote: t('Request a quote', 'Demander un devis', 'اطلب عرض سعر'),
+  brochure: brochureNote
+}
 
 const QA = '/assets/qatar/images'
 const QA_VIDEOS = '/assets/qatar/videos'
@@ -91,15 +105,35 @@ export const freePageContent: ModelPageContent = {
     'سيارة دفع رباعي كهربائية ذكية من فئة الأداء'
   ),
   heroMetrics: [
-    { label: t('Range up to', 'Autonomie jusqu’à', 'المدى حتى'), value: '1200 km' },
+    { label: t('Range up to', 'Autonomie jusqu’à', 'المدى حتى'), value: '1155 km' },
     { label: t('Wheel Drive', 'Transmission', 'نظام الدفع'), value: 'AWD' },
     { label: t('Engine power', 'Puissance', 'قوة المحرك'), value: '360kW' },
     { label: t('0-100 km/h', '0-100 km/h', '0-100 كم/س'), value: '4,2s' }
   ],
   compactMetrics: [
     { label: t('0 - 100 km/h', '0 - 100 km/h', '0 - 100 كم/س'), value: '4,2 s' },
-    { label: t('Range (WLTP)', 'Autonomie (WLTP)', 'المدى (WLTP)'), value: '1200 km' },
+    { label: t('Range (WLTP)', 'Autonomie (WLTP)', 'المدى (WLTP)'), value: '1155 km' },
     { label: t('Wheel Drive', 'Transmission', 'نظام الدفع'), value: 'AWD' }
+  ],
+  heroVersions: [
+    {
+      name: t('VOYAH FREE 2WD', 'VOYAH FREE 2WD', 'VOYAH FREE 2WD'),
+      metrics: [
+        { label: t('Range up to', 'Autonomie jusqu’à', 'المدى حتى'), value: '1240 km' },
+        { label: t('Wheel Drive', 'Transmission', 'نظام الدفع'), value: '2WD' },
+        { label: t('Engine power', 'Puissance', 'قوة المحرك'), value: '200kW' },
+        { label: t('0-100 km/h', '0-100 km/h', '0-100 كم/س'), value: '7,6s' }
+      ]
+    },
+    {
+      name: t('VOYAH FREE 4WD', 'VOYAH FREE 4WD', 'VOYAH FREE 4WD'),
+      metrics: [
+        { label: t('Range up to', 'Autonomie jusqu’à', 'المدى حتى'), value: '1155 km' },
+        { label: t('Wheel Drive', 'Transmission', 'نظام الدفع'), value: 'AWD' },
+        { label: t('Engine power', 'Puissance', 'قوة المحرك'), value: '360kW' },
+        { label: t('0-100 km/h', '0-100 km/h', '0-100 كم/س'), value: '4,2s' }
+      ]
+    }
   ],
   comfortTitle: t('Enjoy Comfort', 'Profitez du confort', 'استمتع بالراحة'),
   sections: [
@@ -114,108 +148,31 @@ export const freePageContent: ModelPageContent = {
         {
           image: `${QA}/Pantheon-Danner-High-fidelity-HiFi-sound-quality.webp`,
           text: t(
-            'Pantheon Danner High fidelity HiFi sound quality',
-            'Son haute fidélité Pantheon Danner',
-            'جودة صوت بانثيون دانر عالية الدقة'
+            'Dynaudio Sound System',
+            'Système de son Dynaudio',
+            'نظام صوت Dynaudio'
           )
         },
         {
           image: `${QA}/First-class-seat.webp`,
           text: t(
-            'First-class seat to give you greater sleeping comfort Electric adjustment/heating/ventilation/massage',
-            'Siège première classe pour un confort de couchage optimal : réglage électrique, chauffage, ventilation et massage',
-            'مقعد من الدرجة الأولى يمنحك راحة نوم أكبر: تعديل كهربائي وتدفئة وتهوية وتدليك'
+            'First-class seat for optimal comfort Electric adjustment/heating/ventilation/massage',
+            'Siège première classe pour un confort optimal\u00A0: réglage électrique, chauffage, ventilation et massage.',
+            'مقعد من الدرجة الأولى لراحة مثالية: تعديل كهربائي وتدفئة وتهوية وتدليك'
           )
         },
         {
           image: `${QA}/Full-gamut-sound-control-ambient-lamp-Infinite.webp`,
           text: t(
-            'Full-gamut sound-control ambient lamp Infinite color change, switchable at will',
-            'Éclairage d’ambiance piloté par la voix : changement de couleur infini, commutable à volonté',
-            'إضاءة محيطية يُتحكم بها صوتيًا: تغيير لا نهائي للألوان يمكن التبديل بينها بحرية'
+            'Infinite color change, switchable at will',
+            'Changement de couleur infini, commutable à volonté',
+            'تغيير لا نهائي للألوان يمكن التبديل بينها بحرية'
           )
         }
       ]
     },
     { type: 'parallax', image: `${QA}/full-electric-battery-7dc622d64b667780123b39fa26efd038.webp` },
-    {
-      type: 'cards',
-      heading: t('All-round intelligence', 'Intelligence à 360°', 'ذكاء شامل'),
-      cards: [
-        {
-          image: `${QA}/1-1-5f1b03b1.webp`,
-          title: t(
-            'Visual automatic parking system',
-            'Stationnement automatique guidé par caméra',
-            'نظام الركن التلقائي البصري'
-          ),
-          body: t(
-            'Horizontal/vertical/diagonal 45°/60°/ramp/head-on parking',
-            'Créneau perpendiculaire, en bataille, en épi 45°/60°, en rampe et face avant',
-            'الركن الأفقي/العمودي/القطري 45°/60°/المنحدر/المواجه'
-          )
-        },
-        {
-          image: `${QA}/1-3-decf2b13.webp`,
-          title: t(
-            '360° roundviews + transparent chassis',
-            'Vues panoramiques 360° + châssis transparent',
-            'رؤية محيطية 360° + هيكل شفاف'
-          ),
-          body: t(
-            'Real-time display of blind spot under the chassis, improving the safety of driving in special road conditions',
-            'Affichage en temps réel des angles morts sous le véhicule, pour sécuriser la conduite dans les conditions de route les plus particulières',
-            'عرض النقاط العمياء أسفل الهيكل في الوقت الفعلي، مما يحسّن سلامة القيادة في ظروف الطرق الخاصة'
-          )
-        }
-      ]
-    },
-    { type: 'band', image: `${QA}/Z9-scaled-1.webp`, variant: 'cta' },
-    {
-      type: 'cards',
-      heading: t('High quality [safety]', 'Sécurité de haute qualité', 'سلامة عالية الجودة'),
-      cards: [
-        {
-          image: `${QA}/2-1-6a7d1e0f.webp`,
-          title: t(
-            'Cloud battery management system (BMS)',
-            'Gestion des batteries par le cloud (BMS)',
-            'نظام إدارة البطاريات السحابي (BMS)'
-          ),
-          body: t(
-            'VOYAH exclusive remote power battery data analysis and management technology, more effective safety protection for the whole life cycle',
-            'Technologie exclusive VOYAH d’analyse et de gestion à distance des données de la batterie : une protection efficace sur tout le cycle de vie',
-            'تقنية حصرية من VOYAH لتحليل وإدارة بيانات البطارية عن بُعد، لتوفير حماية أكثر فعالية خلال دورة الحياة بالكامل'
-          )
-        },
-        {
-          image: `${QA}/2-2-ae53cd31.webp`,
-          title: t(
-            'PACK five-layer security',
-            'PACK de batterie à cinq niveaux de sécurité',
-            'حزمة البطارية بخمس طبقات أمان'
-          ),
-          body: t(
-            'Customized five major battery safety structure designs',
-            'Cinq conceptions structurelles de sécurité élaborées sur mesure pour la batterie',
-            'خمسة تصاميم هيكلية مخصصة لسلامة البطارية'
-          )
-        },
-        {
-          image: `${QA}/2-3-b03d5e7d.webp`,
-          title: t(
-            'Exclusive 3D thermal wall technology',
-            'Technologie exclusive de paroi thermique 3D',
-            'تقنية حصرية للجدار الحراري ثلاثي الأبعاد'
-          ),
-          body: t(
-            'A pioneer of "Amber" and "Mica" battery safety systems',
-            'Pionnier des systèmes de sécurité batterie « Amber » et « Mica »',
-            'رائد في أنظمة سلامة البطاريات «Amber» و«Mica»'
-          )
-        }
-      ]
-    },
+    { type: 'band', image: `${QA}/Z9-scaled-1.webp`, variant: 'cta', cta: 'quote' },
     { type: 'spacer' },
     {
       type: 'hoverGrid',
@@ -242,7 +199,7 @@ export const freePageContent: ModelPageContent = {
     { type: 'spacerLarge' },
     { type: 'specs' },
     { type: 'spacer' },
-    { type: 'band', image: `${QA}/Last-Photo.webp`, variant: 'cta' }
+    { type: 'band', image: `${QA}/Last-Photo.webp`, variant: 'cta', cta: 'quote' }
   ],
   configLabel: configLabelValue,
   specTabs: [
@@ -361,7 +318,14 @@ export const dreamPageContent: ModelPageContent = {
   heroMetrics: [
     { label: t('Range up to', 'Autonomie jusqu’à', 'المدى حتى'), value: '915 km' },
     { label: t('Wheel Drive', 'Transmission', 'نظام الدفع'), value: '4WD' },
-    { label: t('Torque', 'Couple', 'عزم الدوران'), value: '620 Nm' },
+    {
+      label: t('Torque', 'Couple', 'عزم الدوران'),
+      value: '',
+      lines: [
+        { label: t('Max. front motor', 'Max moteur avant', 'أقصى المحرك الأمامي'), value: '310 Nm' },
+        { label: t('Max. rear motor', 'Max moteur arrière', 'أقصى المحرك الخلفي'), value: '310 Nm' }
+      ]
+    },
     { label: t('0-100 km/h', '0-100 km/h', '0-100 كم/س'), value: '5,9s' }
   ],
   compactMetrics: [
@@ -439,7 +403,7 @@ export const dreamPageContent: ModelPageContent = {
           image: `${QA}/dream-intelligence.webp`,
           text: t(
             'Redefine [Intelligent MPV]',
-            'Redéfinir le [monospace intelligent]',
+            'L’intelligence au service de votre confort.',
             'إعادة تعريف [MPV الذكي]'
           )
         },
@@ -447,15 +411,16 @@ export const dreamPageContent: ModelPageContent = {
           image: `${QA}/safety-dream.webp`,
           text: t(
             'Redefine [Safe MPV]',
-            'Redéfinir le [monospace sûr]',
+            '',
             'إعادة تعريف [MPV الآمن]'
-          )
+          ),
+          description: t('', 'Une structure renforcée et des technologies avancées pour protéger chaque voyage.', '')
         },
         {
           image: `${QA}/3-2-c1e84452.webp`,
           text: t(
             'Redefine [Performance MPV]',
-            'Redéfinir le [monospace performant]',
+            'La puissance au-delà des attentes.',
             'إعادة تعريف [MPV عالي الأداء]'
           )
         }
@@ -498,7 +463,7 @@ export const dreamPageContent: ModelPageContent = {
     { type: 'specs' },
     { type: 'spacer' },
     { type: 'parallax', image: `${QA}/voyah-dream-home_2.webp` },
-    { type: 'band', image: `${QA}/1024-5a8008ee.webp`, variant: 'cta' }
+    { type: 'band', image: `${QA}/1024-5a8008ee.webp`, variant: 'cta', cta: 'quote' }
   ],
   configLabel: configLabelValue,
   specTabs: [
@@ -629,7 +594,8 @@ const GLOBAL_IMG = '/voyah-resources/images/global'
  */
 export const passionPageContent: ModelPageContent = {
   logo: `${GLOBAL_IMG}/passion-wordmark.png`,
-  heroPoster: `${GLOBAL_IMG}/passion-hero.jpg`,
+  heroVideo: 'https://voyahlebanon.com/media/passion/hero-video.mp4',
+  heroPoster: 'https://voyahlebanon.com/media/passion/hero-video-poster.jpg',
   tagline: t(
     'The new executive electric flagship sedan',
     'La nouvelle berline électrique phare exécutive',
@@ -760,7 +726,7 @@ export const passionPageContent: ModelPageContent = {
         }
       ]
     },
-    { type: 'band', image: `${GLOBAL_IMG}/passion-profile.jpg`, variant: 'cta' },
+    { type: 'band', image: `${GLOBAL_IMG}/passion-profile.jpg`, variant: 'cta', cta: 'quote' },
     { type: 'specs' }
   ],
   configLabel: configLabelValue,
@@ -816,7 +782,8 @@ export const passionPageContent: ModelPageContent = {
 /** COURAGE : même gabarit de page, SUV 100 % électrique. */
 export const couragePageContent: ModelPageContent = {
   logo: `${GLOBAL_IMG}/courage-wordmark.png`,
-  heroPoster: `${GLOBAL_IMG}/courage-hero.jpg`,
+  heroVideo: '/assets/updates/courage-hero.mp4',
+  heroPoster: '/assets/updates/courage-hero-poster.jpg',
   tagline: t(
     'Premium electric SUV',
     'SUV électrique premium',
@@ -842,25 +809,25 @@ export const couragePageContent: ModelPageContent = {
         {
           image: `${GLOBAL_IMG}/courage-screen.jpg`,
           text: t(
-            'Large central screen for navigation, climate and media',
-            'Grand écran central pour la navigation, la climatisation et les médias',
-            'شاشة مركزية كبيرة للملاحة والتكييف والوسائط'
+            'High-definition central screen with intuitive access to navigation, climate control and multimedia functions',
+            'Écran central haute définition offrant un accès intuitif à la navigation, à la climatisation et aux fonctions multimédias.',
+            'شاشة مركزية عالية الدقة توفر وصولًا بديهيًا إلى الملاحة والتكييف والوظائف المتعددة الوسائط'
           )
         },
         {
           image: `${GLOBAL_IMG}/courage-seats.jpg`,
           text: t(
-            'Perforated seats with ventilation for the whole family',
-            'Sièges perforés et ventilés pour toute la famille',
-            'مقاعد مثقبة ومهواة لجميع أفراد العائلة'
+            'Perforated seats for the whole family',
+            'Sièges perforés pour toute la famille',
+            'مقاعد مثقبة لجميع أفراد العائلة'
           )
         },
         {
-          image: `${GLOBAL_IMG}/courage-trunk.jpg`,
+          image: '/assets/updates/courage-connected.png',
           text: t(
-            'Connected services and entertainment on board, every day and on holidays',
-            'Services connectés et divertissement à bord, au quotidien comme en vacances',
-            'خدمات متصلة وترفيه على متن السيارة يوميًا وفي العطلات'
+            'On-board entertainment',
+            'Divertissement à bord',
+            'ترفيه على متن السيارة'
           )
         }
       ]
@@ -877,30 +844,31 @@ export const couragePageContent: ModelPageContent = {
             'رؤية محيطية 360°'
           ),
           body: t(
-            'Surround cameras assist parking and tight city streets',
-            'Les caméras d’entourage assistent le stationnement et les ruelles étroites',
-            'كاميرات محيطية تساعد في الركن والشوارع الضيقة'
+            'Cameras make parking and manoeuvring in tight spaces easier',
+            'Les caméras facilitent le stationnement et les manœuvres dans les espaces serrés.',
+            'تسهّل الكاميرات ركن السيارة والمناورة في المساحات الضيقة'
           )
         },
         {
           image: `${GLOBAL_IMG}/courage-cargo.jpg`,
           title: t(
-            'A five-seater for getaways',
-            'Un cinq places pour les évasions',
-            'سيارة بخمسة مقاعد للنزهات'
+            'A fifth place for getaways',
+            'Une cinquième place pour les évasions',
+            'المكان الخامس للنزهات'
           ),
           body: t(
-            'Boot space and cabin modularity for weekends by the sea',
-            'Volume de coffre et modularité de l’habitacle pour les week-ends au bord de la mer',
-            'مساحة صندوق وتقسيمات مرنة لعطلات نهاية الأسبوع بجانب البحر'
+            'A large boot and a modular interior, ideal for adapting to all your needs',
+            'Un grand coffre et un intérieur modulable, idéal pour s’adapter à tous vos besoins.',
+            'صندوق كبير ومقصورة قابلة للتعديل، مثالية للتكيف مع جميع احتياجاتك'
           )
         }
       ]
     },
     {
       type: 'band',
-      image: `${COURAGE_IMG}/h37_pc17_0001.jpg`,
+      image: '/assets/updates/courage-charging.png',
       variant: 'intro',
+      fullImage: true,
       text: t(
         'A pure electric SUV sized for the city and relaxed on the highway.',
         'Un SUV 100 % électrique à la taille idéale en ville et serein sur autoroute.',
@@ -939,7 +907,7 @@ export const couragePageContent: ModelPageContent = {
         }
       ]
     },
-    { type: 'band', image: `${COURAGE_IMG}/h37_pc14_0001.jpg`, variant: 'cta' },
+    { type: 'band', image: '/assets/updates/courage-safety.png', variant: 'cta', cta: 'quote', fullImage: true },
     { type: 'specs' }
   ],
   configLabel: configLabelValue,
@@ -994,8 +962,8 @@ export const couragePageContent: ModelPageContent = {
 
 /** Contenu de page modèle par slug public ; absent = page modèle générique. */
 export const modelPageContentBySlug: Record<string, ModelPageContent> = {
-  'free.html': freePageContent,
-  'newDreamer26.html': dreamPageContent,
-  'passion.html': passionPageContent,
-  'courage.html': couragePageContent
+  'Free': freePageContent,
+  'Dream': dreamPageContent,
+  'Passion': passionPageContent,
+  'Courage': couragePageContent
 }

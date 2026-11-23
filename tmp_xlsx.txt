@@ -1,0 +1,200 @@
+1 |  ||  ||  || 
+2 |  || Voyah Courage / 80 kWh Premium || Voyah Free / 1.5 L Reev 43 kWh AWD Flagship || Voyah Dream / 1.5 L PHEV AWD
+3 |  || 121 000 DT || 165 000 DT || 260 000 DT
+4 |  || 🔗 || 🔗 || 🔗
+5 | CARACTÉRISTIQUES ||  ||  || 
+6 | Disponibilité || Disponible || En pré-commande || En pré-commande
+7 | Carrosserie || SUV || SUV || Monospace
+8 | Garantie || 10 ans (moteur et batterie) || 10 ans (moteur et batterie) || 10 ans (moteur et batterie)
+9 | Nombre de places || 5  || 5  || 7 
+10 | Nombre de portes || 5 || 5 || 5 / 2 portes latérales coulissantes
+11 | MOTORISATION ||  ||  || 
+12 | Nombre de cylindres ||  || 4  || 4 
+13 | Nombre de moteurs électriques || 1  || 2  || 2 
+14 | Energie  || Electrique || Essence / Électrique (REEV) || Essence / Hybride rechargeable
+15 | Puissance fiscale || 6 CV || 11 CV || 7 CV
+16 | Puissance (ch.din) || 292 CH || 490 CH || 420 CH
+17 | Batterie || 80 kWh || 43 kWh || 43 kWh
+18 | Type de batterie || LFP ||  || 
+19 | Couple || 420 nm0 tr/min || 720 nm0 tr/min || 620 nm2000 tr/min
+20 | Cylindrée ||  || 1498 CM³ || 1498 CM³
+21 | TRANSMISSION ||  ||  || 
+22 | Boîte || Automatique || Automatique || Automatique
+23 | Transmission || Propulsion || Intégrale || Intégrale
+24 | DIMENSIONS ||  ||  || 
+25 | Longueur  || 4725 mm || 4905 mm || 5315 mm
+26 | Largeur || 1900 mm || 1950 mm || 1985 mm
+27 | Hauteur || 1650 mm || 1645 mm || 1800 mm
+28 | Volume du coffre || 527 L || 560 L || 427 L
+29 | Volume du coffre maximal ||  || 1320 L || 2680 L
+30 | PERFORMANCES ||  ||  || 
+31 | 0-100 Km/h || 6.8 s || 4.5 s || 5.9 s
+32 | Vitesse maxi || 200 KM/H || 200 KM/H || 203 KM/H
+33 | Autonomie électrique (WLTP) || 476 km || 210 km || 160 km
+34 | CONSOMMATION ||  ||  || 
+35 | Consommation mixte  ||  || 6.7 L/100 km || 6.7 L/100 km
+36 | Consommation électrique (WLTP) || 18.9 kWh/100 km ||  || 
+37 | Temps de recharge normale (AC) || 9 heures || 4 heures || 4 heures
+38 | Temps de recharge rapide (DC) || 32 minutes || 25 minutes || 30 minutes
+39 | EQUIPEMENTS DE SÉCURITÉ ||  ||  || 
+40 | ABS || ✓ || ✓ || ✓
+41 | Airbags || Frontaux / Latéraux / Rideaux || Frontaux / Latéraux / Rideaux || Frontaux / Latéraux / Rideaux
+42 | Alarme antivol || ✓ ||  || 
+43 | Alerte de franchissement de ligne || LDW || LDW || LDW
+44 | Alerte de risque de collision || FCW / RCW || FCW / RCW || FCW / RCW
+45 | Allumage automatique des feux || ✓ || ✓ || ✓
+46 | Anti-démarrage électronique || ✓ || ✓ || ✓
+47 | Anti-patinage || ESC / ESP / ASR / TCS / ATC / TRC || ESP / ASR / TCS / DSC / CBC || ESC / ESP / ASR / TCS / ATC
+48 | Assistance au freinage || EBA / BAS / EBD /  Freinage automatique anti-collision (AEB) || EBA / EBD /  Freinage automatique anti-collision (AEB) || EBA / BAS / EBD /  Freinage automatique anti-collision (AEB)
+49 | Contrôle de pression des pneus || TPMS || TPMS || TPMS
+50 | Fixations ISOFIX || ✓ || ✓ || ✓
+51 | AIDES À LA CONDUITE ||  ||  || 
+52 | Aide au démarrage en côte || Autohold / HAC || Autohold / HAC || Autohold / HAC
+53 | Aide au maintien dans la voie || LKA / LCA / ELK || LKA / LCA || LKA / LCA
+54 | Aide au stationnement || Radar de recul / Radar avant / Système de caméras 360 || Radar de recul / Radar avant / Système de caméras 360 / Stat || Radar de recul / Radar avant / Système de caméras 360 / Stat
+55 | Alerte de circulation transversale || RCTA / FCTA || RCTA / FCTA || RCTA / FCTA
+56 | Assistant de feux de route || ✓ || ✓ || ✓
+57 | Conduite autonome || ISA || TJA / HWA || TJA / HWA
+58 | Contrôle de stabilité anti-retournement ||  || RSC || RSC
+59 | Détecteur de fatigue || ✓ || ✓ || ✓
+60 | Direction assistée || ✓ || ✓ || ✓ / Électrique
+61 | Limiteur de vitesse || ✓ / Intelligent ||  || Intelligent
+62 | Régulateur de vitesse || Adaptatif (ACC) || Adaptatif (ACC) || Adaptatif (ACC)
+63 | Reconnaissance des panneaux ||  || TSR || TSR
+64 | Surveillance d’angle mort || BSD || BSD || BSD
+65 | Système de descente en côte || HDC || HDC / CRBS || HDC
+66 | EQUIPEMENTS EXTÉRIEURS ||  ||  || 
+67 | Calandre || Avec signature lumineuse LED / Volets actifs (AGS) ||  || 
+68 | Barres de toit || ✓ ||  || 
+69 | Feux à LED || Feux de jour / Avant / Arrières || Feux de jour / Avant / Arrières || Feux de jour / Avant / Arrières
+70 | Jantes || En aluminium / 20'' || En aluminium / 20'' || En aluminium / 20''
+71 | Phares || Full LED / Directionnels || Full LED || Full LED
+72 | AUDIO ET COMMUNICATION ||  ||  || 
+73 | Autoradio || ✓ / Commandes au volant / Radio numérique DAB || ✓ / Commandes au volant / Système HiFi || ✓ / 10 haut-parleurs / Commandes au volant / Radio numérique
+74 | Connectivité || 2 USB / 2 USB-C / Android Auto / Apple Carplay / Bluetooth / || 2 USB-C / Android Auto / Apple Carplay / Bluetooth / Command || USB / USB-C / Android Auto / Apple Carplay / Bluetooth / Com
+75 | Ecran central || ✓ / Tactile / Curved Display / 15 pouces / OLED || ✓ / Déploiement électrique / Tactile / 12.3 pouces || ✓ / Tactile / 12.3 pouces
+76 | Ecran passager ||  || 12.3 pouces || 
+77 | EQUIPEMENTS INTÉRIEURS ||  ||  || 
+78 | Accoudoirs || Avant / Réfrigéré || Avant / Arrière || Avant / Arrière
+79 | Ciel de pavillon ||  ||  || Alcantara
+80 | Lumières d'ambiance || LED / 128 couleurs ||  || LED / 64 couleurs
+81 | Sellerie || Similicuir || Tissu || Cuir
+82 | Seuils de portes ||  ||  || Acier inoxydable / Eclairés
+83 | Sièges || Électriques / 12 directions / Chauffants / Massants / Ventil || Électriques / Chauffants / Massants / Ventilés / Réglage lom || Électriques / 12 directions / Chauffants / Massants / Ventil
+84 | Sièges réglables en hauteur || Conducteur et passager || Conducteur et passager || Conducteur et passager
+85 | Tapis de sol || ✓ || ✓ || ✓
+86 | Toit || Panoramique || Panoramique || Ouvrant
+87 | Vitres ||  || Lunette et vitres arrières sur-teintées / Acoustiques || Lunette et vitres arrières sur-teintées / Avant et arrière f
+88 | Volant || Similicuir / Multi-fonctions || Cuir / Multi-fonctions || Cuir / Chauffant / Multi-fonctions
+89 | Volant réglable || En hauteur et en profondeur || En hauteur et en profondeur || En hauteur et en profondeur
+90 | EQUIPEMENTS FONCTIONNELS ||  ||  || 
+91 | Affichage tête haute || ✓ / HUD ||  || 
+92 | Alimentation électrique || 2 prises 12 V || 1 prise 12 V || 1 prise 12 V
+93 | Bouton Start & Stop || Démarrage mains libres || Démarrage mains libres || Démarrage mains libres
+94 | Caméra d'enregistrement de conduite ||  ||  || ✓
+95 | Clé intelligente || Accès mains libres / Démarrage à distance / Réglage de la te || Accès mains libres || Accès mains libres / Démarrage à distance
+96 | Climatisation || Automatique / Bizone / Purificateur d'air || Automatique / Bizone / Purificateur d'air || Automatique / 3 zones / Purificateur d'air
+97 | Détecteur de pluie || ✓ || ✓ || ✓
+98 | Fermeture centralisée || À distance || À distance || À distance
+99 | Frein de stationnement || Éléctrique || Éléctrique || Éléctrique
+100 | Modes de conduite || Confort / Eco / Perso / Neige / Performance / Touring || Confort / Eco / Perso / Neige / Haute énergie || Confort / Sport / Eco / Neige / Touring
+101 | Ordinateur de bord || ✓ || ✓ || ✓
+102 | Rétroviseur intérieur || Anti-éblouissement  || Anti-éblouissement  || Anti-éblouissement 
+103 | Rétroviseurs extérieurs || Électriques / Rabattables / Dégivrants / Avec clignotants in || Électriques / Rabattables / Dégivrants / Mémoire de position || Électriques / Rabattables / Dégivrants / Mémoire de position
+104 | Suspension ||  || Pneumatique || 
+105 | Système de récupération d'énergie ||  ||  || ✓
+106 | Instrumentation digitale || 6 pouces || ✓ / 12.3 pouces || ✓ / 12.3 pouces
+107 | Vitres électriques || Avant/Arrière || Avant/Arrière || Avant/Arrière
+108 |  ||  ||  || 
+109 |  ||  ||  || 
+110 |  ||  ||  || 
+111 |  ||  ||  || 
+112 |  ||  ||  || 
+113 |  ||  ||  || 
+114 |  ||  ||  || 
+115 |  ||  ||  || 
+116 |  ||  ||  || 
+117 |  ||  ||  || 
+118 |  ||  ||  || 
+119 |  ||  ||  || 
+120 |  ||  ||  || 
+121 |  ||  ||  || 
+122 |  ||  ||  || 
+123 |  ||  ||  || 
+124 |  ||  ||  || 
+125 |  ||  ||  || 
+126 |  ||  ||  || 
+127 |  ||  ||  || 
+128 |  ||  ||  || 
+129 |  ||  ||  || 
+130 |  ||  ||  || 
+131 |  ||  ||  || 
+132 |  ||  ||  || 
+133 |  ||  ||  || 
+134 |  ||  ||  || 
+135 |  ||  ||  || 
+136 |  ||  ||  || 
+137 |  ||  ||  || 
+138 |  ||  ||  || 
+139 |  ||  ||  || 
+140 |  ||  ||  || 
+141 |  ||  ||  || 
+142 |  ||  ||  || 
+143 |  ||  ||  || 
+144 |  ||  ||  || 
+145 |  ||  ||  || 
+146 |  ||  ||  || 
+147 |  ||  ||  || 
+148 |  ||  ||  || 
+149 |  ||  ||  || 
+150 |  ||  ||  || 
+151 |  ||  ||  || 
+152 |  ||  ||  || 
+153 |  ||  ||  || 
+154 |  ||  ||  || 
+155 |  ||  ||  || 
+156 |  ||  ||  || 
+157 |  ||  ||  || 
+158 |  ||  ||  || 
+159 |  ||  ||  || 
+160 |  ||  ||  || 
+161 |  ||  ||  || 
+162 |  ||  ||  || 
+163 |  ||  ||  || 
+164 |  ||  ||  || 
+165 |  ||  ||  || 
+166 |  ||  ||  || 
+167 |  ||  ||  || 
+168 |  ||  ||  || 
+169 |  ||  ||  || 
+170 |  ||  ||  || 
+171 |  ||  ||  || 
+172 |  ||  ||  || 
+173 |  ||  ||  || 
+174 |  ||  ||  || 
+175 |  ||  ||  || 
+176 |  ||  ||  || 
+177 |  ||  ||  || 
+178 |  ||  ||  || 
+179 |  ||  ||  || 
+180 |  ||  ||  || 
+181 |  ||  ||  || 
+182 |  ||  ||  || 
+183 |  ||  ||  || 
+184 |  ||  ||  || 
+185 |  ||  ||  || 
+186 |  ||  ||  || 
+187 |  ||  ||  || 
+188 |  ||  ||  || 
+189 |  ||  ||  || 
+190 |  ||  ||  || 
+191 |  ||  ||  || 
+192 |  ||  ||  || 
+193 |  ||  ||  || 
+194 |  ||  ||  || 
+195 |  ||  ||  || 
+196 |  ||  ||  || 
+197 |  ||  ||  || 
+198 |  ||  ||  || 
+199 |  ||  ||  || 
+200 |  ||  ||  || 

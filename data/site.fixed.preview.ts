@@ -236,15 +236,15 @@ export const navigation: NavItem[] = [
     label: t('Models', 'Modèles', 'الطرازات'),
     children: [
       { label: t('Voyah Passion L', 'Voyah Passion L', 'Voyah Passion L'), slug: 'passion-L.html', thumb: '/voyah-resources/images/car/car_logo/passion-L.png' },
-      { label: t('Voyah Passion', 'Voyah Passion', 'Voyah Passion'), slug: 'passion.html', thumb: '/voyah-resources/images/car/car_logo/passion.png' },
+      { label: t('Voyah Passion', 'Voyah Passion', 'Voyah Passion'), slug: 'Passion', thumb: '/voyah-resources/images/car/car_logo/passion.png' },
       { label: t('Voyah Titan', 'Voyah Titan', 'Voyah Titan'), slug: 'titan.html', thumb: '/voyah-resources/images/car/car_logo/titan.png' },
       { label: t('Voyah Titan Black Edition', 'Voyah Titan Black Edition', 'Voyah Titan Black Edition'), slug: 'titan_blackedition.html', thumb: '/voyah-resources/images/car/car_logo/titan_blackedition.png' },
       { label: t('Voyah Titan X8', 'Voyah Titan X8', 'Voyah Titan X8'), slug: 'titan_X8.html', thumb: '/voyah-resources/images/car/car_logo/titan_X8.png' },
       { label: t('Voyah FREE+', 'Voyah FREE+', 'Voyah FREE+'), slug: 'free+.html', thumb: '/voyah-resources/images/car/car_logo/free+.png' },
-      { label: t('Voyah FREE 318', 'Voyah FREE 318', 'Voyah FREE 318'), slug: 'free.html', thumb: '/voyah-resources/images/car/car_logo/free.png' },
+      { label: t('Voyah FREE 318', 'Voyah FREE 318', 'Voyah FREE 318'), slug: 'Free', thumb: '/voyah-resources/images/car/car_logo/free.png' },
       { label: t('New Voyah Courage', 'Nouveau Voyah Courage', 'Voyah Courage الجديد'), slug: 'newCourage.html', thumb: '/voyah-resources/images/car/car_logo/newCourage.png' },
-      { label: t('Voyah Courage', 'Voyah Courage', 'Voyah Courage'), slug: 'courage.html', thumb: '/voyah-resources/images/car/car_logo/courage.png' },
-      { label: t('26 Voyah Dreamer', 'Voyah Dreamer 26', 'Voyah Dreamer 26'), slug: 'newDreamer26.html', thumb: '/voyah-resources/images/car/car_logo/newDreamer26.png' },
+      { label: t('Voyah Courage', 'Voyah Courage', 'Voyah Courage'), slug: 'Courage', thumb: '/voyah-resources/images/car/car_logo/courage.png' },
+      { label: t('26 Voyah Dreamer', 'Voyah Dreamer 26', 'Voyah Dreamer 26'), slug: 'Dream', thumb: '/voyah-resources/images/car/car_logo/newDreamer26.png' },
       { label: t('25 Voyah Dreamer', 'Voyah Dreamer 25', 'Voyah Dreamer 25'), slug: 'newDreamer.html', thumb: '/voyah-resources/images/car/car_logo/newDreamer.png' },
       { label: t('Voyah Dreamer Mountain River', 'Voyah Dreamer Montagne-Rivière', 'Voyah Dreamer Mountain River'), slug: 'dreamriver.html', thumb: '/voyah-resources/images/car/car_logo/dreamriver.png' },
       { label: t('24 Voyah Dreamer', 'Voyah Dreamer 24', 'Voyah Dreamer 24'), slug: 'dreamer.html', thumb: '/voyah-resources/images/car/car_logo/dreamer.png' }
@@ -293,7 +293,7 @@ const models: ModelDefinition[] = [
     ]
   }),
   makeModel({
-    slug: 'passion.html',
+    slug: 'Passion',
     title: t('Voyah Passion', 'Voyah Passion', 'Voyah Passion'),
     subtitle: t('Performance electric sedan', 'Berline électrique performante', 'سيدان كهربائية عالية الأداء'),
     description: t('A sleek electric sedan pairing decisive proportions with a quiet cabin and high-speed touring character.', 'Une berline électrique élancée qui associe des proportions affirmées à un habitacle silencieux et un tempérament grand tourisme.', 'سيدان كهربائية أنيقة تجمع بين التناسق الجريء والمقصورة الهادئة وروح السفر السريع.'),
@@ -384,7 +384,7 @@ const models: ModelDefinition[] = [
     ]
   }),
   makeModel({
-    slug: 'free.html',
+    slug: 'Free',
     title: t('Voyah FREE 318', 'Voyah FREE 318', 'Voyah FREE 318'),
     subtitle: t('Long-range crossover expression', 'Expression crossover longue autonomie', 'كروس أوفر بمدى طويل'),
     description: t('A crossover package balancing touring composure, elevated seating, and everyday premium usability.', 'Un crossover qui équilibre sérénité sur long trajet, position de conduite surélevée et usage premium au quotidien.', 'حزمة كروس أوفر توازن بين الراحة في السفر والجلوس المرتفع والاستخدام الفاخر اليومي.'),
@@ -422,7 +422,7 @@ const models: ModelDefinition[] = [
     ]
   }),
   makeModel({
-    slug: 'courage.html',
+    slug: 'Courage',
     title: t('Voyah Courage', 'Voyah Courage', 'Voyah Courage'),
     subtitle: t('Compact premium electric SUV', 'SUV électrique premium compact', 'SUV كهربائية فاخرة مدمجة'),
     description: t('A compact premium SUV shaped for agile urban use while preserving Voyah refinement and visual confidence.', 'Un SUV premium compact pensé pour l'agilité urbaine sans sacrifier le raffinement Voyah ni sa présence visuelle.', 'سيارة SUV فاخرة مدمجة موجهة للمدينة مع الحفاظ على رقي Voyah وحضورها الواثق.'),
@@ -441,7 +441,7 @@ const models: ModelDefinition[] = [
     ]
   }),
   makeModel({
-    slug: 'newDreamer26.html',
+    slug: 'Dream',
     title: t('26 Voyah Dreamer', 'Voyah Dreamer 26', 'Voyah Dreamer 26'),
     subtitle: t('Luxury family MPV flagship', 'Monospace familial de luxe', 'MPV عائلية فاخرة'),
     description: t('A new-generation Dreamer with lounge-like comfort, refined long-distance composure, and premium family focus.', 'Une nouvelle génération Dreamer avec un confort de salon, une grande sérénité sur longue distance et une vocation familiale premium.', 'الجيل الجديد من Dreamer يوفر راحة شبيهة بالصالون وثباتاً راقياً في الرحلات الطويلة وتركيزاً عائلياً فاخراً.'),
@@ -831,7 +831,7 @@ export const homePage: HomeData = {
       description: t('A new-era flagship MPV', 'Un monospace phare de nouvelle génération', 'سيارة MPV رائدة من الجيل الجديد'),
       primaryLabel: t('Learn more', 'En savoir plus', 'اعرف المزيد'),
       secondaryLabel: t('Order now', 'Commander', 'اطلب الآن'),
-      primarySlug: 'newDreamer26.html',
+      primarySlug: 'Dream',
       secondarySlug: 'store.html'
     },
     {
@@ -901,7 +901,7 @@ export const homePage: HomeData = {
       ]
     },
     {
-      slug: 'newDreamer26.html',
+      slug: 'Dream',
       image: '/website/advertisingseries/image/7ef23102-331e-418d-9139-72a7c77264011770618843718.jpg',
       title: t('26 Voyah Dreamer', 'Voyah Dreamer 26', 'Voyah Dreamer 26'),
       category: t('A new-era flagship MPV', 'Un monospace phare de nouvelle génération', 'سيارة MPV رائدة من الجيل الجديد'),
@@ -1147,15 +1147,15 @@ export const footerColumns: FooterColumn[] = [
     title: t('Models', 'Modèles', 'الطرازات'),
     links: [
       { label: t('Voyah Passion L', 'Voyah Passion L', 'Voyah Passion L'), slug: 'passion-L.html' },
-      { label: t('Voyah Passion', 'Voyah Passion', 'Voyah Passion'), slug: 'passion.html' },
+      { label: t('Voyah Passion', 'Voyah Passion', 'Voyah Passion'), slug: 'Passion' },
       { label: t('Voyah Titan', 'Voyah Titan', 'Voyah Titan'), slug: 'titan.html' },
       { label: t('Voyah Titan Black Edition', 'Voyah Titan Black Edition', 'Voyah Titan Black Edition'), slug: 'titan_blackedition.html' },
       { label: t('Voyah Titan X8', 'Voyah Titan X8', 'Voyah Titan X8'), slug: 'titan_X8.html' },
       { label: t('Voyah FREE+', 'Voyah FREE+', 'Voyah FREE+'), slug: 'free+.html' },
       { label: t('New Voyah Courage', 'Nouveau Voyah Courage', 'Voyah Courage الجديد'), slug: 'newCourage.html' },
-      { label: t('Voyah FREE 318', 'Voyah FREE 318', 'Voyah FREE 318'), slug: 'free.html' },
-      { label: t('Voyah Courage', 'Voyah Courage', 'Voyah Courage'), slug: 'courage.html' },
-      { label: t('26 Voyah Dreamer', 'Voyah Dreamer 26', 'Voyah Dreamer 26'), slug: 'newDreamer26.html' }
+      { label: t('Voyah FREE 318', 'Voyah FREE 318', 'Voyah FREE 318'), slug: 'Free' },
+      { label: t('Voyah Courage', 'Voyah Courage', 'Voyah Courage'), slug: 'Courage' },
+      { label: t('26 Voyah Dreamer', 'Voyah Dreamer 26', 'Voyah Dreamer 26'), slug: 'Dream' }
     ]
   },
   {

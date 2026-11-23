@@ -1,0 +1,162 @@
+import { defineEventHandler, readBody, getRequestIP, createError } from 'file://E:/voyah/node_modules/h3/dist/index.mjs';
+import { a as useRuntimeConfig, b as useStorage } from '../../_/nitro.mjs';
+import { randomUUID } from 'node:crypto';
+import { createTransport } from 'file://E:/voyah/node_modules/nodemailer/dist/esm/nodemailer.js';
+import { l as leadForms, m as modelKeyValue, p as publicModelSlugs } from '../../_/dealer.mjs';
+import 'file://E:/voyah/node_modules/destr/dist/index.mjs';
+import 'file://E:/voyah/node_modules/hookable/dist/index.mjs';
+import 'file://E:/voyah/node_modules/ofetch/dist/node.mjs';
+import 'file://E:/voyah/node_modules/node-mock-http/dist/index.mjs';
+import 'file://E:/voyah/node_modules/unstorage/dist/index.mjs';
+import 'file://E:/voyah/node_modules/unstorage/drivers/fs.mjs';
+import 'file:///E:/voyah/node_modules/@nuxt/nitro-server/dist/runtime/utils/cache-driver.js';
+import 'file://E:/voyah/node_modules/unstorage/drivers/fs-lite.mjs';
+import 'file://E:/voyah/node_modules/ohash/dist/index.mjs';
+import 'file://E:/voyah/node_modules/klona/dist/index.mjs';
+import 'file://E:/voyah/node_modules/defu/dist/defu.mjs';
+import 'file://E:/voyah/node_modules/scule/dist/index.mjs';
+import 'file://E:/voyah/node_modules/radix3/dist/index.mjs';
+import 'node:fs';
+import 'node:url';
+import 'file://E:/voyah/node_modules/pathe/dist/index.mjs';
+
+const MAX_LENGTH = 2e3;
+const WINDOW_MS = 10 * 60 * 1e3;
+const MAX_PER_WINDOW = 5;
+const attempts = /* @__PURE__ */ new Map();
+const throttled = (ip) => {
+  var _a;
+  const now = Date.now();
+  const recent = ((_a = attempts.get(ip)) != null ? _a : []).filter((time) => now - time < WINDOW_MS);
+  if (recent.length >= MAX_PER_WINDOW) {
+    return true;
+  }
+  recent.push(now);
+  attempts.set(ip, recent);
+  return false;
+};
+const asString = (value) => typeof value === "string" ? value.trim().slice(0, MAX_LENGTH) : "";
+const isEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
+const isRecord = (value) => typeof value === "object" && value !== null && !Array.isArray(value);
+const escape = (value) => value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+const localize = (text, locale) => {
+  var _a, _b;
+  return (_b = (_a = text[locale]) != null ? _a : text.en) != null ? _b : text.fr;
+};
+const badRequest = (statusMessage) => createError({ statusCode: 400, statusMessage });
+const lead_post = defineEventHandler(async (event) => {
+  var _a, _b, _c, _d;
+  const body = await readBody(event).catch(() => null);
+  if (!isRecord(body)) {
+    throw badRequest("Invalid request body");
+  }
+  const formKey = asString(body.form);
+  if (!Object.prototype.hasOwnProperty.call(leadForms, formKey)) {
+    throw badRequest("Unknown form");
+  }
+  const schema = leadForms[formKey];
+  const isQuote = formKey === "quote";
+  if (throttled(getRequestIP(event) || "unknown")) {
+    throw createError({ statusCode: 429, statusMessage: "Too many requests" });
+  }
+  if (asString(body.company)) {
+    if (isQuote) {
+      throw badRequest("Invalid submission");
+    }
+    return { ok: true };
+  }
+  if (!isRecord(body.fields)) {
+    throw badRequest("Fields must be an object");
+  }
+  const raw = body.fields;
+  const values = {};
+  for (const field of schema.fields) {
+    const input = typeof raw[field.name] === "string" ? raw[field.name] : "";
+    if (input.length > MAX_LENGTH) {
+      throw badRequest(`${field.name} is too long`);
+    }
+    const value = input.trim();
+    if (field.required && !value) {
+      throw badRequest(`${field.name} is required`);
+    }
+    if (field.type === "email" && (/[\r\n]/.test(input) || value && !isEmail(value))) {
+      throw badRequest(`${field.name} is not a valid e-mail`);
+    }
+    if (field.allowedValues && value && !field.allowedValues.includes(value)) {
+      throw badRequest(`${field.name} is not an allowed value`);
+    }
+    values[field.name] = value;
+  }
+  const locale = ["en", "fr", "ar"].includes(asString(body == null ? void 0 : body.locale)) ? asString(body == null ? void 0 : body.locale) : "fr";
+  const modelSlug = values.model;
+  const modelLabel = modelSlug && publicModelSlugs.includes(modelSlug) ? modelKeyValue[modelSlug] : modelSlug || "";
+  const lead = {
+    receivedAt: (/* @__PURE__ */ new Date()).toISOString(),
+    form: formKey,
+    locale,
+    model: modelLabel,
+    values,
+    ip: getRequestIP(event) || ""
+  };
+  const config = useRuntimeConfig(event);
+  const to = ((_a = config.mail) == null ? void 0 : _a.to) || config.leadTo || config.smtp.user;
+  const from = ((_b = config.mail) == null ? void 0 : _b.from) || config.smtp.from || config.smtp.user;
+  await useStorage("leads").setItem(`${randomUUID()}-${formKey}.json`, lead);
+  if (isQuote && (!config.smtp.host || !config.smtp.user || !config.smtp.pass || !from)) {
+    console.warn("[lead] Quote SMTP not configured; lead stored only");
+    throw createError({ statusCode: 503, statusMessage: "Mail service unavailable" });
+  }
+  if (!to) {
+    console.error("[lead] no recipient configured (NUXT_MAIL_TO, NUXT_LEAD_TO or NUXT_SMTP_USER); lead stored only");
+    return { ok: true };
+  }
+  if (!config.smtp.host || !config.smtp.pass) {
+    console.warn("[lead] SMTP not configured; lead stored only");
+    return { ok: true };
+  }
+  const notificationLocale = isQuote ? "fr" : locale;
+  const notificationValue = (name) => isQuote && name === "model" ? modelLabel : values[name];
+  const notificationHtml = (name) => {
+    const value = escape(notificationValue(name) || "\u2014");
+    return isQuote ? value.replace(/\r\n|\r|\n/g, "<br>") : value;
+  };
+  const rows = schema.fields.map(
+    (field) => `<tr><td style="padding:6px 12px;border-bottom:1px solid #eee">${escape(
+      localize(field.label, notificationLocale)
+    )}</td><td style="padding:6px 12px;border-bottom:1px solid #eee">${notificationHtml(field.name)}</td></tr>`
+  ).join("");
+  const html = `<h2 style="font-family:sans-serif">${escape(localize(schema.title, notificationLocale))}</h2>
+<table style="border-collapse:collapse;font-family:sans-serif;font-size:14px">${rows}</table>
+<p style="font-family:sans-serif;color:#666">Re\xE7u le ${escape(lead.receivedAt)}</p>`;
+  const text = schema.fields.map((field) => `${localize(field.label, notificationLocale)}: ${notificationValue(field.name) || "-"}`).join("\n");
+  const port = Number(config.smtp.port) || 465;
+  try {
+    const result = await createTransport({
+      host: config.smtp.host,
+      port,
+      secure: port === 465 || port !== 587 && String(config.smtp.secure).toLowerCase() === "true",
+      requireTLS: port === 587,
+      connectionTimeout: 1e4,
+      greetingTimeout: 1e4,
+      socketTimeout: 3e4,
+      auth: { user: config.smtp.user, pass: config.smtp.pass }
+    }).sendMail({
+      from,
+      to,
+      replyTo: values.email || void 0,
+      subject: localize(schema.subject, notificationLocale),
+      text,
+      html
+    });
+    if (isQuote && (!((_c = result.accepted) == null ? void 0 : _c.length) || ((_d = result.rejected) == null ? void 0 : _d.length))) {
+      throw new Error("One or more quote recipients were not accepted");
+    }
+  } catch {
+    console.error("[lead] SMTP send failed");
+    throw createError({ statusCode: 502, statusMessage: "Mail delivery failed" });
+  }
+  return { ok: true };
+});
+
+export { lead_post as default };
+//# sourceMappingURL=lead.post.mjs.map

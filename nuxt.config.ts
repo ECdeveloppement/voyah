@@ -2,6 +2,8 @@ import { locales, supportedSlugs } from './data/site'
 
 const prerenderRoutes = [
   '/',
+  '/robots.txt',
+  '/sitemap.xml',
   ...locales.flatMap((locale) => [
     `/${locale.code}`,
     ...supportedSlugs.map((slug) => `/${locale.code}/${slug}`)
@@ -30,7 +32,7 @@ export default defineNuxtConfig({
     payloadExtraction: false
   },
   css: ['~/assets/styles/main.css'],
-  modules: ['@nuxtjs/i18n'],
+  modules: ['@nuxtjs/i18n', '@tresjs/nuxt'],
   i18n: {
     bundle: {
       optimizeTranslationDirective: false
@@ -56,6 +58,10 @@ export default defineNuxtConfig({
     }
   },
   runtimeConfig: {
+    // Surchargé par NUXT_PUBLIC_SITE_URL (canonical, hreflang, sitemap, Open Graph).
+    public: {
+      siteUrl: 'https://voyahtunisie.com'
+    },
     // Renseignés par les variables d'environnement NUXT_SMTP_* / NUXT_MAIL_* / NUXT_LEAD_*
     smtp: {
       host: '',

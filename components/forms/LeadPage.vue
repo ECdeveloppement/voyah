@@ -1,5 +1,6 @@
 <template>
-  <div class="lead-page">
+  <QuotePage v-if="formKey === 'quote'" :key="locale.code" />
+  <div v-else class="lead-page">
     <section v-if="page.heroImage" class="lead-hero">
       <img :src="page.heroImage" :alt="formTitle" />
       <div class="lead-hero__scrim" />
@@ -17,7 +18,7 @@
         </div>
 
         <aside v-if="asideImage" class="lead-page__aside">
-          <img :src="asideImage" :alt="textFor(modelDisplayName['free.html'])" />
+          <img :src="asideImage" :alt="textFor(modelDisplayName['Free'])" />
         </aside>
       </div>
     </div>
@@ -29,6 +30,7 @@ import type { InfoDefinition } from '~/data/site'
 import { homePage } from '~/data/site'
 import { leadForms, modelDisplayName } from '~/data/dealer'
 import LeadForm from '~/components/forms/LeadForm.vue'
+import QuotePage from '~/components/forms/QuotePage.vue'
 import { useSiteContent } from '~/composables/useSiteContent'
 
 const props = defineProps<{

@@ -35,6 +35,7 @@
   <RecruitPage v-else-if="infoPage?.slug === 'recruit-partners.html'" :page="infoPage" />
   <JoinUsPage v-else-if="infoPage?.slug === 'joinus.html'" :page="infoPage" />
   <AboutPage v-else-if="infoPage?.slug === 'about.html'" :page="infoPage" />
+  <NewsArticlePage v-else-if="newsArticleItem" :item="newsArticleItem" />
   <NewsPage v-else-if="infoPage?.slug === 'news.html'" :page="infoPage" />
   <PhilosophyPage v-else-if="infoPage?.slug === 'brand-philosophy.html'" :page="infoPage" />
   <KunpengPage v-else-if="infoPage?.slug === 'kunpeng-design.html'" :page="infoPage" />
@@ -84,6 +85,8 @@ import RecruitPage from '~/components/corporate/RecruitPage.vue'
 import JoinUsPage from '~/components/corporate/JoinUsPage.vue'
 import AboutPage from '~/components/brand/AboutPage.vue'
 import NewsPage from '~/components/brand/NewsPage.vue'
+import NewsArticlePage from '~/components/brand/NewsArticlePage.vue'
+import { findNewsItemByPage } from '~/data/news'
 import PhilosophyPage from '~/components/brand/PhilosophyPage.vue'
 import KunpengPage from '~/components/brand/KunpengPage.vue'
 import FaqPage from '~/components/service/FaqPage.vue'
@@ -93,6 +96,7 @@ import CommunityPage from '~/components/lifestyle/CommunityPage.vue'
 import LifestyleStorePage from '~/components/lifestyle/LifestyleStorePage.vue'
 import { resolvePage, type InfoDefinition } from '~/data/site'
 import { useSiteContent } from '~/composables/useSiteContent'
+import { useBreadcrumbSeo, useProductSeo } from '~/composables/useSeo'
 
 definePageMeta({
   validate: (route) => {
@@ -110,13 +114,14 @@ const qatarContent = computed(() =>
   modelPage.value ? modelPageContentBySlug[modelPage.value.slug] ?? null : null
 )
 const infoPage = computed(() => (page.value?.kind === 'info' ? page.value : null))
+const newsArticleItem = computed(() => findNewsItemByPage(infoPage.value?.slug))
 const legalPage = computed(() => (page.value?.kind === 'legal' ? page.value : null))
 
 const { textFor, locale } = useSiteContent()
 const leadFormBySlug: Partial<Record<string, LeadFormKey>> = {
   'book-drive.html': 'test-drive',
   'book-service.html': 'service',
-  'quote.html': 'quote'
+  'devis': 'quote'
 }
 const leadPage = computed(() => {
   const info = infoPage.value
@@ -137,16 +142,36 @@ const legacyDisclosurePage = computed<InfoDefinition | null>(() => {
     : null
 })
 
+const seoTitleSource = () => modelPage.value?.title ?? infoPage.value?.title ?? legalPage.value?.title
+const pageTitle = () => {
+  const title = seoTitleSource()
+  return title ? `Voyah | ${textFor(title)}` : 'Voyah'
+}
+const pageDescription = () => {
+  const description =
+    modelPage.value?.description ?? infoPage.value?.summary ?? legalPage.value?.summary
+  return description ? textFor(description) : 'Voyah'
+}
+
 useSeoMeta({
-  title: () => {
-    const title = modelPage.value?.title ?? infoPage.value?.title ?? legalPage.value?.title
-    return title ? `Voyah | ${textFor(title)}` : 'Voyah'
-  },
-  description: () => {
-    const description = modelPage.value?.description ?? infoPage.value?.summary ?? legalPage.value?.summary
-    return description ? textFor(description) : 'Voyah'
-  }
+  title: pageTitle,
+  description: pageDescription,
+  ogTitle: pageTitle,
+  ogDescription: pageDescription,
+  twitterTitle: pageTitle,
+  twitterDescription: pageDescription
 })
+
+useBreadcrumbSeo(
+  computed(() => {
+    const title = seoTitleSource()
+    return title ? textFor(title) : 'Voyah'
+  })
+)
+
+// Product JSON-LD pour Free / Dream / Courage (Passion reste dans les données,
+// sa page reste accessible comme auparavant, seul l'affichage est masqué).
+useProductSeo(modelPage)
 
 useHead({
   link: [
@@ -172,22 +197,6 @@ useHead({
           { rel: 'stylesheet', href: '/static/assets/purchasingDetail-f1d6b99d.css' }
         ]
       : [])
-  ],
-  meta: [
-    {
-      name: 'og:title',
-      content: () => {
-        const title = modelPage.value?.title ?? infoPage.value?.title ?? legalPage.value?.title
-        return title ? `Voyah | ${textFor(title)}` : 'Voyah'
-      }
-    },
-    {
-      name: 'og:description',
-      content: () => {
-        const description = modelPage.value?.description ?? infoPage.value?.summary ?? legalPage.value?.summary
-        return description ? textFor(description) : 'Voyah'
-      }
-    }
   ]
 })
 </script>

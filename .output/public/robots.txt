@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Zones techniques et formulaires sans valeur de référencement
+Disallow: /api/
+Disallow: /scratch/
+Disallow: /_nuxt/
+Disallow: /devis
+Disallow: /*/devis
+Disallow: /book-drive.html
+Disallow: /*/book-drive.html
+Disallow: /book-service.html
+Disallow: /*/book-service.html
+
+Sitemap: https://voyahtunisie.com/sitemap.xml

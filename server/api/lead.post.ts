@@ -1,3 +1,4 @@
+import { randomUUID } from 'node:crypto'
 import type { H3Event } from 'h3'
 import { createTransport } from 'nodemailer'
 import { createError, defineEventHandler, getRequestIP, readBody, useRuntimeConfig, useStorage } from '#imports'
@@ -27,6 +28,9 @@ const asString = (value: unknown) =>
 
 const isEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value)
 
+const isRecord = (value: unknown): value is Record<string, unknown> =>
+  typeof value === 'object' && value !== null && !Array.isArray(value)
+
 const escape = (value: string) =>
   value
     .replace(/&/g, '&amp;')
@@ -40,24 +44,38 @@ const localize = (text: Localized, locale: string) =>
 const badRequest = (statusMessage: string) => createError({ statusCode: 400, statusMessage })
 
 export default defineEventHandler(async (event: H3Event) => {
-  const body = (await readBody(event).catch(() => null)) as Record<string, unknown> | null
-  const formKey = asString(body?.form) as LeadFormKey
-  const schema = leadForms[formKey]
+  const body: unknown = await readBody(event).catch(() => null)
 
-  if (!schema) {
+  if (!isRecord(body)) {
+    throw badRequest('Invalid request body')
+  }
+
+  const formKey = asString(body.form) as LeadFormKey
+
+  if (!Object.prototype.hasOwnProperty.call(leadForms, formKey)) {
     throw badRequest('Unknown form')
   }
+
+  const schema = leadForms[formKey]
+  const isQuote = formKey === 'quote'
 
   if (throttled(getRequestIP(event) || 'unknown')) {
     throw createError({ statusCode: 429, statusMessage: 'Too many requests' })
   }
 
-  // Honeypot : un robot qui remplit ce champ caché obtient une réponse vide.
-  if (asString(body?.company)) {
+  // Un devis ne doit jamais annoncer un succès sans acceptation SMTP.
+  if (asString(body.company)) {
+    if (isQuote) {
+      throw badRequest('Invalid submission')
+    }
     return { ok: true }
   }
 
-  const raw = (body?.fields ?? {}) as Record<string, unknown>
+  if (!isRecord(body.fields)) {
+    throw badRequest('Fields must be an object')
+  }
+
+  const raw = body.fields
   const values: Record<string, string> = {}
 
   for (const field of schema.fields) {
@@ -73,8 +91,12 @@ export default defineEventHandler(async (event: H3Event) => {
       throw badRequest(`${field.name} is required`)
     }
 
-    if (field.type === 'email' && value && !isEmail(value)) {
+    if (field.type === 'email' && (/[\r\n]/.test(input) || (value && !isEmail(value)))) {
       throw badRequest(`${field.name} is not a valid e-mail`)
+    }
+
+    if (field.allowedValues && value && !field.allowedValues.includes(value)) {
+      throw badRequest(`${field.name} is not an allowed value`)
     }
 
     values[field.name] = value
@@ -98,12 +120,18 @@ export default defineEventHandler(async (event: H3Event) => {
 
   const config = useRuntimeConfig(event)
   const to = config.mail?.to || config.leadTo || config.smtp.user
+  const from = config.mail?.from || config.smtp.from || config.smtp.user
 
-  // Toute demande est archivée : la boîte mail du revendeur reste joignable même en cas d'échec SMTP.
-  await useStorage('leads').setItem(`${Date.now()}-${formKey}.json`, lead)
+  // Toute demande validée est archivée, même en cas d'échec SMTP.
+  await useStorage('leads').setItem(`${randomUUID()}-${formKey}.json`, lead)
+
+  if (isQuote && (!config.smtp.host || !config.smtp.user || !config.smtp.pass || !from)) {
+    console.warn('[lead] Quote SMTP not configured; lead stored only')
+    throw createError({ statusCode: 503, statusMessage: 'Mail service unavailable' })
+  }
 
   if (!to) {
-    console.error('[lead] no recipient configured (NUXT_LEAD_TO or NUXT_SMTP_USER); lead stored only')
+    console.error('[lead] no recipient configured (NUXT_MAIL_TO, NUXT_LEAD_TO or NUXT_SMTP_USER); lead stored only')
     return { ok: true }
   }
 
@@ -112,39 +140,57 @@ export default defineEventHandler(async (event: H3Event) => {
     return { ok: true }
   }
 
+  const notificationLocale = isQuote ? 'fr' : locale
+  const notificationValue = (name: string) =>
+    isQuote && name === 'model' ? modelLabel : values[name]
+  const notificationHtml = (name: string) => {
+    const value = escape(notificationValue(name) || '—')
+    return isQuote ? value.replace(/\r\n|\r|\n/g, '<br>') : value
+  }
+
   const rows = schema.fields
     .map(
       (field) =>
         `<tr><td style="padding:6px 12px;border-bottom:1px solid #eee">${escape(
-          localize(field.label, locale)
-        )}</td><td style="padding:6px 12px;border-bottom:1px solid #eee">${escape(values[field.name] || '—')}</td></tr>`
+          localize(field.label, notificationLocale)
+        )}</td><td style="padding:6px 12px;border-bottom:1px solid #eee">${notificationHtml(field.name)}</td></tr>`
     )
     .join('')
 
-  const html = `<h2 style="font-family:sans-serif">${escape(localize(schema.title, locale))}</h2>
+  const html = `<h2 style="font-family:sans-serif">${escape(localize(schema.title, notificationLocale))}</h2>
 <table style="border-collapse:collapse;font-family:sans-serif;font-size:14px">${rows}</table>
 <p style="font-family:sans-serif;color:#666">Reçu le ${escape(lead.receivedAt)}</p>`
 
   const text = schema.fields
-    .map((field) => `${localize(field.label, locale)}: ${values[field.name] || '-'}`)
+    .map((field) => `${localize(field.label, notificationLocale)}: ${notificationValue(field.name) || '-'}`)
     .join('\n')
 
+  const port = Number(config.smtp.port) || 465
+
   try {
-    await createTransport({
+    const result = await createTransport({
       host: config.smtp.host,
-      port: Number(config.smtp.port) || 465,
-      secure: (Number(config.smtp.port) || 465) === 465 || String(config.smtp.secure).toLowerCase() === 'true',
+      port,
+      secure: port === 465 || (port !== 587 && String(config.smtp.secure).toLowerCase() === 'true'),
+      requireTLS: port === 587,
+      connectionTimeout: 10_000,
+      greetingTimeout: 10_000,
+      socketTimeout: 30_000,
       auth: { user: config.smtp.user, pass: config.smtp.pass }
     }).sendMail({
-      from: config.mail?.from || config.smtp.from || config.smtp.user,
+      from,
       to,
       replyTo: values.email || undefined,
-      subject: localize(schema.subject, locale),
+      subject: localize(schema.subject, notificationLocale),
       text,
       html
     })
-  } catch (error) {
-    console.error('[lead] SMTP send failed', error)
+
+    if (isQuote && (!result.accepted?.length || result.rejected?.length)) {
+      throw new Error('One or more quote recipients were not accepted')
+    }
+  } catch {
+    console.error('[lead] SMTP send failed')
     throw createError({ statusCode: 502, statusMessage: 'Mail delivery failed' })
   }
 

@@ -22,12 +22,17 @@
 
       <div class="contact-page__right">
         <iframe
+          v-if="allowsExternalMaps"
           :src="mapSrc"
           :title="textFor(labels.mapTitle)"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
           allowfullscreen
         />
+        <div v-else class="contact-page__map-consent">
+          <p>{{ textFor(labels.mapConsent) }}</p>
+          <button type="button" @click="openPreferences">{{ textFor(labels.cookieSettings) }}</button>
+        </div>
       </div>
     </div>
   </div>
@@ -37,8 +42,10 @@
 import { dealerContact, leadForms, t } from '~/data/dealer'
 import LeadForm from '~/components/forms/LeadForm.vue'
 import { useSiteContent } from '~/composables/useSiteContent'
+import { useCookieConsent } from '~/composables/useCookieConsent'
 
 const { locale, textFor } = useSiteContent()
+const { allowsExternalMaps, openPreferences } = useCookieConsent()
 
 const labels = {
   address: t('Address:', 'Adresse :', 'العنوان:'),
@@ -50,7 +57,9 @@ const labels = {
     'Une question ? N’hésitez pas à nous contacter !',
     'لديك سؤال؟ لا تتردد في التواصل معنا!'
   ),
-  mapTitle: t('Google Map', 'Carte Google', 'خريطة Google')
+  mapTitle: t('Google Map', 'Carte Google', 'خريطة Google'),
+  mapConsent: t('To display Google Maps, please accept optional cookies.', 'Pour afficher Google Maps, veuillez accepter les cookies facultatifs.', 'لعرض خرائط Google، يرجى قبول ملفات تعريف الارتباط الاختيارية.'),
+  cookieSettings: t('Cookie settings', 'Gérer les cookies', 'إدارة ملفات تعريف الارتباط')
 }
 
 const mapSrc = computed(() => {
@@ -121,6 +130,25 @@ const mapSrc = computed(() => {
   aspect-ratio: 1 / 1;
   border: 0;
 }
+
+.contact-page__map-consent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  aspect-ratio: 1 / 1;
+  padding: 28px;
+  border: 1px solid #d9e3e4;
+  background: #f1f5f5;
+  color: #374151;
+  text-align: center;
+}
+
+.contact-page__map-consent p { margin: 0; line-height: 1.6; }
+.contact-page__map-consent button { min-height: 44px; padding: 10px 18px; border: 1px solid #406a70; background: transparent; color: #31575c; font: inherit; cursor: pointer; }
+.contact-page__map-consent button:hover { background: #e3ecec; }
+.contact-page__map-consent button:focus-visible { outline: 3px solid #406a70; outline-offset: 3px; }
 
 .contact-page :deep(.lead-form) {
   display: block;

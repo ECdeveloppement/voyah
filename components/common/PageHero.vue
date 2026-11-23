@@ -250,6 +250,7 @@ onMounted(() => {
 
 .page-title {
   margin: 14px 0 0;
+  color: #fff;
   font-size: clamp(2.6rem, 5vw, 5.2rem);
   line-height: 0.95;
   letter-spacing: 0.01em;

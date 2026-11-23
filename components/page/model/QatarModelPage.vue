@@ -1,7 +1,13 @@
 <template>
   <div ref="root" class="qatar-model">
     <!-- Hero vidéo pleine largeur, chiffres posés dessus -->
-    <section class="model-hero">
+    <section
+      class="model-hero"
+      :class="{
+        'model-hero--tall': ['Dream', 'Courage'].includes(slug),
+        'model-hero--versions': Boolean(content.heroVersions?.length)
+      }"
+    >
       <video
         v-if="content.heroVideo"
         ref="heroVideo"
@@ -29,21 +35,50 @@
         </div>
 
         <div class="model-hero__foot">
-          <div class="model-hero__metrics">
+          <div v-if="content.heroVersions?.length" class="model-hero__versions">
+            <div
+              v-for="version in content.heroVersions"
+              :key="version.name.en"
+              class="model-hero__version"
+            >
+              <p class="model-hero__version-name">{{ textFor(version.name) }}</p>
+              <div class="model-hero__metrics model-hero__metrics--version">
+                <div v-for="metric in version.metrics" :key="metric.label.en" class="model-hero__metric">
+                  <div class="model-hero__metric-label">{{ textFor(metric.label) }}</div>
+                  <p class="model-hero__metric-value">{{ metric.value }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div v-else class="model-hero__metrics">
             <div v-for="metric in content.heroMetrics" :key="metric.label.en" class="model-hero__metric">
               <div class="model-hero__metric-label">{{ textFor(metric.label) }}</div>
-              <p class="model-hero__metric-value">{{ metric.value }}</p>
+              <template v-if="metric.lines">
+                <template v-for="(line, lineIndex) in metric.lines" :key="lineIndex">
+                  <div class="model-hero__metric-label model-hero__metric-label--line">
+                    {{ textFor(line.label) }}
+                  </div>
+                  <p class="model-hero__metric-value model-hero__metric-value--line">{{ line.value }}</p>
+                </template>
+              </template>
+              <p v-else class="model-hero__metric-value">{{ metric.value }}</p>
             </div>
           </div>
           <div class="model-request__actions">
             <NuxtLink :to="testDrivePath" class="base-button primary">
               {{ textFor(modelCtaLabels.testDrive) }}
             </NuxtLink>
+            <NuxtLink :to="quotePath" class="base-button primary">
+              {{ textFor(modelCtaLabels.quote) }}
+            </NuxtLink>
             <BrochureButton :slug="slug" variant="secondary" :label="modelCtaLabels.brochure" />
           </div>
         </div>
       </div>
     </section>
+
+    <ModelConfigurationSection :slug="slug" />
+    <ModelStudioGallery v-if="slug === 'Free'" />
 
     <!-- Trois chiffres repris sous le hero, seulement sur mobile -->
     <div class="model-compact">
@@ -80,9 +115,17 @@
           :class="{ 'model-comfort__row--reverse': rowIndex % 2 === 1 }"
         >
           <div class="model-comfort__media" data-reveal>
-            <img :src="row.image" :alt="textFor(row.text)" loading="lazy" decoding="async" />
+            <img :src="row.image" :alt="textFor(row.text) || (row.description ? textFor(row.description) : '')" loading="lazy" decoding="async" />
           </div>
-          <p class="model-comfort__text" data-reveal>{{ textFor(row.text) }}</p>
+          <p class="model-comfort__text" data-reveal>
+            {{ textFor(row.text) }}
+            <span
+              v-if="row.description && textFor(row.description)"
+              class="model-comfort__description"
+            >
+              {{ textFor(row.description) }}
+            </span>
+          </p>
         </div>
       </section>
 
@@ -111,14 +154,16 @@
       <section
         v-else-if="section.type === 'band' && section.variant === 'cta'"
         class="model-band model-band--cta"
-        :style="{ backgroundImage: `url('${section.image}')` }"
+        :class="{ 'model-band--full-image': section.fullImage }"
+        :style="{ backgroundImage: section.fullImage ? undefined : `url('${section.image}')` }"
       >
+        <img v-if="section.fullImage" class="model-band__image" :src="section.image" :alt="textFor(title)" loading="lazy" decoding="async" />
         <div class="model-band__shade">
           <div class="model-band__box">
             <img class="model-band__logo" :src="content.logo" :alt="textFor(title)" />
             <div class="model-request__actions model-request__actions--center">
-              <NuxtLink :to="testDrivePath" class="base-button primary">
-                {{ textFor(modelCtaLabels.testDrive) }}
+              <NuxtLink :to="section.cta === 'quote' ? quotePath : testDrivePath" class="base-button primary">
+                {{ textFor(modelCtaLabels[section.cta ?? 'testDrive']) }}
               </NuxtLink>
               <BrochureButton :slug="slug" variant="secondary" :label="modelCtaLabels.brochure" />
             </div>
@@ -129,8 +174,10 @@
       <section
         v-else-if="section.type === 'band'"
         class="model-band model-band--intro"
-        :style="{ backgroundImage: `url('${section.image}')` }"
+        :class="{ 'model-band--full-image': section.fullImage }"
+        :style="{ backgroundImage: section.fullImage ? undefined : `url('${section.image}')` }"
       >
+        <img v-if="section.fullImage" class="model-band__image" :src="section.image" :alt="textFor(section.text ?? title)" loading="lazy" decoding="async" />
         <div class="model-band__top">
           <p class="model-band__lead">{{ textFor(section.text ?? blankHeading) }}</p>
         </div>
@@ -141,7 +188,7 @@
           <img class="model-specs__wordmark" :src="content.logo" :alt="textFor(title)" />
           <p class="model-specs__label">{{ textFor(content.configLabel) }}</p>
         </div>
-        <ModelSpecTabs :tabs="content.specTabs" :list-label="textFor(content.configLabel)" />
+        <ModelSpecTabs :tabs="content.specTabs" :list-label="textFor(content.configLabel)" :model-name="textFor(title)" :note="textFor(content.specNote)" :slug="slug" />
         <p class="model-specs__note">{{ textFor(content.specNote) }}</p>
       </section>
     </template>
@@ -153,6 +200,8 @@ import type { Localized } from '~/data/dealer'
 import { modelDisplayName, t } from '~/data/dealer'
 import { modelCtaLabels, type ModelPageContent, type ModelSection } from '~/data/modelPages'
 import BrochureButton from '~/components/common/BrochureButton.vue'
+import ModelConfigurationSection from '~/components/page/model/ModelConfigurationSection.vue'
+import ModelStudioGallery from '~/components/page/model/ModelStudioGallery.vue'
 import ModelCardGrid from '~/components/page/model/ModelCardGrid.vue'
 import ModelSpecTabs from '~/components/page/model/ModelSpecTabs.vue'
 import { useSiteContent } from '~/composables/useSiteContent'
@@ -161,9 +210,10 @@ const props = defineProps<{ slug: string; content: ModelPageContent }>()
 
 const { textFor, buildPath } = useSiteContent()
 
-const title: Localized = modelDisplayName[props.slug] ?? t('', '', '')
+const title = computed<Localized>(() => modelDisplayName[props.slug] ?? t('', '', ''))
 const blankHeading = t('', '', '')
-const testDrivePath = buildPath('book-drive.html')
+const testDrivePath = computed(() => `${buildPath('book-drive.html')}?model=${encodeURIComponent(props.slug)}`)
+const quotePath = computed(() => `${buildPath('devis')}?model=${encodeURIComponent(props.slug)}`)
 
 /** Le titre « confort » précède le premier bloc de lignes alternées. */
 const sections = computed<ModelSection[]>(() => {
@@ -229,6 +279,17 @@ const heroVideoEnded = ref(false)
 @media (min-width: 1280px) {
   .model-hero {
     height: calc(100vh - 94px);
+  }
+}
+
+/* Deux versions empilées sur mobile, côte à côte à partir de 768 px. */
+.model-hero--versions {
+  height: 560px;
+}
+
+@media (min-width: 768px) {
+  .model-hero--versions {
+    height: 640px;
   }
 }
 
@@ -323,6 +384,22 @@ const heroVideoEnded = ref(false)
   padding: 24px 16px;
 }
 
+@media (max-width: 1023px) {
+  .model-hero--tall {
+    height: auto;
+    min-height: 640px;
+  }
+
+  .model-hero--tall .model-hero__overlay {
+    position: relative;
+    min-height: inherit;
+  }
+
+  .model-hero--tall .model-hero__foot {
+    flex-wrap: nowrap;
+  }
+}
+
 .model-hero__metrics {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -339,6 +416,43 @@ const heroVideoEnded = ref(false)
   .model-hero__metrics {
     gap: 96px;
   }
+}
+
+.model-hero__versions {
+  display: grid;
+  gap: 28px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .model-hero__versions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 48px;
+  }
+}
+
+.model-hero__version-name {
+  margin: 0 0 16px;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-align: center;
+}
+
+.model-hero__metrics--version {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 24px;
+}
+
+@media (min-width: 1024px) {
+  .model-hero__metrics--version {
+    gap: 24px 40px;
+  }
+}
+
+.model-hero__metrics--version .model-hero__metric {
+  padding: 0 8px;
 }
 
 .model-hero__metric {
@@ -360,6 +474,17 @@ const heroVideoEnded = ref(false)
   color: #ffffff;
   font-size: 1.25rem;
   font-weight: 700;
+}
+
+.model-hero__metric-label--line {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+.model-hero__metric-value--line {
+  margin-top: 4px;
+  font-size: 1.05rem;
 }
 
 /* ---------- Bandeau de chiffres mobile ---------- */
@@ -535,6 +660,29 @@ const heroVideoEnded = ref(false)
   }
 }
 
+.model-band--full-image {
+  flex-direction: column;
+  height: auto;
+  min-height: 0;
+  background: #171e21;
+}
+
+.model-band__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.model-band--full-image .model-band__top,
+.model-band--full-image .model-band__shade {
+  height: auto;
+  padding: 24px 16px;
+}
+
+.model-band--full-image .model-band__lead {
+  max-width: 800px;
+}
+
 /* ---------- Titre « confort » ---------- */
 .model-comfort-title {
   margin: 80px 0;
@@ -605,6 +753,13 @@ const heroVideoEnded = ref(false)
     font-size: 1.5rem;
     line-height: 2rem;
   }
+}
+
+.model-comfort__description {
+  display: block;
+  margin-top: 12px;
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.6;
 }
 
 /* ---------- Grille a survol ---------- */

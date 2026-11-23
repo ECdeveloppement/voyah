@@ -50,8 +50,18 @@
               <h3>{{ textFor(item.title) }}</h3>
               <p v-if="index === 0">{{ textFor(item.excerpt) }}</p>
 
+              <NuxtLink
+                v-if="item.page"
+                :to="buildPath(item.page)"
+                class="read-more"
+              >
+                {{ textFor(labels.readArticle) }}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </NuxtLink>
               <a
-                v-if="item.url.trim()"
+                v-else-if="item.url.trim()"
                 :href="item.url"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -85,7 +95,7 @@ import { useSiteContent } from '~/composables/useSiteContent'
 
 defineProps<{ page: InfoDefinition }>()
 
-const { locale, textFor } = useSiteContent()
+const { locale, buildPath, textFor } = useSiteContent()
 
 const PAGE_SIZE = 4
 
@@ -98,6 +108,7 @@ const labels = {
     'لا توجد أخبار منشورة بعد. تابعنا قريباً.'
   ),
   readMore: t('Read full release', 'Lire le communiqué', 'قراءة البيان كاملاً'),
+  readArticle: t('Read the article', 'Lire l’article', 'اقرأ المقال'),
   loadMore: t('Load more', 'Voir plus', 'عرض المزيد')
 }
 

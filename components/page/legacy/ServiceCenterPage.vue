@@ -49,7 +49,7 @@
       <section class="autohall-info" v-bind="scopeBind">
         <div class="autohall-info-inner" v-bind="scopeBind">
           <div class="autohall-logo-wrap" v-bind="scopeBind">
-            <img src="/static/assets/autohall_logo.png" alt="Auto Hall" class="autohall-info-logo" v-bind="scopeBind" />
+            <img src="/assets/updates/voyah-tunisie-new-logo.png" alt="VOYAH Tunisie" class="autohall-info-logo" v-bind="scopeBind" />
           </div>
           <div class="autohall-divider" v-bind="scopeBind" />
           <div class="autohall-details" v-bind="scopeBind">
@@ -60,7 +60,7 @@
                   <circle cx="12" cy="10" r="3"/>
                 </svg>
               </span>
-              <span v-bind="scopeBind">{{ t.companyAddress }}</span>
+              <a :href="serviceMapUrl" target="_blank" rel="noopener noreferrer" class="autohall-link" v-bind="scopeBind">{{ t.companyAddress }}</a>
             </div>
             <div class="autohall-detail-item" v-bind="scopeBind">
               <span class="autohall-icon" v-bind="scopeBind">
@@ -69,7 +69,7 @@
                 </svg>
               </span>
               <span v-bind="scopeBind">
-                <a href="tel:93107107" class="autohall-link" v-bind="scopeBind">93 107 107</a>
+                <a href="tel:55555156" class="autohall-link" v-bind="scopeBind">58 555 156</a>
                 &nbsp;/&nbsp;
                 <a href="tel:29803078" class="autohall-link" v-bind="scopeBind">29 803 078</a>
               </span>
@@ -269,7 +269,7 @@
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.86 5.86l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               </div>
               <div class="autohall-contact-card-label" v-bind="scopeBind">{{ t.phoneLabel }}</div>
-              <a href="tel:93107107" class="autohall-contact-card-value autohall-contact-link" v-bind="scopeBind">93 107 107</a>
+              <a href="tel:55555156" class="autohall-contact-card-value autohall-contact-link" v-bind="scopeBind">58 555 156</a>
               <a href="tel:29803078" class="autohall-contact-card-value autohall-contact-link" v-bind="scopeBind">29 803 078</a>
             </div>
             <div class="autohall-contact-card" v-bind="scopeBind">
@@ -290,6 +290,8 @@
 import { ref, computed, nextTick, watch, onMounted, onBeforeUnmount } from 'vue'
 import { gsap } from 'gsap'
 import { useSiteContent } from '~/composables/useSiteContent'
+
+const serviceMapUrl = 'https://maps.app.goo.gl/LoHRXkBkXWyg5g427?g_st=aw'
 
 const { locale } = useSiteContent()
 const scopeBind = computed(() => ({ 'data-v-974500ae': '' }))
@@ -493,7 +495,7 @@ onBeforeUnmount(() => {
 const copy = {
   en: {
     heroTitle: 'Auto Hall Service',
-    helpPhone: 'Auto Hall Rescue Hotline: 93 107 107',
+    helpPhone: 'Auto Hall Rescue Hotline: 58 555 156',
     watchVideo: 'Watch full video',
     promiseTitle: 'Sincere Promise',
     promiseDesc: 'We honor every promise with sincerity',
@@ -524,7 +526,7 @@ const copy = {
   },
   fr: {
     heroTitle: 'Service Auto Hall',
-    helpPhone: 'Assistance Auto Hall: 93 107 107',
+    helpPhone: 'Assistance Auto Hall: 58 555 156',
     watchVideo: 'Voir la vidéo complète',
     promiseTitle: 'Engagement sincère',
     promiseDesc: 'Nous tenons chaque promesse avec sincérité',
@@ -555,7 +557,7 @@ const copy = {
   },
   ar: {
     heroTitle: 'خدمات Auto Hall',
-    helpPhone: 'هاتف مساعدة Auto Hall: 93 107 107',
+    helpPhone: 'هاتف مساعدة Auto Hall: 58 555 156',
     watchVideo: 'شاهد الفيديو الكامل',
     promiseTitle: 'وعد صادق',
     promiseDesc: 'نفي بكل وعد بصدق',
@@ -617,7 +619,7 @@ const referenceServices = computed(() => {
       }
     },
     {
-      image: '/reference-models/service-genuine-parts.png',
+      image: '/reference-models/service-genuine-parts.webp',
       title: {
         en: 'Genuine parts',
         fr: 'Pièces d’origine',
