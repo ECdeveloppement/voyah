@@ -50,7 +50,8 @@ watch(isOpen, async (open) => {
   if (open) {
     previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null
     await nextTick()
-    panel.value?.focus({ preventScroll: true })
+    const target = panel.value?.querySelector<HTMLElement>('.cookie-consent__button') ?? panel.value
+    target?.focus({ preventScroll: true })
   } else if (previousFocus?.isConnected) {
     previousFocus.focus({ preventScroll: true })
   }

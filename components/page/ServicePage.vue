@@ -161,7 +161,11 @@
     </section>
 
     <div ref="contactReveal">
-      <ContactPage />
+      <ContactPage
+        :map-url="serviceMapUrl"
+        :location-url="serviceLocationUrl"
+        :map-zoom="15"
+      />
     </div>
   </div>
 </template>
@@ -174,6 +178,10 @@ import { useSectionReveal } from '~/composables/useSectionReveal'
 import { useSiteContent } from '~/composables/useSiteContent'
 
 const { textFor } = useSiteContent()
+
+/** Lien court et carte de la page Service uniquement (le reste du site garde l'ancienne adresse). */
+const serviceLocationUrl = 'https://maps.app.goo.gl/LoHRXkBkXWyg5g427?g_st=aw'
+const serviceMapUrl = 'https://www.google.com/maps?q=Renault+Ezzahra+Le+Garage%2C+km13+GP1%2C+Ez+Zahra+2034'
 
 /** Version de cache des visuels Service : à incrémenter après chaque remplacement de fichier. */
 const serviceAssetVersion = '20261119'

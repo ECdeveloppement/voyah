@@ -6,7 +6,12 @@
     <div class="contact-page__columns">
       <div class="contact-page__left">
         <p class="contact-page__details">
-          <strong>{{ textFor(labels.address) }}&nbsp;</strong>{{ textFor(dealerContact.address) }}<br />
+          <strong>{{ textFor(labels.address) }}&nbsp;</strong><a
+            v-if="props.locationUrl"
+            :href="props.locationUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >{{ textFor(dealerContact.address) }}</a><template v-else>{{ textFor(dealerContact.address) }}</template><br />
           <strong>{{ textFor(labels.hours) }}&nbsp;</strong>{{ textFor(dealerContact.workingHours) }}<br />
           <br />
           <strong>{{ textFor(labels.phone) }}</strong> {{ dealerContact.phone }}<br />
@@ -44,6 +49,19 @@ import LeadForm from '~/components/forms/LeadForm.vue'
 import { useSiteContent } from '~/composables/useSiteContent'
 import { useCookieConsent } from '~/composables/useCookieConsent'
 
+const props = withDefaults(
+  defineProps<{
+    mapUrl?: string
+    locationUrl?: string
+    mapZoom?: number
+  }>(),
+  {
+    mapUrl: () => dealerContact.mapUrl,
+    locationUrl: '',
+    mapZoom: 12
+  }
+)
+
 const { locale, textFor } = useSiteContent()
 const { allowsExternalMaps, openPreferences } = useCookieConsent()
 
@@ -64,7 +82,7 @@ const labels = {
 
 const mapSrc = computed(() => {
   const hl = locale.value.code === 'en' ? 'en-US' : locale.value.code
-  return `${dealerContact.mapUrl}${dealerContact.mapUrl.includes('?') ? '&' : '?'}output=embed&hl=${hl}&z=12`
+  return `${props.mapUrl}${props.mapUrl.includes('?') ? '&' : '?'}output=embed&hl=${hl}&z=${props.mapZoom}`
 })
 </script>
 

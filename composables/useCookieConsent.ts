@@ -27,6 +27,7 @@ export const useCookieConsent = () => {
   }
 
   function openPreferences() {
+    initialize()
     isOpen.value = true
   }
 
